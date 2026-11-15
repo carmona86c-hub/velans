@@ -68,6 +68,7 @@ header.site{position:sticky;top:0;z-index:20;background:rgba(251,247,241,.95);ba
 .thumb img.photo{width:100%;height:100%;object-fit:cover}
 .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:12px}
 .ph img{width:42%;opacity:.55}
+.ph b{font-weight:600;color:var(--text);font-size:13px;text-align:center;padding:0 12px}
 .badge{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--white);color:var(--text)}
 .badge.sale{background:var(--cta);color:#fff}
 .card .in{padding:0 6px;display:flex;flex-direction:column;gap:6px;flex:1}
@@ -228,37 +229,49 @@ footer.site{margin-top:56px;border-top:1px solid var(--line);background:var(--wh
    - colecciones: ids de COLECCIONES donde aparece
    ========================================================= */
 const COLECCIONES = [
-  { id:"top",     nombre:"Lo más vendido",            color:"#F3E7D7" },
-  { id:"regalos", nombre:"Regalos por menos de 30 €", color:"#F6E0D3" },
-  { id:"otono",   nombre:"Básicos de otoño",          color:"#E9E6D6" },
-  { id:"ofertas", nombre:"Ofertas de la semana",      color:"#F4DCC9" }
+  { id:"top",     nombre:"Lo más vendido",     color:"#F3E7D7" },
+  { id:"regalos", nombre:"Ideas para regalar", color:"#F6E0D3" },
+  { id:"ella",    nombre:"Para ella",          color:"#F4DCC9" },
+  { id:"el",      nombre:"Para él",            color:"#E9E6D6" }
 ];
 
 const PRODUCTOS = [
-  { id:"bolso-bandolera", nombre:"Bolso bandolera de piel sintética", categoria:"Accesorios", etiqueta:"Nuevo",
-    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
-    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["top","regalos"], precio:"", antes:"", enlace:"", imagen:"" },
-  { id:"zapatillas-urbanas", nombre:"Zapatillas urbanas blancas", categoria:"Calzado", etiqueta:"Top",
-    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
-    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["top","otono"], precio:"", antes:"", enlace:"", imagen:"" },
-  { id:"reloj-minimalista", nombre:"Reloj minimalista con correa de malla", categoria:"Accesorios", etiqueta:"Oferta",
-    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
-    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["regalos","ofertas"], precio:"", antes:"", enlace:"", imagen:"" },
-  { id:"gafas-sol", nombre:"Gafas de sol polarizadas", categoria:"Accesorios", etiqueta:"",
-    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
-    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["regalos"], precio:"", antes:"", enlace:"", imagen:"" },
-  { id:"sudadera-oversize", nombre:"Sudadera oversize de algodón", categoria:"Moda", etiqueta:"Nuevo",
-    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
-    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["otono","top"], precio:"", antes:"", enlace:"", imagen:"" },
-  { id:"auriculares", nombre:"Auriculares inalámbricos", categoria:"Tecnología", etiqueta:"Oferta",
-    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
-    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["ofertas","regalos"], precio:"", antes:"", enlace:"", imagen:"" },
-  { id:"lampara", nombre:"Lámpara de mesa de cerámica", categoria:"Hogar", etiqueta:"",
-    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
-    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["otono"], precio:"", antes:"", enlace:"", imagen:"" },
-  { id:"mochila", nombre:"Mochila impermeable", categoria:"Accesorios", etiqueta:"Top",
-    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
-    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["top","otono"], precio:"", antes:"", enlace:"", imagen:"" }
+  { id:"puma-smash", nombre:"PUMA Smash V2 L — zapatillas unisex", categoria:"Calzado", etiqueta:"Top",
+    porque:"Las zapatillas número uno en moda de Amazon, con más de 80.000 valoraciones.", descripcion:"Zapatillas de deporte clásicas de PUMA, de corte bajo y estilo urbano, que combinan con todo.",
+    puntos:["Unisex", "Estilo clásico y versátil"], colecciones:["top", "ella", "el"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=PUMA+Smash+V2+L+zapatillas+unisex&tag=velans-21", imagen:"" },
+  { id:"crocs-classic", nombre:"Crocs Classic Clog — zuecos unisex", categoria:"Calzado", etiqueta:"Top",
+    porque:"Un superventas con más de 500.000 valoraciones y 4,7 estrellas.", descripcion:"Los zuecos clásicos de Crocs: ligeros, cómodos y fáciles de limpiar.",
+    puntos:["Unisex", "Muchos colores"], colecciones:["top", "regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Crocs+Classic+Clog+zuecos+unisex+adulto&tag=velans-21", imagen:"" },
+  { id:"skechers-graceful", nombre:"Skechers Graceful Get Connected — zapatillas de mujer", categoria:"Calzado", etiqueta:"Top",
+    porque:"Las más vendidas en moda de mujer, con 4,6 estrellas y más de 60.000 valoraciones.", descripcion:"Zapatillas ligeras de Skechers pensadas para caminar con comodidad todo el día.",
+    puntos:["Para mujer", "Comodidad para el día a día"], colecciones:["top", "ella"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Skechers+Graceful+Get+Connected+zapatillas+mujer&tag=velans-21", imagen:"" },
+  { id:"levis-perfect-tee", nombre:"Levi’s The Perfect Tee — camiseta de mujer", categoria:"Ropa", etiqueta:"",
+    porque:"Un básico de Levi’s con 4,5 estrellas y miles de valoraciones.", descripcion:"La camiseta clásica de Levi’s con su logo, de algodón y corte favorecedor.",
+    puntos:["Para mujer", "Básico que combina con todo"], colecciones:["ella", "regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Levi%27s+The+Perfect+Tee+camiseta+mujer&tag=velans-21", imagen:"" },
+  { id:"levis-housemark", nombre:"Levi’s Original Housemark Tee — camiseta de hombre", categoria:"Ropa", etiqueta:"Top",
+    porque:"De las camisetas más vendidas de Amazon, con 4,5 estrellas y más de 27.000 valoraciones.", descripcion:"Camiseta básica de Levi’s con el pequeño logo bordado en el pecho.",
+    puntos:["Para hombre", "Básico de armario"], colecciones:["top", "el", "regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Levi%27s+Original+Housemark+Tee+camiseta+hombre&tag=velans-21", imagen:"" },
+  { id:"levis-512", nombre:"Levi’s 512 Slim Taper — vaqueros de hombre", categoria:"Ropa", etiqueta:"",
+    porque:"Unos vaqueros clásicos de Levi’s entre los más vendidos en moda.", descripcion:"Vaqueros de corte slim con pierna estrecha hacia el tobillo.",
+    puntos:["Para hombre", "Corte slim taper"], colecciones:["el"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Levi%27s+512+Slim+Taper+vaqueros+hombre&tag=velans-21", imagen:"" },
+  { id:"pepe-jeans-soho", nombre:"Pepe Jeans Soho — vaqueros de mujer", categoria:"Ropa", etiqueta:"",
+    porque:"Entre los más vendidos en moda, de una marca conocida por sus vaqueros.", descripcion:"Vaqueros de mujer de Pepe Jeans, un básico para el otoño y el invierno.",
+    puntos:["Para mujer", "Básico de temporada"], colecciones:["ella"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Pepe+Jeans+Soho+jeans+mujer&tag=velans-21", imagen:"" },
+  { id:"carhartt-k87", nombre:"Carhartt K87 — camiseta con bolsillo", categoria:"Ropa", etiqueta:"",
+    porque:"Un clásico de Carhartt con 4,5 estrellas: tejido grueso y ajuste holgado.", descripcion:"Camiseta de manga corta con bolsillo en el pecho, tejido grueso y ajuste ligeramente holgado.",
+    puntos:["Para hombre", "Tejido grueso y resistente"], colecciones:["el", "regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Carhartt+K87+camiseta+manga+corta+bolsillo+hombre&tag=velans-21", imagen:"" },
+  { id:"eastpak-padded", nombre:"Eastpak Padded Pak’r — mochila 38 L", categoria:"Accesorios", etiqueta:"Top",
+    porque:"Una mochila icónica con 4,7 estrellas y miles de valoraciones.", descripcion:"La mochila clásica de Eastpak, de 38 litros, para clase, trabajo o el día a día.",
+    puntos:["38 litros", "Unisex"], colecciones:["top", "regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=EASTPAK+Padded+Pak%27r+mochila+38+L&tag=velans-21", imagen:"" },
+  { id:"puma-phase", nombre:"PUMA Phase — mochila unisex", categoria:"Accesorios", etiqueta:"",
+    porque:"Una mochila sencilla con 4,7 estrellas y más de 20.000 valoraciones.", descripcion:"Mochila de PUMA ligera y práctica para el día a día o el gimnasio.",
+    puntos:["Unisex", "Ligera y práctica"], colecciones:["regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=PUMA+Phase+mochila+unisex&tag=velans-21", imagen:"" },
+  { id:"rockdove-casa", nombre:"RockDove — zapatillas de casa con espuma viscoelástica", categoria:"Calzado", etiqueta:"",
+    porque:"Unas zapatillas de casa con más de 160.000 valoraciones: un regalo seguro para el invierno.", descripcion:"Zapatillas de estar por casa de dos tonos con plantilla de espuma viscoelástica.",
+    puntos:["Para hombre", "Plantilla viscoelástica"], colecciones:["regalos", "el"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=RockDove+zapatilla+espuma+viscoel%C3%A1stica+hombre&tag=velans-21", imagen:"" },
+  { id:"calvin-klein-boxer", nombre:"Calvin Klein — bóxer de hombre (pack de 3)", categoria:"Ropa", etiqueta:"",
+    porque:"De lo más vendido en moda, con más de 40.000 valoraciones.", descripcion:"Pack de tres bóxers de Calvin Klein con la cinturilla del logo.",
+    puntos:["Para hombre", "Pack de 3"], colecciones:["el", "regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Calvin+Klein+b%C3%B3xer+hombre+pack+de+3+trunks&tag=velans-21", imagen:"" }
 ];
 
 /* ================= lógica ================= */
@@ -272,7 +285,7 @@ const inColl = (p, id) => (p.colecciones || []).includes(id);
 
 const media = (p) => p.imagen
   ? `<img class="photo" src="${esc(p.imagen)}" alt="${esc(p.nombre)}" loading="lazy">`
-  : `<span class="ph"><img src="monogram.png" alt="">Foto próximamente</span>`;
+  : `<span class="ph"><img src="monogram.png" alt=""><b>${esc(p.categoria)}</b></span>`;
 const price = (p) => !p.precio ? `Ver precio en la tienda`
   : `<strong class="${p.antes ? "is-sale" : ""}">${esc(p.precio)}</strong>${p.antes ? `<s>${esc(p.antes)}</s>` : ""}`;
 const buy = (p) => p.enlace
