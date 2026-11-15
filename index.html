@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velan’s — Cosas bonitas que merecen la pena</title>
+<meta name="description" content="Velan’s: moda, accesorios y cosas para casa que merecen la pena, elegidas una a una.">
+<link rel="icon" type="image/png" href="monogram.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF7F1; --white:#FFFFFF; --sand:#F3E7D7; --sand2:#EFE2D0;
+  --line:#EADFD1; --line2:#DCCDBA;
+  --text:#2B2420; --muted:#786A5E;
+  --cta:#A9532F; --cta2:#8F4425; --gold:#8A5E28;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--text)}
+a:hover{color:var(--cta)}
+img{max-width:100%;height:auto;display:block}
+button{font:inherit;cursor:pointer;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.mar{font-family:Marcellus,serif;font-weight:400}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--cta);outline-offset:2px}
+
+/* Cabecera */
+header.site{position:sticky;top:0;z-index:20;background:rgba(251,247,241,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.head{display:flex;align-items:center;gap:16px;max-width:1180px;margin:0 auto;padding:12px 20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);flex:none}
+.logo:hover{color:var(--text)}
+.logo img{height:32px;width:auto}
+.logo b{font-family:Marcellus,serif;font-weight:400;font-size:22px;letter-spacing:.14em}
+.search{flex:1;max-width:420px;margin-left:auto;position:relative}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.search input{font:inherit;font-size:15px;width:100%;min-height:44px;padding:0 16px 0 40px;border:1px solid var(--line2);border-radius:999px;background:var(--white);color:var(--text)}
+
+/* Portada */
+.hero{padding:36px 0 8px;display:flex;flex-wrap:wrap;align-items:center;gap:20px 40px}
+.hero .txt{flex:1 1 420px}
+.hero h1{margin:0;font-family:Marcellus,serif;font-weight:400;font-size:clamp(32px,4.4vw,50px);line-height:1.08}
+.hero h1 span{color:var(--cta)}
+.hero p{margin:12px 0 0;color:var(--muted);font-size:17px;max-width:520px}
+.hero .mono{flex:0 1 220px;margin:0 auto}
+
+/* Colecciones */
+.colls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px;margin-top:28px}
+.coll{text-align:left;border:2px solid transparent;border-radius:20px;padding:18px 20px;min-height:100px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;transition:transform .15s,border-color .15s}
+.coll:hover{transform:translateY(-2px)}
+.coll strong{font-family:Marcellus,serif;font-weight:400;font-size:20px;line-height:1.15}
+.coll span{font-size:13px;color:var(--muted)}
+.coll[aria-pressed="true"]{border-color:var(--text)}
+
+/* Listado */
+.bar{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin:44px 0 14px}
+.bar h2{margin:0;font-family:Marcellus,serif;font-weight:400;font-size:clamp(26px,3vw,34px)}
+.count{color:var(--muted);font-size:14px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;margin-bottom:22px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line2);background:var(--white);font-weight:500;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:26px 18px}
+.card{display:flex;flex-direction:column;gap:8px;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:10px 10px 14px;transition:box-shadow .2s}
+.card:hover{box-shadow:0 10px 30px -14px rgba(84,56,30,.35)}
+.thumb{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;border:none;padding:0;width:100%;display:block;background:var(--sand)}
+.thumb img.photo{width:100%;height:100%;object-fit:cover}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:12px}
+.ph img{width:42%;opacity:.55}
+.badge{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--white);color:var(--text)}
+.badge.sale{background:var(--cta);color:#fff}
+.card .in{padding:0 6px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cat{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.card h3{margin:0;font-size:16px;font-weight:600;line-height:1.35}
+.card h3 button{all:unset;cursor:pointer}
+.card h3 button:hover{color:var(--cta)}
+.reason{margin:0;font-size:14px;color:var(--muted)}
+.price{font-size:14px;color:var(--muted);margin-top:auto}
+.price strong{font-size:18px;color:var(--text)}
+.price strong.is-sale{color:var(--cta)}
+.price s{margin-left:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:none}
+.btn-cta{background:var(--cta);color:#fff}
+.btn-cta:hover{background:var(--cta2);color:#fff}
+.btn[aria-disabled="true"]{opacity:.5;cursor:not-allowed}
+.empty{grid-column:1/-1;padding:40px;text-align:center;color:var(--muted);background:var(--white);border:1px dashed var(--line2);border-radius:20px}
+
+/* Cómo funciona */
+.how{margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px}
+.how div{display:flex;gap:14px;align-items:flex-start;background:var(--sand);border-radius:20px;padding:20px}
+.how .ic{width:40px;height:40px;flex:none;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--cta)}
+.how strong{display:block;font-size:15px}
+.how span{font-size:14px;color:var(--muted)}
+
+/* Pie */
+footer.site{margin-top:56px;border-top:1px solid var(--line);background:var(--white)}
+.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px;padding:24px 20px 10px}
+.foot nav{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px}
+.foot nav a{color:var(--muted);text-decoration:none}
+.foot nav a:hover{color:var(--text)}
+.disclosure{padding:6px 20px 28px;font-size:12.5px;color:var(--muted);line-height:1.6;display:flex;flex-direction:column;gap:4px}
+
+/* Ficha */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(43,36,32,.45);display:none;align-items:flex-end;justify-content:center}
+.modal.open{display:flex}
+.sheet{background:var(--bg);width:100%;max-width:900px;max-height:94vh;overflow:auto;display:flex;flex-wrap:wrap;position:relative;border-radius:24px 24px 0 0}
+.sheet .media{flex:1 1 380px;min-width:0;aspect-ratio:1/1;position:relative;background:var(--sand)}
+.sheet .media img.photo{width:100%;height:100%;object-fit:cover}
+.sheet .info{flex:1 1 320px;min-width:0;padding:30px;display:flex;flex-direction:column;gap:12px}
+.sheet h2{margin:0;font-family:Marcellus,serif;font-weight:400;font-size:30px;line-height:1.1}
+.why{background:var(--sand);border-radius:14px;padding:12px 14px;font-size:15px}
+.why b{color:var(--cta)}
+.sheet .desc{margin:0;font-size:15px}
+.sheet ul{margin:0;padding-left:18px;font-size:15px}
+.sheet .note{font-size:13px;color:var(--muted);margin:0}
+.close{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:999px;border:none;background:var(--white);display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+@media (min-width:760px){ .modal{align-items:center;padding:24px} .sheet{border-radius:24px} }
+@media (max-width:600px){
+  .logo b{font-size:18px}
+  .logo img{height:28px}
+  .hero{padding-top:22px}
+  .hero .mono{display:none}
+  .colls{display:flex;overflow-x:auto;scrollbar-width:none;margin-top:20px;padding-bottom:4px}
+  .colls::-webkit-scrollbar{display:none}
+  .coll{flex:0 0 190px;min-height:86px;padding:14px 16px}
+  .coll strong{font-size:17px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 10px}
+  .card{padding:8px 8px 12px;border-radius:16px}
+  .card h3{font-size:14.5px}
+  .reason{font-size:13px}
+  .card .btn{min-height:44px;padding:0 10px;font-size:14px}
+  .sheet .info{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="head">
+    <a href="#" class="logo" id="home" aria-label="Velan’s, inicio"><img src="monogram.png" alt="" width="47" height="32"><b>VELAN’S</b></a>
+    <div class="search">
+      <label for="q" class="sr">Buscar productos</label>
+      <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Buscar: bolso, reloj, regalo…" autocomplete="off">
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="txt">
+      <h1>Cosas bonitas que <span>merecen la pena</span>.</h1>
+      <p>Moda, accesorios y detalles para casa que hemos elegido uno a uno. Compras en la tienda oficial, al mismo precio.</p>
+    </div>
+    <img class="mono" src="monogram.png" alt="" width="220" height="149">
+  </section>
+
+  <div class="colls" id="colls" role="group" aria-label="Colecciones"></div>
+
+  <div class="bar">
+    <h2 id="listTitle">Nuestra selección</h2>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
+  <div class="grid" id="grid" aria-live="polite"></div>
+
+  <section class="how" aria-label="Cómo funciona">
+    <div><span class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.5 3 5 6.4 5c2 0 3.2 1.1 3.9 2.2h3.4C14.4 6.1 15.6 5 17.6 5 21 5 22.7 8.5 21.2 11.4 19 15.6 12 20 12 20z"/></svg></span><div><strong>Elegido con cariño</strong><span>Solo lo que recomendaríamos a un amigo.</span></div></div>
+    <div><span class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><div><strong>Mismo precio</strong><span>No pagas nada de más por comprar desde aquí.</span></div></div>
+    <div><span class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><div><strong>Compra segura</strong><span>Pagas en la tienda oficial, que se encarga del envío.</span></div></div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="foot">
+    <span class="logo"><img src="monogram.png" alt="" width="38" height="26" style="height:26px"><b style="font-size:18px">VELAN’S</b></span>
+    <nav aria-label="Información">
+      <a href="#" data-info="como">Cómo funciona</a>
+      <a href="#" data-info="contacto">Contacto</a>
+      <a href="#" data-info="aviso">Aviso legal</a>
+      <a href="#" data-info="privacidad">Privacidad</a>
+      <a href="#" data-info="cookies">Cookies</a>
+    </nav>
+  </div>
+  <div class="disclosure">
+    <span>Velan’s participa en programas de afiliados: si compras a través de nuestros enlaces podemos recibir una comisión, sin coste adicional para ti. Precio, envío, garantía y devoluciones son los de la tienda donde compras.</span>
+    <span>En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables.</span>
+    <span>© <span id="year"></span> Velan’s</span>
+  </div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="sheet">
+    <button class="close" data-close aria-label="Cerrar"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="media" id="mMedia"></div>
+    <div class="info">
+      <span class="cat" id="mCat"></span>
+      <h2 id="mTitle"></h2>
+      <div class="why" id="mWhy"></div>
+      <div class="price" id="mPrice"></div>
+      <p class="desc" id="mDesc"></p>
+      <ul id="mPoints"></ul>
+      <a class="btn btn-cta" id="mBuy" target="_blank" rel="sponsored noopener">Comprar</a>
+      <p class="note">Te llevamos a la tienda oficial para completar tu compra. El precio final es el que veas allí.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="iTitle">
+  <div class="sheet" style="max-width:640px">
+    <button class="close" data-close aria-label="Cerrar"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div class="info" style="flex-basis:100%">
+      <h2 id="iTitle"></h2>
+      <div id="iBody" class="desc"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   CATÁLOGO DE VELAN’S — lo único que hay que tocar
+   - porque: una línea de por qué lo recomiendas
+   - enlace: tu ENLACE DE AFILIADO
+   - imagen: la imagen oficial del programa de afiliados
+   - precio / antes: opcional (con Amazon, déjalo vacío "")
+   - etiqueta: "Nuevo", "Top", "Oferta" o ""
+   - colecciones: ids de COLECCIONES donde aparece
+   ========================================================= */
+const COLECCIONES = [
+  { id:"top",     nombre:"Lo más vendido",            color:"#F3E7D7" },
+  { id:"regalos", nombre:"Regalos por menos de 30 €", color:"#F6E0D3" },
+  { id:"otono",   nombre:"Básicos de otoño",          color:"#E9E6D6" },
+  { id:"ofertas", nombre:"Ofertas de la semana",      color:"#F4DCC9" }
+];
+
+const PRODUCTOS = [
+  { id:"bolso-bandolera", nombre:"Bolso bandolera de piel sintética", categoria:"Accesorios", etiqueta:"Nuevo",
+    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
+    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["top","regalos"], precio:"", antes:"", enlace:"", imagen:"" },
+  { id:"zapatillas-urbanas", nombre:"Zapatillas urbanas blancas", categoria:"Calzado", etiqueta:"Top",
+    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
+    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["top","otono"], precio:"", antes:"", enlace:"", imagen:"" },
+  { id:"reloj-minimalista", nombre:"Reloj minimalista con correa de malla", categoria:"Accesorios", etiqueta:"Oferta",
+    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
+    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["regalos","ofertas"], precio:"", antes:"", enlace:"", imagen:"" },
+  { id:"gafas-sol", nombre:"Gafas de sol polarizadas", categoria:"Accesorios", etiqueta:"",
+    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
+    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["regalos"], precio:"", antes:"", enlace:"", imagen:"" },
+  { id:"sudadera-oversize", nombre:"Sudadera oversize de algodón", categoria:"Moda", etiqueta:"Nuevo",
+    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
+    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["otono","top"], precio:"", antes:"", enlace:"", imagen:"" },
+  { id:"auriculares", nombre:"Auriculares inalámbricos", categoria:"Tecnología", etiqueta:"Oferta",
+    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
+    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["ofertas","regalos"], precio:"", antes:"", enlace:"", imagen:"" },
+  { id:"lampara", nombre:"Lámpara de mesa de cerámica", categoria:"Hogar", etiqueta:"",
+    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
+    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["otono"], precio:"", antes:"", enlace:"", imagen:"" },
+  { id:"mochila", nombre:"Mochila impermeable", categoria:"Accesorios", etiqueta:"Top",
+    porque:"[Por qué lo recomiendas, en una línea]", descripcion:"[Descripción del producto]",
+    puntos:["[Punto fuerte 1]","[Punto fuerte 2]"], colecciones:["top","otono"], precio:"", antes:"", enlace:"", imagen:"" }
+];
+
+/* ================= lógica ================= */
+const TINTS = ["#F3E7D7","#F6E0D3","#EDE6D8","#F4DCC9"];
+const ETIQ = { Nuevo:"Nuevo", Top:"Top ventas", Oferta:"Oferta" };
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const state = { coll:"", cat:"Todo", q:"" };
+const cats = ["Todo", ...Array.from(new Set(PRODUCTOS.map(p => p.categoria)))];
+const inColl = (p, id) => (p.colecciones || []).includes(id);
+
+const media = (p) => p.imagen
+  ? `<img class="photo" src="${esc(p.imagen)}" alt="${esc(p.nombre)}" loading="lazy">`
+  : `<span class="ph"><img src="monogram.png" alt="">Foto próximamente</span>`;
+const price = (p) => !p.precio ? `Ver precio en la tienda`
+  : `<strong class="${p.antes ? "is-sale" : ""}">${esc(p.precio)}</strong>${p.antes ? `<s>${esc(p.antes)}</s>` : ""}`;
+const buy = (p) => p.enlace
+  ? `<a class="btn btn-cta" href="${esc(p.enlace)}" target="_blank" rel="sponsored noopener">Comprar</a>`
+  : `<a class="btn btn-cta" href="#" aria-disabled="true" title="Falta el enlace de afiliado">Comprar</a>`;
+const badge = (p) => p.etiqueta ? `<span class="badge ${p.etiqueta === "Oferta" ? "sale" : ""}">${esc(ETIQ[p.etiqueta] || p.etiqueta)}</span>` : "";
+
+function renderColls(){
+  $("#colls").innerHTML = COLECCIONES.map(c => {
+    const n = PRODUCTOS.filter(p => inColl(p, c.id)).length;
+    return `<button class="coll" data-coll="${esc(c.id)}" aria-pressed="${state.coll === c.id}" style="background:${esc(c.color)}">
+      <strong>${esc(c.nombre)}</strong><span>${n} ${n === 1 ? "producto" : "productos"} →</span></button>`;
+  }).join("");
+}
+function renderChips(){
+  $("#chips").innerHTML = cats.map(c =>
+    `<button class="chip" data-cat="${esc(c)}" aria-pressed="${state.cat === c}">${esc(c)}</button>`).join("");
+}
+function renderGrid(){
+  const q = state.q.trim().toLowerCase();
+  const items = PRODUCTOS.filter(p =>
+    (!state.coll || inColl(p, state.coll)) &&
+    (state.cat === "Todo" || p.categoria === state.cat) &&
+    (!q || [p.nombre, p.categoria, p.porque, p.descripcion].join(" ").toLowerCase().includes(q)));
+  const c = COLECCIONES.find(x => x.id === state.coll);
+  $("#listTitle").textContent = state.q ? `Resultados para «${state.q}»` : (c ? c.nombre : "Nuestra selección");
+  $("#count").textContent = items.length === 1 ? "1 producto" : `${items.length} productos`;
+  $("#grid").innerHTML = items.length ? items.map((p, i) => `
+    <article class="card">
+      <button class="thumb" data-open="${esc(p.id)}" style="background:${TINTS[i % TINTS.length]}" aria-label="Ver ${esc(p.nombre)}">${media(p)}${badge(p)}</button>
+      <div class="in">
+        <span class="cat">${esc(p.categoria)}</span>
+        <h3><button data-open="${esc(p.id)}">${esc(p.nombre)}</button></h3>
+        <p class="reason">${esc(p.porque)}</p>
+        <div class="price">${price(p)}</div>
+        ${buy(p)}
+      </div>
+    </article>`).join("")
+    : `<div class="empty">No hay nada que coincida. Prueba con otra búsqueda.</div>`;
+}
+function renderAll(){ renderColls(); renderChips(); renderGrid(); }
+
+let lastFocus = null;
+function openProduct(id, fromHash){
+  const p = PRODUCTOS.find(x => x.id === id); if (!p) return;
+  lastFocus = document.activeElement;
+  $("#mMedia").innerHTML = media(p);
+  $("#mCat").textContent = p.categoria;
+  $("#mTitle").textContent = p.nombre;
+  $("#mWhy").innerHTML = `<b>Por qué nos gusta:</b> ${esc(p.porque)}`;
+  $("#mPrice").innerHTML = price(p);
+  $("#mDesc").textContent = p.descripcion;
+  $("#mPoints").innerHTML = (p.puntos || []).map(x => `<li>${esc(x)}</li>`).join("");
+  const b = $("#mBuy");
+  if (p.enlace){ b.href = p.enlace; b.removeAttribute("aria-disabled"); b.removeAttribute("title"); }
+  else { b.href = "#"; b.setAttribute("aria-disabled","true"); b.title = "Falta el enlace de afiliado"; }
+  $("#modal").classList.add("open");
+  if (!fromHash) history.replaceState(null, "", "#p-" + p.id);
+  $("#modal .close").focus();
+}
+function closeAll(){
+  document.querySelectorAll(".modal.open").forEach(m => m.classList.remove("open"));
+  if (location.hash.startsWith("#p-")) history.replaceState(null, "", location.pathname + location.search);
+  if (lastFocus) lastFocus.focus();
+}
+const INFO = {
+  como: ["Cómo funciona", "<p>Elegimos productos de tiendas online de confianza. Al pulsar «Comprar» vas a la tienda oficial y pagas allí, al mismo precio. El envío, la garantía y las devoluciones los gestiona esa tienda. Nosotros podemos recibir una pequeña comisión de la tienda, sin coste para ti.</p>"],
+  contacto: ["Contacto", "<p>[Tu email de contacto]</p>"],
+  aviso: ["Aviso legal", "<p>[Titular de la web y datos de contacto, conforme a la LSSI. Completar antes de publicar.]</p>"],
+  privacidad: ["Privacidad", "<p>[Qué datos recoges, para qué y cómo ejercer los derechos RGPD. Completar antes de publicar.]</p>"],
+  cookies: ["Cookies", "<p>[Cookies propias y de terceros (programas de afiliados). Completar antes de publicar.]</p>"]
+};
+function openInfo(k){
+  const it = INFO[k]; if (!it) return;
+  lastFocus = document.activeElement;
+  $("#iTitle").textContent = it[0]; $("#iBody").innerHTML = it[1];
+  $("#infoModal").classList.add("open"); $("#infoModal .close").focus();
+}
+function fromHash(){
+  const h = location.hash.slice(1);
+  if (h.startsWith("p-")) openProduct(h.slice(2), true);
+  else if (h.startsWith("c-") && COLECCIONES.some(c => c.id === h.slice(2))){ state.coll = h.slice(2); renderAll(); }
+}
+
+document.addEventListener("click", (e) => {
+  const t = e.target;
+  const coll = t.closest("[data-coll]");
+  if (coll){ state.coll = state.coll === coll.dataset.coll ? "" : coll.dataset.coll; renderAll(); $("#listTitle").scrollIntoView({ behavior:"smooth", block:"start" }); return; }
+  const chip = t.closest("[data-cat]");
+  if (chip){ state.cat = chip.dataset.cat; renderChips(); renderGrid(); return; }
+  const op = t.closest("[data-open]");
+  if (op){ openProduct(op.dataset.open); return; }
+  const info = t.closest("[data-info]");
+  if (info){ e.preventDefault(); openInfo(info.dataset.info); return; }
+  if (t.closest('a[aria-disabled="true"]')){ e.preventDefault(); return; }
+  if (t.closest("[data-close]") || t.classList.contains("modal")){ closeAll(); return; }
+  if (t.closest("#home")){ e.preventDefault(); state.coll = ""; state.cat = "Todo"; state.q = ""; $("#q").value = ""; renderAll(); window.scrollTo({ top:0, behavior:"smooth" }); }
+});
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAll(); });
+$("#q").addEventListener("input", (e) => { state.q = e.target.value; renderGrid(); });
+window.addEventListener("hashchange", fromHash);
+$("#year").textContent = new Date().getFullYear();
+renderAll(); fromHash();
+</script>
+</body>
+</html>
