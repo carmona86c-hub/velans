@@ -1,0 +1,35 @@
+name: Velans - capturar ofertas con presupuesto
+on:
+  schedule:
+    - cron: '15 8 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: velans-gangagato-capture
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Comprobar el consumo y capturar nuevas publicaciones
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          APIFY_TASK_ID: ${{ vars.APIFY_TASK_ID }}
+        run: node scripts/sync-gangagato.mjs
+      - name: Guardar únicamente las nuevas publicaciones
+        run: |
+          git add data/gangagato-feed.json
+          if git diff --cached --quiet; then
+            echo 'Sin novedades; no se crea ninguna versión.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Actualizar feed de ofertas pendientes (sin publicar)'
+          git push
