@@ -4,31 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Velan’s — Cosas bonitas que merecen la pena</title>
-<meta name="description" content="Velan’s: moda, accesorios y cosas para casa que merecen la pena, elegidas una a una.">
+<meta name="description" content="Velan’s: moda, relojes, belleza, hogar y tecnología entre lo más vendido, seleccionado para ti.">
 <link rel="icon" type="image/png" href="monogram.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FBF7F1; --white:#FFFFFF; --sand:#F3E7D7; --sand2:#EFE2D0;
-  --line:#EADFD1; --line2:#DCCDBA;
-  --text:#2B2420; --muted:#786A5E;
-  --cta:#A9532F; --cta2:#8F4425; --gold:#8A5E28;
+  --bg:#FBF7F1; --white:#FFFFFF; --sand:#F3E7D7; --line:#EADFD1; --line2:#DCCDBA;
+  --text:#2B2420; --muted:#786A5E; --cta:#A9532F; --cta2:#8F4425; --gold:#8A5E28;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:var(--text)}
 a:hover{color:var(--cta)}
 img{max-width:100%;height:auto;display:block}
 button{font:inherit;cursor:pointer;color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-.mar{font-family:Marcellus,serif;font-weight:400}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 :focus-visible{outline:3px solid var(--cta);outline-offset:2px}
 
 /* Cabecera */
-header.site{position:sticky;top:0;z-index:20;background:rgba(251,247,241,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.head{display:flex;align-items:center;gap:16px;max-width:1180px;margin:0 auto;padding:12px 20px}
+header.site{position:sticky;top:0;z-index:20;background:rgba(251,247,241,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.head{display:flex;align-items:center;gap:16px;max-width:1180px;margin:0 auto;padding:12px 20px 8px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);flex:none}
 .logo:hover{color:var(--text)}
 .logo img{height:32px;width:auto}
@@ -36,80 +34,78 @@ header.site{position:sticky;top:0;z-index:20;background:rgba(251,247,241,.95);ba
 .search{flex:1;max-width:420px;margin-left:auto;position:relative}
 .search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted)}
 .search input{font:inherit;font-size:15px;width:100%;min-height:44px;padding:0 16px 0 40px;border:1px solid var(--line2);border-radius:999px;background:var(--white);color:var(--text)}
+.secnav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;max-width:1180px;margin:0 auto;padding:4px 20px 10px}
+.secnav::-webkit-scrollbar{display:none}
+.secnav a{flex:none;display:flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;font-size:14px;font-weight:500;text-decoration:none;color:var(--text);border:1px solid var(--line2);background:var(--white)}
+.secnav a:hover{border-color:var(--text);color:var(--text)}
 
 /* Portada */
-.hero{padding:36px 0 8px;display:flex;flex-wrap:wrap;align-items:center;gap:20px 40px}
+.hero{padding:30px 0 6px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 40px}
 .hero .txt{flex:1 1 420px}
-.hero h1{margin:0;font-family:Marcellus,serif;font-weight:400;font-size:clamp(32px,4.4vw,50px);line-height:1.08}
+.hero h1{margin:0;font-family:Marcellus,serif;font-weight:400;font-size:clamp(30px,4.2vw,48px);line-height:1.08}
 .hero h1 span{color:var(--cta)}
-.hero p{margin:12px 0 0;color:var(--muted);font-size:17px;max-width:520px}
-.hero .mono{flex:0 1 220px;margin:0 auto}
+.hero p{margin:10px 0 0;color:var(--muted);font-size:17px;max-width:540px}
+.hero .mono{flex:0 1 200px;margin:0 auto}
 
 /* Colecciones */
-.colls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px;margin-top:28px}
-.coll{text-align:left;border:2px solid transparent;border-radius:20px;padding:18px 20px;min-height:100px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;transition:transform .15s,border-color .15s}
-.coll:hover{transform:translateY(-2px)}
-.coll strong{font-family:Marcellus,serif;font-weight:400;font-size:20px;line-height:1.15}
+.colls{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;margin-top:22px;padding-bottom:4px}
+.colls::-webkit-scrollbar{display:none}
+.coll{flex:1 0 170px;text-align:left;border:2px solid transparent;border-radius:18px;padding:14px 16px;min-height:84px;display:flex;flex-direction:column;justify-content:space-between;gap:6px}
+.coll strong{font-family:Marcellus,serif;font-weight:400;font-size:18px;line-height:1.15}
 .coll span{font-size:13px;color:var(--muted)}
 .coll[aria-pressed="true"]{border-color:var(--text)}
+.filterbar{display:none;align-items:center;justify-content:space-between;gap:10px;margin-top:18px;padding:12px 16px;background:var(--white);border:1px solid var(--line);border-radius:14px;font-size:14px}
+.filterbar.show{display:flex}
+.filterbar button{border:none;background:none;color:var(--cta);font-weight:600;min-height:40px}
 
-/* Listado */
-.bar{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin:44px 0 14px}
-.bar h2{margin:0;font-family:Marcellus,serif;font-weight:400;font-size:clamp(26px,3vw,34px)}
-.count{color:var(--muted);font-size:14px}
-.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;margin-bottom:22px}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex:none;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line2);background:var(--white);font-weight:500;font-size:14px}
-.chip[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:26px 18px}
-.card{display:flex;flex-direction:column;gap:8px;background:var(--white);border:1px solid var(--line);border-radius:20px;padding:10px 10px 14px;transition:box-shadow .2s}
-.card:hover{box-shadow:0 10px 30px -14px rgba(84,56,30,.35)}
-.thumb{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;border:none;padding:0;width:100%;display:block;background:var(--sand)}
-.thumb img.photo{width:100%;height:100%;object-fit:cover}
-.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:12px}
-.ph img{width:42%;opacity:.55}
-.ph b{font-weight:600;color:var(--text);font-size:13px;text-align:center;padding:0 12px}
-.badge{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--white);color:var(--text)}
-.badge.sale{background:var(--cta);color:#fff}
-.card .in{padding:0 6px;display:flex;flex-direction:column;gap:6px;flex:1}
-.cat{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
-.card h3{margin:0;font-size:16px;font-weight:600;line-height:1.35}
+/* Secciones */
+.sec{padding-top:44px}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.sec-head .ic{width:44px;height:44px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--text)}
+.sec-head h2{margin:0;font-family:Marcellus,serif;font-weight:400;font-size:clamp(24px,2.8vw,32px)}
+.sec-head .count{margin-left:auto;color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:18px}
+.card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:0 12px 30px -16px rgba(84,56,30,.4);transform:translateY(-2px)}
+.tile{position:relative;aspect-ratio:4/3;border:none;padding:0;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.tile svg.big{width:38%;height:auto;opacity:.85}
+.tile img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:10px}
+.tile .brand{position:absolute;left:12px;bottom:10px;font-family:Marcellus,serif;font-size:13px;letter-spacing:.06em;color:rgba(43,36,32,.6)}
+.badge{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--text);color:var(--bg)}
+.card .in{padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{margin:0;font-size:15.5px;font-weight:600;line-height:1.35}
 .card h3 button{all:unset;cursor:pointer}
 .card h3 button:hover{color:var(--cta)}
-.reason{margin:0;font-size:14px;color:var(--muted)}
-.price{font-size:14px;color:var(--muted);margin-top:auto}
-.price strong{font-size:18px;color:var(--text)}
-.price strong.is-sale{color:var(--cta)}
-.price s{margin-left:6px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:none}
+.reason{margin:0;font-size:13.5px;color:var(--muted)}
+.card .foot{margin-top:auto;padding-top:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:46px;padding:0 18px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:none}
 .btn-cta{background:var(--cta);color:#fff}
 .btn-cta:hover{background:var(--cta2);color:#fff}
-.btn[aria-disabled="true"]{opacity:.5;cursor:not-allowed}
-.empty{grid-column:1/-1;padding:40px;text-align:center;color:var(--muted);background:var(--white);border:1px dashed var(--line2);border-radius:20px}
+.empty{padding:40px;text-align:center;color:var(--muted);background:var(--white);border:1px dashed var(--line2);border-radius:18px;margin-top:40px}
 
 /* Cómo funciona */
 .how{margin-top:56px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px}
-.how div{display:flex;gap:14px;align-items:flex-start;background:var(--sand);border-radius:20px;padding:20px}
+.how > div{display:flex;gap:14px;align-items:flex-start;background:var(--sand);border-radius:18px;padding:18px}
 .how .ic{width:40px;height:40px;flex:none;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--cta)}
 .how strong{display:block;font-size:15px}
 .how span{font-size:14px;color:var(--muted)}
 
 /* Pie */
 footer.site{margin-top:56px;border-top:1px solid var(--line);background:var(--white)}
-.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px;padding:24px 20px 10px}
-.foot nav{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px}
-.foot nav a{color:var(--muted);text-decoration:none}
-.foot nav a:hover{color:var(--text)}
+.foot-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 28px;padding:24px 20px 10px}
+.foot-row nav{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px}
+.foot-row nav a{color:var(--muted);text-decoration:none}
+.foot-row nav a:hover{color:var(--text)}
 .disclosure{padding:6px 20px 28px;font-size:12.5px;color:var(--muted);line-height:1.6;display:flex;flex-direction:column;gap:4px}
 
 /* Ficha */
 .modal{position:fixed;inset:0;z-index:50;background:rgba(43,36,32,.45);display:none;align-items:flex-end;justify-content:center}
 .modal.open{display:flex}
-.sheet{background:var(--bg);width:100%;max-width:900px;max-height:94vh;overflow:auto;display:flex;flex-wrap:wrap;position:relative;border-radius:24px 24px 0 0}
-.sheet .media{flex:1 1 380px;min-width:0;aspect-ratio:1/1;position:relative;background:var(--sand)}
-.sheet .media img.photo{width:100%;height:100%;object-fit:cover}
-.sheet .info{flex:1 1 320px;min-width:0;padding:30px;display:flex;flex-direction:column;gap:12px}
-.sheet h2{margin:0;font-family:Marcellus,serif;font-weight:400;font-size:30px;line-height:1.1}
+.sheet{background:var(--bg);width:100%;max-width:560px;max-height:94vh;overflow:auto;position:relative;border-radius:24px 24px 0 0}
+.sheet .tile{aspect-ratio:16/9}
+.sheet .info{padding:26px 28px 30px;display:flex;flex-direction:column;gap:12px}
+.cat{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.sheet h2{margin:0;font-family:Marcellus,serif;font-weight:400;font-size:28px;line-height:1.12}
 .why{background:var(--sand);border-radius:14px;padding:12px 14px;font-size:15px}
 .why b{color:var(--cta)}
 .sheet .desc{margin:0;font-size:15px}
@@ -120,18 +116,13 @@ footer.site{margin-top:56px;border-top:1px solid var(--line);background:var(--wh
 @media (max-width:600px){
   .logo b{font-size:18px}
   .logo img{height:28px}
-  .hero{padding-top:22px}
   .hero .mono{display:none}
-  .colls{display:flex;overflow-x:auto;scrollbar-width:none;margin-top:20px;padding-bottom:4px}
-  .colls::-webkit-scrollbar{display:none}
-  .coll{flex:0 0 190px;min-height:86px;padding:14px 16px}
-  .coll strong{font-size:17px}
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 10px}
-  .card{padding:8px 8px 12px;border-radius:16px}
-  .card h3{font-size:14.5px}
-  .reason{font-size:13px}
-  .card .btn{min-height:44px;padding:0 10px;font-size:14px}
-  .sheet .info{padding:24px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .card .in{padding:10px 10px 12px}
+  .card h3{font-size:14px}
+  .reason{font-size:12.5px}
+  .btn{min-height:44px;font-size:14px;padding:0 10px}
+  .sheet .info{padding:22px}
 }
 </style>
 </head>
@@ -143,43 +134,38 @@ footer.site{margin-top:56px;border-top:1px solid var(--line);background:var(--wh
     <div class="search">
       <label for="q" class="sr">Buscar productos</label>
       <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-      <input id="q" type="search" placeholder="Buscar: bolso, reloj, regalo…" autocomplete="off">
+      <input id="q" type="search" placeholder="Buscar: reloj, zapatillas, regalo…" autocomplete="off">
     </div>
   </div>
+  <nav class="secnav" id="secnav" aria-label="Secciones"></nav>
 </header>
 
 <main class="wrap">
   <section class="hero">
     <div class="txt">
-      <h1>Cosas bonitas que <span>merecen la pena</span>.</h1>
-      <p>Moda, accesorios y detalles para casa que hemos elegido uno a uno. Compras en la tienda oficial, al mismo precio.</p>
+      <h1>Lo más vendido, <span>elegido para ti</span>.</h1>
+      <p>Moda, relojes, belleza, hogar y tecnología: hemos seleccionado los artículos que más se compran y mejor funcionan. Compras en Amazon, al mismo precio.</p>
     </div>
-    <img class="mono" src="monogram.png" alt="" width="220" height="149">
+    <img class="mono" src="monogram.png" alt="" width="200" height="135">
   </section>
 
   <div class="colls" id="colls" role="group" aria-label="Colecciones"></div>
+  <div class="filterbar" id="filterbar" role="status"><span id="filterText"></span><button id="clearFilter">Ver todo</button></div>
 
-  <div class="bar">
-    <h2 id="listTitle">Nuestra selección</h2>
-    <span class="count" id="count"></span>
-  </div>
-  <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
-  <div class="grid" id="grid" aria-live="polite"></div>
+  <div id="sections" aria-live="polite"></div>
 
   <section class="how" aria-label="Cómo funciona">
-    <div><span class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.5 3 5 6.4 5c2 0 3.2 1.1 3.9 2.2h3.4C14.4 6.1 15.6 5 17.6 5 21 5 22.7 8.5 21.2 11.4 19 15.6 12 20 12 20z"/></svg></span><div><strong>Elegido con cariño</strong><span>Solo lo que recomendaríamos a un amigo.</span></div></div>
+    <div><span class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></span><div><strong>Lo más vendido</strong><span>Solo artículos que están entre los más vendidos de su categoría.</span></div></div>
     <div><span class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span><div><strong>Mismo precio</strong><span>No pagas nada de más por comprar desde aquí.</span></div></div>
-    <div><span class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><div><strong>Compra segura</strong><span>Pagas en la tienda oficial, que se encarga del envío.</span></div></div>
+    <div><span class="ic"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><div><strong>Compra segura</strong><span>Pagas en Amazon, que se encarga del envío y las devoluciones.</span></div></div>
   </section>
 </main>
 
 <footer class="site">
-  <div class="foot">
+  <div class="foot-row">
     <span class="logo"><img src="monogram.png" alt="" width="38" height="26" style="height:26px"><b style="font-size:18px">VELAN’S</b></span>
     <nav aria-label="Información">
       <a href="#" data-info="como">Cómo funciona</a>
-      <a href="#" data-info="contacto">Contacto</a>
-      <a href="#" data-info="aviso">Aviso legal</a>
       <a href="#" data-info="privacidad">Privacidad</a>
       <a href="#" data-info="cookies">Cookies</a>
     </nav>
@@ -194,24 +180,23 @@ footer.site{margin-top:56px;border-top:1px solid var(--line);background:var(--wh
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
   <div class="sheet">
     <button class="close" data-close aria-label="Cerrar"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <div class="media" id="mMedia"></div>
+    <div id="mTile"></div>
     <div class="info">
       <span class="cat" id="mCat"></span>
       <h2 id="mTitle"></h2>
       <div class="why" id="mWhy"></div>
-      <div class="price" id="mPrice"></div>
       <p class="desc" id="mDesc"></p>
       <ul id="mPoints"></ul>
-      <a class="btn btn-cta" id="mBuy" target="_blank" rel="sponsored noopener">Comprar</a>
-      <p class="note">Te llevamos a la tienda oficial para completar tu compra. El precio final es el que veas allí.</p>
+      <a class="btn btn-cta" id="mBuy" target="_blank" rel="sponsored noopener">Ver en Amazon</a>
+      <p class="note">Te llevamos a Amazon para ver el precio y comprar de forma segura.</p>
     </div>
   </div>
 </div>
 
 <div class="modal" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="iTitle">
-  <div class="sheet" style="max-width:640px">
+  <div class="sheet">
     <button class="close" data-close aria-label="Cerrar"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <div class="info" style="flex-basis:100%">
+    <div class="info" style="padding-top:34px">
       <h2 id="iTitle"></h2>
       <div id="iBody" class="desc"></div>
     </div>
@@ -220,128 +205,1231 @@ footer.site{margin-top:56px;border-top:1px solid var(--line);background:var(--wh
 
 <script>
 /* =========================================================
-   CATÁLOGO DE VELAN’S — lo único que hay que tocar
-   - porque: una línea de por qué lo recomiendas
-   - enlace: tu ENLACE DE AFILIADO
-   - imagen: la imagen oficial del programa de afiliados
-   - precio / antes: opcional (con Amazon, déjalo vacío "")
-   - etiqueta: "Nuevo", "Top", "Oferta" o ""
-   - colecciones: ids de COLECCIONES donde aparece
+   CATÁLOGO DE VELAN’S
+   - categoria: decide en qué sección aparece (ver SECCIONES)
+   - colecciones: "top", "regalos", "ella", "el", "casa"
+   - enlace: enlace de afiliado (tag velans-21)
+   - imagen: vacío hasta tener la API de Amazon
    ========================================================= */
+const SECCIONES = [
+  { id:"moda-mujer",  nombre:"Moda mujer",          color:"#F6E0D3", icon:"dress" },
+  { id:"moda-hombre", nombre:"Moda hombre",         color:"#E7E3D6", icon:"shirt" },
+  { id:"calzado",     nombre:"Calzado",             color:"#F3E7D7", icon:"shoe" },
+  { id:"relojes",     nombre:"Relojes",             color:"#EFE4CF", icon:"watch" },
+  { id:"bolsos",      nombre:"Bolsos y accesorios", color:"#F4DCC9", icon:"bag" },
+  { id:"belleza",     nombre:"Belleza",             color:"#F7E1E0", icon:"beauty" },
+  { id:"hogar",       nombre:"Hogar",               color:"#E8E6DA", icon:"home" },
+  { id:"cocina",      nombre:"Cocina",              color:"#F2E5D2", icon:"kitchen" },
+  { id:"tecnologia",  nombre:"Tecnología",          color:"#E3E6E6", icon:"tech" }
+];
 const COLECCIONES = [
   { id:"top",     nombre:"Lo más vendido",     color:"#F3E7D7" },
   { id:"regalos", nombre:"Ideas para regalar", color:"#F6E0D3" },
   { id:"ella",    nombre:"Para ella",          color:"#F4DCC9" },
-  { id:"el",      nombre:"Para él",            color:"#E9E6D6" }
+  { id:"el",      nombre:"Para él",            color:"#E9E6D6" },
+  { id:"casa",    nombre:"Para casa",          color:"#E8E6DA" }
 ];
 
 const PRODUCTOS = [
-  { id:"puma-smash", nombre:"PUMA Smash V2 L — zapatillas unisex", categoria:"Calzado", etiqueta:"Top",
-    porque:"Las zapatillas número uno en moda de Amazon, con más de 80.000 valoraciones.", descripcion:"Zapatillas de deporte clásicas de PUMA, de corte bajo y estilo urbano, que combinan con todo.",
-    puntos:["Unisex", "Estilo clásico y versátil"], colecciones:["top", "ella", "el"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=PUMA+Smash+V2+L+zapatillas+unisex&tag=velans-21", imagen:"" },
-  { id:"crocs-classic", nombre:"Crocs Classic Clog — zuecos unisex", categoria:"Calzado", etiqueta:"Top",
-    porque:"Un superventas con más de 500.000 valoraciones y 4,7 estrellas.", descripcion:"Los zuecos clásicos de Crocs: ligeros, cómodos y fáciles de limpiar.",
-    puntos:["Unisex", "Muchos colores"], colecciones:["top", "regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Crocs+Classic+Clog+zuecos+unisex+adulto&tag=velans-21", imagen:"" },
-  { id:"skechers-graceful", nombre:"Skechers Graceful Get Connected — zapatillas de mujer", categoria:"Calzado", etiqueta:"Top",
-    porque:"Las más vendidas en moda de mujer, con 4,6 estrellas y más de 60.000 valoraciones.", descripcion:"Zapatillas ligeras de Skechers pensadas para caminar con comodidad todo el día.",
-    puntos:["Para mujer", "Comodidad para el día a día"], colecciones:["top", "ella"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Skechers+Graceful+Get+Connected+zapatillas+mujer&tag=velans-21", imagen:"" },
-  { id:"levis-perfect-tee", nombre:"Levi’s The Perfect Tee — camiseta de mujer", categoria:"Ropa", etiqueta:"",
-    porque:"Un básico de Levi’s con 4,5 estrellas y miles de valoraciones.", descripcion:"La camiseta clásica de Levi’s con su logo, de algodón y corte favorecedor.",
-    puntos:["Para mujer", "Básico que combina con todo"], colecciones:["ella", "regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Levi%27s+The+Perfect+Tee+camiseta+mujer&tag=velans-21", imagen:"" },
-  { id:"levis-housemark", nombre:"Levi’s Original Housemark Tee — camiseta de hombre", categoria:"Ropa", etiqueta:"Top",
-    porque:"De las camisetas más vendidas de Amazon, con 4,5 estrellas y más de 27.000 valoraciones.", descripcion:"Camiseta básica de Levi’s con el pequeño logo bordado en el pecho.",
-    puntos:["Para hombre", "Básico de armario"], colecciones:["top", "el", "regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Levi%27s+Original+Housemark+Tee+camiseta+hombre&tag=velans-21", imagen:"" },
-  { id:"levis-512", nombre:"Levi’s 512 Slim Taper — vaqueros de hombre", categoria:"Ropa", etiqueta:"",
-    porque:"Unos vaqueros clásicos de Levi’s entre los más vendidos en moda.", descripcion:"Vaqueros de corte slim con pierna estrecha hacia el tobillo.",
-    puntos:["Para hombre", "Corte slim taper"], colecciones:["el"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Levi%27s+512+Slim+Taper+vaqueros+hombre&tag=velans-21", imagen:"" },
-  { id:"pepe-jeans-soho", nombre:"Pepe Jeans Soho — vaqueros de mujer", categoria:"Ropa", etiqueta:"",
-    porque:"Entre los más vendidos en moda, de una marca conocida por sus vaqueros.", descripcion:"Vaqueros de mujer de Pepe Jeans, un básico para el otoño y el invierno.",
-    puntos:["Para mujer", "Básico de temporada"], colecciones:["ella"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Pepe+Jeans+Soho+jeans+mujer&tag=velans-21", imagen:"" },
-  { id:"carhartt-k87", nombre:"Carhartt K87 — camiseta con bolsillo", categoria:"Ropa", etiqueta:"",
-    porque:"Un clásico de Carhartt con 4,5 estrellas: tejido grueso y ajuste holgado.", descripcion:"Camiseta de manga corta con bolsillo en el pecho, tejido grueso y ajuste ligeramente holgado.",
-    puntos:["Para hombre", "Tejido grueso y resistente"], colecciones:["el", "regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Carhartt+K87+camiseta+manga+corta+bolsillo+hombre&tag=velans-21", imagen:"" },
-  { id:"eastpak-padded", nombre:"Eastpak Padded Pak’r — mochila 38 L", categoria:"Accesorios", etiqueta:"Top",
-    porque:"Una mochila icónica con 4,7 estrellas y miles de valoraciones.", descripcion:"La mochila clásica de Eastpak, de 38 litros, para clase, trabajo o el día a día.",
-    puntos:["38 litros", "Unisex"], colecciones:["top", "regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=EASTPAK+Padded+Pak%27r+mochila+38+L&tag=velans-21", imagen:"" },
-  { id:"puma-phase", nombre:"PUMA Phase — mochila unisex", categoria:"Accesorios", etiqueta:"",
-    porque:"Una mochila sencilla con 4,7 estrellas y más de 20.000 valoraciones.", descripcion:"Mochila de PUMA ligera y práctica para el día a día o el gimnasio.",
-    puntos:["Unisex", "Ligera y práctica"], colecciones:["regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=PUMA+Phase+mochila+unisex&tag=velans-21", imagen:"" },
-  { id:"rockdove-casa", nombre:"RockDove — zapatillas de casa con espuma viscoelástica", categoria:"Calzado", etiqueta:"",
-    porque:"Unas zapatillas de casa con más de 160.000 valoraciones: un regalo seguro para el invierno.", descripcion:"Zapatillas de estar por casa de dos tonos con plantilla de espuma viscoelástica.",
-    puntos:["Para hombre", "Plantilla viscoelástica"], colecciones:["regalos", "el"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=RockDove+zapatilla+espuma+viscoel%C3%A1stica+hombre&tag=velans-21", imagen:"" },
-  { id:"calvin-klein-boxer", nombre:"Calvin Klein — bóxer de hombre (pack de 3)", categoria:"Ropa", etiqueta:"",
-    porque:"De lo más vendido en moda, con más de 40.000 valoraciones.", descripcion:"Pack de tres bóxers de Calvin Klein con la cinturilla del logo.",
-    puntos:["Para hombre", "Pack de 3"], colecciones:["el", "regalos"], precio:"", antes:"", enlace:"https://www.amazon.es/s?k=Calvin+Klein+b%C3%B3xer+hombre+pack+de+3+trunks&tag=velans-21", imagen:"" }
+ {
+  "id": "sinophant-leggings",
+  "nombre": "SINOPHANT — leggings de talle alto",
+  "categoria": "Moda mujer",
+  "etiqueta": "Top",
+  "porque": "Los número uno en moda de mujer en Amazon.",
+  "descripcion": "Leggings de talle alto, opacos y elásticos, para el gimnasio o el día a día.",
+  "puntos": [
+   "Talle alto",
+   "Tejido elástico y opaco"
+  ],
+  "colecciones": [
+   "top",
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=SINOPHANT+leggings+mujer+talle+alto&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "levis-perfect-tee",
+  "nombre": "Levi’s The Perfect Tee — camiseta",
+  "categoria": "Moda mujer",
+  "etiqueta": "",
+  "porque": "Un básico de Levi’s entre los más vendidos en moda.",
+  "descripcion": "La camiseta clásica de Levi’s con su logo, de algodón y corte favorecedor.",
+  "puntos": [
+   "Algodón",
+   "Combina con todo"
+  ],
+  "colecciones": [
+   "ella",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Levi%27s+The+Perfect+Tee+camiseta+mujer&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "pepe-jeans-soho",
+  "nombre": "Pepe Jeans Soho — vaqueros",
+  "categoria": "Moda mujer",
+  "etiqueta": "",
+  "porque": "Entre los vaqueros más vendidos en moda.",
+  "descripcion": "Vaqueros de mujer de Pepe Jeans, un básico para otoño e invierno.",
+  "puntos": [
+   "Básico de temporada",
+   "Marca de vaqueros"
+  ],
+  "colecciones": [
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Pepe+Jeans+Soho+jeans+mujer&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "ae-camiseta-manga-larga",
+  "nombre": "Amazon Essentials — camiseta de manga larga",
+  "categoria": "Moda mujer",
+  "etiqueta": "",
+  "porque": "Entre las camisetas de mujer más vendidas de Amazon.",
+  "descripcion": "Camiseta básica de cuello redondo y manga larga, disponible en tallas grandes.",
+  "puntos": [
+   "Corte estándar",
+   "Tallas grandes disponibles"
+  ],
+  "colecciones": [
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Amazon+Essentials+camiseta+manga+larga+cuello+redondo+mujer&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "zeagoo-blusa-encaje",
+  "nombre": "Zeagoo — camiseta elegante con encaje",
+  "categoria": "Moda mujer",
+  "etiqueta": "",
+  "porque": "Entre los tops y blusas de mujer más vendidos.",
+  "descripcion": "Camiseta de manga larga y cuello redondo con detalles de encaje, para un look arreglado.",
+  "puntos": [
+   "Detalles de encaje",
+   "Manga larga"
+  ],
+  "colecciones": [
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Zeagoo+camiseta+encaje+manga+larga+mujer&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "zeagoo-blusa-satin",
+  "nombre": "Zeagoo — blusa satinada de cuello en V",
+  "categoria": "Moda mujer",
+  "etiqueta": "",
+  "porque": "Una de las blusas más vendidas en moda de mujer.",
+  "descripcion": "Blusa satinada con botones, ideal para la oficina o una cena.",
+  "puntos": [
+   "Tejido satinado",
+   "Cuello en V"
+  ],
+  "colecciones": [
+   "ella",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Zeagoo+blusa+satinada+mujer+cuello+V&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "levis-housemark",
+  "nombre": "Levi’s Original Housemark Tee — camiseta",
+  "categoria": "Moda hombre",
+  "etiqueta": "Top",
+  "porque": "De las camisetas más vendidas de toda la sección de moda.",
+  "descripcion": "Camiseta básica de Levi’s con el pequeño logo bordado en el pecho.",
+  "puntos": [
+   "Algodón",
+   "Básico de armario"
+  ],
+  "colecciones": [
+   "top",
+   "el",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Levi%27s+Original+Housemark+Tee+camiseta+hombre&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "levis-512",
+  "nombre": "Levi’s 512 Slim Taper — vaqueros",
+  "categoria": "Moda hombre",
+  "etiqueta": "Top",
+  "porque": "Entre los productos de moda más vendidos de Amazon.",
+  "descripcion": "Vaqueros de corte slim con la pierna estrecha hacia el tobillo.",
+  "puntos": [
+   "Corte slim taper",
+   "Clásico de Levi’s"
+  ],
+  "colecciones": [
+   "top",
+   "el"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Levi%27s+512+Slim+Taper+vaqueros+hombre&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "levis-polo",
+  "nombre": "Levi’s Housemark — polo",
+  "categoria": "Moda hombre",
+  "etiqueta": "",
+  "porque": "Un polo de Levi’s entre los más vendidos en moda.",
+  "descripcion": "Polo clásico de manga corta con el logo de Levi’s.",
+  "puntos": [
+   "Manga corta",
+   "Estilo clásico"
+  ],
+  "colecciones": [
+   "el",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Levi%27s+Housemark+Polo+hombre&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "carhartt-k87",
+  "nombre": "Carhartt K87 — camiseta con bolsillo",
+  "categoria": "Moda hombre",
+  "etiqueta": "",
+  "porque": "Un clásico de Carhartt entre los más vendidos en moda.",
+  "descripcion": "Camiseta de manga corta con bolsillo, tejido grueso y ajuste ligeramente holgado.",
+  "puntos": [
+   "Tejido grueso",
+   "Bolsillo en el pecho"
+  ],
+  "colecciones": [
+   "el",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Carhartt+K87+camiseta+manga+corta+bolsillo+hombre&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "adidas-feelcozy",
+  "nombre": "adidas Essentials Feelcozy — sudadera con capucha",
+  "categoria": "Moda hombre",
+  "etiqueta": "",
+  "porque": "Entre las prendas de hombre más vendidas en Amazon.",
+  "descripcion": "Sudadera de forro polar con capucha, cómoda y calentita para el invierno.",
+  "puntos": [
+   "Forro polar",
+   "Con capucha"
+  ],
+  "colecciones": [
+   "el",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=adidas+Essentials+Feelcozy+Fleece+Hoodie+hombre&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "tramas-pijama",
+  "nombre": "TRAMAS+ — pijama de invierno de coralina",
+  "categoria": "Moda hombre",
+  "etiqueta": "",
+  "porque": "Uno de los más vendidos en moda esta temporada.",
+  "descripcion": "Pijama largo de coralina, suave y calentito para el frío.",
+  "puntos": [
+   "Coralina polar",
+   "Manga y pantalón largos"
+  ],
+  "colecciones": [
+   "el",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=TRAMAS%2B+pijama+hombre+invierno+coralina&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "calvin-klein-boxer",
+  "nombre": "Calvin Klein — bóxer (pack de 3)",
+  "categoria": "Moda hombre",
+  "etiqueta": "",
+  "porque": "De lo más vendido en moda de hombre.",
+  "descripcion": "Pack de tres bóxers de Calvin Klein con la cinturilla del logo.",
+  "puntos": [
+   "Pack de 3",
+   "Cinturilla con logo"
+  ],
+  "colecciones": [
+   "el",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Calvin+Klein+b%C3%B3xer+hombre+pack+de+3+trunks&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "joma-combi",
+  "nombre": "Joma Combi — camiseta deportiva",
+  "categoria": "Moda hombre",
+  "etiqueta": "Top",
+  "porque": "Número uno en moda de hombre en Amazon.",
+  "descripcion": "Camiseta técnica transpirable y de secado rápido, para correr o el gimnasio.",
+  "puntos": [
+   "Transpirable",
+   "Secado rápido"
+  ],
+  "colecciones": [
+   "top",
+   "el"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Joma+camiseta+Combi+manga+corta+hombre&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "puma-smash",
+  "nombre": "PUMA Smash V2 L — zapatillas unisex",
+  "categoria": "Calzado",
+  "etiqueta": "Top",
+  "porque": "Las zapatillas número uno en moda de Amazon.",
+  "descripcion": "Zapatillas de deporte clásicas de PUMA, de corte bajo y estilo urbano.",
+  "puntos": [
+   "Unisex",
+   "Combinan con todo"
+  ],
+  "colecciones": [
+   "top",
+   "ella",
+   "el"
+  ],
+  "enlace": "https://www.amazon.es/s?k=PUMA+Smash+V2+L+zapatillas+unisex&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "crocs-classic",
+  "nombre": "Crocs Classic Clog — zuecos unisex",
+  "categoria": "Calzado",
+  "etiqueta": "Top",
+  "porque": "Uno de los productos de moda más vendidos de Amazon.",
+  "descripcion": "Los zuecos clásicos de Crocs: ligeros, cómodos y fáciles de limpiar.",
+  "puntos": [
+   "Unisex",
+   "Muchos colores"
+  ],
+  "colecciones": [
+   "top",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Crocs+Classic+Clog+zuecos+unisex+adulto&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "crocs-forro",
+  "nombre": "Crocs con forro — zapatillas de casa",
+  "categoria": "Calzado",
+  "etiqueta": "",
+  "porque": "Entre lo más vendido en moda este invierno.",
+  "descripcion": "Los zuecos de Crocs con forro peludo por dentro, para estar por casa calentito.",
+  "puntos": [
+   "Forro interior",
+   "Unisex"
+  ],
+  "colecciones": [
+   "regalos",
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Crocs+Classic+Lined+Clog+forro&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "skechers-graceful",
+  "nombre": "Skechers Graceful Get Connected — mujer",
+  "categoria": "Calzado",
+  "etiqueta": "Top",
+  "porque": "Las número uno en moda de mujer en Amazon.",
+  "descripcion": "Zapatillas ligeras de Skechers pensadas para caminar con comodidad todo el día.",
+  "puntos": [
+   "Para mujer",
+   "Comodidad todo el día"
+  ],
+  "colecciones": [
+   "top",
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Skechers+Graceful+Get+Connected+zapatillas+mujer&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "skechers-summits",
+  "nombre": "Skechers Summits Lite — mujer",
+  "categoria": "Calzado",
+  "etiqueta": "",
+  "porque": "Entre las zapatillas de mujer más vendidas.",
+  "descripcion": "Zapatillas deportivas ligeras de Skechers para el día a día.",
+  "puntos": [
+   "Para mujer",
+   "Ligeras"
+  ],
+  "colecciones": [
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Skechers+Summits+Lite+zapatillas+mujer&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "skechers-uno",
+  "nombre": "Skechers Uno — mujer",
+  "categoria": "Calzado",
+  "etiqueta": "",
+  "porque": "Entre las zapatillas de mujer más vendidas.",
+  "descripcion": "Zapatillas urbanas de Skechers con suela de aire visible.",
+  "puntos": [
+   "Para mujer",
+   "Estilo urbano"
+  ],
+  "colecciones": [
+   "ella",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Skechers+Uno+zapatillas+mujer&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "adidas-galaxy",
+  "nombre": "adidas Galaxy — zapatillas de running",
+  "categoria": "Calzado",
+  "etiqueta": "",
+  "porque": "Entre las zapatillas de running más vendidas.",
+  "descripcion": "Zapatillas de running de adidas para empezar a correr o caminar.",
+  "puntos": [
+   "Para correr y caminar",
+   "Hombre y mujer"
+  ],
+  "colecciones": [
+   "ella",
+   "el"
+  ],
+  "enlace": "https://www.amazon.es/s?k=adidas+Galaxy+zapatillas+running&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "adidas-vl-court",
+  "nombre": "adidas VL Court 3.0 — hombre",
+  "categoria": "Calzado",
+  "etiqueta": "",
+  "porque": "Entre las zapatillas de hombre más vendidas.",
+  "descripcion": "Zapatillas casual de adidas con estilo clásico de skate.",
+  "puntos": [
+   "Para hombre",
+   "Estilo casual"
+  ],
+  "colecciones": [
+   "el"
+  ],
+  "enlace": "https://www.amazon.es/s?k=adidas+VL+Court+3.0+zapatillas+hombre&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "rockdove-casa",
+  "nombre": "RockDove — zapatillas de casa viscoelásticas",
+  "categoria": "Calzado",
+  "etiqueta": "",
+  "porque": "De las zapatillas de casa más vendidas de Amazon.",
+  "descripcion": "Zapatillas de estar por casa de dos tonos con plantilla de espuma viscoelástica.",
+  "puntos": [
+   "Plantilla viscoelástica",
+   "Para hombre"
+  ],
+  "colecciones": [
+   "regalos",
+   "el"
+  ],
+  "enlace": "https://www.amazon.es/s?k=RockDove+zapatilla+espuma+viscoel%C3%A1stica+hombre&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "adidas-calcetines",
+  "nombre": "adidas — calcetines acolchados (3 pares)",
+  "categoria": "Calzado",
+  "etiqueta": "",
+  "porque": "Entre lo más vendido en moda.",
+  "descripcion": "Pack de tres pares de calcetines deportivos acolchados de adidas.",
+  "puntos": [
+   "Pack de 3",
+   "Unisex"
+  ],
+  "colecciones": [
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=adidas+calcetines+Cushioned+Crew+3+pares&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "casio-a168wg",
+  "nombre": "Casio A168WG — reloj dorado unisex",
+  "categoria": "Relojes",
+  "etiqueta": "Top",
+  "porque": "El número uno en relojes de Amazon.",
+  "descripcion": "El reloj digital vintage de Casio en dorado, con luz y alarma.",
+  "puntos": [
+   "Unisex",
+   "Estilo vintage"
+  ],
+  "colecciones": [
+   "top",
+   "regalos",
+   "ella",
+   "el"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Casio+A168WG+reloj+unisex+dorado&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "casio-f91w",
+  "nombre": "Casio F-91W — reloj digital clásico",
+  "categoria": "Relojes",
+  "etiqueta": "Top",
+  "porque": "Número uno en relojes de pulsera de hombre.",
+  "descripcion": "El icónico reloj digital de Casio: ligero, resistente y con años de batería.",
+  "puntos": [
+   "Clásico icónico",
+   "Ligero"
+  ],
+  "colecciones": [
+   "top",
+   "el",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Casio+F-91W+reloj+digital&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "casio-a158wa",
+  "nombre": "Casio A158WA — reloj digital plateado",
+  "categoria": "Relojes",
+  "etiqueta": "",
+  "porque": "Entre los relojes de hombre más vendidos.",
+  "descripcion": "Reloj digital retro de Casio con correa metálica plateada.",
+  "puntos": [
+   "Correa de acero",
+   "Estilo retro"
+  ],
+  "colecciones": [
+   "el",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Casio+A158WA+reloj&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "casio-la670",
+  "nombre": "Casio LA670WEGA — reloj de mujer dorado",
+  "categoria": "Relojes",
+  "etiqueta": "",
+  "porque": "Entre los relojes más vendidos de Amazon.",
+  "descripcion": "Reloj digital dorado de Casio en tamaño pequeño, pensado para mujer.",
+  "puntos": [
+   "Para mujer",
+   "Dorado"
+  ],
+  "colecciones": [
+   "ella",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Casio+LA670WEGA-9EF+reloj+mujer&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "timex-expedition",
+  "nombre": "Timex Expedition — reloj con correa textil",
+  "categoria": "Relojes",
+  "etiqueta": "",
+  "porque": "Entre los relojes más vendidos de Amazon.",
+  "descripcion": "Reloj analógico de estilo campo con correa de tela.",
+  "puntos": [
+   "Unisex",
+   "Correa textil"
+  ],
+  "colecciones": [
+   "el"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Timex+Expedition+reloj+cuarzo+correa+textil&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "xiaomi-redmi-watch",
+  "nombre": "Xiaomi Redmi Watch 5 Active — reloj inteligente",
+  "categoria": "Relojes",
+  "etiqueta": "",
+  "porque": "Entre los productos de electrónica más vendidos.",
+  "descripcion": "Reloj inteligente con llamadas Bluetooth, pantalla grande y muchos modos deportivos.",
+  "puntos": [
+   "Llamadas Bluetooth",
+   "Modos deportivos"
+  ],
+  "colecciones": [
+   "regalos",
+   "el",
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Xiaomi+Redmi+Watch+5+Active&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "eastpak-padded",
+  "nombre": "Eastpak Padded Pak’r — mochila 38 L",
+  "categoria": "Bolsos y accesorios",
+  "etiqueta": "Top",
+  "porque": "Una de las mochilas más vendidas en moda.",
+  "descripcion": "La mochila clásica de Eastpak, de 38 litros, para clase, trabajo o el día a día.",
+  "puntos": [
+   "38 litros",
+   "Unisex"
+  ],
+  "colecciones": [
+   "top",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=EASTPAK+Padded+Pak%27r+mochila+38+L&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "puma-phase",
+  "nombre": "PUMA Phase — mochila",
+  "categoria": "Bolsos y accesorios",
+  "etiqueta": "",
+  "porque": "Entre las mochilas más vendidas en moda.",
+  "descripcion": "Mochila de PUMA ligera y práctica para el día a día o el gimnasio.",
+  "puntos": [
+   "Unisex",
+   "Ligera"
+  ],
+  "colecciones": [
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=PUMA+Phase+mochila+unisex&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "coronel-tapiocca",
+  "nombre": "Coronel Tapiocca — bandolera de hombre",
+  "categoria": "Bolsos y accesorios",
+  "etiqueta": "Top",
+  "porque": "Número uno en bolsos de Amazon.",
+  "descripcion": "Bandolera de hombre para el día a día, viajes o trabajo.",
+  "puntos": [
+   "Para hombre",
+   "Uso diario"
+  ],
+  "colecciones": [
+   "top",
+   "el",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Coronel+Tapioca+bandolera+hombre&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "levis-batwing-tote",
+  "nombre": "Levi’s Batwing Tote — bolso de mano",
+  "categoria": "Bolsos y accesorios",
+  "etiqueta": "",
+  "porque": "Entre los bolsos más vendidos de Amazon.",
+  "descripcion": "Bolso tote de Levi’s con el logo Batwing, amplio para el día a día.",
+  "puntos": [
+   "Para mujer",
+   "Amplio"
+  ],
+  "colecciones": [
+   "ella",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Levi%27s+Batwing+Tote+bolso+mujer&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "levis-mini-crossbody",
+  "nombre": "Levi’s Mini Crossbody — bandolera pequeña",
+  "categoria": "Bolsos y accesorios",
+  "etiqueta": "",
+  "porque": "Entre los bolsos más vendidos de Amazon.",
+  "descripcion": "Bandolera pequeña de Levi’s para llevar lo justo: móvil, llaves y cartera.",
+  "puntos": [
+   "Tamaño mini",
+   "Unisex"
+  ],
+  "colecciones": [
+   "el",
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Levi%27s+Mini+Crossbody+bandolera&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "shepretty-mochila",
+  "nombre": "shepretty — mochila antirrobo de mujer",
+  "categoria": "Bolsos y accesorios",
+  "etiqueta": "",
+  "porque": "Entre los bolsos más vendidos de Amazon.",
+  "descripcion": "Mochila de mujer con cierre antirrobo, práctica para el día a día.",
+  "puntos": [
+   "Antirrobo",
+   "Para mujer"
+  ],
+  "colecciones": [
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=shepretty+mochila+antirrobo+mujer&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "don-algodon-zita",
+  "nombre": "Don Algodón Zita — bandolera de mujer",
+  "categoria": "Bolsos y accesorios",
+  "etiqueta": "",
+  "porque": "Entre los bolsos más vendidos de Amazon.",
+  "descripcion": "Bolso bandolera de mujer de Don Algodón, de tamaño cómodo para el día.",
+  "puntos": [
+   "Para mujer",
+   "Marca española"
+  ],
+  "colecciones": [
+   "ella",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Don+Algod%C3%B3n+Zita+bolso+bandolera+mujer&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "besch-paraguas",
+  "nombre": "BESCH — paraguas automático antiviento",
+  "categoria": "Bolsos y accesorios",
+  "etiqueta": "",
+  "porque": "Entre lo más vendido en moda.",
+  "descripcion": "Paraguas largo, grande y automático, resistente al viento.",
+  "puntos": [
+   "Apertura automática",
+   "Antiviento"
+  ],
+  "colecciones": [
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=BESCH+paraguas+largo+autom%C3%A1tico+antiviento&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "maybelline-sky-high",
+  "nombre": "Maybelline Lash Sensational Sky High — máscara",
+  "categoria": "Belleza",
+  "etiqueta": "Top",
+  "porque": "La número uno en belleza de Amazon.",
+  "descripcion": "Máscara de pestañas para dar volumen y longitud.",
+  "puntos": [
+   "Volumen y longitud",
+   "Color negro"
+  ],
+  "colecciones": [
+   "top",
+   "ella",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Maybelline+Lash+Sensational+Sky+High+m%C3%A1scara&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "maybelline-borrador",
+  "nombre": "Maybelline — corrector Borrador",
+  "categoria": "Belleza",
+  "etiqueta": "",
+  "porque": "Uno de los más vendidos en belleza.",
+  "descripcion": "Corrector de ojeras e imperfecciones con aplicador de esponja.",
+  "puntos": [
+   "Para ojeras",
+   "Varios tonos"
+  ],
+  "colecciones": [
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Maybelline+corrector+borrador+ojeras&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "revlon-uniqone",
+  "nombre": "Revlon UniqOne — protector térmico",
+  "categoria": "Belleza",
+  "etiqueta": "",
+  "porque": "Uno de los más vendidos en belleza.",
+  "descripcion": "Tratamiento en spray sin aclarado que protege el pelo del calor e hidrata.",
+  "puntos": [
+   "Sin aclarado",
+   "Protección térmica"
+  ],
+  "colecciones": [
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Revlon+Professional+UniqOne+protector+t%C3%A9rmico&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "dalba-spray-serum",
+  "nombre": "d’alba First Spray Serum — trufa blanca",
+  "categoria": "Belleza",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en belleza.",
+  "descripcion": "Bruma facial hidratante de cosmética coreana para todo tipo de piel.",
+  "puntos": [
+   "Cosmética coreana",
+   "Bruma hidratante"
+  ],
+  "colecciones": [
+   "ella",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=d%27alba+First+Spray+Serum+trufa+blanca&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "elizabeth-arden-green-tea",
+  "nombre": "Elizabeth Arden Green Tea Honey Drops",
+  "categoria": "Belleza",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en belleza.",
+  "descripcion": "Crema hidratante corporal con té verde y gotas de miel.",
+  "puntos": [
+   "Crema corporal",
+   "Aroma té verde"
+  ],
+  "colecciones": [
+   "ella",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Elizabeth+Arden+Green+Tea+Honey+Drops+crema+corporal&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "weleda-skin-food",
+  "nombre": "Weleda Skin Food — bálsamo corporal",
+  "categoria": "Belleza",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en belleza.",
+  "descripcion": "Bálsamo nutritivo para piel seca: nutrición y reparación intensa.",
+  "puntos": [
+   "Piel seca",
+   "Nutrición intensa"
+  ],
+  "colecciones": [
+   "ella"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Weleda+Skin+Food+Body+Butter&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "philips-multigroom",
+  "nombre": "Philips Multigroom Serie 3000 — 8 en 1",
+  "categoria": "Belleza",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en belleza.",
+  "descripcion": "Recortadora para barba, pelo y cuerpo con varios cabezales.",
+  "puntos": [
+   "8 en 1",
+   "Barba, pelo y cuerpo"
+  ],
+  "colecciones": [
+   "el",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Philips+Multigroom+Serie+3000+8+en+1+MG3730&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "philips-oneblade",
+  "nombre": "Philips OneBlade 360 — afeitadora",
+  "categoria": "Belleza",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en belleza.",
+  "descripcion": "Maquinilla híbrida para recortar, perfilar y afeitar.",
+  "puntos": [
+   "Recorta y afeita",
+   "Cuchilla 360"
+  ],
+  "colecciones": [
+   "el",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Philips+OneBlade+360&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "slick-gorilla",
+  "nombre": "Slick Gorilla — polvo de peinado",
+  "categoria": "Belleza",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en belleza.",
+  "descripcion": "Polvo texturizante para dar volumen al pelo.",
+  "puntos": [
+   "Volumen",
+   "Efecto mate"
+  ],
+  "colecciones": [
+   "el"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Slick+Gorilla+Hair+Styling+Powder&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "philips-quitapelusas",
+  "nombre": "Philips GC026 — quitapelusas",
+  "categoria": "Hogar",
+  "etiqueta": "Top",
+  "porque": "El número uno en hogar y cocina de Amazon.",
+  "descripcion": "Quitapelusas eléctrico para dejar como nuevos jerséis, abrigos y sofás.",
+  "puntos": [
+   "Para todas las prendas",
+   "Eléctrico"
+  ],
+  "colecciones": [
+   "top",
+   "casa",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Philips+quitapelusas+GC026&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "utopia-sabanas",
+  "nombre": "Utopia Bedding — juego de sábanas",
+  "categoria": "Hogar",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en hogar y cocina.",
+  "descripcion": "Juego de sábanas de microfibra cepillada: bajera, encimera y fundas de almohada.",
+  "puntos": [
+   "Microfibra suave",
+   "Varios tamaños"
+  ],
+  "colecciones": [
+   "casa"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Utopia+Bedding+juego+de+sabanas+microfibra&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "todocama-almohada",
+  "nombre": "Todocama — almohadas viscoelásticas (pack de 2)",
+  "categoria": "Hogar",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en hogar y cocina.",
+  "descripcion": "Pack de dos almohadas viscoelásticas con aloe vera.",
+  "puntos": [
+   "Pack de 2",
+   "Viscoelásticas"
+  ],
+  "colecciones": [
+   "casa"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Todocama+almohada+viscoel%C3%A1stica+aloe+vera+pack+2&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "amazon-basics-vacio",
+  "nombre": "Amazon Basics — bolsas de vacío",
+  "categoria": "Hogar",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en hogar y cocina.",
+  "descripcion": "Bolsas de vacío para guardar ropa y mantas ocupando mucho menos espacio.",
+  "puntos": [
+   "Ahorra espacio",
+   "Varios tamaños"
+  ],
+  "colecciones": [
+   "casa"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Amazon+Basics+bolsas+de+vac%C3%ADo+almacenamiento&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "lifewit-organizador",
+  "nombre": "Lifewit — organizadores de ropa (3 piezas)",
+  "categoria": "Hogar",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en hogar y cocina.",
+  "descripcion": "Cajas plegables de tela con ventana para guardar ropa, mantas o abrigos.",
+  "puntos": [
+   "3 piezas",
+   "Plegables"
+  ],
+  "colecciones": [
+   "casa"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Lifewit+organizador+ropa+3+piezas&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "cecotec-difusor",
+  "nombre": "Cecotec Pure Aroma 300 Yang — difusor de aromas",
+  "categoria": "Hogar",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en hogar y cocina.",
+  "descripcion": "Humidificador ultrasónico y difusor de aromas con temporizador.",
+  "puntos": [
+   "Con temporizador",
+   "Ultrasónico"
+  ],
+  "colecciones": [
+   "casa",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Cecotec+Pure+Aroma+300+Yang+difusor&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "cosori-freidora",
+  "nombre": "COSORI — freidora de aire 5,5 L",
+  "categoria": "Cocina",
+  "etiqueta": "Top",
+  "porque": "Entre los productos más vendidos de hogar y cocina.",
+  "descripcion": "Freidora sin aceite de 5,5 litros con programas automáticos y recetas en español.",
+  "puntos": [
+   "5,5 litros",
+   "Programas automáticos"
+  ],
+  "colecciones": [
+   "top",
+   "casa",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=COSORI+freidora+de+aire+5%2C5+L&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "nespresso-inissia",
+  "nombre": "Nespresso De’Longhi Inissia — cafetera",
+  "categoria": "Cocina",
+  "etiqueta": "",
+  "porque": "Entre las más vendidas en hogar y cocina.",
+  "descripcion": "Cafetera de cápsulas Nespresso compacta, con 19 bares y apagado automático.",
+  "puntos": [
+   "19 bares",
+   "Compacta"
+  ],
+  "colecciones": [
+   "casa",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Nespresso+De%27Longhi+Inissia+cafetera&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "bosch-molinillo",
+  "nombre": "Bosch — molinillo de café eléctrico",
+  "categoria": "Cocina",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en hogar y cocina.",
+  "descripcion": "Molinillo de café eléctrico de 180 W para moler al momento.",
+  "puntos": [
+   "180 W",
+   "Café recién molido"
+  ],
+  "colecciones": [
+   "casa"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Bosch+molinillo+de+caf%C3%A9+el%C3%A9ctrico+180+W&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "philips-tostadora",
+  "nombre": "Philips Daily Collection — tostadora",
+  "categoria": "Cocina",
+  "etiqueta": "",
+  "porque": "Entre las más vendidas en hogar y cocina.",
+  "descripcion": "Tostadora de dos ranuras con varios niveles y rejilla calientabollos.",
+  "puntos": [
+   "2 ranuras",
+   "Rejilla calientabollos"
+  ],
+  "colecciones": [
+   "casa"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Philips+Daily+Collection+tostadora+HD2581&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "arcos-mondadores",
+  "nombre": "Arcos Nova — cuchillos mondadores (3 piezas)",
+  "categoria": "Cocina",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en hogar y cocina.",
+  "descripcion": "Set de tres cuchillos de acero inoxidable para pelar frutas y verduras.",
+  "puntos": [
+   "3 piezas",
+   "Acero inoxidable"
+  ],
+  "colecciones": [
+   "casa",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Arcos+set+cuchillos+mondadores+Nova+3+piezas&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "amazon-basics-carrito",
+  "nombre": "Amazon Basics — carrito de cocina de 3 niveles",
+  "categoria": "Cocina",
+  "etiqueta": "",
+  "porque": "El más vendido en muebles de cocina.",
+  "descripcion": "Carrito con ruedas y tres estantes para cocina, baño o despacho.",
+  "puntos": [
+   "3 niveles",
+   "Con ruedas"
+  ],
+  "colecciones": [
+   "casa"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Amazon+Basics+carrito+de+cocina+tres+niveles+ruedas&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "fire-tv-stick",
+  "nombre": "Amazon Fire TV Stick HD",
+  "categoria": "Tecnología",
+  "etiqueta": "Top",
+  "porque": "El número uno en electrónica de Amazon.",
+  "descripcion": "Convierte tu tele en inteligente: apps, series y control por voz con Alexa.",
+  "puntos": [
+   "Mando por voz Alexa",
+   "Streaming HD"
+  ],
+  "colecciones": [
+   "top",
+   "casa",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Amazon+Fire+TV+Stick+HD&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "echo-pop",
+  "nombre": "Echo Pop — altavoz inteligente con Alexa",
+  "categoria": "Tecnología",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en electrónica.",
+  "descripcion": "Altavoz compacto con Alexa para música, recordatorios y hogar digital.",
+  "puntos": [
+   "Con Alexa",
+   "Compacto"
+  ],
+  "colecciones": [
+   "casa",
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Echo+Pop+altavoz+Alexa&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "tapo-c200",
+  "nombre": "Tapo C200 — cámara de vigilancia WiFi 360°",
+  "categoria": "Tecnología",
+  "etiqueta": "",
+  "porque": "Entre los más vendidos en electrónica.",
+  "descripcion": "Cámara de interior con giro de 360°, visión nocturna y avisos en el móvil.",
+  "puntos": [
+   "Visión nocturna",
+   "Giro 360°"
+  ],
+  "colecciones": [
+   "casa"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Tapo+C200+c%C3%A1mara+vigilancia+WiFi+360&tag=velans-21",
+  "imagen": ""
+ },
+ {
+  "id": "logitech-m240",
+  "nombre": "Logitech M240 Silent — ratón Bluetooth",
+  "categoria": "Tecnología",
+  "etiqueta": "",
+  "porque": "Entre los accesorios de informática más vendidos.",
+  "descripcion": "Ratón inalámbrico compacto y silencioso para portátil o tablet.",
+  "puntos": [
+   "Silencioso",
+   "Bluetooth"
+  ],
+  "colecciones": [
+   "regalos"
+  ],
+  "enlace": "https://www.amazon.es/s?k=Logitech+M240+Silent+rat%C3%B3n+Bluetooth&tag=velans-21",
+  "imagen": ""
+ }
 ];
 
 /* ================= lógica ================= */
-const TINTS = ["#F3E7D7","#F6E0D3","#EDE6D8","#F4DCC9"];
-const ETIQ = { Nuevo:"Nuevo", Top:"Top ventas", Oferta:"Oferta" };
+const ICONS = {
+  dress:'<path d="M9 3h6l-1 4 4 13H6l4-13z"/><path d="M10 7h4"/>',
+  shirt:'<path d="M8 3l-5 3 2 4 3-1v12h8V9l3 1 2-4-5-3a4 4 0 0 1-8 0z"/>',
+  shoe:'<path d="M3 16v-5l4-1 3 2 4 1 5 1a2 2 0 0 1 2 2v1z"/><path d="M3 16v2h18v-2"/><path d="M10 12l1-2M13 13l1-2"/>',
+  watch:'<circle cx="12" cy="12" r="5"/><path d="M12 10v2l1.5 1"/><path d="M9 7l.7-4h4.6l.7 4M9 17l.7 4h4.6l.7-4"/>',
+  bag:'<path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>',
+  beauty:'<rect x="9" y="9" width="6" height="12" rx="1"/><path d="M10 9V5h4v4"/><path d="M11 5V3h2v2"/>',
+  home:'<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
+  kitchen:'<path d="M4 11h16v2a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6z"/><path d="M9 4c0 2 2 2 2 4M13 4c0 2 2 2 2 4"/>',
+  tech:'<rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8M12 17v4"/>'
+};
+const svg = (name, cls, size) => `<svg class="${cls || ""}" ${size ? `width="${size}" height="${size}"` : ""} aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${ICONS[name] || ICONS.bag}</svg>`;
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const state = { coll:"", cat:"Todo", q:"" };
-const cats = ["Todo", ...Array.from(new Set(PRODUCTOS.map(p => p.categoria)))];
-const inColl = (p, id) => (p.colecciones || []).includes(id);
+const secOf = (p) => SECCIONES.find(s => s.nombre === p.categoria) || SECCIONES[0];
+const brandOf = (p) => p.nombre.split(/\s+[—-]\s+/)[0];
+const state = { coll:"", q:"" };
 
-const media = (p) => p.imagen
-  ? `<img class="photo" src="${esc(p.imagen)}" alt="${esc(p.nombre)}" loading="lazy">`
-  : `<span class="ph"><img src="monogram.png" alt=""><b>${esc(p.categoria)}</b></span>`;
-const price = (p) => !p.precio ? `Ver precio en la tienda`
-  : `<strong class="${p.antes ? "is-sale" : ""}">${esc(p.precio)}</strong>${p.antes ? `<s>${esc(p.antes)}</s>` : ""}`;
-const buy = (p) => p.enlace
-  ? `<a class="btn btn-cta" href="${esc(p.enlace)}" target="_blank" rel="sponsored noopener">Comprar</a>`
-  : `<a class="btn btn-cta" href="#" aria-disabled="true" title="Falta el enlace de afiliado">Comprar</a>`;
-const badge = (p) => p.etiqueta ? `<span class="badge ${p.etiqueta === "Oferta" ? "sale" : ""}">${esc(ETIQ[p.etiqueta] || p.etiqueta)}</span>` : "";
-
-function renderColls(){
-  $("#colls").innerHTML = COLECCIONES.map(c => {
-    const n = PRODUCTOS.filter(p => inColl(p, c.id)).length;
-    return `<button class="coll" data-coll="${esc(c.id)}" aria-pressed="${state.coll === c.id}" style="background:${esc(c.color)}">
-      <strong>${esc(c.nombre)}</strong><span>${n} ${n === 1 ? "producto" : "productos"} →</span></button>`;
-  }).join("");
+function tile(p, asButton){
+  const s = secOf(p);
+  const inner = p.imagen
+    ? `<img class="photo" src="${esc(p.imagen)}" alt="${esc(p.nombre)}" loading="lazy">`
+    : `${svg(s.icon, "big")}<span class="brand">${esc(brandOf(p))}</span>`;
+  const badge = p.etiqueta === "Top" ? `<span class="badge">Top ventas</span>` : "";
+  return asButton
+    ? `<button class="tile" data-open="${esc(p.id)}" style="background:${s.color}" aria-label="Ver ${esc(p.nombre)}">${inner}${badge}</button>`
+    : `<div class="tile" style="background:${s.color}">${inner}${badge}</div>`;
 }
-function renderChips(){
-  $("#chips").innerHTML = cats.map(c =>
-    `<button class="chip" data-cat="${esc(c)}" aria-pressed="${state.cat === c}">${esc(c)}</button>`).join("");
+function card(p){
+  return `<article class="card">
+    ${tile(p, true)}
+    <div class="in">
+      <h3><button data-open="${esc(p.id)}">${esc(p.nombre)}</button></h3>
+      <p class="reason">${esc(p.porque)}</p>
+      <div class="foot"><a class="btn btn-cta" href="${esc(p.enlace)}" target="_blank" rel="sponsored noopener">Ver en Amazon</a></div>
+    </div>
+  </article>`;
 }
-function renderGrid(){
+function matches(p){
   const q = state.q.trim().toLowerCase();
-  const items = PRODUCTOS.filter(p =>
-    (!state.coll || inColl(p, state.coll)) &&
-    (state.cat === "Todo" || p.categoria === state.cat) &&
-    (!q || [p.nombre, p.categoria, p.porque, p.descripcion].join(" ").toLowerCase().includes(q)));
-  const c = COLECCIONES.find(x => x.id === state.coll);
-  $("#listTitle").textContent = state.q ? `Resultados para «${state.q}»` : (c ? c.nombre : "Nuestra selección");
-  $("#count").textContent = items.length === 1 ? "1 producto" : `${items.length} productos`;
-  $("#grid").innerHTML = items.length ? items.map((p, i) => `
-    <article class="card">
-      <button class="thumb" data-open="${esc(p.id)}" style="background:${TINTS[i % TINTS.length]}" aria-label="Ver ${esc(p.nombre)}">${media(p)}${badge(p)}</button>
-      <div class="in">
-        <span class="cat">${esc(p.categoria)}</span>
-        <h3><button data-open="${esc(p.id)}">${esc(p.nombre)}</button></h3>
-        <p class="reason">${esc(p.porque)}</p>
-        <div class="price">${price(p)}</div>
-        ${buy(p)}
-      </div>
-    </article>`).join("")
-    : `<div class="empty">No hay nada que coincida. Prueba con otra búsqueda.</div>`;
+  return (!state.coll || (p.colecciones || []).includes(state.coll)) &&
+    (!q || [p.nombre, p.categoria, p.porque, p.descripcion].join(" ").toLowerCase().includes(q));
 }
-function renderAll(){ renderColls(); renderChips(); renderGrid(); }
+function render(){
+  const list = PRODUCTOS.filter(matches);
+  const groups = SECCIONES.map(s => ({ s, items: list.filter(p => secOf(p) === s) })).filter(g => g.items.length);
+  $("#secnav").innerHTML = groups.map(g => `<a href="#${g.s.id}">${esc(g.s.nombre)}</a>`).join("");
+  $("#sections").innerHTML = groups.length ? groups.map(g => `
+    <section class="sec" id="${g.s.id}" aria-labelledby="h-${g.s.id}">
+      <div class="sec-head"><span class="ic" style="background:${g.s.color}">${svg(g.s.icon, "", 22)}</span><h2 id="h-${g.s.id}">${esc(g.s.nombre)}</h2><span class="count">${g.items.length} ${g.items.length === 1 ? "artículo" : "artículos"}</span></div>
+      <div class="grid">${g.items.map(card).join("")}</div>
+    </section>`).join("")
+    : `<div class="empty">No hay artículos que coincidan. Prueba con otra búsqueda.</div>`;
+  $("#colls").innerHTML = COLECCIONES.map(c => {
+    const n = PRODUCTOS.filter(p => (p.colecciones || []).includes(c.id)).length;
+    return `<button class="coll" data-coll="${esc(c.id)}" aria-pressed="${state.coll === c.id}" style="background:${esc(c.color)}"><strong>${esc(c.nombre)}</strong><span>${n} artículos →</span></button>`;
+  }).join("");
+  const c = COLECCIONES.find(x => x.id === state.coll);
+  const active = c || state.q.trim();
+  $("#filterbar").classList.toggle("show", !!active);
+  $("#filterText").textContent = c ? `Mostrando: ${c.nombre} (${list.length})` : (state.q.trim() ? `Resultados para «${state.q.trim()}» (${list.length})` : "");
+}
 
 let lastFocus = null;
 function openProduct(id, fromHash){
   const p = PRODUCTOS.find(x => x.id === id); if (!p) return;
   lastFocus = document.activeElement;
-  $("#mMedia").innerHTML = media(p);
+  $("#mTile").innerHTML = tile(p, false);
   $("#mCat").textContent = p.categoria;
   $("#mTitle").textContent = p.nombre;
-  $("#mWhy").innerHTML = `<b>Por qué nos gusta:</b> ${esc(p.porque)}`;
-  $("#mPrice").innerHTML = price(p);
+  $("#mWhy").innerHTML = `<b>Por qué está aquí:</b> ${esc(p.porque)}`;
   $("#mDesc").textContent = p.descripcion;
   $("#mPoints").innerHTML = (p.puntos || []).map(x => `<li>${esc(x)}</li>`).join("");
-  const b = $("#mBuy");
-  if (p.enlace){ b.href = p.enlace; b.removeAttribute("aria-disabled"); b.removeAttribute("title"); }
-  else { b.href = "#"; b.setAttribute("aria-disabled","true"); b.title = "Falta el enlace de afiliado"; }
+  $("#mBuy").href = p.enlace;
   $("#modal").classList.add("open");
   if (!fromHash) history.replaceState(null, "", "#p-" + p.id);
   $("#modal .close").focus();
@@ -352,11 +1440,9 @@ function closeAll(){
   if (lastFocus) lastFocus.focus();
 }
 const INFO = {
-  como: ["Cómo funciona", "<p>Elegimos productos de tiendas online de confianza. Al pulsar «Comprar» vas a la tienda oficial y pagas allí, al mismo precio. El envío, la garantía y las devoluciones los gestiona esa tienda. Nosotros podemos recibir una pequeña comisión de la tienda, sin coste para ti.</p>"],
-  contacto: ["Contacto", "<p>[Tu email de contacto]</p>"],
-  aviso: ["Aviso legal", "<p>[Titular de la web y datos de contacto, conforme a la LSSI. Completar antes de publicar.]</p>"],
-  privacidad: ["Privacidad", "<p>[Qué datos recoges, para qué y cómo ejercer los derechos RGPD. Completar antes de publicar.]</p>"],
-  cookies: ["Cookies", "<p>[Cookies propias y de terceros (programas de afiliados). Completar antes de publicar.]</p>"]
+  como: ["Cómo funciona", "<p>Seleccionamos artículos que están entre los más vendidos de Amazon en su categoría. Al pulsar «Ver en Amazon» vas a la página de Amazon, donde ves el precio actual y compras de forma segura. El envío, la garantía y las devoluciones los gestiona Amazon. Nosotros podemos recibir una pequeña comisión de Amazon, sin coste para ti.</p>"],
+  privacidad: ["Privacidad", "<p>Velan’s no tiene formularios ni registro, así que no recoge ni guarda datos personales de sus visitantes.</p><p>Cuando pulsas un enlace a Amazon, sales de esta web y Amazon aplica su propia política de privacidad.</p>"],
+  cookies: ["Cookies", "<p>Velan’s no instala cookies propias.</p><p>Al pulsar un enlace a Amazon, Amazon puede usar cookies en su web para registrar que llegaste desde aquí y atribuir la compra, según su propia política de cookies.</p>"]
 };
 function openInfo(k){
   const it = INFO[k]; if (!it) return;
@@ -367,28 +1453,26 @@ function openInfo(k){
 function fromHash(){
   const h = location.hash.slice(1);
   if (h.startsWith("p-")) openProduct(h.slice(2), true);
-  else if (h.startsWith("c-") && COLECCIONES.some(c => c.id === h.slice(2))){ state.coll = h.slice(2); renderAll(); }
+  else if (h.startsWith("c-") && COLECCIONES.some(c => c.id === h.slice(2))){ state.coll = h.slice(2); render(); }
 }
 
 document.addEventListener("click", (e) => {
   const t = e.target;
   const coll = t.closest("[data-coll]");
-  if (coll){ state.coll = state.coll === coll.dataset.coll ? "" : coll.dataset.coll; renderAll(); $("#listTitle").scrollIntoView({ behavior:"smooth", block:"start" }); return; }
-  const chip = t.closest("[data-cat]");
-  if (chip){ state.cat = chip.dataset.cat; renderChips(); renderGrid(); return; }
+  if (coll){ state.coll = state.coll === coll.dataset.coll ? "" : coll.dataset.coll; render(); $("#sections").scrollIntoView({ behavior:"smooth", block:"start" }); return; }
   const op = t.closest("[data-open]");
   if (op){ openProduct(op.dataset.open); return; }
   const info = t.closest("[data-info]");
   if (info){ e.preventDefault(); openInfo(info.dataset.info); return; }
-  if (t.closest('a[aria-disabled="true"]')){ e.preventDefault(); return; }
   if (t.closest("[data-close]") || t.classList.contains("modal")){ closeAll(); return; }
-  if (t.closest("#home")){ e.preventDefault(); state.coll = ""; state.cat = "Todo"; state.q = ""; $("#q").value = ""; renderAll(); window.scrollTo({ top:0, behavior:"smooth" }); }
+  if (t.closest("#home")){ e.preventDefault(); state.coll = ""; state.q = ""; $("#q").value = ""; render(); window.scrollTo({ top:0, behavior:"smooth" }); }
 });
+$("#clearFilter").addEventListener("click", () => { state.coll = ""; state.q = ""; $("#q").value = ""; render(); });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAll(); });
-$("#q").addEventListener("input", (e) => { state.q = e.target.value; renderGrid(); });
+$("#q").addEventListener("input", (e) => { state.q = e.target.value; render(); });
 window.addEventListener("hashchange", fromHash);
 $("#year").textContent = new Date().getFullYear();
-renderAll(); fromHash();
+render(); fromHash();
 </script>
 </body>
 </html>
