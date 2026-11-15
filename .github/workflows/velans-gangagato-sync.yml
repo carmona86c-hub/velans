@@ -20,7 +20,7 @@ jobs:
       - name: Comprobar el consumo y capturar nuevas publicaciones
         env:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-          APIFY_TASK_ID: ${{ vars.APIFY_TASK_ID }}
+          APIFY_TASK_ID: vKORYqAgvKcxPSAbC
         run: node scripts/sync-gangagato.mjs
       - name: Guardar únicamente las nuevas publicaciones
         run: |
