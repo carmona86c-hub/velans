@@ -73,16 +73,12 @@ async function run() {
   if (!/^[A-Za-z0-9_~.-]{5,100}$/.test(taskId)) throw new Error('APIFY_TASK_ID no tiene el formato esperado');
   const feed = JSON.parse(await fs.readFile(FILE, 'utf8'));
   // Consulta la facturación real antes de cada ejecución; si falla, no gasta.
-  const [usage, limits] = await Promise.all([
-    api('/users/me/usage/monthly', token),
-    api('/users/me/limits', token),
-  ]);
+  const usage = await api('/users/me/usage/monthly', token);
   const total = Number(usage.data?.totalUsageCreditsUsdAfterVolumeDiscount);
-  const limited = Number(limits.data?.current?.monthlyUsageUsd);
-  if (!Number.isFinite(total) || !Number.isFinite(limited) || total < 0 || limited < 0) {
+  if (!Number.isFinite(total) || total < 0) {
     throw new Error('Consumo de Apify desconocido. Ejecución cancelada sin iniciar Actor.');
   }
-  const spent = Math.max(total, limited);
+  const spent = total;
   const available = Math.floor((MONTHLY_HARD_CAP_USD - spent) * 100) / 100;
   if (available < 0.10) {
     console.log(`Sin iniciar captura: consumo mensual de Apify ${spent.toFixed(2)} USD, margen insuficiente.`);
