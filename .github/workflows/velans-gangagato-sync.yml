@@ -1,7 +1,8 @@
 name: Velans - capturar ofertas con presupuesto
 on:
-  schedule:
-    - cron: '15 8 * * *'
+  # EN PAUSA: para reactivar, quita las almohadillas de las dos líneas siguientes.
+  # schedule:
+  #   - cron: '15 8 * * *'
   workflow_dispatch:
 permissions:
   contents: write
