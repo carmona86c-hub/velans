@@ -17,7 +17,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Comprobar el consumo y capturar nuevas publicaciones
+      - name: Verificar reglas de seguridad del presupuesto
+        run: node --test tests/*.test.mjs
+      - name: Reservar presupuesto y capturar nuevas publicaciones
         env:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
           APIFY_TASK_ID: vKORYqAgvKcxPSAbC
