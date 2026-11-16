@@ -186,3 +186,7 @@ footer a{color:#dfae89}.modal{background:#0a080dcf}.modal-dialog{background:#211
   .affiliate-disclosure{padding:20px 16px}.affiliate-disclosure h2{font-size:20px}
 }
 @media(prefers-reduced-motion:reduce){.hero-slide,.product-card,.feature-product{transition:none!important}}
+
+/* Los filtros de cada departamento se gestionan exclusivamente desde la barra superior. */
+.filter-toolbar .sort-wrap{margin-left:auto}
+.catalog.listing-view .active-filters{display:none}
