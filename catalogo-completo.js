@@ -1287,7 +1287,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 72,
       "ref": "manager:B00XVN7T70",
-      "name": "Tristar Tostadora, 2 Rebanadas, Soporte para Panecillos",
+      "name": "Tristar Tostadora",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1306,7 +1306,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 73,
       "ref": "manager:B0DT1F3ZC1",
-      "name": "Tommy Hilfiger Camisa Mujer Oxford Relaxed Fit, Azul (Classic Ithaca STP Mid Blue), 42",
+      "name": "Tommy Hilfiger Camisa Mujer Oxford Relaxed Fit",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1325,7 +1325,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 74,
       "ref": "manager:B0FDGFJV92",
-      "name": "Calvin Klein Cinturón Hombre Round Buckle 3,5 cm de piel, Negro (Black/Antique Silver), 105 cm",
+      "name": "Calvin Klein Cinturón Hombre Round Buckle 3,5 cm",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1344,7 +1344,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 75,
       "ref": "manager:B0BSFTYW9R",
-      "name": "Star Wars Galactic Team Maleta de Cabina Negro 38x55x20 cms Rígida ABS Cierre de combinación Lateral 34L 2 kgs 4 Ruedas",
+      "name": "Star Wars Galactic Team Maleta de Cabina Negro",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1363,7 +1363,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 76,
       "ref": "manager:B0GPD64LXK",
-      "name": "Samsonite Guardit 3.0 - Mochila de Cabina 40 x 30 x 20 cm, 25 L, Azul",
+      "name": "Samsonite Guardit 3.0",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1382,7 +1382,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 77,
       "ref": "manager:B0FVXFG4BL",
-      "name": "Tommy Hilfiger Vaqueros Mujer Straight CAM Loose Fit, Azul (CAM Mid), 28W/28L",
+      "name": "Tommy Hilfiger Vaqueros Mujer Straight CAM Loose",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1401,7 +1401,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 78,
       "ref": "manager:B0F3565B68",
-      "name": "Amazon Essentials Chaleco Plumífero Plegable y Ligero, Resistente a la Lluvia Mujer, Marrón Claro, S",
+      "name": "Amazon Essentials Chaleco Plumífero Plegable",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1420,7 +1420,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 79,
       "ref": "manager:B07QL8WW2G",
-      "name": "Rexona Invisible Desodorante Aerosol Antitranspirante para hombre Ice 200ml - Pack de 6, El embalaje puede variar",
+      "name": "Rexona Invisible Desodorante Aerosol",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1439,7 +1439,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 80,
       "ref": "manager:B0GKVF27MX",
-      "name": "Lutuan Mochila escolar para niñas y adolescentes, gris",
+      "name": "Lutuan Mochila escolar para niñas y adolescentes",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1458,7 +1458,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 81,
       "ref": "manager:B0C58ZBT7F",
-      "name": "Hummel Zapatillas Multideporte Reach TR Multisport Talla Adulto, Negro, 40 EU",
+      "name": "Hummel Zapatillas Multideporte Reach TR",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1477,7 +1477,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 82,
       "ref": "manager:B06Y61BZ3X",
-      "name": "Joma Championship IV Pantalones, Hombre, Negro, XL",
+      "name": "Joma Championship IV Pantalones",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1496,7 +1496,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 83,
       "ref": "manager:B08LNZYST2",
-      "name": "Under Armour Hombre UA HG Armour Comp Mock LS Shirt",
+      "name": "Under Armour Hombre UA HG Armour Comp Mock LS",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1515,7 +1515,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 84,
       "ref": "manager:B0FDCYX7F4",
-      "name": "Tommy Hilfiger Blusa Mujer Poplin de algodón, Rosa (Bonita Pink), L",
+      "name": "Tommy Hilfiger Blusa Mujer Poplin de algodón",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1534,7 +1534,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 85,
       "ref": "manager:B0F5BXMQX3",
-      "name": "Helly Hansen Men's Hudson T-Shirt, Navy, S",
+      "name": "Helly Hansen Men's Hudson T-Shirt",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1553,7 +1553,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 86,
       "ref": "manager:B0CYM431YH",
-      "name": "GANT Sudadera con Media Cremallera REG Shield, Fuente de Huevo., L",
+      "name": "GANT Sudadera con Media Cremallera REG Shield",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1572,7 +1572,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 87,
       "ref": "manager:B06Y5XDNXF",
-      "name": "Taurus Robot 600 Plus Inox Batidora de Mano 600W, 20 Velocidades, Picadora, picadora 350 ml, 500 ml",
+      "name": "Taurus Robot 600 Plus Inox Batidora de Mano 600W",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1591,7 +1591,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 88,
       "ref": "manager:B01MDTYHBM",
-      "name": "G-STAR Cinturón Zed para Hombre, Negro (black/matt black metal D04169-3127-406), 90",
+      "name": "G-STAR Cinturón Zed para Hombre",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1610,7 +1610,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 89,
       "ref": "manager:B072BGK61D",
-      "name": "Splash About Traje de Neopreno para bebé Warm in One",
+      "name": "Splash About Traje de Neopreno para bebé Warm in",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1629,7 +1629,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 90,
       "ref": "manager:B077MNZJRB",
-      "name": "PUMA Unisex ST Runner v2 NL Sneakers, Puma Black-Puma White, 44 EU",
+      "name": "PUMA Unisex ST Runner v2 NL Sneakers",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1648,7 +1648,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 91,
       "ref": "manager:B0FDWYY5M2",
-      "name": "Armani Exchange Men's Las Vegas, logotipo de metal, bolsa de mensajero con cremallera, quimera",
+      "name": "Armani Exchange Men's Las Vegas",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1667,7 +1667,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 92,
       "ref": "manager:B0B8P6DRZ7",
-      "name": "Char-Broil Barbacoa Gas Advantage PRO S 4 con quemador cerámico 900 °C",
+      "name": "Char-Broil Barbacoa Gas Advantage PRO S 4",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1686,7 +1686,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 93,
       "ref": "manager:B0C36QTVSR",
-      "name": "Jack & Jones Jjepaulos Polo Ss Noos Polo, Hombre, Azul, L",
+      "name": "Jack & Jones Jjepaulos Polo Ss Noos Polo",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1705,7 +1705,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 94,
       "ref": "manager:B0C8CK2TRK",
-      "name": "RUIMEN Reloj Inteligente Mujer Hombre con Llamada,1,83\" Smartwatch con Pulsómetro,Podómetro,Oxímetro,Monitor Sueño",
+      "name": "RUIMEN Reloj Inteligente Mujer Hombre",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1724,7 +1724,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 95,
       "ref": "manager:B08VRGHMK5",
-      "name": "ADIDAS GP6473 SQ21 TR TOP Sweatshirt Hombre team green/white Tamaño XLT2",
+      "name": "ADIDAS GP6473 SQ21 TR TOP Sweatshirt Hombre team",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1743,7 +1743,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 96,
       "ref": "manager:B0GNSQ8ZSR",
-      "name": "Guess Mujer Bolso Satchel Dorothy Sm Girlfriend Beige",
+      "name": "Guess Mujer Bolso Satchel Dorothy Sm Girlfriend",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1762,7 +1762,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 97,
       "ref": "manager:B0DK5ZWC9Y",
-      "name": "Columbia Benton Springs 1/2 Cierre de Presión II Capa Exterior de Polar, Cierre de Presión para Fácil Uso",
+      "name": "Columbia Benton Springs 1/2 Cierre de Presión II",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1781,7 +1781,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 98,
       "ref": "manager:B0FLQ8KQC7",
-      "name": "Lenovo Legion 24-10- Monitor Gaming FHD 23.8\", Negro",
+      "name": "Lenovo Legion 24-10- Monitor Gaming FHD 23.8\"",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1800,7 +1800,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 99,
       "ref": "manager:B0FL7QLH89",
-      "name": "Logitech G G321 Lightspeed, Auriculares inalámbricos para Gaming, Blanco",
+      "name": "Logitech G G321 Lightspeed",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1819,7 +1819,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 100,
       "ref": "manager:B001553QD2",
-      "name": "2052 Destornillador hexagonal con cabeza esférica para usos electrónicos, 2.5 mm x 60 mm",
+      "name": "2052 Destornillador hexagonal con cabeza esférica",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1838,7 +1838,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 101,
       "ref": "manager:B07KPSDWJJ",
-      "name": "POP Funko NBA: Chicago Bulls - Michael Jordan",
+      "name": "POP Funko NBA: Chicago Bulls",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1857,7 +1857,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 102,
       "ref": "manager:B0719LWBL5",
-      "name": "ONLY Coat ONLSEDONA Coat Black l Black 1 L, Manga larga, Midi, Casual, Proceso normal a una temperatura máxima de 30°C",
+      "name": "ONLY Coat ONLSEDONA Coat Black l Black 1 L",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1876,7 +1876,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 103,
       "ref": "manager:B078218VDC",
-      "name": "Helly Hansen Unisex Mochila Dublin 2.0, Negro, STD",
+      "name": "Helly Hansen Unisex Mochila Dublin 2.0, Negro",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1895,7 +1895,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 104,
       "ref": "manager:B0BD4SSFSH",
-      "name": "Ergobaby Evolve 3 en 1 Hamaca para Bebés y Primera Infancia 2,5 a 13,2kg, Light Grey",
+      "name": "Ergobaby Evolve 3 en 1 Hamaca para Bebés",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1914,7 +1914,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 105,
       "ref": "manager:B00109V42I",
-      "name": "FISCHER, 090275, Varilla roscada para anclajes quimicos FIS A M8x110 (Envase de 10 und)",
+      "name": "FISCHER 090275 Varilla roscada para anclajes",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1933,7 +1933,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 106,
       "ref": "manager:B0FBG95K83",
-      "name": "Reebok Zapatillas Deportivas para Mujer, Color Gris/Blanco, Talla 38 EU",
+      "name": "Reebok Zapatillas Deportivas para Mujer",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1952,7 +1952,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 107,
       "ref": "manager:B0GSZVPW5C",
-      "name": "roborock F25 Steam Set Aspiradora y fregadora a Vapor de 180 °C",
+      "name": "roborock F25 Steam Set Aspiradora y fregadora",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1971,7 +1971,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 108,
       "ref": "manager:B0H5WY4M79",
-      "name": "Warrior Botella mezcladora de proteínas negra de 600 ml, el hogar de la creatina",
+      "name": "Warrior Botella mezcladora de proteínas negra",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -1990,7 +1990,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 109,
       "ref": "manager:B0GX8QLKTF",
-      "name": "SUNPOW Detector de metales : Chip Mejorado, Alta Precisión",
+      "name": "SUNPOW Detector de metales : Chip Mejorado",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2009,7 +2009,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 110,
       "ref": "manager:B08ZK3SLN8",
-      "name": "Router wifi de malla eero 6+ de Amazon, pack de 3",
+      "name": "Router wifi de malla eero 6+ de Amazon",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2028,7 +2028,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 111,
       "ref": "manager:B07W4FMSD9",
-      "name": "EZVIZ C6N Cámara Vigilancia WiFi Interior 360°, 1080P Camara Vigilancia Bebé/Mascotas, Vision Nocturna",
+      "name": "EZVIZ C6N Cámara Vigilancia WiFi Interior 360°",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2047,7 +2047,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 112,
       "ref": "manager:B000ZI5V4M",
-      "name": "ECCO Offroad, Sandalia deportiva Mujer, Atmosphere Ice W Black, 40 EU",
+      "name": "ECCO Offroad Sandalia deportiva Mujer Atmosphere",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2066,7 +2066,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 113,
       "ref": "manager:B09JT5768C",
-      "name": "Marc OߴPolo Hombre Camiseta de punto de algodón orgánico con cuello redondo, Gris (Grau), XL",
+      "name": "Marc OߴPolo Hombre Camiseta de punto de algodón",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2085,7 +2085,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 114,
       "ref": "manager:B0GQ9H7TTN",
-      "name": "Auriculares Inalambricos, Auriculares Bluetooth 5.3 Deportivos con Gancho de la Oreja, IP7 Impermeable Azul Claro",
+      "name": "Auriculares Inalambricos",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2104,7 +2104,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 115,
       "ref": "manager:B07KW2XG8K",
-      "name": "Minecraft Spitzhacke, 50 cm",
+      "name": "Minecraft Spitzhacke",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2123,7 +2123,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 116,
       "ref": "manager:B07J5FJWJX",
-      "name": "Air Wick Freshmatic - Recambios de ambientador Spray automático, Pack de 6",
+      "name": "Air Wick Freshmatic",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2142,7 +2142,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 117,
       "ref": "manager:B0F5HV2HC5",
-      "name": "Grupo Erik Bloc de notas Adhesivas Snoopy Peanuts - Regalos Snoopy (Paquete de 2)",
+      "name": "Grupo Erik Bloc de notas Adhesivas Snoopy Peanuts",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2161,7 +2161,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 118,
       "ref": "manager:B0CB1V3GWT",
-      "name": "Skechers Espuma de Vapor, Zapatillas de Deporte Mujer, Malla Blanca con Ribete Plateado, 36 EU",
+      "name": "Skechers Espuma de Vapor",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2180,7 +2180,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 119,
       "ref": "manager:B0DH75X9N8",
-      "name": "Michael Kors Reloj Lexington para Mujer, Movimiento de Cuarzo de Tres Agujas de 38 mm, Negro Azabache",
+      "name": "Michael Kors Reloj Lexington para Mujer",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2199,7 +2199,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 120,
       "ref": "manager:B0CS6QLMG5",
-      "name": "Pepe Jeans Sprig Neceser Adaptable con Bandolera Beige 31x21x15 cms Piel sintética by Joumma Bags",
+      "name": "Pepe Jeans Sprig Neceser Adaptable con Bandolera",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2218,7 +2218,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 121,
       "ref": "manager:B0DQQ87W32",
-      "name": "GXTrust Zora Teclado Mecánico Español QWERTY con Iluminación RGB, Negro",
+      "name": "GXTrust Zora Teclado Mecánico Español QWERTY",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2237,7 +2237,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 122,
       "ref": "manager:B0FDGYVDC3",
-      "name": "Tommy Hilfiger Llavero Mujer Popette Nano con forma de Tote bag, Verde (Lime Zing), Talla Única",
+      "name": "Tommy Hilfiger Llavero Mujer Popette Nano",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2256,7 +2256,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 123,
       "ref": "manager:B099NVLVHP",
-      "name": "Wrangler Skinny Jeans para Mujer, Blue, 42W / 32L",
+      "name": "Wrangler Skinny Jeans para Mujer",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2275,7 +2275,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 124,
       "ref": "manager:B0B1ZJS7S6",
-      "name": "KINGRACK Escurridor de Platos, Negro",
+      "name": "KINGRACK Escurridor de Platos",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2294,7 +2294,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 125,
       "ref": "manager:B0D7HV2QFV",
-      "name": "Tommy Jeans Camisetas de Tirantes Pack de 2, Multicolor (Ecru/Precious Pink), L",
+      "name": "Tommy Jeans Camisetas de Tirantes Pack de 2",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2313,7 +2313,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 126,
       "ref": "manager:B0FGJYN5WC",
-      "name": "Sulion - Ventilador de Techo con Luz LED CRATO",
+      "name": "Sulion Ventilador de Techo con Luz LED CRATO",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2332,7 +2332,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 127,
       "ref": "manager:B0FKG6TDRR",
-      "name": "CMF Headphone Pro - Auriculares Bluetooth de Diadema Over-Ear, Gris Oscuro",
+      "name": "CMF Headphone Pro",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2351,7 +2351,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 128,
       "ref": "manager:B0D67CPYF2",
-      "name": "Champion Boy's Legacy Boy - Pantalones Cortos de Playa con Logotipo Grande, Azul (BS008), M, Azul (Bs008), 9-10 Años",
+      "name": "Champion Boy's Legacy Boy",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2370,7 +2370,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 129,
       "ref": "manager:B0D54H8DQ1",
-      "name": "Timberland Davis Square F/L Chukka Zapatillas para Hombre, Wheat, 43.5 EU",
+      "name": "Timberland Davis Square F/L Chukka Zapatillas",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2389,7 +2389,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 130,
       "ref": "manager:B0C58XX5YH",
-      "name": "Hummel Reach TR Breather - Zapatillas Deportivas Unisex, Negro, 39 EU",
+      "name": "Hummel Reach TR Breather",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2408,7 +2408,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 131,
       "ref": "manager:B09Y8XGF2L",
-      "name": "JACK & JONES Denim Jacket Denim Jacket Blue Denim XXL Blue Denim XXL",
+      "name": "JACK & JONES Denim Jacket Denim Jacket Blue Denim",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2427,7 +2427,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 132,
       "ref": "manager:B076PPC9W6",
-      "name": "NGS Singer Fire – Micrófono Dinámico Vocal con Cable de 3 Metros, Conector Jack 6,3 mm, Botón On/Off, para Karaoke",
+      "name": "NGS Singer Fire",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2446,7 +2446,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 133,
       "ref": "manager:B0FVG16FDB",
-      "name": "Armani Exchange Reloj para Hombre, Movimiento cronógrafo de Cuarzo y Caja de 44 mm con Correa de Poliuretano",
+      "name": "Armani Exchange Reloj para Hombre",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2465,7 +2465,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 134,
       "ref": "manager:B0CQTZ5FKB",
-      "name": "Zapatillas Vans MTE Crosspath Senior - 39",
+      "name": "Zapatillas Vans MTE Crosspath Senior",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2484,7 +2484,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 135,
       "ref": "manager:B0DX263BHG",
-      "name": "TOKIT Placa De Inducción 2000W, Placas Eléctricas M1, Ultrafina De 40 MM",
+      "name": "TOKIT Placa De Inducción 2000W",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2503,7 +2503,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 136,
       "ref": "manager:B0DQL9XXWR",
-      "name": "JACK & JONES Hombre Jprccmerino Knit Roll Neck Sn, Color Gris., L",
+      "name": "JACK & JONES Hombre Jprccmerino Knit Roll Neck Sn",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2522,7 +2522,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 137,
       "ref": "manager:B07K8P2PJS",
-      "name": "Timberland Davis Square, Zapatilla de corte medio para hombre, EU 45.5",
+      "name": "Timberland Davis Square",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2541,7 +2541,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 138,
       "ref": "manager:B0F8X2GRSX",
-      "name": "KARL LAGERFELD JEANS Mujer Slim Short Sleeve T-Shirt Rojo pompeyano XS",
+      "name": "KARL LAGERFELD JEANS Mujer Slim Short Sleeve",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2560,7 +2560,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 139,
       "ref": "manager:B0GQBX475S",
-      "name": "dreame L40 Ultra A Robot Aspirador Friegasuelo, Succión de 24,000 Pa, Elevación de 10,5 mm",
+      "name": "dreame L40 Ultra A Robot Aspirador Friegasuelo",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2579,7 +2579,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 140,
       "ref": "manager:B09HV1FF47",
-      "name": "Amazon Basics Escritorio para Oficina en Casa, para Juegos, Marco Negro, 120 x 60 x 73,6cm",
+      "name": "Amazon Basics Escritorio para Oficina en Casa",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2598,7 +2598,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 141,
       "ref": "manager:B08PPN348J",
-      "name": "PLAYMOBIL 70624 Dino Rise Rex, Batalla de Gigantes, A Partir de 5 años, Multicolor",
+      "name": "PLAYMOBIL 70624 Dino Rise Rex",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2617,7 +2617,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 142,
       "ref": "manager:B0BHWFWJYY",
-      "name": "Auriculares Inalámbricos Bluetooth 5.4 HiFi Estéreo, Reducción de Ruido ENC",
+      "name": "Auriculares Inalámbricos Bluetooth 5.4 HiFi",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2636,7 +2636,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 143,
       "ref": "manager:B00J4JKOX6",
-      "name": "Invicta Pro Diver Reloj Automático para Hombre de acero inoxidable - 40mm",
+      "name": "Invicta Pro Diver Reloj Automático para Hombre",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2655,7 +2655,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 144,
       "ref": "manager:B0CB6TQ7YG",
-      "name": "Wella Professionals INIVIGO NUTRI-ENRICH Champú de Nutrición Profunda, 300ml",
+      "name": "Wella Professionals INIVIGO NUTRI-ENRICH Champú",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2674,7 +2674,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 145,
       "ref": "manager:B0FVG32SGK",
-      "name": "MILLET - Mochila de senderismo (22 L)",
+      "name": "MILLET Mochila de senderismo",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2712,7 +2712,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 147,
       "ref": "manager:B0B3MR1VYM",
-      "name": "SMINT Tin Sabor Bubblefresh, Caramelos Comprimidos Sin Azúcar, Pack 12 uds",
+      "name": "SMINT Tin Sabor Bubblefresh",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2731,7 +2731,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 148,
       "ref": "manager:B0GCMYWSJK",
-      "name": "Secador de pelo profesional iones, Hair Dryer iónico con 1 difusor, 2 boquillas de peinado, 3 temperaturas, Azul Claro",
+      "name": "Secador de pelo profesional iones",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2750,7 +2750,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 149,
       "ref": "manager:B092DQ2Y74",
-      "name": "Lee Brooklyn Straight Vaqueros Para Hombre, Mid Stonewash, 38W / 32L",
+      "name": "Lee Brooklyn Straight Vaqueros Para Hombre",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2769,7 +2769,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 150,
       "ref": "manager:B0CDCL6FLC",
-      "name": "Tapo C220 - Cámara de Vigilancia WiFi Interior 360º, 2K QHD, Detección IA",
+      "name": "Tapo C220 Cámara de Vigilancia WiFi Interior 360º",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2788,7 +2788,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 151,
       "ref": "manager:B0HK4DWLB1",
-      "name": "Reloj Inteligente Hombre con Linterna, Militar Smartwatch 1000mAh Negro",
+      "name": "Reloj Inteligente Hombre con Linterna",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2807,7 +2807,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 152,
       "ref": "manager:B094YT2N9C",
-      "name": "Renova Rollos de Cocina Renova UltraPower, 24 rollos XXL equivalentes a 60 rollos estándar",
+      "name": "Renova Rollos de Cocina Renova UltraPower",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2826,7 +2826,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 153,
       "ref": "manager:B0CZPB5K34",
-      "name": "adidas Hombre Essentials Small Logo Cargp Pants, Dark Blue/White, XS",
+      "name": "adidas Hombre Essentials Small Logo Cargp Pants",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2845,7 +2845,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 154,
       "ref": "manager:B0BNPLSDWN",
-      "name": "Colgate Max White Purple Reveal Pasta de Dientes 4x75ml, Corrige Tonos Amarillos al Instante",
+      "name": "Colgate Max White Purple Reveal Pasta de Dientes",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2864,7 +2864,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 155,
       "ref": "manager:B093LVB4P7",
-      "name": "DURACELL Plus AA Pilas Alcalinas (Paquete de 12) 1.5V",
+      "name": "DURACELL Plus AA Pilas Alcalinas",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2883,7 +2883,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 156,
       "ref": "manager:B0H3BVNJRG",
-      "name": "Demegimi Camiseta Niña Manga Larga Rayas Cuello Redondo Casual Diario Moda",
+      "name": "Demegimi Camiseta Niña Manga Larga Rayas Cuello",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2921,7 +2921,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 158,
       "ref": "manager:B0FF53WDTH",
-      "name": "Pepe Jeans Aris Evergreen Mochila de Cabina, Gris, 25x40x20 cms, para Portátil 15,6\"",
+      "name": "Pepe Jeans Aris Evergreen Mochila de Cabina",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2940,7 +2940,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 159,
       "ref": "manager:B0BG599RFT",
-      "name": "GANT REG Shield - Sudadera con Capucha para Hombre, Color Negro, Negro, L",
+      "name": "GANT REG Shield",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2959,7 +2959,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 160,
       "ref": "manager:B0HNNBNRK1",
-      "name": "Paekole Auriculares Traductor en Tiempo Real, IA, 198 Idiomas",
+      "name": "Paekole Auriculares Traductor en Tiempo Real",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2978,7 +2978,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 161,
       "ref": "manager:B0F4424ZBQ",
-      "name": "JACK & JONES Jjeperfect Hybrid Jacket Noos, Blazer azul marino, M Hombre, Blazer Azul Marino, M",
+      "name": "JACK & JONES Jjeperfect Hybrid Jacket Noos",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -2997,7 +2997,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 162,
       "ref": "manager:B0B6WQ9RHM",
-      "name": "Pepe Jeans Hoxton Bolsa de Viaje, Negro, 56x32x25,5 cms",
+      "name": "Pepe Jeans Hoxton Bolsa de Viaje",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3016,7 +3016,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 163,
       "ref": "manager:B0BG3C9B6D",
-      "name": "GANT REG Archive Shield SS - Camiseta para Hombre, Color Negro, Negro, M",
+      "name": "GANT REG Archive Shield SS",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3035,7 +3035,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 164,
       "ref": "manager:B0BRL8RMJ6",
-      "name": "GANT Camiseta Reg Shield SS para Hombre, Tartán Green, M",
+      "name": "GANT Camiseta Reg Shield SS para Hombre",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3054,7 +3054,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 165,
       "ref": "manager:B0F3YZBFPQ",
-      "name": "DKNY Mujer Willa Mini Satchel 100% Poliuretano, cappuccino, small",
+      "name": "DKNY Mujer Willa Mini Satchel 100% Poliuretano",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3073,7 +3073,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 166,
       "ref": "manager:B005FN12BS",
-      "name": "Invicta Pro Diver Reloj Cuarzo para Hombre de acero inoxidable - 43mm",
+      "name": "Invicta Pro Diver Reloj Cuarzo para Hombre",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3092,7 +3092,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 167,
       "ref": "manager:B0D4DW4972",
-      "name": "Chicco, Chaqueta Niño de Tejido Suave y Cálido, Designed in Italy, Ropa Niña",
+      "name": "Chicco Chaqueta Niño de Tejido Suave y Cálido",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3111,7 +3111,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 168,
       "ref": "manager:B0G7JBT935",
-      "name": "AUREOLE - WINGS OF HOPE - CELESTIAL EDITION",
+      "name": "AUREOLE WINGS OF HOPE CELESTIAL EDITION",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3130,7 +3130,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 169,
       "ref": "manager:B0F1Z3L84N",
-      "name": "GANT Sudadera con Capucha REG Shield, Caoba, S",
+      "name": "GANT Sudadera con Capucha REG Shield",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3149,7 +3149,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 170,
       "ref": "manager:B0835YGTLN",
-      "name": "JACK & JONES Bomber Jacket Bomber Jacket Navy Blazer m Navy Blazer M",
+      "name": "JACK & JONES Bomber Jacket Bomber Jacket Navy",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3168,7 +3168,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 171,
       "ref": "manager:B0DKTLKF85",
-      "name": "HUGO BOSS Cinturón para hombre, Negro, 90",
+      "name": "HUGO BOSS Cinturón para hombre",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3187,7 +3187,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 172,
       "ref": "manager:B00ZPL6ZT4",
-      "name": "Yale Mirilla Electrónica Digital Yale 45-0500-1432-00-55-01, Negra, Live Viiew, Ángulo de Visión de 105°",
+      "name": "Yale Mirilla Electrónica Digital Yale",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3206,7 +3206,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 173,
       "ref": "manager:B0D7HVDT5S",
-      "name": "Tommy Jeans Camiseta de Manga Corta Mujer Pack de 2 Essential Rib Slim Fit, Multicolor (Ecru/Dark Night Navy), M",
+      "name": "Tommy Jeans Camiseta de Manga Corta Mujer Pack",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3225,7 +3225,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 174,
       "ref": "manager:B0FVQ5ZGN1",
-      "name": "Tommy Jeans Sudadera Mujer Flag Regular Fit, Gris (Ice Grey Heather), M",
+      "name": "Tommy Jeans Sudadera Mujer Flag Regular Fit",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3263,7 +3263,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 176,
       "ref": "manager:B096KP6K7W",
-      "name": "Skechers Mujer Uno Shimmer Away Trainers, Black Durabuck, 38 EU",
+      "name": "Skechers Mujer Uno Shimmer Away Trainers",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3282,7 +3282,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 177,
       "ref": "manager:B0977RPFHS",
-      "name": "Timex Orologio da sera Waterbury Classic Chrono 40 mm in acciaio inossidabile con cinturino in pelle, marrone, TW2V30800",
+      "name": "Timex Orologio da sera Waterbury Classic Chrono",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3301,7 +3301,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 178,
       "ref": "manager:B0CRFRNJ3R",
-      "name": "Lee - Jeans Hombre - Corte Recto Regular - West - Fawn",
+      "name": "Lee Jeans Hombre Corte Recto Regular West Fawn",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3320,7 +3320,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 179,
       "ref": "manager:B0C2PJKMLX",
-      "name": "AEG LFN8E8436C Lavadora de Carga Frontal Integrable 8 Kg, 1400rpm, Motor Invert, Display XL, Dark Silver",
+      "name": "AEG LFN8E8436C Lavadora de Carga Frontal",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3339,7 +3339,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 180,
       "ref": "manager:B0CZ7L551G",
-      "name": "Vans Zapatillas MTE Crosspath para Hombre - 43",
+      "name": "Vans Zapatillas MTE Crosspath para Hombre",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3358,7 +3358,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 181,
       "ref": "manager:B0HMR897KT",
-      "name": "AI Auriculares Traductor en Tiempo Real de Voz 199 Idiomas, 3en1",
+      "name": "AI Auriculares Traductor en Tiempo Real de Voz",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3377,7 +3377,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 182,
       "ref": "manager:B0DT4M11JM",
-      "name": "Superfit Abby Nova Gore-Tex 0010 - Botas de nieve con forro cálido, color negro, Negro 0010, 30 EU",
+      "name": "Superfit Abby Nova Gore-Tex 0010",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3396,7 +3396,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 183,
       "ref": "manager:B09LY38ZRZ",
-      "name": "Dokon Funda Sombrilla Excentrico Impermeable Funda Parasol con Varilla, 265x70/50cm, Negro",
+      "name": "Dokon Funda Sombrilla Excentrico Impermeable",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3415,7 +3415,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 184,
       "ref": "manager:B09SL7WKG3",
-      "name": "Superfit Flavia, Botas para Nieve, Azul 8000, 34 EU",
+      "name": "Superfit Flavia",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3434,7 +3434,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 185,
       "ref": "manager:B0H2C6PN1L",
-      "name": "Mr. Wonderful Libreta A5 con Portada Acolchada Morsa – Cuaderno Cold Water Warm Smile",
+      "name": "Mr. Wonderful Libreta A5 con Portada Acolchada",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3453,7 +3453,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 186,
       "ref": "manager:B09XWGLP27",
-      "name": "Diesel Reloj Framed para hombre, Movimiento de cuarzo cronógrafo a tres agujas, Rojo y grafito, 51 mm",
+      "name": "Diesel Reloj Framed para hombre",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3491,7 +3491,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 188,
       "ref": "manager:B0CRL5JT91",
-      "name": "GANT Chaqueta media hacia abajo, Rojo IRON, S",
+      "name": "GANT Chaqueta media hacia abajo",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3510,7 +3510,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 189,
       "ref": "manager:B00I5UK3M2",
-      "name": "GTV, Metalbox Prestige - Sistema de cajones (150 x 500 mm), color blanco",
+      "name": "GTV Metalbox Prestige Sistema de cajones color",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3548,7 +3548,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 191,
       "ref": "manager:B0001IW8TW",
-      "name": "STANLEY Sierra de arco con empuñadura de pistola 4 posiciones",
+      "name": "STANLEY Sierra de arco con empuñadura de pistola",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3567,7 +3567,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 192,
       "ref": "manager:B0DK2RX2MX",
-      "name": "Columbia Peakfreak II Outdry Zapatos, Diseño Impermeable Duradero, Comodidad Transpirable, Agarre Superior",
+      "name": "Columbia Peakfreak II Outdry Zapatos",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3586,7 +3586,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 193,
       "ref": "manager:B0DBF65JYY",
-      "name": "medicube PDRN Pink Peptide Serum with Salmon DNA, 30ml",
+      "name": "medicube PDRN Pink Peptide Serum with Salmon DNA",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3605,7 +3605,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 194,
       "ref": "manager:B0DZCN73G7",
-      "name": "SUUNTO Run Reloj GPS para correr, ligero con 4 GB de música sin conexión",
+      "name": "SUUNTO Run Reloj GPS para correr",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3624,7 +3624,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 195,
       "ref": "manager:B00FF8CDSO",
-      "name": "Fossil Virginia Reloj para Mujer, Movimiento de Cuarzo con Correa de Acero o Piel, 30MM",
+      "name": "Fossil Virginia Reloj para Mujer",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3643,7 +3643,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 196,
       "ref": "manager:B0C1H61LCP",
-      "name": "ion8 Botella De Agua Antifugas, 500ml (18oz), Dragones Verde Azulado",
+      "name": "ion8 Botella De Agua Antifugas",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3681,7 +3681,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 198,
       "ref": "manager:B09R212PFN",
-      "name": "Marvel Sudadera Oversize Hombre - Sudaderas Polares Hombre (Negro), Talla única",
+      "name": "Marvel Sudadera Oversize Hombre",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3700,7 +3700,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 199,
       "ref": "manager:B0GKP7R5P6",
-      "name": "SwitchBot Purificador De Aire Con App Y Luz Nocturna, CADR 400m³/h Hasta 83㎡, Filtro HEPA Elimina 99.97% De Moho, Polvo",
+      "name": "SwitchBot Purificador De Aire Con App Y Luz",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3719,7 +3719,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 200,
       "ref": "manager:B0CN3WJYVT",
-      "name": "Columbia Klamath Range 2 - Sudadera de forro polar con media cremallera para hombre (1 unidad)",
+      "name": "Columbia Klamath Range 2",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3757,7 +3757,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 202,
       "ref": "manager:B0BZWN35ZN",
-      "name": "Heel Traumeel Spray Frío a base de Plantas, 150 ml, Para Golpes y Muscular, No te pares",
+      "name": "Heel Traumeel Spray Frío a base de Plantas",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3776,7 +3776,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 203,
       "ref": "manager:B09GP95FQP",
-      "name": "mixsoon Bean cream Vegansnail, Long-lasting Soothing Hydration Cream for face, Korean Skin Care 1.69 fl.oz 50ml",
+      "name": "mixsoon Bean cream Vegansnail",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3795,7 +3795,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 204,
       "ref": "manager:B0FL7GXSCV",
-      "name": "eufy C28 Omni Robot Aspirador y fregasuelos, HydroJet 15.000 Pa",
+      "name": "eufy C28 Omni Robot Aspirador y fregasuelos",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3814,7 +3814,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 205,
       "ref": "manager:B06XRWX4Q1",
-      "name": "superfit Tedd, Botas, Azul Niagara Combi 800474, 38 EU",
+      "name": "superfit Tedd Botas Azul Niagara Combi 800474 38",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3833,7 +3833,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 206,
       "ref": "manager:B0CRZV9HQ7",
-      "name": "G-STAR Para Hombre Gorro Originals Fisherman, Negro (dk black D24321-D167-6484), PC",
+      "name": "G-STAR Para Hombre Gorro Originals Fisherman",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3852,7 +3852,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 207,
       "ref": "manager:B0FBS97S7R",
-      "name": "Reebok Zapatillas Split Flex para Mujer, Color Gris, 6/Muted Mauve/FTWR White, Talla 38 EU",
+      "name": "Reebok Zapatillas Split Flex para Mujer",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3871,7 +3871,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 208,
       "ref": "manager:B0CNCXR2D1",
-      "name": "Dripex Plataforma Vibratoria Muscular 99 Niveles 5 Programas, Dorada",
+      "name": "Dripex Plataforma Vibratoria Muscular 99 Niveles",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3890,7 +3890,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 209,
       "ref": "manager:B0BYGRMVPJ",
-      "name": "HyperMotion Triciclo Infantil con Manillar para Padres, Saltador Bebe Gris",
+      "name": "HyperMotion Triciclo Infantil con Manillar",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3909,7 +3909,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 210,
       "ref": "manager:B00CGPJXT6",
-      "name": "Moroccanoil Acondicionador Extra Volumen, 70ml",
+      "name": "Moroccanoil Acondicionador Extra Volumen",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3928,7 +3928,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 211,
       "ref": "manager:B0H448WZ71",
-      "name": "XIAOMI TV Pro 55 Pulgadas 2026, 4K UHD QLED Smart Fire TV",
+      "name": "XIAOMI TV Pro 55 Pulgadas 2026, 4K UHD QLED Smart",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3947,7 +3947,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 212,
       "ref": "manager:B0BW4FNZFP",
-      "name": "TATAY Kit de Fijación Repair Extreme Pattex Sistema Glue&Fix, 1 Tubo de 20 Gr",
+      "name": "TATAY Kit de Fijación Repair Extreme Pattex",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3966,7 +3966,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 213,
       "ref": "manager:B07FTR74N2",
-      "name": "Lee Pique Polo Camiseta, Hombre, Gris (Sharp Grey), Large",
+      "name": "Lee Pique Polo Camiseta",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -3985,7 +3985,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 214,
       "ref": "manager:B0FVY14QDQ",
-      "name": "Tommy Hilfiger Runner Sneaker Mujer con Efecto de Punto, Negro (Black), 38",
+      "name": "Tommy Hilfiger Runner Sneaker Mujer con Efecto",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4004,7 +4004,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 215,
       "ref": "manager:B0BVYVTS46",
-      "name": "DOKEHOM 90L Cesto & Cesta Ropa Sucia, Bolsa Lavandería Alta, Beige",
+      "name": "DOKEHOM 90L Cesto & Cesta Ropa Sucia",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4023,7 +4023,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 216,
       "ref": "manager:B09R89BLYH",
-      "name": "L'Oréal Paris Revitalift Filler Sérum Ojos con Cafeína Antiarrugas, 20ml",
+      "name": "L'Oréal Paris Revitalift Filler Sérum Ojos",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4042,7 +4042,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 217,
       "ref": "manager:B0CN3VLB4R",
-      "name": "Columbia Fivemile Butte II Chaqueta con Capucha, Tecnología Reflectante, Tela Repelente al Agua, Aislamiento Reciclado",
+      "name": "Columbia Fivemile Butte II Chaqueta con Capucha",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4061,7 +4061,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 218,
       "ref": "manager:B079C79JPK",
-      "name": "JACK & JONES Jjecorp Logo tee SS Crew Neck Noos Camiseta, Blanco (White Detail: Slim Fit), X-Large para Hombre",
+      "name": "JACK & JONES Jjecorp Logo tee SS Crew Neck Noos",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4080,7 +4080,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 219,
       "ref": "manager:B07DPRW46T",
-      "name": "Swarovski Pendientes de aro Attract Trilogy, Talla redonda, Blancos, Baño de rodio",
+      "name": "Swarovski Pendientes de aro Attract Trilogy",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4099,7 +4099,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 220,
       "ref": "manager:B00BD1DKIE",
-      "name": "WMF Touch - Juego de 2 Cuchillos con Fundas Protectoras, Color Negro",
+      "name": "WMF Touch Juego de 2 Cuchillos con Fundas",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4118,7 +4118,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 221,
       "ref": "manager:B0FT3P74QC",
-      "name": "adidas Mujer Breaknet Sleek Shoes, FTWR White/Tech Grey Met./Core Black, 38 EU",
+      "name": "adidas Mujer Breaknet Sleek Shoes",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4137,7 +4137,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 222,
       "ref": "manager:B091PM61V8",
-      "name": "JDY JDYULRIKKA Abrigo Acolchado Negra M, Largo, Casual, Proceso normal a una temperatura máxima de 30°C",
+      "name": "JDY JDYULRIKKA Abrigo Acolchado Negra M",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4156,7 +4156,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 223,
       "ref": "manager:B0CL7THY2N",
-      "name": "JACK & JONES JPSTKANE JJBARKLEY - Pantalones Cargo para Hombre - S M L XL XXL, Negro, 32W / 32L",
+      "name": "JACK & JONES JPSTKANE JJBARKLEY",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4175,7 +4175,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 224,
       "ref": "manager:B0DC74WHYV",
-      "name": "Philips OneBlade Pro 360 Barbero, afeitadora y recortadora eléctrica facial y corporal, 2 cuchillas 360º, Negro",
+      "name": "Philips OneBlade Pro 360 Barbero",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4194,7 +4194,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 225,
       "ref": "manager:B0HJ846CFG",
-      "name": "Tilswall Shark800 Pistola Pintura Electrica, Pulverizador de Pintura, Azul",
+      "name": "Tilswall Shark800 Pistola Pintura Electrica",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4213,7 +4213,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 226,
       "ref": "manager:B0B82989KQ",
-      "name": "Blooven 5 Metros 50 mm Auto Adhesivo Cinta Rollo Hook y Loop Tape Gancho y Cinta de Lazo (50 mm x 5 m, Negro)",
+      "name": "Blooven 5 Metros 50 mm Auto Adhesivo Cinta Rollo",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4232,7 +4232,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 227,
       "ref": "manager:B0DLR3LZTW",
-      "name": "Columbia Pouring Adventure 3 Jacket, Chaqueta impermeable, Azul marino universitario, azul montaña, S",
+      "name": "Columbia Pouring Adventure 3 Jacket",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4251,7 +4251,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 228,
       "ref": "manager:B0B34LHDRJ",
-      "name": "Borras - Palabreando 1 temática, 1 Letra, 12 Segundos ¡y Encuentra la palabra que corresponda!",
+      "name": "Borras Palabreando 1 temática 1 Letra 12 Segundos",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4270,7 +4270,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 229,
       "ref": "manager:B084RP6T5S",
-      "name": "Salewa Chaqueta de plumón Brenta RDS hombre, 390g",
+      "name": "Salewa Chaqueta de plumón Brenta RDS hombre",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4289,7 +4289,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 230,
       "ref": "manager:B09DGR3JMH",
-      "name": "Abu Garcia MAX X Black Ops Combinación de caña y carrete, 1.98 m 10-40g, Set para río, Negro",
+      "name": "Abu Garcia MAX X Black Ops Combinación de caña",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4308,7 +4308,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 231,
       "ref": "manager:B0FQP3XHY5",
-      "name": "21J Depiladora Laser con Función De Refrigeración 600-1200NM, Blanco",
+      "name": "21J Depiladora Laser con Función De Refrigeración",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4346,7 +4346,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 233,
       "ref": "manager:B0DHSC3KNH",
-      "name": "LEGO Friends Tienda de Golosinas de Heartlake City 42649, 376 piezas",
+      "name": "LEGO Friends Tienda de Golosinas de Heartlake",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4384,7 +4384,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 235,
       "ref": "manager:B0H7VPZML1",
-      "name": "JYGMPRO Taladro Atornillador Brushless 21 V, 45 Nm, 2 Baterías 2,0 Ah, 1,1 kg, portabrocas 10 mm",
+      "name": "JYGMPRO Taladro Atornillador Brushless 21 V",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4403,7 +4403,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 236,
       "ref": "manager:B0C3DGXND9",
-      "name": "Colhogar Ultra Suave XXL x36 - Equivalente a 72 rollos - 2 Capas - Blanco - Paquete de 36 Rollos Extra Grandes (3x12)",
+      "name": "Colhogar Ultra Suave XXL x36",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4422,7 +4422,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 237,
       "ref": "manager:B0F4DDZLGD",
-      "name": "Calvin Klein Cinturón Hombre Buckle Tumbled 3,5 cm de piel reversible, Negro (Black/Ck Cognac/Antique Silver), 100 cm",
+      "name": "Calvin Klein Cinturón Hombre Buckle Tumbled 3,5",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4441,7 +4441,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 238,
       "ref": "manager:B0DN38FJ4T",
-      "name": "PIECES Pcbosella - Blazer 3/4 Glitter Noos, fósil, XS",
+      "name": "PIECES Pcbosella",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4460,7 +4460,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 239,
       "ref": "manager:B0CPM3CH53",
-      "name": "Morgan Mono largo de pernera ancha con hebilla Negro 42",
+      "name": "Morgan Mono largo de pernera ancha con hebilla",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4479,7 +4479,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 240,
       "ref": "manager:B0HDZYD3YD",
-      "name": "COSTWAY Bicicleta sin Pedales con Asiento y Manillas Regulables (Rosa), Carga de 20 kg",
+      "name": "COSTWAY Bicicleta sin Pedales con Asiento",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4498,7 +4498,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 241,
       "ref": "manager:B0DYHGQ1YR",
-      "name": "Rimmel London, Oh My Gloss Butter Me Up, Bálsamo Labial, Tono Coral Breeze 005, 15ml",
+      "name": "Rimmel London Oh My Gloss Butter Me Up Bálsamo",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4517,7 +4517,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 242,
       "ref": "manager:B0HL1459SL",
-      "name": "Rituals Wild Fig Private Collection, 110 ml, 85 ml",
+      "name": "Rituals Wild Fig Private Collection",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4536,7 +4536,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 243,
       "ref": "manager:B0G1TFMX6W",
-      "name": "Haier BHA6S69M6DB9J-S - Lavadora Integrable Carga Frontal9KG, Clase A -30%, Función Vapor, Motor Inverter, Blanco",
+      "name": "Haier BHA6S69M6DB9J-S",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4555,7 +4555,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 244,
       "ref": "manager:B0HPCYGSY4",
-      "name": "Adaptador CarPlay Inalámbrico, Mini Dongle 2 en 1 para Android Auto, Conversión de Cable a Inalámbrico",
+      "name": "Adaptador CarPlay Inalámbrico",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4574,7 +4574,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 245,
       "ref": "manager:B085H134H5",
-      "name": "Jack & Jones Hombre Jjimarco Jjdave Sa 2 Pack Pantalón, Black/Dusty Olive, 33/34",
+      "name": "Jack & Jones Hombre Jjimarco Jjdave Sa 2 Pack",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4593,7 +4593,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 246,
       "ref": "manager:B07N8XLHQS",
-      "name": "DANISH ENDURANCE Calcetines Algodón Orgánico, 6 Pack MC (4xNegro, 2xGris) 39-42",
+      "name": "DANISH ENDURANCE Calcetines Algodón Orgánico",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4631,7 +4631,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 248,
       "ref": "manager:B083YCPSPP",
-      "name": "Kipling Alvar Bandolera Mediana, Blue Bleu 2 (Azul)",
+      "name": "Kipling Alvar Bandolera Mediana",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4650,7 +4650,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 249,
       "ref": "manager:B0DRW8QNQD",
-      "name": "DKNY Adira Rhienstones-Lace Up Sneaker, Zapatillas Mujer, Blanco, 38.5 EU",
+      "name": "DKNY Adira Rhienstones-Lace Up Sneaker",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4669,7 +4669,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 250,
       "ref": "manager:B0CQTZY47X",
-      "name": "SNEAKERS Uomo VANS CROSSPATH VN000CVUBA BLACK/WHITE",
+      "name": "SNEAKERS Uomo VANS CROSSPATH VN000CVUBA",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4688,7 +4688,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 251,
       "ref": "manager:B08XYH153C",
-      "name": "NOELANI pendientes de aro de plata de ley 925 para mujer, 2,1 cm, dorados, en caja de regalo, 2031600",
+      "name": "NOELANI pendientes de aro de plata de ley 925",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4707,7 +4707,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 252,
       "ref": "manager:B0F8R3QGNG",
-      "name": "Pokémon PKW4198 Zorua - Peluche Oficial de 20 cm",
+      "name": "Pokémon PKW4198 Zorua",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4726,7 +4726,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 253,
       "ref": "manager:B0BG4ZB8K3",
-      "name": "GANT Camiseta clásica de Oxford Slim Stretch para Mujer, Color Blanco, estándar, Blanco, 42",
+      "name": "GANT Camiseta clásica de Oxford Slim Stretch",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4745,7 +4745,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 254,
       "ref": "manager:B0BD87S7JR",
-      "name": "HANPOSH Reloj Hombre Cronógrafo de Acero Inoxidable(plata negro)",
+      "name": "HANPOSH Reloj Hombre Cronógrafo de Acero",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4764,7 +4764,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 255,
       "ref": "manager:B0D951334Z",
-      "name": "Star Wars The Black Series, Casco electrónico premium de La Armera, Artículo para juego de rol, A partir de 14 años",
+      "name": "Star Wars The Black Series",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4783,7 +4783,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 256,
       "ref": "manager:B0FVX91HH5",
-      "name": "Calvin Klein Sudadera Mujer Monogram Terry Washed con Cuello Redondo, Rosa (Light Red), XXS",
+      "name": "Calvin Klein Sudadera Mujer Monogram Terry Washed",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4802,7 +4802,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 257,
       "ref": "manager:B0GTZ4Q3RV",
-      "name": "Roll Road Flex Juego de Maletas Burdeos 52x75x30 cm Rígida ABS Cierre de combinación Lateral 186L 9,5kg 4 Ruedas Dobles",
+      "name": "Roll Road Flex Juego de Maletas Burdeos 52x75x30",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4859,7 +4859,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 260,
       "ref": "manager:B0D7CQQ3GQ",
-      "name": "Vila Vestido Midi Mujer Manga Larga Cuello Redondo, Color Gris., XXL",
+      "name": "Vila Vestido Midi Mujer Manga Larga Cuello Redondo",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4878,7 +4878,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 261,
       "ref": "manager:B00PBX3L7K",
-      "name": "COSRX Snail Mucin 96% Power Face Serum 3.38 fl oz 100ml, Serum Hidratante para el Rostro, Cuidado Personal",
+      "name": "COSRX Snail Mucin 96% Power Face Serum 3.38 fl oz",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4897,7 +4897,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 262,
       "ref": "manager:B0BDRKDBWH",
-      "name": "Disney Winnie The Pooh Equipaje- Equipaje para niños, Niño, Ocre",
+      "name": "Disney Winnie The Pooh Equipaje- Equipaje",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4916,7 +4916,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 263,
       "ref": "manager:B0DK2QV7FG",
-      "name": "Columbia Newton Nimble LTR Zapatos, Construcción Impermeable, Diseño Transpirable, Herrajes Duraderos, Agarre Continuo",
+      "name": "Columbia Newton Nimble LTR Zapatos",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4935,7 +4935,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 264,
       "ref": "manager:B0G269M8YB",
-      "name": "JACK & JONES Jjmarlon Pu Jacket Jjmarlon - Chaqueta de poliuretano para hombre, Negro, M",
+      "name": "JACK & JONES Jjmarlon Pu Jacket Jjmarlon",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4954,7 +4954,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 265,
       "ref": "manager:B07PHCGZVF",
-      "name": "VASAGLE EstanterÍa de Esquina en Pared, EstanterÍa Esquinera de 5 Niveles, 126 x 20cm, MarrÓn RÚstico",
+      "name": "VASAGLE EstanterÍa de Esquina en Pared",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4973,7 +4973,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 266,
       "ref": "manager:B0FH5LTT5S",
-      "name": "Bundle of Philips Lumea serie 8000, dispositivo de depilación IPL, alternativa de depilación láser, 4 accesorios",
+      "name": "Bundle of Philips Lumea serie 8000, dispositivo",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -4992,7 +4992,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 267,
       "ref": "manager:B09RBC5QL9",
-      "name": "Gillette Fusion Gel de Afeitar Hombre para Pieles Sensibles, Pack 6x200 ml",
+      "name": "Gillette Fusion Gel de Afeitar Hombre para Pieles",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5011,7 +5011,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 268,
       "ref": "manager:B0G81DYN8K",
-      "name": "Lefant M3 MAX Robot Aspirador y Friegasuelos con Base 4 en 1 de Autovaciado, 2,4G & 5G WiFi, Negro",
+      "name": "Lefant M3 MAX Robot Aspirador y Friegasuelos",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5030,7 +5030,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 269,
       "ref": "manager:B07K9Y1R3S",
-      "name": "Optrex Colirio Doble Acción para Ojos Secos, 10ml",
+      "name": "Optrex Colirio Doble Acción para Ojos Secos",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5049,7 +5049,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 270,
       "ref": "manager:B000CRHCCU",
-      "name": "EASTPAK JR Bolso Bandolera, 11.5 L - Black (Negro)",
+      "name": "EASTPAK JR Bolso Bandolera",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5068,7 +5068,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 271,
       "ref": "manager:B0DB2MVMC7",
-      "name": "POC Omne Air MIPS – Casco versátil con MIPS Air Node, ventilación Avanzada, Perfil Delgado",
+      "name": "POC Omne Air MIPS",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5087,7 +5087,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 272,
       "ref": "manager:B09M3VGT2V",
-      "name": "ONLY ONLBLUSH Cintura Media Corte Flared Vaqueros Azul L/34",
+      "name": "ONLY ONLBLUSH Cintura Media Corte Flared Vaqueros",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5106,7 +5106,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 273,
       "ref": "manager:B0G5Q5XNM4",
-      "name": "Levi'S 726 HR Flare Mujer, 726 HR Flare Cast Shadows, 32W / 32L",
+      "name": "Levi'S 726 HR Flare Mujer",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5125,7 +5125,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 274,
       "ref": "manager:B0G44X5HVR",
-      "name": "COOFANDY Camiseta De Hombre Camisa De Manga Corta Jersey Cuello Redondo JerséIs De Punto Normal Negro S",
+      "name": "COOFANDY Camiseta De Hombre Camisa De Manga Corta",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5144,7 +5144,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 275,
       "ref": "manager:B0FBG1TB23",
-      "name": "Reebok Zapatillas para Hombre FloatZIG Tread, Color Blanco/Negro, Talla 42 EU",
+      "name": "Reebok Zapatillas para Hombre FloatZIG Tread",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5163,7 +5163,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 276,
       "ref": "manager:B014WLHCSA",
-      "name": "Pattex SP101 Original, adhesivo sellador para interiores y exteriores, 1 x 280 ml",
+      "name": "Pattex SP101 Original",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5182,7 +5182,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 277,
       "ref": "manager:B0BRL7RM28",
-      "name": "GANT Slim Shield SS Pique Polo Camisa, Eggshell, XXL para Mujer",
+      "name": "GANT Slim Shield SS Pique Polo Camisa",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5201,7 +5201,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 278,
       "ref": "manager:B0FVX3Q7W7",
-      "name": "Tommy Hilfiger Cazadora de entretiempo Hombre Packable Ivy con cuello francés, Verde (Platinum Olive), L",
+      "name": "Tommy Hilfiger Cazadora de entretiempo Hombre",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5220,7 +5220,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 279,
       "ref": "manager:B0F43ZZV57",
-      "name": "JACK & JONES Light Jacket Hood Jjecharge Noos Chaqueta Ligera con Capucha, Blazer Azul Marino, S Hombres",
+      "name": "JACK & JONES Light Jacket Hood Jjecharge Noos",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5239,7 +5239,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 280,
       "ref": "manager:B0FVYGD4ZK",
-      "name": "Tommy Hilfiger Bolso Crossbody Hombre Heritage con cierre de cremallera, Marrón (Classic Stone), Talla Única",
+      "name": "Tommy Hilfiger Bolso Crossbody Hombre Heritage",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5277,7 +5277,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 282,
       "ref": "manager:B089DJ8PJY",
-      "name": "Reloj BERING solar para hombre con mecanismo de cuarzo, Azul, Titanio, Cristal de zafiro, 39 mm",
+      "name": "Reloj BERING solar para hombre con mecanismo",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5296,7 +5296,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 283,
       "ref": "manager:B089NZLJRZ",
-      "name": "Garmin Reloj, GPS, Solar, Verde Militar, Talla única",
+      "name": "Garmin Reloj GPS Solar Verde Militar Talla única",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5315,7 +5315,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 284,
       "ref": "manager:B074CRFKRS",
-      "name": "VALQUER Champú Total Repair Zero, 1 L, Verde y Algodón",
+      "name": "VALQUER Champú Total Repair Zero",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5334,7 +5334,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 285,
       "ref": "manager:B0FCS4W5J8",
-      "name": "OHO AI Smart Glasses, Photochromic Z87.1 Open‑Ear Bluetooth Sunglasses",
+      "name": "OHO AI Smart Glasses",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5353,7 +5353,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 286,
       "ref": "manager:B085H15195",
-      "name": "JACK & JONES Chino Trousers 2-Pack Slim Fit Chino Trousers Black 34 34 Black",
+      "name": "JACK & JONES Chino Trousers 2-Pack Slim Fit Chino",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5372,7 +5372,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 287,
       "ref": "manager:B0DNWBVKZP",
-      "name": "TIENDA EURASIA - Arbol de Navidad Artificial de PVC, Verde Frondoso, Medidas 120,150,180 y 210 cm (150 cm - 420 Puntas)",
+      "name": "TIENDA EURASIA Arbol de Navidad Artificial de PVC",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5391,7 +5391,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 288,
       "ref": "manager:B0DFG9ZQ55",
-      "name": "Michael Kors Reloj Maren para Mujer, Movimiento de Cuarzo a Tres Agujas con Correa de Acero o Piel, Oro Sepia, 33 mm",
+      "name": "Michael Kors Reloj Maren para Mujer",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5410,7 +5410,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 289,
       "ref": "manager:B0FGJYXF7K",
-      "name": "Desigual Jasmine Dress, Naranja, XL Women's",
+      "name": "Desigual Jasmine Dress",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5429,7 +5429,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 290,
       "ref": "manager:B0HLWNXXZL",
-      "name": "Armor All Podium Series™ Hanging Car Air Freshener, Red Bull Racing",
+      "name": "Armor All Podium Series™ Hanging Car Air Freshener",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5448,7 +5448,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 291,
       "ref": "manager:B076CNGK6S",
-      "name": "Fossil, collar de plata, para Mujer",
+      "name": "Fossil collar de plata para Mujer",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5467,7 +5467,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 292,
       "ref": "manager:B07C1SBHTF",
-      "name": "ZWILLING Gourmet Taco de Cuchillos Autoafilable 7 Piezas, Made in Germany, Acero Especial Inoxidable, Marrón",
+      "name": "ZWILLING Gourmet Taco de Cuchillos Autoafilable 7",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5486,7 +5486,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 293,
       "ref": "manager:B09CZ64SC9",
-      "name": "EZVIZ Camara Vigilancia WiFi Exterior,1080P Cámara Exterior de Seguridad IP67 con 30m Visión Nocturna",
+      "name": "EZVIZ Camara Vigilancia WiFi Exterior,1080P",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5505,7 +5505,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 294,
       "ref": "manager:B09DRH1RL7",
-      "name": "Bluey Pack de 8 Figuras Familia y Amigos de 6,3-7,6 cm",
+      "name": "Bluey Pack de 8 Figuras Familia y Amigos",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5524,7 +5524,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 295,
       "ref": "manager:B0CMXXYPLY",
-      "name": "Devir, Juego Saber ANCESTRAL",
+      "name": "Devir Juego Saber ANCESTRAL",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5543,7 +5543,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 296,
       "ref": "manager:B0CVL9NLS9",
-      "name": "G-STAR 3301 Slim Jeans para Hombre, Azul (Medium Aged D25742-8968-071), 31W / 30L",
+      "name": "G-STAR 3301 Slim Jeans para Hombre",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5562,7 +5562,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 297,
       "ref": "manager:B0CRZFJWS1",
-      "name": "G-STAR Pantalones Skinny Chino 3.0, Gris (Asfalt D25179-c105-995), 36W / 38L Hombre",
+      "name": "G-STAR Pantalones Skinny Chino 3.0, Gris",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5581,7 +5581,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 298,
       "ref": "manager:B01J1A1KNK",
-      "name": "Rimmel London Scandaleyes Reloaded Máscara de Pestañas, 001 Black, 12 ml",
+      "name": "Rimmel London Scandaleyes Reloaded Máscara",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5638,7 +5638,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 301,
       "ref": "manager:B0GXWTLMJT",
-      "name": "iRobot Roomba Plus 575 Combo + Base AutoWash multifunción, 25KPa, Mopas DualClean PerfectEdge, Blanco",
+      "name": "iRobot Roomba Plus 575 Combo + Base AutoWash",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5657,7 +5657,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 302,
       "ref": "manager:B0F5BJ8VKK",
-      "name": "Helly Hansen Women's W Buzzard TR, Sunset Pink, 40.5",
+      "name": "Helly Hansen Women's W Buzzard TR",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5676,7 +5676,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 303,
       "ref": "manager:B0FCFY6SJD",
-      "name": "Levi'S Wedgie Boot Pants Mujer, Blasted Stone Clean, 27W / 30L",
+      "name": "Levi'S Wedgie Boot Pants Mujer",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5695,7 +5695,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 304,
       "ref": "manager:B0DLL8MWTZ",
-      "name": "Mattel Games If You Were, juego de fiesta, +17 años, 3-8 jugadores",
+      "name": "Mattel Games If You Were",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5714,7 +5714,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 305,
       "ref": "manager:B0CVN6Y3CS",
-      "name": "KARL LAGERFELD JEANS Hombre Regular Check Shirt Safari/Negro M",
+      "name": "KARL LAGERFELD JEANS Hombre Regular Check Shirt",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5733,7 +5733,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 306,
       "ref": "manager:B08PYN6LWP",
-      "name": "Luz de Relleno Led para Vídeo, Fotografia, ULANZI VL49 RGB, Ajustable 2500-9500K, 2000 mAh Incorporada Batería",
+      "name": "Luz de Relleno Led para Vídeo",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5752,7 +5752,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 307,
       "ref": "manager:B0FGJZ6827",
-      "name": "Desigual Vestido sin Mangas de la colección Mujer, Naranja, L",
+      "name": "Desigual Vestido sin Mangas de la colección Mujer",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5771,7 +5771,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 308,
       "ref": "manager:B06XDS7J69",
-      "name": "L'Oréal Paris Revitalift Laser Crema SPF25 Nº1 AntiEdad y AntiManchas, 50ml",
+      "name": "L'Oréal Paris Revitalift Laser Crema SPF25 Nº1",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5790,7 +5790,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 309,
       "ref": "manager:B00FL7IXV0",
-      "name": "Armani Exchange Reloj Hombre, Movimiento Cronógrafo Cuarzo y Caja 45mm con Pulsera Piel, Tono marrón y plata",
+      "name": "Armani Exchange Reloj Hombre",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5809,7 +5809,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 310,
       "ref": "manager:B07GS6ZB7T",
-      "name": "Logitech G G502 Hero Ratón Gaming con Cable, 25,600 dpi, Negro",
+      "name": "Logitech G G502 Hero Ratón Gaming con Cable",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5828,7 +5828,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 311,
       "ref": "manager:B0CJMNBFGY",
-      "name": "Eucerin Hyaluron-Filler +Elasticity Crema de Día Rosé FPS 30, 50 ml",
+      "name": "Eucerin Hyaluron-Filler +Elasticity Crema de Día",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5847,7 +5847,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 312,
       "ref": "manager:B0GD5S4XFK",
-      "name": "Fossil Machine FS6165 Reloj de Acero Inoxidable para Hombre, 41 mm, Color Negro",
+      "name": "Fossil Machine FS6165 Reloj de Acero Inoxidable",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5866,7 +5866,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 313,
       "ref": "manager:B0CZPPGYXQ",
-      "name": "adidas Hombre Sportswear Basic 3 Stripes Tricot Track Suit, Dark Blue, M",
+      "name": "adidas Hombre Sportswear Basic 3 Stripes Tricot",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5885,7 +5885,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 314,
       "ref": "manager:B0G3QF795C",
-      "name": "Emporio Armani Relojes para Hombre, Movimiento cronógrafo de Cuarzo con Tres Agujas y Caja de 41mm",
+      "name": "Emporio Armani Relojes para Hombre",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5904,7 +5904,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 315,
       "ref": "manager:B0CBN5J9KX",
-      "name": "Fossil Collar redondo con colgante, Acero inoxidable dorado con cierre de mosquetón, para mujer",
+      "name": "Fossil Collar redondo con colgante",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5923,7 +5923,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 316,
       "ref": "manager:B0DBTXCPR2",
-      "name": "Joumma Disney Stitch Cuddle me Maleta de Cabina Rosa 33x50x20 cms Rígido 2 kgs Cierre de combinación Lateral ABS 2 kgs",
+      "name": "Joumma Disney Stitch Cuddle me Maleta de Cabina",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5942,7 +5942,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 317,
       "ref": "manager:B0CBN6B4LD",
-      "name": "Armani Exchange Relojes para Hombre, Movimiento Fecha trifunción de Cuarzo y Caja de 44 mm, Tono Dorado y Verde",
+      "name": "Armani Exchange Relojes para Hombre",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5961,7 +5961,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 318,
       "ref": "manager:B0DTJ1D3TC",
-      "name": "Bitzee - Mascota Digital Hamster Ball",
+      "name": "Bitzee Mascota Digital Hamster Ball",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5980,7 +5980,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 319,
       "ref": "manager:B0CQMTVTDD",
-      "name": "hummel Hmlessential Back Pack W. SC Back Pack Unisex",
+      "name": "hummel Hmlessential Back Pack W. SC Back Pack",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -5999,7 +5999,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 320,
       "ref": "manager:B0C58RHKC6",
-      "name": "Hummel Zapatillas Unisex Reach TR Breather, Negro, 45 EU",
+      "name": "Hummel Zapatillas Unisex Reach TR Breather",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6037,7 +6037,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 322,
       "ref": "manager:B07NW3GFZ2",
-      "name": "New Era Unisex NBA The League 9Forty Toronto Raptors - Colores Oficiales del Equipo",
+      "name": "New Era Unisex NBA The League 9Forty Toronto",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6056,7 +6056,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 323,
       "ref": "manager:B0C384VMY2",
-      "name": "Beats Studio Buds +, Auriculares Totalmente inalámbricos con cancelación de Ruido Mejor compatibilidad, Negro/Oro",
+      "name": "Beats Studio Buds +",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6075,7 +6075,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 324,
       "ref": "manager:B084QRY7WR",
-      "name": "Wilkinson Sword Intuition Complete - Cuchillas de afeitar para mujer (3 unidades)",
+      "name": "Wilkinson Sword Intuition Complete",
       "category": "Belleza",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6094,7 +6094,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 325,
       "ref": "manager:B0BM4XBW72",
-      "name": "Sony VR2 Sense Estación de Carga del Controlador, Black",
+      "name": "Sony VR2 Sense Estación de Carga del Controlador",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6113,7 +6113,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 326,
       "ref": "manager:B0C4LTWXFH",
-      "name": "Technics EAH-AZ80E-K Auriculares Inalámbricos con Cancelación De Ruido, Bluetooth Multipunto 3 Dispositivos, Negro",
+      "name": "Technics EAH-AZ80E-K Auriculares Inalámbricos",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6132,7 +6132,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 327,
       "ref": "manager:B08BKPQQDD",
-      "name": "Cooler Master MWE 750 Gold V2 - Fuente de Alimentación 750W Modular (Enchufe EU), 80 PLUS Gold, Cableado Negro Plano",
+      "name": "Cooler Master MWE 750 Gold V2",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6151,7 +6151,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 328,
       "ref": "manager:B0F2TQBG6T",
-      "name": "Life360 Tile - Localizador Bluetooth, localizador de Llaves y localizador de Objetos para Llaves, Paquete de 4",
+      "name": "Life360 Tile Localizador Bluetooth localizador",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6170,7 +6170,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 329,
       "ref": "manager:B0FDQT2KFR",
-      "name": "Lenor Aire Fresco Suavizante Ropa Brisa Limpia, Pack 8x50 Lavados (400), Pack de 8 unidades.",
+      "name": "Lenor Aire Fresco Suavizante Ropa Brisa Limpia",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6189,7 +6189,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 330,
       "ref": "manager:B0DGHZBDBM",
-      "name": "Apple Funda de Silicona con MagSafe para el iPhone 16 Plus - Azul Ultramar ​​​​​​​",
+      "name": "Apple Funda de Silicona con MagSafe",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6208,7 +6208,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 331,
       "ref": "manager:B07HNHFJCB",
-      "name": "Levi's Free Cinturón, Marrón (Brown), 100 Unisex adulto",
+      "name": "Levi's Free Cinturón",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6227,7 +6227,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 332,
       "ref": "manager:B0DB9M9JZB",
-      "name": "ADVANCED NIGHT REPAIR OVERNIGHT TREATMENT night sealing treatment 65 ml",
+      "name": "ADVANCED NIGHT REPAIR OVERNIGHT TREATMENT night",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6246,7 +6246,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 333,
       "ref": "manager:B01CJB1WPE",
-      "name": "Notas Adhesivas Milan 3 in 1 Amarillo 38 x 50 mm (10 Unidades)",
+      "name": "Notas Adhesivas Milan 3 in 1 Amarillo 38 x 50 mm",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6265,7 +6265,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 334,
       "ref": "manager:B0C86G56GN",
-      "name": "Carrete de cable DIY 4 enchufes estándar Schuko, cable H05VV-F3G1.5MM2, 40M, CE",
+      "name": "Carrete de cable DIY 4 enchufes estándar Schuko",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6284,7 +6284,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 335,
       "ref": "manager:B0DGGQHZ3Q",
-      "name": "FLASH LED Luz de Emergencia V16 Certificada DGT 3.0, con Geolocalización, App Incluida",
+      "name": "FLASH LED Luz de Emergencia V16 Certificada DGT",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6303,7 +6303,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 336,
       "ref": "manager:B002SN9T0E",
-      "name": "STAUB Cocotte, Cazuela de Hierro Fundido Esmaltada, 24cm, 3,8L, Inducción, Rojo-Cereza",
+      "name": "STAUB Cocotte Cazuela de Hierro Fundido Esmaltada",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6322,7 +6322,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 337,
       "ref": "manager:B07JVZNR7D",
-      "name": "Timberland Men's Davis Square Mid Lace Up Wheat Nubuck 7 41",
+      "name": "Timberland Men's Davis Square Mid Lace Up Wheat",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6341,7 +6341,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 338,
       "ref": "manager:B0DN66LH1N",
-      "name": "Object Mujer Objoaklyn Re Jacket 135, Negro, Numeric_44",
+      "name": "Object Mujer Objoaklyn Re Jacket 135, Negro",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6360,7 +6360,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 339,
       "ref": "manager:B0CKWSDDWS",
-      "name": "Helly Hansen Hombres Chaqueta polar Daybreaker, Schwarz 3.0, M",
+      "name": "Helly Hansen Hombres Chaqueta polar Daybreaker",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6379,7 +6379,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 340,
       "ref": "manager:B0HDQ3Y4RX",
-      "name": "TEKA Campana Decorativa Vertical, Negra, 3 Velocidades + Intensivo, 60 cm",
+      "name": "TEKA Campana Decorativa Vertical",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6398,7 +6398,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 341,
       "ref": "manager:B0D5MKJLKP",
-      "name": "Hummel Tenis Unisex para Balonmano Perfekt SP, Black, 7 UK",
+      "name": "Hummel Tenis Unisex para Balonmano Perfekt SP",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6417,7 +6417,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 342,
       "ref": "manager:B097C25256",
-      "name": "PUMA Zapatillas ST Runner v3 NL Unisex, Black-White, 42 EU",
+      "name": "PUMA Zapatillas ST Runner v3 NL Unisex",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6436,7 +6436,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 343,
       "ref": "manager:B07H94937Z",
-      "name": "BERING 14240-303 Reloj de cuarzo para hombre con caja de acero inoxidable plateado de 40 mm y esfera azul",
+      "name": "BERING 14240-303 Reloj de cuarzo para hombre",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6455,7 +6455,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 344,
       "ref": "manager:B0DSGCTPNG",
-      "name": "Gant Vestido de Punto de Lana de Cordero superfino para Mujer, Caqui cálido., XXL",
+      "name": "Gant Vestido de Punto de Lana de Cordero",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6474,7 +6474,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 345,
       "ref": "manager:B09JSL6VTY",
-      "name": "PLAYMOBIL 70932 Asterix Cabaña de Abraracúrcix, Juguetes para niños a Partir de 5 años, Multicolor",
+      "name": "PLAYMOBIL 70932 Asterix Cabaña de Abraracúrcix",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6512,7 +6512,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 347,
       "ref": "manager:B09DGQ91WN",
-      "name": "Abu Garcia Cardinal X Carrete Giratorio; Alto Rendimiento para la Pesca, Negro/Rojo",
+      "name": "Abu Garcia Cardinal X Carrete Giratorio; Alto",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6531,7 +6531,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 348,
       "ref": "manager:B083JKMXJF",
-      "name": "Fischer Urban - Casco de Ciclismo para Adultos, Anillo Interior Ajustable e Iluminado, Color Color Negro.",
+      "name": "Fischer Urban Casco de Ciclismo para Adultos",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6550,7 +6550,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 349,
       "ref": "manager:B0DK4DB6S8",
-      "name": "Columbia Roc Tech Pantalones Cargo, Pantalones de Tela, Repelencia Avanzada, Elasticidad Cómoda",
+      "name": "Columbia Roc Tech Pantalones Cargo",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6569,7 +6569,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 350,
       "ref": "manager:B07FPX6RB8",
-      "name": "JACK & JONES Slim Straight-fit Jeans, Blue Denim 34 34 Blue Denim",
+      "name": "JACK & JONES Slim Straight-fit Jeans",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6588,7 +6588,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 351,
       "ref": "manager:B07X3X9ZCD",
-      "name": "Eastpak MAVIS Neceser, 6 L - Black (Negro)",
+      "name": "Eastpak MAVIS Neceser",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6607,7 +6607,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 352,
       "ref": "manager:B0HJV5W62B",
-      "name": "Reloj Inteligente para Xiaomi Apple Samsung, Llamadas Bluetooth y WhatsApp",
+      "name": "Reloj Inteligente para Xiaomi Apple Samsung",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6626,7 +6626,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 353,
       "ref": "manager:B0F9B2YCGQ",
-      "name": "DKNY Zapatillas Deportivas Naples-Lace Up para Mujer, Hueso, 40 EU",
+      "name": "DKNY Zapatillas Deportivas Naples-Lace Up",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6645,7 +6645,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 354,
       "ref": "manager:B09DC1SH5G",
-      "name": "ONLY Only Girl 152 - Parka Larga Para Niña, Color Negro Parka, Niñas, Negro, 152",
+      "name": "ONLY Only Girl 152",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6683,7 +6683,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 356,
       "ref": "manager:B0FFTPW4FL",
-      "name": "Pepe Jeans Solid Ha Swimsuit Pañal para Nadar, Negro (Black), XL para Mujer",
+      "name": "Pepe Jeans Solid Ha Swimsuit Pañal para Nadar",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6702,7 +6702,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 357,
       "ref": "manager:B0CSDRM89J",
-      "name": "Tommy Hilfiger Men Polos 1985 Regular POLOMW0MW17770 Blue (Aegean Sea), L",
+      "name": "Tommy Hilfiger Men Polos 1985 Regular",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6721,7 +6721,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 358,
       "ref": "manager:B0CFFZJV6H",
-      "name": "Legero Zapatillas para Mujer Bliss, Blanco 1000, 38 EU",
+      "name": "Legero Zapatillas para Mujer Bliss",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6740,7 +6740,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 359,
       "ref": "manager:B0CB3R6KMJ",
-      "name": "Clarks Mujer Arla Stroll Sandalias, Beige Combi, 41 EU",
+      "name": "Clarks Mujer Arla Stroll Sandalias",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6759,7 +6759,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 360,
       "ref": "manager:B0BZ146518",
-      "name": "Miquelrius - Cuaderno A5 Cuadriculado 5 mm, 80 Hojas, Espiral, Confetti, 80 g/m²",
+      "name": "Miquelrius Cuaderno A5 Cuadriculado 5 mm 80 Hojas",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6778,7 +6778,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 361,
       "ref": "manager:B0GFGH9B4M",
-      "name": "Tommy Jeans Suéter TJM Slim ESS Ext Dm0Dm21787 para Hombre, Color Verde (Rocky Mountain), Talla S",
+      "name": "Tommy Jeans Suéter TJM Slim ESS Ext Dm0Dm21787",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6797,7 +6797,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 362,
       "ref": "manager:B07DZQFJF9",
-      "name": "BluePet Peine Perros y Gatos, Cepillo Pelo Corto, Quita Nudos y Subpelo, Taille M 66mm.",
+      "name": "BluePet Peine Perros y Gatos",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6816,7 +6816,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 363,
       "ref": "manager:B07Q619ZKS",
-      "name": "OOONO Co-Driver 1 – Alertas de Peligro en Tiempo Real",
+      "name": "OOONO Co-Driver 1",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6835,7 +6835,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 364,
       "ref": "manager:B09M46DWPJ",
-      "name": "AVINIA Temporizadores Digitales de Cocina,temporizadores visuales, Pantalla LED Grande, Negro",
+      "name": "AVINIA Temporizadores Digitales de Cocina",
       "category": "Hogar",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6854,7 +6854,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 365,
       "ref": "manager:B0D54HT97H",
-      "name": "Timberland Herren Davis ChukkaSneaker-Stiefel - Zapatillas cuadradas, Black, 41 EU",
+      "name": "Timberland Herren Davis ChukkaSneaker-Stiefel",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6873,7 +6873,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 366,
       "ref": "manager:B0B9H78BG1",
-      "name": "ORICO Hub USB C 3.2 Gen2 de 4 Puertos, Concentrador Alimentado 10Gbps con 2 USB-A, 2 USB-C",
+      "name": "ORICO Hub USB C 3.2 Gen2 de 4 Puertos",
       "category": "Tecnología",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6892,7 +6892,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 367,
       "ref": "manager:B01BWYSPJK",
-      "name": "Streetsurfing Waveboard The Wave G1, Diseño: Radiance",
+      "name": "Streetsurfing Waveboard The Wave G1, Diseño",
       "category": "Otros",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
@@ -6949,7 +6949,7 @@ window.VELANS_PREVIEW_DATA = {
     {
       "id": 370,
       "ref": "manager:B0FC2W2FGL",
-      "name": "adidas Hombre VL Court 3.0 Shoes, FTWR White/Dark Blue/LGH Solid Grey, 44 EU",
+      "name": "adidas Hombre VL Court 3.0 Shoes",
       "category": "Moda",
       "kind": "GangaGato",
       "subtype": "Ofertas del canal",
