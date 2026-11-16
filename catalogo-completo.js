@@ -3,7 +3,7 @@ window.VELANS_PREVIEW_DATA = {
   "schemaVersion": 1,
   "generatedAt": "2026-11-16",
   "webCount": 71,
-  "managerCount": 299,
+  "managerCount": 298,
   "disclaimer": "Sin precios ni fotos de Amazon hasta disponer de su API.",
   "products": [
     {
@@ -4361,25 +4361,6 @@ window.VELANS_PREVIEW_DATA = {
       "why": "Oferta recibida para revisar en Velan’s Manager.",
       "imageUrl": null,
       "postedAt": "2026-11-14T14:20:11.000Z"
-    },
-    {
-      "id": 234,
-      "ref": "manager:B0C9V4KJKX",
-      "name": "VANS",
-      "category": "Otros",
-      "kind": "GangaGato",
-      "subtype": "Ofertas del canal",
-      "brand": "CANAL GANGAGATO",
-      "source": "manager",
-      "price": null,
-      "was": null,
-      "checked": false,
-      "asin": "B0C9V4KJKX",
-      "affiliateUrl": "https://www.amazon.es/dp/B0C9V4KJKX?tag=velans-21",
-      "description": "Consulta el precio y la disponibilidad actualizados en Amazon.es.",
-      "why": "Oferta recibida para revisar en Velan’s Manager.",
-      "imageUrl": null,
-      "postedAt": "2026-11-14T14:10:06.000Z"
     },
     {
       "id": 235,
