@@ -321,21 +321,6 @@ function filtered(){
   return rows;
 }
 let observer;
-function renderSubtypeFilter(){
-  const types=availableSubtypes(state.category,state.audience);
-  const filter=$('#subtype-filter');
-  filter.hidden=state.view!=='listing'||state.category==='Todas'||types.length===0;
-  if(types.length===0)return;
-  const select=$('#subtype-select');
-  select.replaceChildren();
-  const all=document.createElement('option');all.value='all';all.textContent='Todos los tipos';select.append(all);
-  for(const type of types){
-    const count=products.filter(p=>p.category===state.category&&(state.audience==='all'||p.audience===state.audience)&&p.module===type).length;
-    const option=document.createElement('option');option.value=type;option.textContent=`${type} (${count})`;
-    select.append(option);
-  }
-  select.value=types.includes(state.subtype)?state.subtype:'all';
-}
 function renderProductPage(){
   const p=products.find(item=>item.id===state.productId);
   if(!p)return;
@@ -392,7 +377,6 @@ function renderSection(){
 function render(){
   if(observer){observer.disconnect();observer=undefined}
   renderSection();
-  renderSubtypeFilter();
   const all=filtered();
   const visible=all.slice(0,state.limit);
   const empty='<div class="no-results"><h3>No hay resultados con estos filtros</h3><p>Prueba otra búsqueda o categoría.</p><button type="button" data-reset>Ver todos los artículos</button></div>';
@@ -566,7 +550,6 @@ $('#search-form').addEventListener('submit',event=>{
   showPage();
 });
 $('#sort-select').addEventListener('change',event=>{state.sort=event.target.value;state.limit=12;render()});
-$('#subtype-select').addEventListener('change',event=>{state.subtype=event.target.value;state.limit=12;writeRoute();render()});
 $('#logo-home').addEventListener('click',event=>{event.preventDefault();reset()});
 $('#detail-modal').addEventListener('click',event=>{if(event.target.id==='detail-modal')$('#detail-modal').hidden=true});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){$('#detail-modal').hidden=true;if(!$('#nav-filter-panel').hidden){closeFilters();$('#nav-filter-toggle').focus()}closeMobileMenu()}});
