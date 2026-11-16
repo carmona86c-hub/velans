@@ -66,10 +66,10 @@ function amazonButton(p,variant=''){
 // Las fotografías obtenidas por ASIN son orientativas hasta contrastar la variante.
 function photoCandidate(p){
   if(typeof p.imageUrl==='string'){
-    try{const url=new URL(p.imageUrl);if(url.protocol==='https:'&&!url.username&&!url.password)return {url:url.href,verified:p.photoVerified===true};}catch{}
+    try{const url=new URL(p.imageUrl);if(url.protocol==='https:'&&!/amazon|media-amazon/i.test(url.hostname)&&!url.username&&!url.password)return {url:url.href,verified:p.photoVerified===true};}catch{}
   }
-  const asin=String(p.asin||'').trim().toUpperCase();
-  return /^[A-Z0-9]{10}$/.test(asin)?{url:`https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`,verified:false}:null;
+  // Sin fotos de Amazon: sus normas de afiliado solo permiten imágenes obtenidas por su API.
+  return null;
 }
 function photoMarkup(p){
   const candidate=photoCandidate(p);
