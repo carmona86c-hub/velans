@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://velans.es/</loc>
-  </url>
-  <url><loc>https://velans.es/aviso-legal.html</loc></url>
+  <url><loc>https://velans.es/</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://velans.es/ideas-para-regalar.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://velans.es/moda.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://velans.es/hogar-y-cocina.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://velans.es/tecnologia.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://velans.es/belleza.html</loc><lastmod>2026-11-16</lastmod></url>
+  <url><loc>https://velans.es/aviso-legal.html</loc><lastmod>2026-11-16</lastmod></url>
 </urlset>
