@@ -13,7 +13,7 @@ let previousFavorites=[];
 try{previousFavorites=JSON.parse(localStorage.getItem('velans-favorites')||'[]')}catch{}
 const saved=new Set(Array.isArray(previousFavorites)?previousFavorites.filter(id=>products.some(p=>p.id===id)):[]);
 const categoryInfo={
-  Moda:{slug:'moda',title:'Moda y accesorios',description:'Ropa, calzado y complementos. Descubre exclusivamente las ofertas de moda de Velan’s.',symbol:'M'},
+  Moda:{slug:'moda',title:'Moda y accesorios',description:'Ropa, calzado y complementos. Descubre la selección de moda de Velan’s.',symbol:'M'},
   Tecnología:{slug:'tecnologia',title:'Tecnología',description:'Audio, relojes y dispositivos. Una selección de oportunidades en tecnología.',symbol:'T'},
   Hogar:{slug:'hogar',title:'Hogar y cocina',description:'Equipamiento, decoración y pequeños electrodomésticos para tu día a día.',symbol:'H'},
   Bricolaje:{slug:'bricolaje',title:'Bricolaje',description:'Una sección reservada para herramientas, reparaciones y proyectos del hogar.',symbol:'B'},
@@ -30,9 +30,9 @@ const tiers=[['all','Todos'],['10-29','10–29 %'],['30-49','30–49 %'],['50+',
 const $=s=>document.querySelector(s);
 const $$=s=>Array.from(document.querySelectorAll(s));
 const euro=n=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'}).format(n);
-const pct=p=>Number.isFinite(p.price)&&Number.isFinite(p.was)&&p.was>p.price?Math.round((1-p.price/p.was)*100):null;
-const priceText=p=>Number.isFinite(p.price)?euro(p.price):'Precio por verificar';
-const wasText=p=>Number.isFinite(p.price)&&Number.isFinite(p.was)&&p.was>p.price?euro(p.was):'';
+const pct=p=>null; // Sin descuentos: Amazon solo permite datos de precio de su API.
+const priceText=p=>'';
+const wasText=p=>'';
 const percentageBadge=p=>pct(p)>0?`<span class="discount-badge" aria-label="Descuento anunciado del ${pct(p)} por ciento">−${pct(p)}%</span>`:'';
 const heroDiscount=p=>pct(p)>0?`<span class="hero-offer-indicator" aria-label="Descuento anunciado del ${pct(p)} por ciento"><span>AHORRA</span><strong>−${pct(p)}%</strong></span>`:'';
 const amazonIcon='<svg class="amazon-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.1 12H6.1L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>';
@@ -224,12 +224,12 @@ function initHero(){
   $('#hero-carousel-slides').innerHTML=heroProducts.map((p,index)=>`
     <article class="hero-slide ${index===0?'is-active':''}" data-hero-slide="${index}" aria-hidden="${index!==0}" style="--hero-tone:${colors[index]}">
       <div class="hero-slide-copy">
-        <div class="hero-slide-kicker"><span class="hero-kicker-line"></span> OFERTAS DE NUESTRO CATÁLOGO <span class="hero-kicker-secondary">/ VELAN’S</span></div>
+        <div class="hero-slide-kicker"><span class="hero-kicker-line"></span> DESTACADOS DE NUESTRA SELECCIÓN <span class="hero-kicker-secondary">/ VELAN’S</span></div>
         <span class="hero-slide-brand">${esc(displayBrand(p))}</span>
         <h1 class="hero-slide-title"><button type="button" class="hero-title-link" data-product-page="${p.id}" ${index===0?'':'tabindex="-1"'}>${esc(p.name)}</button></h1>
         <div class="hero-slide-prices">
           <div class="hero-current-price">${priceText(p)}</div>
-          <div class="hero-previous-price">${wasText(p)?`<span>ANTES</span> <del>${wasText(p)}</del>`:'Precio orientativo'}</div>
+          <div class="hero-previous-price">${wasText(p)?`<span>ANTES</span> <del>${wasText(p)}</del>`:''}</div>
           ${heroDiscount(p)}
         </div>
         <p class="hero-legal-note">Descubre los artículos destacados de nuestra selección.</p>
@@ -240,7 +240,7 @@ function initHero(){
         <div class="hero-photo-frame"><div class="hero-item-photo" style="${imageStyle(p)}">${photoMarkup(p)}</div></div>
       </button>
     </article>`).join('');
-  $('#hero-dots').innerHTML=heroProducts.map((p,index)=>`<button type="button" class="hero-dot ${index===0?'is-active':''}" data-hero-index="${index}" aria-label="Mostrar oferta ${index+1}: ${esc(p.kind)}" aria-pressed="${index===0}"></button>`).join('');
+  $('#hero-dots').innerHTML=heroProducts.map((p,index)=>`<button type="button" class="hero-dot ${index===0?'is-active':''}" data-hero-index="${index}" aria-label="Mostrar artículo ${index+1}: ${esc(p.kind)}" aria-pressed="${index===0}"></button>`).join('');
   $('#hero-page-number').textContent=`01 / ${String(heroProducts.length).padStart(2,'0')}`;
   scheduleHero();
 }
@@ -275,7 +275,7 @@ function card(p){
       <span class="product-category">${esc(p.category)} · ${p.audience!=='all'?esc(p.audience)+' · ':''}${esc(p.module)}</span>
       <h3><button type="button" class="product-title-button" data-product="${p.id}" aria-label="Ver detalles de ${esc(p.name)}">${esc(p.name)}</button></h3>
       <div class="pricing"><strong>${priceText(p)}</strong>${wasText(p)?`<del>${wasText(p)}</del>`:''}</div>
-      <p class="product-note">${p.source==='manager'?'Precio orientativo; consulta el precio final en Amazon.':'Consulta el precio actualizado al abrir el producto.'}</p>
+      <p class="product-note">${'Precio y disponibilidad actualizados en Amazon.es.'}</p>
       <div class="product-affiliate-label">Compra final en Amazon.es</div>
       ${amazonButton(p,'amazon-cta-card')}
     </div>
@@ -352,7 +352,7 @@ function renderProductPage(){
   $('#product-page-was').textContent=wasText(p);
   $('#product-page-discount').textContent=pct(p)>0?`−${pct(p)}%`:'';
   $('#product-page-discount').hidden=!(pct(p)>0);
-  $('#product-page-note').textContent=p.source==='manager'?'Precio orientativo. Consulta el precio final en Amazon.es antes de comprar.':'Artículo de nuestra selección; consulta su precio actualizado en Amazon.es.';
+  $('#product-page-note').textContent='Artículo de nuestra selección. Consulta el precio y la disponibilidad actualizados en Amazon.es.';
   const amazon=$('#product-page-amazon');
   const link=amazonLink(p);
   amazon.hidden=!link;
@@ -370,22 +370,22 @@ function renderSection(){
   if(productPage){renderProductPage();return}
   $('#catalogo').classList.toggle('listing-view',listing);
   if(!listing){
-    document.title='Velan’s · Ofertas en moda, tecnología y hogar';
+    document.title='Velan’s · Selección de moda, tecnología y hogar';
     $('#catalog-eyebrow').textContent='DESCUBRE Y COMPARA';
-    $('#catalog-title').textContent='Catálogo de ofertas';
-    $('#catalog-subtitle').textContent='Una selección de moda, tecnología, hogar y mucho más. Descubre tu próxima oferta.';
+    $('#catalog-title').textContent='Nuestra selección';
+    $('#catalog-subtitle').textContent='Una selección de moda, tecnología, hogar y mucho más. Descubre tu próximo favorito.';
     return;
   }
   const category=categoryInfo[state.category];
   const title=category?.title||(state.onlySaved?'Mis favoritos':state.term?'Resultados de búsqueda':state.sort==='latest'?'Últimas incorporaciones':'Catálogo integrado');
-  const description=(category?.description|| (state.onlySaved?'Los productos que has guardado en tu selección personal.':state.term?`Productos relacionados con «${state.term}».`:'Explora las ofertas seleccionadas con los criterios que has elegido.'))+(state.audience!=='all'?` · ${state.audience}`:'')+(state.subtype!=='all'?` · ${state.subtype}`:'');
+  const description=(category?.description|| (state.onlySaved?'Los productos que has guardado en tu selección personal.':state.term?`Productos relacionados con «${state.term}».`:'Explora los artículos seleccionados con los criterios que has elegido.'))+(state.audience!=='all'?` · ${state.audience}`:'')+(state.subtype!=='all'?` · ${state.subtype}`:'');
   $('#section-title').textContent=title;
   $('#section-breadcrumb').textContent=title;
   $('#section-description').textContent=description;
   $('#section-eyebrow').textContent=category?'DEPARTAMENTO VELAN’S':'SELECCIÓN VELAN’S';
   $('#section-monogram').textContent=category?.symbol||'V';
   $('#catalog-eyebrow').textContent='EXPLORA Y COMPARA';
-  $('#catalog-title').textContent=category?'Artículos de esta categoría':'Ofertas disponibles';
+  $('#catalog-title').textContent=category?'Artículos de esta categoría':'Artículos disponibles';
   $('#catalog-subtitle').textContent='Filtra esta categoría para encontrar lo que estás buscando.';
   document.title=`${title} · Velan’s`;
 }
