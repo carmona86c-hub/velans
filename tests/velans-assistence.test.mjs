@@ -69,3 +69,11 @@ test('«no lo sé» sin contexto no se busca como palabra',()=>{
   const r=ask('Pues no lo se').r;
   assert.ok(!/pues/.test(r.text)); assert.match(r.text,/regalo/);
 });
+test('lenguaje coloquial: «cojer», «mi chica», «mi señora», «pillarle»',()=>{
+  const r=ask('No se que cojer para mi chica').r;
+  assert.ok(!/cojer/.test(r.text)); assert.ok(r.cards.length && r.cards.every(c=>E.byId(c.id).audience!=='Hombre'));
+  assert.match(ask('qué le compro a mi señora').r.text,/tu señora/);
+  assert.ok(!/pillarle/.test(ask('quiero pillarle algo a mi chico').r.text));
+  assert.ok(!/escoger/.test(ask('no sé qué escoger').r.text));
+  assert.ok(ask(['no se que cojer','para mi chica']).r.cards.every(c=>E.byId(c.id).audience!=='Hombre'));
+});
