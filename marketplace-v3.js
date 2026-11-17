@@ -428,7 +428,7 @@ function readRoute(){
   state.category=product?.category||selected||'Todas';
   state.audience=selected&&availableAudiences(selected).includes(params.get('publico'))?params.get('publico'):'all';
   state.subtype=selected&&availableSubtypes(selected,state.audience).includes(params.get('tipo'))?params.get('tipo'):'all';
-  state.band=tiers.some(([value])=>value===params.get('descuento'))?params.get('descuento'):'all';
+  state.band='all'; // Filtro de descuento EN PAUSA hasta tener la API de Amazon: se ignora ?descuento=
   state.term=params.get('buscar')||'';
   state.onlySaved=params.get('favoritos')==='1';
   state.sort=params.get('orden')==='recientes'?'latest':'featured';
@@ -449,6 +449,7 @@ function updateCategory(c){
   $('#search-input').value='';state.limit=12;showPage();
 }
 function updateBand(b){
+  b='all'; // Descuentos EN PAUSA hasta la API de Amazon
   state.category='Todas';state.audience='all';state.subtype='all';state.productId=null;state.band=b;state.term='';state.onlySaved=false;state.sort='featured';state.view=b==='all'?'home':'listing';
   $('#search-input').value='';state.limit=12;showPage();
 }
