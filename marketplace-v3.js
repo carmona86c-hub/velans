@@ -262,7 +262,7 @@ function showHero(index){
   scheduleHero();
 }
 function card(p){
-  return `<article class="product-card">
+  return `<article class="product-card" data-card-product="${p.id}">
     <div class="product-photo-frame">
       <div class="product-photo" role="img" aria-label="Imagen provisional por comprobar para ${esc(p.name)}" style="${imageStyle(p)}">
         ${photoMarkup(p)}
@@ -282,7 +282,7 @@ function card(p){
   </article>`;
 }
 function featured(p){
-  return `<article class="feature-product">
+  return `<article class="feature-product" data-card-product="${p.id}" tabindex="0" aria-label="Ver detalles de ${esc(p.name)}">
     <div class="feature-photo-frame"><div class="fphoto" role="img" aria-label="Fotografía del producto" style="${imageStyle(p)}">${photoMarkup(p)}</div>${percentageBadge(p)}</div>
     <div class="ftxt"><span class="product-brand">${esc(displayBrand(p))}</span><span class="product-category">${esc(p.category)}</span><h3>${esc(p.name)}</h3>
       <div class="fprice"><b>${priceText(p)}</b>${wasText(p)?`<del>${wasText(p)}</del>`:''}</div>
@@ -505,6 +505,15 @@ function details(id){
   $('#detail-modal').hidden=false;
   $('#modal-close').focus();
 }
+document.addEventListener('click',event=>{
+  const cardBox=event.target.closest('[data-card-product]');
+  if(cardBox&&!event.target.closest('button,a,input,select,label,textarea')){openProductPage(Number(cardBox.dataset.cardProduct));return}
+});
+document.addEventListener('keydown',event=>{
+  if(event.key!=='Enter'&&event.key!==' ')return;
+  const cardBox=event.target.closest&&event.target.closest('.feature-product[data-card-product]');
+  if(cardBox&&event.target===cardBox){event.preventDefault();openProductPage(Number(cardBox.dataset.cardProduct))}
+});
 document.addEventListener('click',event=>{
   const button=event.target.closest('button');if(!button)return;
   if(button.id==='mobile-menu'){
