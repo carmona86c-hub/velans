@@ -7,7 +7,7 @@ const products=deduplicated.products;
 const hiddenDuplicates=deduplicated.discarded;
 // El control de duplicados sigue actuando sobre los datos, pero no se expone en la tienda.
 const displayedCatalogCount=products.length;
-const state={category:'Todas',audience:'all',subtype:'all',band:'all',term:'',sort:'featured',onlySaved:false,limit:12,view:'home',productId:null};
+const state={category:'Todas',audience:'all',subtype:'all',band:'all',term:'',sort:'featured',onlySaved:false,limit:20,view:'home',productId:null};
 // Los favoritos se guardan únicamente en este navegador, sin datos de cuenta.
 let previousFavorites=[];
 try{previousFavorites=JSON.parse(localStorage.getItem('velans-favorites')||'[]')}catch{}
@@ -396,12 +396,7 @@ function render(){
   const more=visible.length<all.length;
   $('#load-zone').hidden=!more;
   $('#load-caption').textContent=`Mostrando ${visible.length} de ${all.length} artículos del catálogo integrado`;
-  if(more&&'IntersectionObserver' in window){
-    observer=new IntersectionObserver(entries=>{
-      if(entries.some(e=>e.isIntersecting)){observer.disconnect();state.limit=Math.min(state.limit+12,all.length);render()}
-    },{rootMargin:'500px 0px'});
-    observer.observe($('#scroll-sentinel'));
-  }
+  $('#load-more').firstChild.textContent='Mostrar más ';
 }
 function writeRoute(){
   const url=new URL(window.location.href);
@@ -433,7 +428,7 @@ function readRoute(){
   state.onlySaved=params.get('favoritos')==='1';
   state.sort=params.get('orden')==='recientes'?'latest':'featured';
   state.view=product?'product':selected||state.band!=='all'||state.term||state.onlySaved||state.sort==='latest'?'listing':'home';
-  state.limit=12;
+  state.limit=20;
   $('#search-input').value=state.term;
 }
 function showPage(){
@@ -446,12 +441,12 @@ function closeMobileMenu(){
 }
 function updateCategory(c){
   state.category=c;state.audience='all';state.subtype='all';state.productId=null;state.band='all';state.term='';state.onlySaved=false;state.sort='featured';state.view=c==='Todas'?'home':'listing';
-  $('#search-input').value='';state.limit=12;showPage();
+  $('#search-input').value='';state.limit=20;showPage();
 }
 function updateBand(b){
   b='all'; // Descuentos EN PAUSA hasta la API de Amazon
   state.category='Todas';state.audience='all';state.subtype='all';state.productId=null;state.band=b;state.term='';state.onlySaved=false;state.sort='featured';state.view=b==='all'?'home':'listing';
-  $('#search-input').value='';state.limit=12;showPage();
+  $('#search-input').value='';state.limit=20;showPage();
 }
 function openFilters(focusOnDiscount=false){
   populateContextualFilters(state.category,state.audience,state.subtype);
@@ -476,12 +471,12 @@ function applyFilters(){
   state.subtype=state.category!=='Todas'?$('#nav-filter-module').value:'all';
   state.productId=null;
   state.band='all';
-  state.term='';state.onlySaved=false;state.sort='featured';state.limit=12;
+  state.term='';state.onlySaved=false;state.sort='featured';state.limit=20;
   state.view=state.category==='Todas'&&state.band==='all'?'home':'listing';
   $('#search-input').value='';showPage();
 }
 function reset(){
-  state.category='Todas';state.audience='all';state.subtype='all';state.productId=null;state.band='all';state.term='';state.onlySaved=false;state.sort='featured';state.limit=12;state.view='home';
+  state.category='Todas';state.audience='all';state.subtype='all';state.productId=null;state.band='all';state.term='';state.onlySaved=false;state.sort='featured';state.limit=20;state.view='home';
   $('#search-input').value='';showPage();
 }
 function toggleFavorite(id){
@@ -491,7 +486,7 @@ function toggleFavorite(id){
 }
 function openProductPage(id){
   const p=products.find(item=>item.id===id);if(!p)return;
-  state.category=p.category;state.audience='all';state.subtype='all';state.band='all';state.term='';state.sort='featured';state.onlySaved=false;state.productId=p.id;state.view='product';state.limit=12;
+  state.category=p.category;state.audience='all';state.subtype='all';state.band='all';state.term='';state.sort='featured';state.onlySaved=false;state.productId=p.id;state.view='product';state.limit=20;
   $('#search-input').value='';showPage();
 }
 function details(id){
@@ -540,10 +535,10 @@ document.addEventListener('click',event=>{
   if(button.dataset.productPage){openProductPage(Number(button.dataset.productPage));return}
   if(button.dataset.product){openProductPage(Number(button.dataset.product));return}
   if(button.dataset.save){toggleFavorite(Number(button.dataset.save));return}
-  if(button.id==='saved-top'){state.onlySaved=!state.onlySaved;state.category='Todas';state.audience='all';state.subtype='all';state.productId=null;state.band='all';state.term='';state.sort='featured';state.limit=12;state.view=state.onlySaved?'listing':'home';$('#search-input').value='';showPage();return}
+  if(button.id==='saved-top'){state.onlySaved=!state.onlySaved;state.category='Todas';state.audience='all';state.subtype='all';state.productId=null;state.band='all';state.term='';state.sort='featured';state.limit=20;state.view=state.onlySaved?'listing':'home';$('#search-input').value='';showPage();return}
   if(button.id==='clear-active'){reset();return}
-  if(button.id==='nav-new'){state.category='Todas';state.audience='all';state.subtype='all';state.productId=null;state.band='all';state.term='';state.onlySaved=false;state.sort='latest';state.limit=12;state.view='listing';$('#search-input').value='';showPage();return}
-  if(button.id==='load-more'){state.limit+=12;render();return}
+  if(button.id==='nav-new'){state.category='Todas';state.audience='all';state.subtype='all';state.productId=null;state.band='all';state.term='';state.onlySaved=false;state.sort='latest';state.limit=20;state.view='listing';$('#search-input').value='';showPage();return}
+  if(button.id==='load-more'){state.limit+=20;render();return}
   if(button.id==='modal-close'||button.id==='detail-close'){$('#detail-modal').hidden=true;return}
 });
 document.addEventListener('click',event=>{
@@ -556,10 +551,10 @@ $('#nav-filter-module').addEventListener('change',event=>populateContextualFilte
 $('#hero-carousel').addEventListener('pointerdown',()=>{heroTouchPausedUntil=Date.now()+6000});
 $('#search-form').addEventListener('submit',event=>{
   event.preventDefault();
-  state.term=$('#search-input').value.trim();state.category='Todas';state.audience='all';state.subtype='all';state.productId=null;state.band='all';state.onlySaved=false;state.sort='featured';state.view=state.term?'listing':'home';state.limit=12;
+  state.term=$('#search-input').value.trim();state.category='Todas';state.audience='all';state.subtype='all';state.productId=null;state.band='all';state.onlySaved=false;state.sort='featured';state.view=state.term?'listing':'home';state.limit=20;
   showPage();
 });
-$('#sort-select').addEventListener('change',event=>{state.sort=event.target.value;state.limit=12;render()});
+$('#sort-select').addEventListener('change',event=>{state.sort=event.target.value;state.limit=20;render()});
 $('#logo-home').addEventListener('click',event=>{event.preventDefault();reset()});
 $('#detail-modal').addEventListener('click',event=>{if(event.target.id==='detail-modal')$('#detail-modal').hidden=true});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){$('#detail-modal').hidden=true;if(!$('#nav-filter-panel').hidden){closeFilters();$('#nav-filter-toggle').focus()}closeMobileMenu()}});
