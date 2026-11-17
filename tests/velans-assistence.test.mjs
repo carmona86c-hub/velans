@@ -69,3 +69,26 @@ test('«no lo sé» sin contexto no se busca como palabra',()=>{
   const r=ask('Pues no lo se').r;
   assert.ok(!/pues/.test(r.text)); assert.match(r.text,/regalo/);
 });
+test('lenguaje coloquial: «cojer», «mi chica», «mi señora», «pillarle»',()=>{
+  const r=ask('No se que cojer para mi chica').r;
+  assert.ok(!/cojer/.test(r.text)); assert.ok(r.cards.length && r.cards.every(c=>E.byId(c.id).audience!=='Hombre'));
+  assert.match(ask('qué le compro a mi señora').r.text,/tu señora/);
+  assert.ok(!/pillarle/.test(ask('quiero pillarle algo a mi chico').r.text));
+  assert.ok(!/escoger/.test(ask('no sé qué escoger').r.text));
+  assert.ok(ask(['no se que cojer','para mi chica']).r.cards.every(c=>E.byId(c.id).audience!=='Hombre'));
+});
+test('conversación de nivel medio: charla, ocasiones, gustos y seguimiento',()=>{
+  assert.match(ask('buenos días, qué tal estás?').r.text,/Muy bien/);
+  assert.match(ask('cómo funciona esto?').r.text,/Consultar en Amazon/);
+  assert.match(ask('ok gracias adiós').r.text,/Hasta pronto/);
+  assert.match(ask('es fiable esta web?').r.text,/Amazon\.es/);
+  assert.match(ask('cuánto tarda en llegar?').r.text,/entrega/);
+  assert.match(ask('regalo de aniversario para mi mujer').r.text,/aniversario/);
+  const g=ask(['regalo para mi mujer','es muy coqueta y le gusta viajar']).r;
+  assert.match(g.text,/cuidarse/); assert.ok(g.cards.every(c=>E.byId(c.id).audience!=='Hombre'));
+  const t=ask(['regalo para mi chico','es muy friki de la tecnología']).r; assert.match(t.text,/tecnolog/);
+  assert.match(ask(['regalo para mi mujer','no sé','¿por qué me recomiendas eso?']).r.text,/Te los he propuesto/);
+  assert.equal(ask(['regalo para mi mujer','no sé','dame el enlace del reloj']).r.cards.length,1);
+  assert.match(ask('necesito algo para mi hijo de 10 años').r.text,/peque/);
+  for(const q of ['me puedes ayudar?','quiero comprar algo','estoy aburrido','gano algo si compro?']) assert.ok(!/No he encontrado|No estoy seguro/.test(ask(q).r.text),q);
+});
