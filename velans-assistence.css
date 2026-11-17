@@ -28,3 +28,9 @@
 .va-root .va-band span{flex:1;min-width:0}
 .va-root .va-forget{border:0;background:transparent;color:#cdbfa8;font:inherit;font-size:9px;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:2px 0;opacity:.85}
 .va-root .va-forget:hover{opacity:1;color:#e3ba90}
+/* Sin recuadro azul al pulsar (móvil) ni al hacer clic; el aro dorado solo aparece al navegar con teclado */
+.va-root,.va-root *{-webkit-tap-highlight-color:transparent}
+.va-root .va-bubble,.va-root .va-bubble img{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.va-root button:focus,.va-root a:focus{outline:none}
+.va-root button:focus-visible,.va-root a:focus-visible{outline:2px solid rgba(214,170,110,.9);outline-offset:3px}
+.va-root .va-bubble:focus-visible{outline-offset:4px;border-radius:50%}
