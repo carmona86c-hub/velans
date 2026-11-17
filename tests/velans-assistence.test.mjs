@@ -58,3 +58,14 @@ test('privacidad: avisa y no repite datos personales',()=>{
 test('responde con sinceridad que es una máquina',()=>{
   assert.match(ask('¿eres una persona?').r.text,/asistente automático/);
 });
+test('regalo para la mujer: nada de hombre y «no sé» enseña ideas',()=>{
+  const {r}=ask(['algún regalo para mi mujer','pues no lo se']);
+  assert.ok(r.cards.length>0);
+  assert.ok(r.cards.every(c=>E.byId(c.id).audience!=='Hombre'),r.cards.map(c=>c.title).join(' | '));
+  assert.ok(ask(['regalo para mi mujer','Enséñame ideas para regalar']).r.cards.every(c=>E.byId(c.id).audience!=='Hombre'));
+  assert.ok(ask(['regalo para mi marido','ni idea']).r.cards.every(c=>E.byId(c.id).audience!=='Mujer'));
+});
+test('«no lo sé» sin contexto no se busca como palabra',()=>{
+  const r=ask('Pues no lo se').r;
+  assert.ok(!/pues/.test(r.text)); assert.match(r.text,/regalo/);
+});
