@@ -396,8 +396,7 @@ function render(){
   const more=visible.length<all.length;
   $('#load-zone').hidden=!more;
   $('#load-caption').textContent=`Mostrando ${visible.length} de ${all.length} artículos del catálogo integrado`;
-  const rest=all.length-visible.length;
-  $('#load-more').firstChild.textContent=`Mostrar ${Math.min(20,rest)} artículos más `;
+  $('#load-more').firstChild.textContent='Mostrar más ';
 }
 function writeRoute(){
   const url=new URL(window.location.href);
