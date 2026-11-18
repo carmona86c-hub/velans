@@ -1,0 +1,31 @@
+name: Prueba API AliExpress
+on:
+  push:
+    branches: [aliexpress-prueba]
+permissions:
+  contents: write
+jobs:
+  catalogo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 20
+      - name: Seleccionar productos con mayor descuento (no publica nada)
+        env:
+          ALIEXPRESS_APP_KEY: ${{ secrets.ALIEXPRESS_APP_KEY }}
+          ALIEXPRESS_APP_SECRET: ${{ secrets.ALIEXPRESS_APP_SECRET }}
+          ALIEXPRESS_TRACKING_ID: ${{ secrets.ALIEXPRESS_TRACKING_ID }}
+        run: node scripts/aliexpress-catalogo.mjs
+      - name: Guardar el resultado en la rama aliexpress-datos (no en la web)
+        run: |
+          git config user.name "velans-bot"; git config user.email "velans-bot@users.noreply.github.com"
+          cp aliexpress-productos.js "$RUNNER_TEMP/ae.js"
+          git checkout --orphan aliexpress-datos
+          git rm -rfq --cached . ; git clean -fdq
+          cp "$RUNNER_TEMP/ae.js" aliexpress-productos.js
+          git add aliexpress-productos.js
+          git commit -qm "Datos AliExpress $(date -u +%F)"
+          git push -f origin aliexpress-datos
