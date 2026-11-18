@@ -13,5 +13,9 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
-          node-version: 20
-      - run: node --test tests/velans-assistence.test.mjs tests/seguridad.test.mjs
+          node-version: 22
+      - run: node --test tests/*.test.mjs
+      - name: Preparar el navegador de pruebas
+        run: npm install --prefix "$RUNNER_TEMP/velans-browser" --no-package-lock --ignore-scripts --no-audit --no-fund playwright-core@1.55.0
+      - name: Probar el asistente en móvil y escritorio
+        run: NODE_PATH="$RUNNER_TEMP/velans-browser/node_modules" VELANS_BROWSER_PATH="$(command -v google-chrome)" node tests/velans-asistente.browser.mjs

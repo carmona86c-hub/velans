@@ -5,6 +5,9 @@ if(!sourceCatalog||!Array.isArray(sourceCatalog.products))throw Error('Falta el 
 const deduplicated=window.VelansPreviewRules.dedupeExactNames(sourceCatalog.products.map(window.VelansPreviewTaxonomy.categorise));
 const products=deduplicated.products;
 const hiddenDuplicates=deduplicated.discarded;
+// The assistant reads the exact collection used by the storefront, including later pages.
+window.VelansPublishedCatalog = {products, generatedAt:sourceCatalog.generatedAt};
+window.VelansAssistenceOpenArticle = openProductPage;
 // El control de duplicados sigue actuando sobre los datos, pero no se expone en la tienda.
 const displayedCatalogCount=products.length;
 const state={category:'Todas',audience:'all',subtype:'all',band:'all',term:'',sort:'featured',onlySaved:false,limit:20,view:'home',productId:null};
