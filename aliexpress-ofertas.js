@@ -66,7 +66,21 @@
     grid.innerHTML=lista.slice(0,estado.limite).map(tarjeta).join('');
     mas.hidden=lista.length<=estado.limite;
     const cuenta=document.getElementById('ae-count');if(cuenta)cuenta.textContent=`${Math.min(lista.length,estado.limite)} de ${lista.length} ofertas`;
+    pintarBest();
   }
+  // Lo más vendido: top 50 sin repetir (solo en «Todas»), ordenado por ventas.
+  const best=Array.isArray(datos.masVendidos)?datos.masVendidos.filter(p=>enlaceSeguro(p.enlace)&&imagenSegura(p.imagen)):[];
+  const bestZona=document.getElementById('ae-mas-vendidos'),bestGrid=zona.querySelector('.ae-best-grid'),bestMas=zona.querySelector('.ae-best-more');
+  const bestEstado={limite:10};
+  function pintarBest(){
+    if(!bestZona)return;
+    const ver=best.length&&estado.cat==='Todas';
+    bestZona.hidden=!ver;if(!ver)return;
+    bestGrid.innerHTML=best.slice(0,bestEstado.limite).map(tarjeta).join('');
+    bestMas.hidden=best.length<=bestEstado.limite;
+    const c=document.getElementById('ae-best-count');if(c)c.textContent=`${Math.min(best.length,bestEstado.limite)} de ${best.length} artículos`;
+  }
+  bestMas?.addEventListener('click',()=>{bestEstado.limite+=10;pintarBest();});
   tabs?.addEventListener('click',e=>{const b=e.target.closest('[data-ae-cat]');if(!b)return;estado.cat=b.dataset.aeCat;estado.limite=10;pintar();});
   mas.addEventListener('click',()=>{estado.limite+=10;pintar();});
   
@@ -127,13 +141,14 @@
   window.VelansTienda=(t,o)=>tienda(t,o||{});
   window.VelansAEOpen=id=>{
     const todos=[...productos,...Object.values(datos.destacados||{}).flat()];
-    const p=todos.find(x=>x.id===id);if(!p)return false;
+    const p=todos.find(x=>x.id===id)||best.find(x=>x.id===id);if(!p)return false;
     tienda('aliexpress',{scroll:false});
     estado.cat=disponibles.has(p.categoria)?p.categoria:'Todas';
     const lista=productos.filter(x=>estado.cat==='Todas'||x.categoria===estado.cat).sort((a,b)=>b.descuento-a.descuento);
     const i=lista.findIndex(x=>x.id===id);estado.limite=Math.max(20,i+1);
     pintar();marcarNav();
-    const el=zona.querySelector(`.ae-grid [data-ae-id="${CSS.escape(id)}"]`)||zona.querySelector(`.ae-top-list [data-ae-id="${CSS.escape(id)}"]`);
+    if(!productos.some(x=>x.id===id)&&best.some(x=>x.id===id)){estado.cat='Todas';bestEstado.limite=Math.max(bestEstado.limite,best.findIndex(x=>x.id===id)+1);pintar();marcarNav();}
+    const el=zona.querySelector(`.ae-grid [data-ae-id="${CSS.escape(id)}"]`)||zona.querySelector(`.ae-best-grid [data-ae-id="${CSS.escape(id)}"]`)||zona.querySelector(`.ae-top-list [data-ae-id="${CSS.escape(id)}"]`);
     if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('ae-resaltado');setTimeout(()=>el.classList.remove('ae-resaltado'),2600);}
     return true;
   };

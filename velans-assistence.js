@@ -44,7 +44,7 @@ async function E(){
         const ae=window.VELANS_ALIEXPRESS;
         if(ae&&Array.isArray(ae.productos)){
           const seen=new Set(),rowsAE=[];
-          for(const p of [...ae.productos,...Object.values(ae.destacados||{}).flat()]){
+          for(const p of [...ae.productos,...Object.values(ae.destacados||{}).flat(),...(ae.masVendidos||[])]){
             if(!p||seen.has(p.id))continue;seen.add(p.id);
             rowsAE.push({id:p.id,name:p.nombre,category:p.categoria,store:'AliExpress',source:'aliexpress',
               description:`Oferta de AliExpress con un ${Number(p.descuento)} % de descuento indicado por AliExpress. ${Number(p.ventas).toLocaleString('es-ES')} vendidos y ${Math.round(Number(p.valoracion))} % de valoraciones positivas.`});

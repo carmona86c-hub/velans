@@ -31,9 +31,9 @@
   <script src="./fotos-libres.js" defer></script>
   <script src="./catalogo-marcas.js?v=1" defer></script>
   <script src="./marketplace-v3.js?v=20261118d" defer></script>
-  <link rel="stylesheet" href="./aliexpress-ofertas.css?v=7">
-  <script src="./aliexpress-productos.js?v=2" defer></script>
-  <script src="./aliexpress-ofertas.js?v=7" defer></script>
+  <link rel="stylesheet" href="./aliexpress-ofertas.css?v=8">
+  <script src="./aliexpress-productos.js?v=3" defer></script>
+  <script src="./aliexpress-ofertas.js?v=8" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -111,6 +111,11 @@
           <div class="section-heading featured-head"><div><span class="eyebrow">LOS MÁS VENDIDOS EN ALIEXPRESS</span><h2 id="ae-top-title">Destacados</h2></div></div>
           <div class="featured-list ae-top-list"></div>
         </section>
+        <div class="catalog ae-catalog ae-best" id="ae-mas-vendidos" hidden>
+          <div class="catalog-titlebar"><div><span class="eyebrow">TOP 50 EN ALIEXPRESS</span><h2>Lo más vendido</h2><p>Los 50 artículos con más ventas en AliExpress con envío a España, sin repetir el mismo artículo de distintas tiendas. Se actualiza cada día.</p></div><span class="catalog-count" id="ae-best-count"></span></div>
+          <div class="product-grid ae-best-grid" aria-live="polite"></div>
+          <div class="load-zone"><button type="button" class="ae-best-more">Mostrar más artículos <span>↓</span></button></div>
+        </div>
         <div class="catalog ae-catalog">
           <div class="catalog-titlebar"><div><span class="eyebrow">COMPRA EN ALIEXPRESS</span><h2 id="ae-title">Rebajas en AliExpress</h2><p>Ofertas muy bien valoradas. La compra, el envío y la atención al cliente los gestiona AliExpress. Velan’s es una web independiente, no patrocinada por AliExpress.</p></div><span class="catalog-count" id="ae-count"></span></div>
           <div class="product-grid ae-grid" aria-live="polite"></div>
