@@ -105,6 +105,9 @@ def pagina(g, items):
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://m.media-amazon.com https://images-na.ssl-images-amazon.com; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script src="./velans-seguridad.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(g['h1'])} | Velan’s</title>
 <meta name="description" content="{e(g['desc'])}">
@@ -120,6 +123,7 @@ def pagina(g, items):
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <style>{CSS}</style>
+<link rel="stylesheet" href="./velans-assistence.css?v=5.0.0">
 </head>
 <body>
 <header class="top"><img src="velans-v-metal.png" alt="" width="34" height="34"><a class="brand" href="./">Velan’s</a></header>
@@ -138,6 +142,7 @@ def pagina(g, items):
 <p>En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables. El precio y la disponibilidad se consultan siempre en Amazon.es.</p>
 <p><a href="aviso-legal.html">Aviso legal, privacidad y cookies</a></p>
 </footer>
+<script src="./velans-assistence.js?v=5.0.0" defer></script>
 </body>
 </html>
 """

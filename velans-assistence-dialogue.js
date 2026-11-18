@@ -14,7 +14,7 @@
     ['tree','árboles de Navidad',/\b(?:arbol(?:es)?|pino(?:s)?)\b.*(?:navidad|naviden)|(?:navidad|naviden).*?\barbol/,/\barbol(?:es)?\b.*(?:navidad|naviden)|(?:navidad|naviden).*?\barbol/],
     ['table','decoración de mesa',/(?:decorar|vestir|adornar|decoracion|centro).{0,24}\bmesa\b|\bmantel(?:es)?\b/,/\b(?:mantel(?:es)?|caminos? de mesa|centros? de mesa|servilleteros?|servilletas?)\b/],
     ['seat','bancos de jardín',/\bbanco(?:s)?\b/,/\bbancos?\b.*(?:jardin|asiento|madera|exterior)|\bbancos? de jardin\b/],
-    ['reading','accesorios de lectura',/marcapaginas|sujetalibros|lampara de lectura|(?:alguien|persona) que lee|(?:gusta|aficionad[ao] a) (?:a )?leer|sant jordi/,/\b(?:marcapaginas|sujetalibros|lectura|atril para libros|lector de libros)\b/],
+    ['reading','accesorios de lectura',/marcapaginas|sujetalibros|lampara de lectura|(?:alguien|persona) que lee|(?:gusta|aficionad[ao] a) (?:a )?leer/,/\b(?:marcapaginas|sujetalibros|lectura|atril para libros|lector de libros)\b/],
     ['shirt','camisetas',/\b(?:camisetas?|camisetitas?|camisettas?|t shirts?|tees?)\b/,/\b(?:camisetas?|t[ -]?shirts?|tee)\b/],
     ['top','prendas',/\b(?:ropa|prendas?|vestirme|que ponerme)\b|\bmanga (?:corta|larga)\b/,null,'Moda'],
     ['hoodie','sudaderas',/\b(?:sudaderas?|hoodies?)\b/,/\b(?:sudaderas?|hoodies?)\b/],
@@ -122,7 +122,7 @@
     const t=numericText(text), amount='(\\d{1,6}(?:[.,]\\d{1,2})?)';
     const pair=t.match(new RegExp('\\bentre '+amount+'(?:\\s*(?:€|euros?))? (?:y|a) '+amount+'(?:\\s*(?:€|euros?)|\\b)'));
     const n=s=>Number(s.replace(',','.'));
-    if(pair && (/(?:euros?|€|presupuesto|gastar|precio|tope)/.test(text)||old?.max!=null))return {min:Math.min(n(pair[1]),n(pair[2])),max:Math.max(n(pair[1]),n(pair[2])),cheap:false};
+    if(pair && (/(?:euros?|€|presupuesto|gastar|precio|tope)/.test(text)||old?.max!=null&&!/pulgadas?|centimetros?|litros?|vatios?|tallas?|horas?|minutos?|años|anos|\b(?:cm|mm|kg|db|gb|ml)\b/.test(text)))return {min:Math.min(n(pair[1]),n(pair[2])),max:Math.max(n(pair[1]),n(pair[2])),cheap:false};
     const delta=t.match(new RegExp('(?:sub(?:e|elo|o)|baj(?:a|alo|o)|aument(?:a|alo)|recort(?:a|alo)) (?:el (?:tope|limite|presupuesto) )?(?:en )?'+amount+'\\s*(?:€|euros?)?\\s*(?:mas|menos)?\\s*$'));
     if(delta && old?.max!=null && !/\ba \d/.test(t))return {min:null,max:Math.max(0,old.max+(/baj|recort/.test(t)?-1:1)*n(delta[1])),cheap:false};
     const max=t.match(new RegExp('(?:tope|presupuesto|limite|maximo|hasta|menos de|no (?:mas de|pas[ea] de)|no supere|sub(?:e|elo|o)(?: el (?:tope|limite|presupuesto))? a|baj(?:a|alo|o)(?: el (?:tope|limite|presupuesto))? a|puedo gastar)\\s*(?:es |de |a |son |unos |unas )*'+amount+'(?![\\d,.])(?!\\s*(?:pulgadas|anos|horas|cm|litros|kg|w)\\b)'));
@@ -284,7 +284,7 @@
     return result;
   }
   const commercialCopy='El pago se realiza en Amazon. Abre la ficha de Velan’s y pulsa «Ver en Amazon» para consultar las condiciones y completar allí la compra.';
-  const priceCopy='El precio se comprueba desde la ficha en Amazon.';
+  const priceCopy='En Amazon puedes comprobar si el precio encaja en ese importe.';
   const deliveryCopy='La fecha de entrega depende de la oferta y del destino. Abre la ficha en Amazon para ver la estimación antes de comprar.';
   const brandWords=['casio','timex','xiaomi','samsung','bosch','philips','adidas','puma','tommy jeans','tommy hilfiger','lee','levis','levi s','eastpak','gant','calvin klein','joma','nike','anker','jlab','sony','nespresso','cecotec','tapo','crocs','cosori','amazon essentials','carhartt','logitech','invicta','lenovo','asus','apple','lego','braun','tefal','rowenta','bissell','dyson','einhell','makita','milwaukee','stanley','black decker','columbia','vans','fossil','bering'];
   function brandHits(text) {
@@ -342,6 +342,7 @@
   function typeMatch(row,id,engine){
     if(!id)return true;
     if(id.startsWith('base:'))return engine.matchesKind(row.p,id.slice(5));
+    if(id==='ornaments')return byKind.get(id)[3].test(row.title)&&/navid|nochebuena|espumillon|guirnalda|adorno.{0,20}arbol|bolas? (?:para |del? )(?:el )?arbol/.test(row.evidence);
     if(id==='top')return row.p.family==='Moda'&&/\b(?:ropa|camiset\w*|camis[ao]s?|polo|sudader\w*|jersey|pantal\w*|vestid[oa]s?|abrigo|chaqueta|prenda|legg\w*|pijama|blusa|falda)\b/.test(row.title+' '+fold(row.p.module));
     const def=byKind.get(id);return !!def&&def[3].test(row.title);
   }
@@ -438,6 +439,22 @@
           else models.set(token,row.p);
         }
       }
+    }
+    const quickCache=new Map();
+    let quickSource=null;
+    function publishedQuick(choices){
+      index();
+      if(quickSource!==source){quickCache.clear();quickSource=source;}
+      return (choices||[]).filter(label=>{
+        if(quickCache.has(label))return quickCache.get(label);
+        const text=words(label);
+        if(/ficha|primer|segund|anterior|opciones|presupuesto|tem[aá]|regalo|compr|consult|comparar dos articulos/.test(text))return true;
+        const kind=kindFrom(text,base);
+        if(!kind)return true;
+        const c=freshSearch(kind);
+        if(!text.includes('sin esos filtros'))setFeatures(c,readFeatures(text,kind),false);
+        const available=rows.some(row=>matchesCriteria(row,c,base));quickCache.set(label,available);return available;
+      });
     }
     function answer(text,quick=[],cards=[]){return {text,quick,cards,safe:true}}
     function list(state,c,{more=false}={}){
@@ -544,7 +561,10 @@
     function route(state,raw){
       index();
       const d=state.dialogue||=( {search:null,previous:null,occasion:null,pageCount:0,lastMetric:null} );
-      const text=words(raw).replace(/^(?:bueno[, ]+|vale[, ]+|hola[, ]+|buenas[, ]+|oye[, ]+|pues[, ]+|gracias[, ]+|mira[, ]+)(?=.{4})/,'').trim().replace(/[.,]+$/,'');
+      let text=words(raw).replace(/^(?:bueno[, ]+|vale[, ]+|hola[, ]+|buenas[, ]+|oye[, ]+|pues[, ]+|gracias[, ]+|mira[, ]+)(?=.{4})/,'').trim().replace(/[.,]+$/,'');
+      if(['shirt','top','hoodie','coat'].includes(d.search?.kind)){
+        text=text.replace(/\b(mejor|prefiero|solo|las quiero|que sean|en vez de) (?:las? )?(largas?|cortas?)\b/g,(_,lead,cut)=>lead+' manga '+(cut.startsWith('larg')?'larga':'corta'));
+      }
       const seasonal=season(now(),text);
       const occasion=events.find(e=>e[2].test(text));
       const climate=hot.test(text)?'hot':cold.test(text)?'cold':null;
@@ -721,6 +741,7 @@
       }
       if(state.turns===initialTurns)state.turns++;
       reply.cards=(reply.cards||[]).filter(c=>byId.has(c.id)).map(c=>{const {affiliateUrl,...card}=c;return card;});
+      reply.quick=publishedQuick(reply.quick);
       if(reply.text.includes('Consultar en Amazon'))reply.text=reply.text.replaceAll('«Consultar en Amazon»','«Ver en Amazon» en la ficha de Velan’s');
       return reply;
     }
@@ -729,7 +750,9 @@
       if(!state.selectedProductId&&!opts.resume && !opts.changed){
         const e=season(now());
         reply.text='Soy el asistente de compras de Velan’s. Puedo buscar en nuestro catálogo, explicarte una ficha y comparar artículos. ¿Qué necesitas?';
-        reply.quick=e.label?[e.quick[0],'Quiero un regalo','Comparar dos artículos','Cómo se compra aquí']:['Quiero un regalo','Comparar dos artículos','Ver tecnología','Cómo se compra aquí'];
+        const ideas=publishedQuick(e.quick);
+        reply.quick=publishedQuick(e.label&&ideas.length?[ideas[0],'Quiero un regalo','Comparar dos artículos','Cómo se compra aquí']:['Quiero un regalo','Comparar dos artículos','Ver tecnología','Cómo se compra aquí']);
+        reply.quick=[...new Set(reply.quick)];
       }
       return reply;
     }

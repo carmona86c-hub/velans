@@ -144,3 +144,14 @@ test('actualización del catálogo, publicación vacía y borrado de la sesión'
   const cleared=engine.respond(state,'Borra todo');assert.equal(cleared.resetHistory,true);
   assert.equal(state.lastRecs.length,0);assert.equal(state.budget.max,null);
 });
+
+test('la ocasión nunca sustituye al artículo y las sugerencias de temporada existen en el catálogo',()=>{
+  assert.equal(numbers(run(fixed,'Busco camisetas de manga larga para Sant Jordi').last),'1,2');
+  assert.equal(numbers(run(fixed,'Camisetas de manga larga','Mejor cortas').last),'3,4');
+  const sparse=loadEngine({catalog:[{id:1,name:'Colgante de oro',category:'Moda'},{id:2,name:'Bolas de pádel',category:'Deportes'}],now:()=>new Date('2026-12-12T12:00Z')});
+  const reply=run(sparse,'Quiero adornos de Navidad para el árbol').last;
+  assert.equal(reply.cards.length,0);assert.ok(!reply.quick.includes('Ver árboles de Navidad'));
+  assert.ok(!sparse.greeting(sparse.newState()).quick.includes('Adornos para el árbol'));
+  const size=run(fixed,'Busco una mochila, máximo 30 euros','para un portátil entre 13 y 15 pulgadas');
+  assert.equal(size.state.budget.max,30);
+});
