@@ -51,3 +51,9 @@ body[data-tienda="aliexpress"] main .catalog,body[data-tienda="aliexpress"] main
 body[data-tienda="aliexpress"] main .category-landing,body[data-tienda="aliexpress"] main .product-landing,body[data-tienda="aliexpress"] main .transparency{display:none!important}
 body[data-tienda="aliexpress"] #aliexpress-ofertas{display:block!important;margin-top:28px}
 @media(max-width:540px){.store-switch{padding:8px 10px}.store-switch-btn{min-width:0;flex:1;padding:9px 10px;font-size:13px}}
+
+/* Con AliExpress elegido: solo las categorías con ofertas y sin los filtros del catálogo de Amazon */
+body[data-tienda="aliexpress"] .department-nav .ae-oculta,
+body[data-tienda="aliexpress"] #nav-filter-toggle,body[data-tienda="aliexpress"] #nav-new,
+body[data-tienda="aliexpress"] .mobile-filter-strip,body[data-tienda="aliexpress"] .nav-filter-panel{display:none!important}
+.ae-tabs[hidden]{display:none!important}
