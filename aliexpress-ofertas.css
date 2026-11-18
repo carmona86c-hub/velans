@@ -3,7 +3,7 @@
 .ae-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
 .ae-head h2{margin:6px 0 6px;font:500 clamp(26px,3.4vw,34px)/1.15 Georgia,serif;letter-spacing:-.5px;color:var(--ink,#f4f1ee)}
 .ae-head p{margin:0;max-width:640px;color:var(--subtle,#aca3a1);font-size:14px;line-height:1.5}
-.ae-store-pill{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:#fff1ec;color:#c2381f;font:700 12px/1 Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.ae-store-pill{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:transparent;border:1px solid var(--bronze,#e5a36b);color:var(--bronze,#e5a36b);font:700 12px/1 Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase}
 .ae-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px;scrollbar-width:none}
 .ae-tab{flex:none;border:1px solid var(--edge,#343137);background:transparent;border-radius:999px;padding:8px 16px;font:600 14px/1 Inter,system-ui,sans-serif;color:var(--ink,#f4f1ee);cursor:pointer}
 .ae-tab[aria-pressed="true"]{background:var(--bronze,#e5a36b);border-color:var(--bronze,#e5a36b);color:#111216}
@@ -12,7 +12,7 @@
 .ae-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(40,30,20,.12)}
 .ae-photo{position:relative;display:block;aspect-ratio:1/1;background:#f6f3ef}
 .ae-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.ae-badge-store{position:absolute;left:10px;top:10px;background:#fff;color:#c2381f;border-radius:999px;padding:4px 9px;font:700 11px/1 Inter,system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.ae-badge-store{position:absolute;left:10px;top:10px;background:#fff;color:#3a332d;border-radius:999px;padding:4px 9px;font:700 11px/1 Inter,system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .ae-badge-off{position:absolute;right:10px;top:10px;background:#c2381f;color:#fff;border-radius:999px;padding:5px 9px;font:800 13px/1 Inter,system-ui,sans-serif}
 .ae-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
 .ae-cat{font:600 11px/1 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#a07a55}
@@ -21,8 +21,8 @@
 .ae-price strong{font:800 20px/1 Inter,system-ui,sans-serif;color:#1b1a1d}
 .ae-price del{color:#9a9088;font-size:13px}
 .ae-meta{margin:0;color:#7a7068;font-size:12px}
-.ae-cta{margin-top:auto;display:flex;justify-content:center;align-items:center;gap:6px;background:#e3472b;color:#fff;text-decoration:none;border-radius:10px;padding:10px 12px;font:700 14px/1 Inter,system-ui,sans-serif}
-.ae-cta:hover{background:#c2381f}
+.ae-cta{margin-top:auto;display:flex;justify-content:center;align-items:center;gap:6px;background:#1b1a1d;color:#f0dbbd;text-decoration:none;border-radius:10px;padding:10px 12px;font:700 14px/1 Inter,system-ui,sans-serif}
+.ae-cta:hover{background:#2c2a2f}
 .ae-paid{text-align:center;color:#9a9088;font-size:11px}
 .ae-foot{margin-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
 .ae-foot small{color:var(--subtle,#aca3a1);font-size:12px;max-width:760px;line-height:1.5}

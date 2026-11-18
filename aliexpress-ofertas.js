@@ -16,7 +16,7 @@
   const tabs=zona.querySelector('.ae-tabs'), grid=zona.querySelector('.ae-grid'), mas=zona.querySelector('.ae-more');
   tabs.innerHTML=categorias.map(c=>`<button type="button" class="ae-tab" data-ae-cat="${esc(c)}" aria-pressed="${c===estado.cat}">${esc(c)}</button>`).join('');
   function tarjeta(p){
-    const nombre=p.nombre.length>90?p.nombre.slice(0,88).replace(/[\s,;.-]+\S*$/,'')+'…':p.nombre;
+    const nombre=p.nombre; // título original de AliExpress, sin modificar (solo se acorta visualmente con CSS)
     return `<article class="ae-card">
       <a class="ae-photo" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver ${esc(nombre)} en AliExpress; enlace de afiliado">
         <img src="${esc(imagenSegura(p.imagen))}" alt="${esc(nombre)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
@@ -26,10 +26,10 @@
       <div class="ae-body">
         <span class="ae-cat">${esc(p.categoria)}</span>
         <h3>${esc(nombre)}</h3>
-        <div class="ae-price"><strong>${euro(p.precio)}</strong>${p.precioAntes>p.precio?`<del>${euro(p.precioAntes)}</del>`:''}</div>
+        <div class="ae-price"><strong>${euro(p.precio)}</strong>${p.precioAntes>p.precio?`<del title="Precio anterior indicado por AliExpress">${euro(p.precioAntes)}</del>`:''}</div>
         <p class="ae-meta"><span title="Valoraciones positivas">★ ${Math.round(Number(p.valoracion))} %</span> · ${Number(p.ventas).toLocaleString('es-ES')} vendidos</p>
         <a class="ae-cta" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver ${esc(nombre)} en AliExpress; enlace de afiliado">Ver oferta <span aria-hidden="true">↗</span></a>
-        <small class="ae-paid">Enlace de afiliado</small>
+        <small class="ae-paid">Enlace de afiliado · envío aparte</small>
       </div>
     </article>`;
   }
