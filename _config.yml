@@ -1,0 +1,9 @@
+# Velan's · GitHub Pages
+# Lo que no forma parte de la web pública no se publica en velans.es
+exclude:
+  - data
+  - scripts
+  - tests
+  - README.md
+  - package.json
+  - package-lock.json

@@ -105,6 +105,9 @@ def pagina(g, items):
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://m.media-amazon.com https://images-na.ssl-images-amazon.com; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script src="./velans-seguridad.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(g['h1'])} | Velan’s</title>
 <meta name="description" content="{e(g['desc'])}">
