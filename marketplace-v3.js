@@ -80,7 +80,7 @@ function photoCandidate(p){
 function photoMarkup(p){
   const candidate=photoCandidate(p);
   if(!candidate)return photoMessage(p);
-  return `<span class="preview-photo-empty">${photoMessage(p)}</span><img class="preview-product-image" alt="Imagen de ${esc(p.name)}" src="${esc(candidate.url)}"${p.photoCredit?` title="Foto: ${esc(p.photoCredit.autor)} · ${esc(p.photoCredit.licencia)}"`:''} loading="lazy" decoding="async"><span class="preview-photo-source ${candidate.verified?'is-verified':''}" hidden>${candidate.verified?'IMG VERIFICADA':'IMG PROVI.'}</span>`;
+  return `<span class="preview-photo-empty">${photoMessage(p)}</span><img class="preview-product-image" alt="Imagen de ${esc(p.name)}" src="${esc(candidate.url)}"${p.photoCredit?` title="Foto: ${esc(p.photoCredit.autor)} · ${esc(p.photoCredit.licencia)}"`:''} loading="lazy" decoding="async">${p.photoCredit?'':`<span class="preview-photo-source ${candidate.verified?'is-verified':''}" hidden>${candidate.verified?'IMG VERIFICADA':'IMG PROVI.'}</span>`}`;
 }
 document.addEventListener('load',event=>{
   if(!event.target.matches?.('.preview-product-image'))return;

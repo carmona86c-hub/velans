@@ -27,7 +27,7 @@ async function commons(pagina) {
   const titulo = decodeURIComponent(new URL(pagina).pathname.replace(/^\/wiki\//, '')).replace(/_/g, ' ');
   const j = await json('https://commons.wikimedia.org/w/api.php?' + new URLSearchParams({ action: 'query', format: 'json', formatversion: '2', titles: titulo, prop: 'imageinfo', iiprop: 'url|extmetadata', iiurlwidth: '800' }));
   const ii = j.query.pages[0].imageinfo[0], m = ii.extmetadata || {};
-  return { imagen: ii.thumburl || ii.url, autor: sinHtml(m.Artist && m.Artist.value) || 'Autor desconocido', licencia: (m.LicenseShortName && m.LicenseShortName.value) || '', licenciaUrl: (m.LicenseUrl && m.LicenseUrl.value) || '', fuente: 'Wikimedia Commons', titulo };
+  return { imagen: ii.thumburl || ii.url, autor: sinHtml(m.Artist && m.Artist.value) || 'Autor desconocido', licencia: (m.LicenseShortName && m.LicenseShortName.value) || '', licenciaUrl: (m.LicenseUrl && m.LicenseUrl.value) || '', fuente: 'Wikimedia Commons', titulo: titulo.replace(/^File:/, '') };
 }
 async function openBeautyFacts(pagina) {
   const code = new URL(pagina).pathname.split('/')[2];
@@ -59,7 +59,7 @@ const head = aviso.slice(0, aviso.indexOf('</head>'))
   .replace(/<title>[^<]*<\/title>/, '<title>Créditos de imágenes — Velan’s</title>')
   .replace(/<meta name="description"[^>]*>/, '<meta name="description" content="Autores y licencias de las fotografías con licencia libre que se usan en Velan’s.">')
   .replace(/<link rel="canonical"[^>]*>/, '<link rel="canonical" href="https://velans.es/creditos-imagenes.html">')
-  .replace('</style>', '  .foto{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center}\n  .foto img{width:96px;height:96px;object-fit:contain;background:#fff;border:1px solid var(--edge);border-radius:8px}\n</style>');
+  .replace('</style>', '  .foto{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center}\n  .foto h2{font-size:16px;line-height:1.35;margin:0 0 6px}\n  .foto p{font-size:14px;margin:0}\n  .foto img{width:96px;height:96px;object-fit:contain;background:#fff;border:1px solid var(--edge);border-radius:8px}\n</style>');
 const filas = Object.entries(creditos).map(([id, c]) => `  <section class="foto"><img src="./${esc(c.src)}" alt="" loading="lazy" width="96" height="96"><div><h2>${esc(c.titulo)}</h2><p>Autor: ${esc(c.autor)} · Licencia: ${c.licenciaUrl ? `<a href="${esc(c.licenciaUrl)}" rel="noopener license" target="_blank">${esc(c.licencia)}</a>` : esc(c.licencia)} · Fuente: <a href="${esc(c.pagina)}" rel="noopener" target="_blank">${esc(c.fuente)}</a></p></div></section>`).join('\n');
 fs.writeFileSync(path.join(ROOT, 'creditos-imagenes.html'), `${head}</head>
 <body>
