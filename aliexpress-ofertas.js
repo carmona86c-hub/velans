@@ -44,4 +44,23 @@
   grid.addEventListener('error',e=>{if(e.target.tagName==='IMG')e.target.closest('.ae-card')?.remove();},true);
   const f=zona.querySelector('.ae-date');if(f&&datos.actualizado)f.textContent=new Date(datos.actualizado+'T12:00:00').toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'});
   zona.hidden=false;pintar();
+
+  // Selector de tienda (debajo de las categorías): Amazon o AliExpress, por separado.
+  const botones=[...document.querySelectorAll('[data-store]')];
+  function tienda(t,{scroll=true,url=true}={}){
+    t=t==='aliexpress'?'aliexpress':'amazon';
+    document.body.dataset.tienda=t;
+    botones.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.store===t)));
+    if(t==='aliexpress'){estado.limite=20;pintar();}
+    if(url){const u=new URL(location.href);if(t==='aliexpress')u.searchParams.set('tienda','aliexpress');else u.searchParams.delete('tienda');history.replaceState(history.state,'',u.pathname+u.search);}
+    if(scroll)window.scrollTo({top:0,behavior:'auto'});
+  }
+  botones.forEach(b=>b.addEventListener('click',()=>tienda(b.dataset.store)));
+  // Elegir un departamento, buscar o abrir un artículo de Amazon vuelve a la tienda Amazon.
+  document.addEventListener('click',e=>{
+    if(document.body.dataset.tienda!=='aliexpress')return;
+    if(e.target.closest('.department-nav [data-category], #logo-home, #header-offers, #saved-top, #nav-new, #nav-filter-apply'))tienda('amazon',{scroll:false});
+  },true);
+  document.getElementById('search-form')?.addEventListener('submit',()=>{if(document.body.dataset.tienda==='aliexpress')tienda('amazon',{scroll:false});},true);
+  tienda(new URLSearchParams(location.search).get('tienda'),{scroll:false,url:false});
 })();

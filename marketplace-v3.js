@@ -44,7 +44,22 @@ const heroDiscount=p=>pct(p)>0?`<span class="hero-offer-indicator" aria-label="D
 const amazonIcon='<svg class="amazon-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.1 12H6.1L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>';
 // Los títulos vienen de catálogos externos y no deben interpretarse como HTML.
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const displayBrand=p=>/^(CANAL GANGAGATO|CATÁLOGO ACTUAL)$/i.test(p.brand||'')?'VELAN’S':p.brand;
+// Primero la marca y después el producto (catalogo-marcas.js). Sin marca conocida, solo el producto.
+const brandMap=window.VELANS_MARCAS||{};
+const displayBrand=p=>brandMap[p.id]||(/^(CANAL GANGAGATO|CATÁLOGO ACTUAL)$/i.test(p.brand||'')?'':p.brand||'');
+const productTitle=p=>{
+  const brand=displayBrand(p),name=String(p.name||'');
+  if(!brand)return name;
+  const norm=x=>x.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,"'").toLowerCase();
+  const alias={'Levi’s':["levi's"],'Amazon':[],'Philips':['bundle of philips'],'Logitech':['logitech g'],'eero':['router wifi de malla eero'],'Karl Lagerfeld Jeans':['karl lagerfeld jeans']}[brand]||[];
+  for(const prefix of [norm(brand),...alias]){
+    if(norm(name).startsWith(prefix+' ')){
+      const rest=name.slice(prefix.length).replace(/^[\s—–-]+/,'').trim();
+      if(rest)return rest.charAt(0).toUpperCase()+rest.slice(1);
+    }
+  }
+  return name;
+};
 const photoMark=p=>({Moda:'✧',Tecnología:'◇',Hogar:'⌂',Belleza:'❋',Otros:'✦'}[p.category]||'✦');
 const photoMessage=p=>`<span class="preview-photo-mark" aria-hidden="true">${photoMark(p)}</span><span class="preview-photo-label">IMAGEN PENDIENTE</span>`;
 // Solo la URL de Amazon.es con la etiqueta de afiliado configurada puede
@@ -231,8 +246,8 @@ function initHero(){
     <article class="hero-slide ${index===0?'is-active':''}" data-hero-slide="${index}" aria-hidden="${index!==0}" style="--hero-tone:${colors[index]}">
       <div class="hero-slide-copy">
         <div class="hero-slide-kicker"><span class="hero-kicker-line"></span> DESTACADOS DE NUESTRA SELECCIÓN <span class="hero-kicker-secondary">/ VELAN’S</span></div>
-        <span class="hero-slide-brand">${esc(displayBrand(p))}</span>
-        <h1 class="hero-slide-title"><button type="button" class="hero-title-link" data-product-page="${p.id}" ${index===0?'':'tabindex="-1"'}>${esc(p.name)}</button></h1>
+        ${displayBrand(p)?`<span class="hero-slide-brand">${esc(displayBrand(p))}</span>`:''}
+        <h1 class="hero-slide-title"><button type="button" class="hero-title-link" data-product-page="${p.id}" ${index===0?'':'tabindex="-1"'}>${esc(productTitle(p))}</button></h1>
         <div class="hero-slide-prices">
           <div class="hero-current-price">${priceText(p)}</div>
           <div class="hero-previous-price">${wasText(p)?`<span>ANTES</span> <del>${wasText(p)}</del>`:''}</div>
@@ -277,9 +292,8 @@ function card(p){
       ${percentageBadge(p)}
     </div>
     <div class="product-body">
-      <span class="product-brand">${esc(displayBrand(p))}</span>
-      <span class="product-category">${esc(p.category)} · ${p.audience!=='all'?esc(p.audience)+' · ':''}${esc(p.module)}</span>
-      <h3><button type="button" class="product-title-button" data-product="${p.id}" aria-label="Ver detalles de ${esc(p.name)}">${esc(p.name)}</button></h3>
+      ${displayBrand(p)?`<span class="product-brand">${esc(displayBrand(p))}</span>`:''}
+      <h3><button type="button" class="product-title-button" data-product="${p.id}" aria-label="Ver detalles de ${esc(p.name)}">${esc(productTitle(p))}</button></h3>
       <div class="pricing"><strong>${priceText(p)}</strong>${wasText(p)?`<del>${wasText(p)}</del>`:''}</div>
       <p class="product-note">${'Precio y disponibilidad actualizados en Amazon.es.'}</p>
       <div class="product-affiliate-label">Compra final en Amazon.es</div>
@@ -290,7 +304,7 @@ function card(p){
 function featured(p){
   return `<article class="feature-product" data-card-product="${p.id}" tabindex="0" aria-label="Ver detalles de ${esc(p.name)}">
     <div class="feature-photo-frame"><div class="fphoto" role="img" aria-label="Fotografía del producto" style="${imageStyle(p)}">${photoMarkup(p)}</div>${percentageBadge(p)}</div>
-    <div class="ftxt"><span class="product-brand">${esc(displayBrand(p))}</span><span class="product-category">${esc(p.category)}</span><h3>${esc(p.name)}</h3>
+    <div class="ftxt">${displayBrand(p)?`<span class="product-brand">${esc(displayBrand(p))}</span>`:''}<h3>${esc(productTitle(p))}</h3>
       <div class="fprice"><b>${priceText(p)}</b>${wasText(p)?`<del>${wasText(p)}</del>`:''}</div>
       ${amazonButton(p,'amazon-cta-feature')}
     </div>
@@ -338,7 +352,7 @@ function renderProductPage(){
   const caption=$('#product-page-photo-caption');caption.textContent=photoCandidate(p)?'':'IMAGEN PENDIENTE';
   if(p.photoCredit){const c=p.photoCredit;caption.textContent='Foto: '+c.autor+' · ';const a=document.createElement('a');a.href=c.licenciaUrl||c.pagina;a.target='_blank';a.rel='noopener noreferrer license';a.textContent=c.licencia;caption.append(a,document.createTextNode(' · '));const b=document.createElement('a');b.href='./creditos-imagenes.html';b.textContent='créditos';caption.append(b);caption.classList.add('is-credit')}else caption.classList.remove('is-credit');
   $('#product-page-brand').textContent=displayBrand(p);
-  $('#product-page-title').textContent=p.name;
+  $('#product-page-title').textContent=productTitle(p);
   $('#product-page-kind').textContent=p.category+' · '+(p.audience==='all'?'':p.audience+' · ')+p.module;
   $('#product-page-price').textContent=priceText(p);
   $('#product-page-was').textContent=wasText(p);
@@ -501,7 +515,7 @@ function details(id){
   $('#detail-image').style.cssText=imageStyle(p);
   $('#detail-image').innerHTML=photoMarkup(p);
   $('#detail-brand').textContent=displayBrand(p);
-  $('#detail-title').textContent=p.name;
+  $('#detail-title').textContent=productTitle(p);
   $('#detail-price').textContent=priceText(p);
   $('#detail-info').textContent='Consulta las condiciones y el precio definitivo en Amazon.es.';
   $('#detail-modal').hidden=false;
