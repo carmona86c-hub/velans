@@ -13,25 +13,26 @@
   const productos=datos.productos.filter(p=>enlaceSeguro(p.enlace)&&imagenSegura(p.imagen));
   const categorias=['Todas',...new Set(productos.map(p=>p.categoria))];
   const estado={cat:'Todas',limite:10};
-  const tabs=zona.querySelector('.ae-tabs'), grid=zona.querySelector('.ae-grid'), mas=zona.querySelector('.ae-more');
+  const tabs=null, grid=zona.querySelector('.ae-grid'), mas=zona.querySelector('.ae-more');
   if(tabs)tabs.hidden=true;
   if(false)tabs.innerHTML=categorias.map(c=>`<button type="button" class="ae-tab" data-ae-cat="${esc(c)}" aria-pressed="${c===estado.cat}">${esc(c)}</button>`).join('');
+  const bolsa='<svg class="amazon-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.1 12H6.1L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>';
+  const boton=(p,variante)=>`<a class="amazon-cta ${variante} ae-cta-store" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver ${esc(p.nombre)} en AliExpress; enlace de afiliado">${bolsa}<span>Ver en AliExpress</span></a>`;
+  const foto=p=>`<span class="preview-photo-empty"></span><img class="preview-product-image" alt="Imagen de ${esc(p.nombre)}" src="${esc(imagenSegura(p.imagen))}" loading="lazy" decoding="async" referrerpolicy="no-referrer">`;
+  const badge=p=>p.descuento>0?`<span class="discount-badge" aria-label="Descuento indicado por AliExpress del ${Number(p.descuento)} por ciento">−${Number(p.descuento)}%</span>`:'';
+  const precios=(p,tag)=>`<${tag}>${euro(p.precio)}</${tag}>${p.precioAntes>p.precio?`<del title="Precio anterior indicado por AliExpress">${euro(p.precioAntes)}</del>`:''}`;
   function tarjeta(p){
-    const nombre=p.nombre; // título original de AliExpress, sin modificar (solo se acorta visualmente con CSS)
-    return `<article class="ae-card">
-      <a class="ae-photo" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver ${esc(nombre)} en AliExpress; enlace de afiliado">
-        <img src="${esc(imagenSegura(p.imagen))}" alt="${esc(nombre)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-        <span class="ae-badge-store">AliExpress</span>
-        ${p.descuento>0?`<span class="ae-badge-off">−${Number(p.descuento)}%</span>`:''}
-      </a>
-      <div class="ae-body">
-        <h3>${esc(nombre)}</h3>
-        <div class="ae-price"><strong>${euro(p.precio)}</strong>${p.precioAntes>p.precio?`<del title="Precio anterior indicado por AliExpress">${euro(p.precioAntes)}</del>`:''}</div>
-        <p class="ae-meta"><span title="Valoraciones positivas">★ ${Math.round(Number(p.valoracion))} %</span> · ${Number(p.ventas).toLocaleString('es-ES')} vendidos</p>
-        <a class="ae-cta" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver ${esc(nombre)} en AliExpress; enlace de afiliado">Ver oferta <span aria-hidden="true">↗</span></a>
-        <small class="ae-paid">Enlace de afiliado · envío aparte</small>
-      </div>
-    </article>`;
+    return `<article class="product-card ae-producto">
+    <div class="product-photo-frame"><div class="product-photo" role="img" aria-label="Imagen de ${esc(p.nombre)}">${foto(p)}</div>${badge(p)}</div>
+    <div class="product-body">
+      <span class="product-brand">AliExpress</span>
+      <h3><a class="product-title-button" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored">${esc(p.nombre)}</a></h3>
+      <div class="pricing">${precios(p,'strong')}</div>
+      <p class="product-note">★ ${Math.round(Number(p.valoracion))} % · ${Number(p.ventas).toLocaleString('es-ES')} vendidos · envío aparte</p>
+      <div class="product-affiliate-label">Compra final en AliExpress · enlace de afiliado</div>
+      ${boton(p,'amazon-cta-card')}
+    </div>
+  </article>`;
   }
   // Destacados: más vendidos (dominante) + descuento del mismo producto. Si los datos aún no traen
   // la lista diaria, se calcula aquí con la misma fórmula: 70 % ventas (escala logarítmica) + 30 % descuento.
@@ -49,28 +50,26 @@
   function pintarTop(){
     if(!top)return;
     const lista=destacadosDe(estado.cat);
-    top.innerHTML=lista.map(p=>`<article class="ae-top-card">
-      <a class="ae-photo" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver ${esc(p.nombre)} en AliExpress; enlace de afiliado">
-        <img src="${esc(imagenSegura(p.imagen))}" alt="${esc(p.nombre)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-        <span class="ae-badge-store">AliExpress</span>${p.descuento>0?`<span class="ae-badge-off">−${Number(p.descuento)}%</span>`:''}
-      </a>
-      <div class="ae-body"><span class="ae-sold">${Number(p.ventas).toLocaleString('es-ES')} vendidos</span><h3>${esc(p.nombre)}</h3>
-        <div class="ae-price"><strong>${euro(p.precio)}</strong>${p.precioAntes>p.precio?`<del title="Precio anterior indicado por AliExpress">${euro(p.precioAntes)}</del>`:''}</div>
-        <a class="ae-cta" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver ${esc(p.nombre)} en AliExpress; enlace de afiliado">Ver oferta <span aria-hidden="true">↗</span></a>
-        <small class="ae-paid">Enlace de afiliado</small></div></article>`).join('');
-    zona.querySelector('.ae-top').hidden=!lista.length;
+    top.innerHTML=lista.map(p=>`<article class="feature-product ae-destacado">
+      <div class="feature-photo-frame"><div class="fphoto" role="img" aria-label="Imagen de ${esc(p.nombre)}">${foto(p)}</div>${badge(p)}</div>
+      <div class="ftxt"><span class="product-brand">${Number(p.ventas).toLocaleString('es-ES')} vendidos</span><h3>${esc(p.nombre)}</h3>
+        <div class="fprice">${precios(p,'b')}</div>
+        ${boton(p,'amazon-cta-feature')}
+      </div></article>`).join('');
+    zona.querySelector('.ae-featured').hidden=!lista.length;
     top.scrollLeft=0;
   }
-  top?.addEventListener('error',e=>{if(e.target.tagName==='IMG')e.target.closest('.ae-top-card')?.remove();},true);
+  
   function pintar(){
     pintarTop();
     const lista=productos.filter(p=>estado.cat==='Todas'||p.categoria===estado.cat).sort((a,b)=>b.descuento-a.descuento);
     grid.innerHTML=lista.slice(0,estado.limite).map(tarjeta).join('');
     mas.hidden=lista.length<=estado.limite;
+    const cuenta=document.getElementById('ae-count');if(cuenta)cuenta.textContent=`${Math.min(lista.length,estado.limite)} de ${lista.length} ofertas`;
   }
   tabs?.addEventListener('click',e=>{const b=e.target.closest('[data-ae-cat]');if(!b)return;estado.cat=b.dataset.aeCat;estado.limite=10;pintar();});
   mas.addEventListener('click',()=>{estado.limite+=10;pintar();});
-  grid.addEventListener('error',e=>{if(e.target.tagName==='IMG')e.target.closest('.ae-card')?.remove();},true);
+  
   const f=zona.querySelector('.ae-date');if(f&&datos.actualizado)f.textContent=new Date(datos.actualizado+'T12:00:00').toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'});
   zona.hidden=false;pintar();
 
@@ -88,6 +87,7 @@
       if(ae){const on=cat===estado.cat;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));}
     });
     if(titulo)titulo.textContent=estado.cat==='Todas'?'Rebajas en AliExpress':'Rebajas en AliExpress · '+(estado.cat==='Hogar'?'Hogar y cocina':estado.cat);
+    const tt=document.getElementById('ae-top-title');if(tt)tt.textContent=estado.cat==='Todas'?'Destacados':'Destacados · '+(estado.cat==='Hogar'?'Hogar y cocina':estado.cat);
   }
   function tienda(t,{scroll=true,url=true}={}){
     t=t==='aliexpress'?'aliexpress':'amazon';

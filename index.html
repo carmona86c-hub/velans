@@ -31,9 +31,9 @@
   <script src="./fotos-libres.js" defer></script>
   <script src="./catalogo-marcas.js?v=1" defer></script>
   <script src="./marketplace-v3.js?v=20261118d" defer></script>
-  <link rel="stylesheet" href="./aliexpress-ofertas.css?v=5">
+  <link rel="stylesheet" href="./aliexpress-ofertas.css?v=6">
   <script src="./aliexpress-productos.js?v=2" defer></script>
-  <script src="./aliexpress-ofertas.js?v=5" defer></script>
+  <script src="./aliexpress-ofertas.js?v=6" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -107,12 +107,16 @@
         <div id="featured-list" class="featured-list"></div>
       </section>
       <section class="ae-section" id="aliexpress-ofertas" data-home-only aria-labelledby="ae-title" hidden>
-        <div class="ae-head"><div><span class="ae-store-pill">Compra en AliExpress</span><h2 id="ae-title">Rebajas en AliExpress</h2><p>Ofertas de AliExpress muy bien valoradas. La compra, el envío y la atención al cliente los gestiona AliExpress. Velan’s es una web independiente, no patrocinada por AliExpress.</p></div></div>
-        <div class="ae-tabs" role="group" aria-label="Categorías de ofertas de AliExpress"></div>
-        <div class="ae-top" aria-labelledby="ae-top-title"><div class="ae-top-head"><span class="eyebrow">LOS MÁS VENDIDOS</span><h3 id="ae-top-title">Destacados de AliExpress</h3><p>Los que más se venden y además tienen buen descuento. Se actualiza cada día.</p></div><div class="ae-top-list"></div></div>
-        <h3 class="ae-grid-title">Todas las rebajas</h3>
-        <div class="ae-grid" aria-live="polite"></div>
-        <div class="ae-foot"><small>Precios, precios anteriores y descuentos indicados por AliExpress y actualizados el <span class="ae-date"></span>; pueden cambiar y no incluyen el envío. Comprueba el precio final, el envío y los plazos en AliExpress antes de comprar. Velan’s recibe una comisión si compras a través de estos enlaces, sin coste extra para ti.</small><button type="button" class="ae-more">Ver más ofertas ↓</button></div>
+        <section class="featured ae-featured" aria-labelledby="ae-top-title">
+          <div class="section-heading featured-head"><div><span class="eyebrow">LOS MÁS VENDIDOS EN ALIEXPRESS</span><h2 id="ae-top-title">Destacados</h2></div></div>
+          <div class="featured-list ae-top-list"></div>
+        </section>
+        <div class="catalog ae-catalog">
+          <div class="catalog-titlebar"><div><span class="eyebrow">COMPRA EN ALIEXPRESS</span><h2 id="ae-title">Rebajas en AliExpress</h2><p>Ofertas muy bien valoradas. La compra, el envío y la atención al cliente los gestiona AliExpress. Velan’s es una web independiente, no patrocinada por AliExpress.</p></div><span class="catalog-count" id="ae-count"></span></div>
+          <div class="product-grid ae-grid" aria-live="polite"></div>
+          <div class="load-zone"><button type="button" class="ae-more">Mostrar más artículos <span>↓</span></button></div>
+          <p class="ae-foot-note">Precios, precios anteriores y descuentos indicados por AliExpress y actualizados el <span class="ae-date"></span>; pueden cambiar y no incluyen el envío. Comprueba el precio final, el envío y los plazos en AliExpress antes de comprar. Velan’s recibe una comisión si compras a través de estos enlaces, sin coste extra para ti.</p>
+        </div>
       </section>
       <section class="catalog" id="catalogo" aria-labelledby="catalog-title">
         <div class="catalog-titlebar">
