@@ -53,6 +53,9 @@ export function coincidencia(tokens, texto) {
   if (!tokens.length) return 0;
   const t = ' ' + normal(texto) + ' ';
   const hits = tokens.filter(k => t.includes(' ' + k + ' ') || (k.length >= 4 && t.includes(k)));
+  // Con una sola palabra (solo la marca) casi siempre salen fotos de otra cosa:
+  // se exige marca + modelo, salvo que la palabra sea un código de modelo con cifras.
+  if (hits.length < 2 && !(tokens.length === 1 && /\d/.test(tokens[0]) && hits.length === 1)) return Math.min(0.4, hits.length / tokens.length);
   return hits.length / tokens.length;
 }
 

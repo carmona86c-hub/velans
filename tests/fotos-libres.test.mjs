@@ -15,5 +15,7 @@ test('consulta: marca y modelo, sin palabras genéricas', () => {
 test('parecido y limpieza de HTML', () => {
   assert.equal(coincidencia(['casio', 'f', '91w'].filter(t => t.length >= 2), 'File:Casio F-91W 5051.jpg'), 1);
   assert.ok(coincidencia(['crocs', 'classic', 'clog'], 'Red shoes on grass') < 0.5);
+  assert.ok(coincidencia(['bosch'], 'Hieronymus Bosch 013.jpg') < 0.5, 'solo la marca no basta');
+  assert.ok(coincidencia(['logitech', 'm240', 'silent'], 'Logitech M240 Silent Bluetooth Mouse.jpg') === 1);
   assert.equal(sinHtml('<a href="x">Juan &amp; Ana</a>'), 'Juan & Ana');
 });
