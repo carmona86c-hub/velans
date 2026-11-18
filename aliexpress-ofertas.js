@@ -33,7 +33,37 @@
       </div>
     </article>`;
   }
+  // Destacados: más vendidos (dominante) + descuento del mismo producto. Si los datos aún no traen
+  // la lista diaria, se calcula aquí con la misma fórmula: 70 % ventas (escala logarítmica) + 30 % descuento.
+  function puntuar(lista){
+    const lv=lista.map(p=>Math.log10(1+Number(p.ventas||0))),ds=lista.map(p=>Number(p.descuento||0));
+    const n=(x,a)=>{const mn=Math.min(...a),mx=Math.max(...a);return mx>mn?(x-mn)/(mx-mn):0};
+    return lista.map((p,i)=>({...p,puntuacion:0.7*n(lv[i],lv)+0.3*n(ds[i],ds)})).sort((a,b)=>b.puntuacion-a.puntuacion);
+  }
+  const top=zona.querySelector('.ae-top-list');
+  function destacadosDe(cat){
+    const lista=(datos.destacados&&Array.isArray(datos.destacados[cat])?datos.destacados[cat]:null)
+      ||puntuar(productos.filter(p=>cat==='Todas'||p.categoria===cat)).slice(0,cat==='Todas'?12:10);
+    return lista.filter(p=>enlaceSeguro(p.enlace)&&imagenSegura(p.imagen));
+  }
+  function pintarTop(){
+    if(!top)return;
+    const lista=destacadosDe(estado.cat);
+    top.innerHTML=lista.map(p=>`<article class="ae-top-card">
+      <a class="ae-photo" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver ${esc(p.nombre)} en AliExpress; enlace de afiliado">
+        <img src="${esc(imagenSegura(p.imagen))}" alt="${esc(p.nombre)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="ae-badge-store">AliExpress</span>${p.descuento>0?`<span class="ae-badge-off">−${Number(p.descuento)}%</span>`:''}
+      </a>
+      <div class="ae-body"><span class="ae-sold">${Number(p.ventas).toLocaleString('es-ES')} vendidos</span><h3>${esc(p.nombre)}</h3>
+        <div class="ae-price"><strong>${euro(p.precio)}</strong>${p.precioAntes>p.precio?`<del title="Precio anterior indicado por AliExpress">${euro(p.precioAntes)}</del>`:''}</div>
+        <a class="ae-cta" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver ${esc(p.nombre)} en AliExpress; enlace de afiliado">Ver oferta <span aria-hidden="true">↗</span></a>
+        <small class="ae-paid">Enlace de afiliado</small></div></article>`).join('');
+    zona.querySelector('.ae-top').hidden=!lista.length;
+    top.scrollLeft=0;
+  }
+  top?.addEventListener('error',e=>{if(e.target.tagName==='IMG')e.target.closest('.ae-top-card')?.remove();},true);
   function pintar(){
+    pintarTop();
     const lista=productos.filter(p=>estado.cat==='Todas'||p.categoria===estado.cat).sort((a,b)=>b.descuento-a.descuento);
     grid.innerHTML=lista.slice(0,estado.limite).map(tarjeta).join('');
     mas.hidden=lista.length<=estado.limite;
