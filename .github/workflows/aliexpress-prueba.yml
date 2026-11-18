@@ -23,9 +23,13 @@ jobs:
         run: |
           git config user.name "velans-bot"; git config user.email "velans-bot@users.noreply.github.com"
           cp aliexpress-productos.js "$RUNNER_TEMP/ae.js"
+          mkdir -p "$RUNNER_TEMP/prev"
+          node -e 'const s=require("fs").readFileSync("aliexpress-productos.js","utf8");const d=JSON.parse(s.slice(s.indexOf("{"),s.lastIndexOf("}")+1));console.log(d.productos.map(p=>p.id+" "+p.imagen+"_350x350.jpg").join("\n"))' > "$RUNNER_TEMP/lista.txt"
+          while read id url; do curl -sL -m 20 -o "$RUNNER_TEMP/prev/$id.jpg" "$url" || true; done < "$RUNNER_TEMP/lista.txt"
           git checkout --orphan aliexpress-datos
           git rm -rfq --cached . ; git clean -fdq
           cp "$RUNNER_TEMP/ae.js" aliexpress-productos.js
-          git add aliexpress-productos.js
+          cp -r "$RUNNER_TEMP/prev" vista-previa
+          git add aliexpress-productos.js vista-previa
           git commit -qm "Datos AliExpress $(date -u +%F)"
           git push -f origin aliexpress-datos
