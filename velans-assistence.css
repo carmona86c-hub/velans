@@ -34,3 +34,6 @@
 .va-root button:focus,.va-root a:focus{outline:none}
 .va-root button:focus-visible,.va-root a:focus-visible{outline:2px solid rgba(214,170,110,.9);outline-offset:3px}
 .va-root .va-bubble:focus-visible{outline-offset:4px;border-radius:50%}
+
+.va-root .va-entry{display:contents}
+.va-root .va-history-controls{display:flex;justify-content:center;gap:.6rem}.va-root .va-history-controls button{color:inherit;background:transparent;border:1px solid currentColor;border-radius:1rem;padding:.3rem .7rem;font-size:.75rem;cursor:pointer}

@@ -1,23 +1,7 @@
 // Pruebas de Velan's Assistence con el catálogo publicado (node --test tests/)
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import fs from 'node:fs';
-import vm from 'node:vm';
-import {fileURLToPath} from 'node:url';
-import {dirname,join} from 'node:path';
-
-const root=dirname(dirname(fileURLToPath(import.meta.url)));
-const read=name=>fs.readFileSync(join(root,name),'utf8');
-function loadEngine(){
-  const ctx={window:{},URL,console};ctx.window.window=ctx.window;vm.createContext(ctx);
-  for(const f of ['catalogo-completo.js','catalogo-reglas.js','catalogo-clasificador-manager.js','catalogo-taxonomia.js','velans-assistence-engine.js'])vm.runInContext(read(f),ctx);
-  const W=ctx.window, E=W.VelansEngine;
-  E.disableDemo();
-  const rows=W.VelansPreviewRules.dedupeExactNames(W.VELANS_PREVIEW_DATA.products.map(W.VelansPreviewTaxonomy.categorise)).products;
-  const gifts=[...read('ideas-para-regalar.html').matchAll(/<h2>([^<]+)<\/h2>/g)].map(m=>m[1].replace(/&amp;/g,'&'));
-  E.useRealCatalog(rows,{generatedAt:W.VELANS_PREVIEW_DATA.generatedAt,giftNames:gifts});
-  return E;
-}
+import {loadEngine} from './asistente-fixture.mjs';
 const E=loadEngine();
 const ask=(msgs,sel)=>{const s=E.newState();if(sel)E.setSelected(s,sel);let r;for(const m of [].concat(msgs))r=E.respond(s,m);return {s,r};};
 const BAD=/m[aá]s vendid|n[uú]mero uno|el mejor del mercado|se agota|llega ma[nñ]ana|cinco estrellas|\d+(,\d+)? ?€/i;
@@ -79,7 +63,7 @@ test('lenguaje coloquial: «cojer», «mi chica», «mi señora», «pillarle»'
 });
 test('conversación de nivel medio: charla, ocasiones, gustos y seguimiento',()=>{
   assert.match(ask('buenos días, qué tal estás?').r.text,/Muy bien/);
-  assert.match(ask('cómo funciona esto?').r.text,/Consultar en Amazon/);
+  assert.match(ask('cómo funciona esto?').r.text,/Ver en Amazon/);
   assert.match(ask('ok gracias adiós').r.text,/Hasta pronto/);
   assert.match(ask('es fiable esta web?').r.text,/Amazon\.es/);
   assert.match(ask('cuánto tarda en llegar?').r.text,/entrega/);
