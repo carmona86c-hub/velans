@@ -11,7 +11,9 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UA = "VelansFotosLibres/1.0 (https://velans.es; busqueda de imagenes con licencia libre)";
-const PAUSA_MS = 350;
+const PAUSA_MS = 150;
+const EN_PARALELO = 4;
+const ESPERA_MAX_MS = 15000;
 
 // ---------- utilidades puras (probadas en tests/fotos-libres.test.mjs) ----------
 export const normal = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -72,9 +74,9 @@ export function coincidencia(tokens, texto) {
 // ---------- acceso a las fuentes ----------
 const pausa = ms => new Promise(r => setTimeout(r, ms));
 async function getJSON(url) {
-  for (let intento = 0; intento < 3; intento++) {
+  for (let intento = 0; intento < 2; intento++) {
     try {
-      const r = await fetch(url, { headers: { 'User-Agent': UA, 'Api-User-Agent': UA, Accept: 'application/json' } });
+      const r = await fetch(url, { headers: { 'User-Agent': UA, 'Api-User-Agent': UA, Accept: 'application/json' }, signal: AbortSignal.timeout(ESPERA_MAX_MS) });
       if (r.status === 429 || r.status >= 500) { await pausa(2000 * (intento + 1)); continue; }
       if (!r.ok) return null;
       return await r.json();
@@ -129,7 +131,7 @@ const LIC_OV = { 'cc0': 'CC0', 'pdm': 'Public domain', 'by': 'CC BY', 'by-sa': '
 let openverseActivo = true;
 export async function buscarOpenverse(q, tokens) {
   if (!openverseActivo) return [];
-  const r = await fetch('https://api.openverse.org/v1/images/?' + new URLSearchParams({ q, license_type: 'commercial', page_size: '10', mature: 'false' }), { headers: { 'User-Agent': UA, Accept: 'application/json' } }).catch(() => null);
+  const r = await fetch('https://api.openverse.org/v1/images/?' + new URLSearchParams({ q, license_type: 'commercial', page_size: '10', mature: 'false' }), { headers: { 'User-Agent': UA, Accept: 'application/json' }, signal: AbortSignal.timeout(ESPERA_MAX_MS) }).catch(() => null);
   if (!r) return [];
   if (r.status === 429) { openverseActivo = false; console.log('Openverse: límite alcanzado, se sigue sin Openverse.'); return []; }
   if (!r.ok) return [];
@@ -176,7 +178,7 @@ async function main() {
   const productos = cargarCatalogo().slice(desde, desde + limite);
   const salida = [];
   let conFoto = 0, buscados = 0;
-  for (const p of productos) {
+  const procesar = async p => {
     const c = consulta(p.name), ca = consultaAmazon(p.affiliateUrl);
     const consultas = [c, ca].filter(x => x && x.util).filter((x, i, a) => a.findIndex(y => normal(y.q) === normal(x.q)) === i);
     const fila = { id: p.id, nombre: p.name, seccion: p.category, consulta: consultas.map(x => x.q).join(' | '), buscado: consultas.length > 0, candidatas: [] };
@@ -195,7 +197,10 @@ async function main() {
     if (fila.candidatas.length) conFoto++;
     salida.push(fila);
     process.stdout.write(`${fila.candidatas.length ? '✔' : '·'} ${p.id} ${p.name}\n`);
-  }
+  };
+  const cola = [...productos];
+  await Promise.all(Array.from({ length: EN_PARALELO }, async () => { while (cola.length) await procesar(cola.shift()); }));
+  salida.sort((a, b) => a.id - b.id);
 
   const dir = path.join(ROOT, 'data'); fs.mkdirSync(dir, { recursive: true });
   const fecha = new Date().toISOString();
