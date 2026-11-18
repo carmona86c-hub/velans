@@ -36,7 +36,7 @@ test('las ofertas de AliExpress solo usan enlaces de afiliado e imágenes oficia
   const s=read('aliexpress-productos.js');
   const d=JSON.parse(s.slice(s.indexOf('{'),s.lastIndexOf('}')+1));
   assert.ok(Array.isArray(d.productos));
-  for(const p of d.productos){
+  for(const p of [...d.productos,...(d.masVendidos||[])]){
     assert.match(p.enlace,/^https:\/\/s\.click\.aliexpress\.com\//,p.id);
     assert.match(new URL(p.imagen).hostname,/(^|\.)(alicdn\.com|aliexpress-media\.com)$/,p.id);
     assert.ok(p.precio>0&&p.precioAntes>=p.precio,p.id);

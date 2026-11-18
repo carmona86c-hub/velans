@@ -93,8 +93,45 @@ for (const p of puntuados) {
   if (destacados[p.categoria].length < 10) destacados[p.categoria].push(q);
 }
 console.log('Destacados (más vendidos + descuento):\n' + destacados.Todas.map((p) => `- ${p.puntuacion} · ${p.ventas} vendidos · −${p.descuento}% · ${p.nombre.slice(0, 50)}`).join('\n'));
+// «Lo más vendido»: los 50 artículos con más ventas en AliExpress (envío a España), sin repetir.
+// Se buscan términos amplios ordenados por ventas y se quitan los duplicados: mismo producto
+// (id) o el mismo artículo vendido por otra tienda (título casi igual).
+const AMPLIAS = ['auriculares', 'cargador', 'funda movil', 'cable usb', 'reloj', 'smartwatch', 'zapatillas', 'camiseta', 'calcetines', 'gafas de sol', 'bolso', 'mochila', 'cocina', 'organizador', 'lampara led', 'tira led', 'maquillaje', 'uñas', 'pelo', 'pendientes', 'collar', 'anillo', 'juguetes', 'mascotas', 'herramientas', 'jardin', 'coche accesorios', 'deporte', 'yoga', 'bicicleta', 'pesca', 'camping', 'bebe', 'oficina', 'papeleria', 'teclado', 'raton', 'altavoz', 'power bank', 'soporte movil', 'protector pantalla', 'pegatinas', 'fiesta', 'navidad', 'baño', 'limpieza', 'manualidades', 'ropa mujer', 'ropa hombre', 'pijama'];
+const NO_TOP = /sexy|sexi|lencer|erótic|erotic|adult|vibrador|consolador|réplica|replica|arma|táctic|tactic|cuchillo|navaja/i;
+const STOP = new Set(['de', 'para', 'con', 'y', 'a', 'el', 'la', 'los', 'las', 'en', 'del', 'por', 'un', 'una', 'tipo', 'usb', 'c']);
+const fichas = (t) => new Set(t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]+/g, ' ').split(' ').filter((w) => w.length > 1 && !STOP.has(w)).slice(0, 14));
+// Mismo artículo: misma primera palabra (marca o tipo) y al menos 60 % de palabras en común.
+export function parecidos(a, b) { if ([...a][0] !== [...b][0]) return false; let c = 0; for (const w of a) if (b.has(w)) c++; return c / (a.size + b.size - c || 1) >= 0.6; }
+const amplios = new Map();
+for (const kw of AMPLIAS) {
+  for (const page of [1, 2]) {
+    for (const p of await query(kw, page)) {
+      const precio = num(p.target_sale_price), antes = num(p.target_original_price), ventas = Number(p.lastest_volume || 0);
+      const img = segura(p.product_main_image_url, ['alicdn.com', 'aliexpress-media.com']);
+      const link = segura(p.promotion_link, ['s.click.aliexpress.com']);
+      const titulo = String(p.product_title || '').replace(/\s+/g, ' ').trim();
+      if (!img || !link || !precio || !titulo || NO_TOP.test(titulo)) continue;
+      const id = 'ae-' + p.product_id;
+      if ((amplios.get(id)?.ventas || -1) >= ventas) continue;
+      const conAntes = antes > precio ? antes : precio;
+      amplios.set(id, { id, tienda: 'AliExpress', categoria: 'Más vendidos', nombre: titulo.slice(0, 140), imagen: img, precio, precioAntes: conAntes,
+        descuento: conAntes > precio ? Math.round((1 - precio / conAntes) * 100) : 0, valoracion: num(p.evaluate_rate), ventas, enlace: link });
+    }
+    await new Promise((s) => setTimeout(s, 350));
+  }
+}
+const masVendidos = [];
+for (const p of [...amplios.values()].sort((a, b) => b.ventas - a.ventas)) {
+  if (masVendidos.length >= 50) break;
+  const f = fichas(p.nombre);
+  if (masVendidos.some((q) => parecidos(f, q._f))) continue;   // mismo artículo de otra tienda
+  masVendidos.push({ ...p, _f: f });
+}
+masVendidos.forEach((p) => delete p._f);
+console.log(`Lo más vendido: ${amplios.size} candidatos → ${masVendidos.length} sin repetir`);
+masVendidos.forEach((p, i) => console.log(`${i + 1}. ${p.ventas} · ${p.precio} € · ${p.nombre.slice(0, 70)}`));
 const fecha = new Date().toISOString().slice(0, 10);
-fs.writeFileSync('aliexpress-productos.js', `/* Productos de AliExpress (API oficial de afiliados, tracking velans-21). Actualizado: ${fecha}. Precios orientativos: pueden cambiar en AliExpress. */\nwindow.VELANS_ALIEXPRESS = ${JSON.stringify({ actualizado: fecha, productos: salida.map(({ busqueda, ...q }) => q), destacados }, null, 1)};\n`);
+fs.writeFileSync('aliexpress-productos.js', `/* Productos de AliExpress (API oficial de afiliados, tracking velans-21). Actualizado: ${fecha}. Precios orientativos: pueden cambiar en AliExpress. */\nwindow.VELANS_ALIEXPRESS = ${JSON.stringify({ actualizado: fecha, productos: salida.map(({ busqueda, ...q }) => q), destacados, masVendidos }, null, 1)};\n`);
 const res = salida.map((p) => `- [${p.categoria}] −${p.descuento}% · ${p.precio} € (antes ${p.precioAntes} €) · ★${p.valoracion}% · ${p.ventas} vendidos · ${p.nombre.slice(0, 60)}`).join('\n');
 console.log(res);
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Selección AliExpress (${salida.length})\n\n${res}\n`);
