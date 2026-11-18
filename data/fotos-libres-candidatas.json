@@ -1,0 +1,4202 @@
+{
+  "generado": "2026-11-18T07:05:14.480Z",
+  "total": 369,
+  "buscados": 366,
+  "conFoto": 38,
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "SINOPHANT — leggings de talle alto",
+      "seccion": "Moda",
+      "consulta": "SINOPHANT | SINOPHANT leggings talle alto",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 2,
+      "nombre": "Levi’s The Perfect Tee — camiseta",
+      "seccion": "Moda",
+      "consulta": "Levi’s The Perfect Tee",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 3,
+      "nombre": "Pepe Jeans Soho — vaqueros",
+      "seccion": "Moda",
+      "consulta": "Pepe Jeans Soho | Pepe Jeans Soho jeans",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 4,
+      "nombre": "Amazon Essentials — camiseta de manga larga",
+      "seccion": "Moda",
+      "consulta": "Amazon Essentials | Amazon Essentials redondo",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "AmEs-IMG 20260118 002726.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:AmEs-IMG_20260118_002726.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/AmEs-IMG_20260118_002726.jpg/960px-AmEs-IMG_20260118_002726.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/3/37/AmEs-IMG_20260118_002726.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4608,
+          "alto": 3456,
+          "autor": "Nord794ub",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "AmEs-IMG 20260118 002825.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:AmEs-IMG_20260118_002825.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/AmEs-IMG_20260118_002825.jpg/960px-AmEs-IMG_20260118_002825.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/2/2e/AmEs-IMG_20260118_002825.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4608,
+          "alto": 3456,
+          "autor": "Nord794ub",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "AmEs-IMG 20260118 002635.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:AmEs-IMG_20260118_002635.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/AmEs-IMG_20260118_002635.jpg/960px-AmEs-IMG_20260118_002635.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/c/c3/AmEs-IMG_20260118_002635.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3072,
+          "alto": 4096,
+          "autor": "Nord794ub",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nombre": "Zeagoo — camiseta elegante con encaje",
+      "seccion": "Moda",
+      "consulta": "Zeagoo | Zeagoo encaje",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 6,
+      "nombre": "Zeagoo — blusa satinada de cuello en V",
+      "seccion": "Moda",
+      "consulta": "Zeagoo | Zeagoo blusa satinada",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 7,
+      "nombre": "Levi’s Original Housemark Tee — camiseta",
+      "seccion": "Moda",
+      "consulta": "Levi’s Housemark Tee",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 8,
+      "nombre": "Levi’s 512 Slim Taper — vaqueros",
+      "seccion": "Moda",
+      "consulta": "Levi’s 512 Slim Taper",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 9,
+      "nombre": "Levi’s Housemark — polo",
+      "seccion": "Moda",
+      "consulta": "Levi’s Housemark",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 10,
+      "nombre": "Carhartt K87 — camiseta con bolsillo",
+      "seccion": "Moda",
+      "consulta": "Carhartt K87 | Carhartt K87 bolsillo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 11,
+      "nombre": "adidas Essentials Feelcozy — sudadera con capucha",
+      "seccion": "Moda",
+      "consulta": "adidas Essentials Feelcozy | adidas Essentials Feelcozy Fleece",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 12,
+      "nombre": "TRAMAS+ — pijama de invierno de coralina",
+      "seccion": "Moda",
+      "consulta": "TRAMAS+ | TRAMAS+ pijama invierno coralina",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 13,
+      "nombre": "Calvin Klein — bóxer (pack de 3)",
+      "seccion": "Moda",
+      "consulta": "Calvin Klein | Calvin Klein bóxer trunks",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Products Facts",
+          "titulo": "Calvin Klein — Chemise Lila",
+          "pagina": "https://world.openproductsfacts.org/product/0088542241907/chemise-lila-calvin-klein",
+          "imagen": "https://images.openproductsfacts.org/images/products/008/854/224/1907/front_fr.4.400.jpg",
+          "original": "https://images.openproductsfacts.org/images/products/008/854/224/1907/front_fr.4.400.jpg",
+          "autor": "Colaboradores de Open Products Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        },
+        {
+          "fuente": "Open Products Facts",
+          "titulo": "Calvin Klein — Calvin Klein one essence",
+          "pagina": "https://world.openproductsfacts.org/product/3616303473402/calvin-klein-one-essence",
+          "imagen": "https://images.openproductsfacts.org/images/products/361/630/347/3402/front_it.3.400.jpg",
+          "original": "https://images.openproductsfacts.org/images/products/361/630/347/3402/front_it.3.400.jpg",
+          "autor": "Colaboradores de Open Products Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Calvin Klein Jeans at Citygate, Hong Kong.JPG",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Calvin_Klein_Jeans_at_Citygate,_Hong_Kong.JPG",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Calvin_Klein_Jeans_at_Citygate%2C_Hong_Kong.JPG/960px-Calvin_Klein_Jeans_at_Citygate%2C_Hong_Kong.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Calvin_Klein_Jeans_at_Citygate%2C_Hong_Kong.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3525,
+          "alto": 2644,
+          "autor": "Mk2010",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Calvin Klein 2011 Shankbone.JPG",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Calvin_Klein_2011_Shankbone.JPG",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Calvin_Klein_2011_Shankbone.JPG/960px-Calvin_Klein_2011_Shankbone.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/5/54/Calvin_Klein_2011_Shankbone.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2319,
+          "alto": 3811,
+          "autor": "David Shankbone",
+          "licencia": "CC BY 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by/3.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Calvin Klein - Model Beach Volleyball Tournament MBVT 2014 Miami.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Calvin_Klein_-_Model_Beach_Volleyball_Tournament_MBVT_2014_Miami.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Calvin_Klein_-_Model_Beach_Volleyball_Tournament_MBVT_2014_Miami.jpg/960px-Calvin_Klein_-_Model_Beach_Volleyball_Tournament_MBVT_2014_Miami.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Calvin_Klein_-_Model_Beach_Volleyball_Tournament_MBVT_2014_Miami.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1681,
+          "alto": 2521,
+          "autor": "Mosquito88",
+          "licencia": "CC BY 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by/3.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "nombre": "Joma Combi — camiseta deportiva",
+      "seccion": "Moda",
+      "consulta": "Joma Combi",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Kit body jomacombiy.png",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Kit_body_jomacombiy.png",
+          "imagen": "https://upload.wikimedia.org/wikipedia/commons/3/39/Kit_body_jomacombiy.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/3/39/Kit_body_jomacombiy.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 38,
+          "alto": 59,
+          "autor": "Rossbatchelor",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Kit body jomacombi1g.png",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Kit_body_jomacombi1g.png",
+          "imagen": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Kit_body_jomacombi1g.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Kit_body_jomacombi1g.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 38,
+          "alto": 59,
+          "autor": "RossBFD",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "nombre": "PUMA Smash V2 L — zapatillas unisex",
+      "seccion": "Moda",
+      "consulta": "PUMA Smash V2",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 16,
+      "nombre": "Crocs Classic Clog — zuecos unisex",
+      "seccion": "Moda",
+      "consulta": "Crocs Classic Clog | Crocs Classic Clog zuecos",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 17,
+      "nombre": "Crocs con forro — zapatillas de casa",
+      "seccion": "Moda",
+      "consulta": "Crocs forro | Crocs Classic Lined Clog",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 18,
+      "nombre": "Skechers Graceful Get Connected — mujer",
+      "seccion": "Moda",
+      "consulta": "Skechers Graceful Get Connected",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 19,
+      "nombre": "Skechers Summits Lite — mujer",
+      "seccion": "Moda",
+      "consulta": "Skechers Summits Lite",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 20,
+      "nombre": "Skechers Uno — mujer",
+      "seccion": "Moda",
+      "consulta": "Skechers Uno",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 21,
+      "nombre": "adidas Galaxy — zapatillas de running",
+      "seccion": "Moda",
+      "consulta": "adidas Galaxy | adidas Galaxy running",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Adidas Running Shoe Demo.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Adidas_Running_Shoe_Demo.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Adidas_Running_Shoe_Demo.jpg/960px-Adidas_Running_Shoe_Demo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/4/49/Adidas_Running_Shoe_Demo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4128,
+          "alto": 2322,
+          "autor": "Whoisjohngalt",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "parecido": 0.6666666666666666
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "nombre": "adidas VL Court 3.0 — hombre",
+      "seccion": "Moda",
+      "consulta": "adidas VL Court 3.0",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 23,
+      "nombre": "RockDove — zapatillas de casa viscoelásticas",
+      "seccion": "Moda",
+      "consulta": "RockDove | RockDove zapatilla espuma viscoelástica",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 24,
+      "nombre": "adidas — calcetines acolchados (3 pares)",
+      "seccion": "Moda",
+      "consulta": "adidas calcetines Cushioned pares",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 25,
+      "nombre": "Casio A168WG — reloj dorado unisex",
+      "seccion": "Moda",
+      "consulta": "Casio A168WG",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 26,
+      "nombre": "Casio F-91W — reloj digital clásico",
+      "seccion": "Moda",
+      "consulta": "Casio F-91W",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Casio F-91W 5051.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Casio_F-91W_5051.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Casio_F-91W_5051.jpg/960px-Casio_F-91W_5051.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/9/96/Casio_F-91W_5051.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3393,
+          "alto": 5000,
+          "autor": "Ashley Pomeroy",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Counterfeit Casio F-91W digital watch.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Counterfeit_Casio_F-91W_digital_watch.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Counterfeit_Casio_F-91W_digital_watch.jpg/960px-Counterfeit_Casio_F-91W_digital_watch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/9/90/Counterfeit_Casio_F-91W_digital_watch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2410,
+          "alto": 2883,
+          "autor": "Petar Milošević",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Casio F-91W digital watch backplate (i).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Casio_F-91W_digital_watch_backplate_(i).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Casio_F-91W_digital_watch_backplate_%28i%29.jpg/960px-Casio_F-91W_digital_watch_backplate_%28i%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/9/91/Casio_F-91W_digital_watch_backplate_%28i%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1944,
+          "alto": 1944,
+          "autor": "Multicherry",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "nombre": "Casio A158WA — reloj digital plateado",
+      "seccion": "Moda",
+      "consulta": "Casio A158WA",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 28,
+      "nombre": "Casio LA670WEGA — reloj de mujer dorado",
+      "seccion": "Moda",
+      "consulta": "Casio LA670WEGA | Casio LA670WEGA-9EF",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 29,
+      "nombre": "Timex Expedition — reloj con correa textil",
+      "seccion": "Moda",
+      "consulta": "Timex Expedition | Timex Expedition cuarzo correa",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Timex Expedition WS4.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Timex_Expedition_WS4.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Timex_Expedition_WS4.jpg/960px-Timex_Expedition_WS4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/2/21/Timex_Expedition_WS4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1519,
+          "alto": 1993,
+          "autor": "Dr. K.",
+          "licencia": "CC BY 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by/3.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Timex Expedition WS4 Barometric chart peaks cloudy close up.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Timex_Expedition_WS4_Barometric_chart_peaks_cloudy_close_up.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Timex_Expedition_WS4_Barometric_chart_peaks_cloudy_close_up.jpg/960px-Timex_Expedition_WS4_Barometric_chart_peaks_cloudy_close_up.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/9/91/Timex_Expedition_WS4_Barometric_chart_peaks_cloudy_close_up.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1754,
+          "alto": 2182,
+          "autor": "Dr. K.",
+          "licencia": "CC BY 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by/3.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Timex Expedition WS4 Barometric graph close up.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Timex_Expedition_WS4_Barometric_graph_close_up.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Timex_Expedition_WS4_Barometric_graph_close_up.jpg/960px-Timex_Expedition_WS4_Barometric_graph_close_up.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Timex_Expedition_WS4_Barometric_graph_close_up.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1613,
+          "alto": 2093,
+          "autor": "Dr. K.",
+          "licencia": "CC BY 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by/3.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "nombre": "Xiaomi Redmi Watch 5 Active — reloj inteligente",
+      "seccion": "Moda",
+      "consulta": "Xiaomi Redmi Watch Active",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 31,
+      "nombre": "Eastpak Padded Pak’r — mochila 38 L",
+      "seccion": "Moda",
+      "consulta": "Eastpak Padded Pak’r | EASTPAK Padded Pak'r 38",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 32,
+      "nombre": "PUMA Phase — mochila",
+      "seccion": "Moda",
+      "consulta": "PUMA Phase",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "A Chilean Navy SH-32 Super Puma helicopter landing onUSS Mitscher (DDG 57).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:A_Chilean_Navy_SH-32_Super_Puma_helicopter_landing_onUSS_Mitscher_(DDG_57).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/A_Chilean_Navy_SH-32_Super_Puma_helicopter_landing_onUSS_Mitscher_%28DDG_57%29.jpg/960px-A_Chilean_Navy_SH-32_Super_Puma_helicopter_landing_onUSS_Mitscher_%28DDG_57%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/d/d4/A_Chilean_Navy_SH-32_Super_Puma_helicopter_landing_onUSS_Mitscher_%28DDG_57%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2100,
+          "alto": 1500,
+          "autor": "Mass Communication Specialist 3rd Class Damien Horvath",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "US Navy 050603-N-4104L-004 A Republic of Singapore Navy Puma helicopter lands on the deck aboard the amphibious dock landing ship USS Fort McHenry (LSD 43).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:US_Navy_050603-N-4104L-004_A_Republic_of_Singapore_Navy_Puma_helicopter_lands_on_the_deck_aboard_the_amphibious_dock_landing_ship_USS_Fort_McHenry_(LSD_43).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/US_Navy_050603-N-4104L-004_A_Republic_of_Singapore_Navy_Puma_helicopter_lands_on_the_deck_aboard_the_amphibious_dock_landing_ship_USS_Fort_McHenry_%28LSD_43%29.jpg/960px-US_Navy_050603-N-4104L-004_A_Republic_of_Singapore_Navy_Puma_helicopter_lands_on_the_deck_aboard_the_amphibious_dock_landing_ship_USS_Fort_McHenry_%28LSD_43%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/b/ba/US_Navy_050603-N-4104L-004_A_Republic_of_Singapore_Navy_Puma_helicopter_lands_on_the_deck_aboard_the_amphibious_dock_landing_ship_USS_Fort_McHenry_%28LSD_43%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2256,
+          "alto": 1500,
+          "autor": "U.S. Navy photo by Chief Journalist Melinda Larson",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "US Navy 110630-N-MN502-003 A Chilean navy SH-32 Super Puma helicopter prepares to land aboard USS Boone (FFG 28) during the Pacific phase of UNITAS.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:US_Navy_110630-N-MN502-003_A_Chilean_navy_SH-32_Super_Puma_helicopter_prepares_to_land_aboard_USS_Boone_(FFG_28)_during_the_Pacific_phase_of_UNITAS.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/US_Navy_110630-N-MN502-003_A_Chilean_navy_SH-32_Super_Puma_helicopter_prepares_to_land_aboard_USS_Boone_%28FFG_28%29_during_the_Pacific_phase_of_UNITAS.jpg/960px-US_Navy_110630-N-MN502-003_A_Chilean_navy_SH-32_Super_Puma_helicopter_prepares_to_land_aboard_USS_Boone_%28FFG_28%29_during_the_Pacific_phase_of_UNITAS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/0/0e/US_Navy_110630-N-MN502-003_A_Chilean_navy_SH-32_Super_Puma_helicopter_prepares_to_land_aboard_USS_Boone_%28FFG_28%29_during_the_Pacific_phase_of_UNITAS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3072,
+          "alto": 2048,
+          "autor": "U.S. Navy photo by Lt. Matthew Comer",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "nombre": "Coronel Tapiocca — bandolera de hombre",
+      "seccion": "Moda",
+      "consulta": "Coronel Tapiocca | Coronel Tapioca bandolera",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Zara Bruselas.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Zara_Bruselas.jpg",
+          "imagen": "https://upload.wikimedia.org/wikipedia/commons/3/39/Zara_Bruselas.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/3/39/Zara_Bruselas.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 640,
+          "alto": 480,
+          "autor": "jmerelo",
+          "licencia": "CC BY-SA 2.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "nombre": "Levi’s Batwing Tote — bolso de mano",
+      "seccion": "Moda",
+      "consulta": "Levi’s Batwing Tote",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 35,
+      "nombre": "Levi’s Mini Crossbody — bandolera pequeña",
+      "seccion": "Moda",
+      "consulta": "Levi’s Mini Crossbody | Levi's Mini Crossbody bandolera",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 36,
+      "nombre": "shepretty — mochila antirrobo de mujer",
+      "seccion": "Moda",
+      "consulta": "",
+      "buscado": false,
+      "candidatas": []
+    },
+    {
+      "id": 37,
+      "nombre": "Don Algodón Zita — bandolera de mujer",
+      "seccion": "Moda",
+      "consulta": "Don Algodón Zita | Don Algodón Zita bandolera",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 38,
+      "nombre": "BESCH — paraguas automático antiviento",
+      "seccion": "Moda",
+      "consulta": "BESCH | BESCH paraguas largo automático",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 39,
+      "nombre": "Maybelline Lash Sensational Sky High — máscara",
+      "seccion": "Belleza",
+      "consulta": "Maybelline Lash Sensational Sky",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Beauty Facts",
+          "titulo": "Maybelline — Maybelline New York Lash Sensational Sky High Very Black Mascara",
+          "pagina": "https://world.openbeautyfacts.org/product/30166967/maybelline-new-york-lash-sensational-sky-high-very-black-mascara",
+          "imagen": "https://images.openbeautyfacts.org/images/products/000/003/016/6967/front_nl.10.400.jpg",
+          "original": "https://images.openbeautyfacts.org/images/products/000/003/016/6967/front_nl.10.400.jpg",
+          "autor": "Colaboradores de Open Beauty Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "nombre": "Maybelline — corrector Borrador",
+      "seccion": "Belleza",
+      "consulta": "Maybelline | Maybelline borrador ojeras",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 41,
+      "nombre": "Revlon UniqOne — protector térmico",
+      "seccion": "Belleza",
+      "consulta": "Revlon UniqOne | Revlon Professional UniqOne",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 42,
+      "nombre": "d’alba First Spray Serum — trufa blanca",
+      "seccion": "Belleza",
+      "consulta": "d’alba First Spray Serum",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 43,
+      "nombre": "Elizabeth Arden Green Tea Honey Drops",
+      "seccion": "Belleza",
+      "consulta": "Elizabeth Arden Green Tea",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Beauty Facts",
+          "titulo": "Elizabeth Arden — Green Tea Honey Drops Body Cream",
+          "pagina": "https://world.openbeautyfacts.org/product/0085805071387/green-tea-honey-drops-body-cream-elizabeth-arden",
+          "imagen": "https://images.openbeautyfacts.org/images/products/008/580/507/1387/front_en.3.400.jpg",
+          "original": "https://images.openbeautyfacts.org/images/products/008/580/507/1387/front_en.3.400.jpg",
+          "autor": "Colaboradores de Open Beauty Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "nombre": "Weleda Skin Food — bálsamo corporal",
+      "seccion": "Belleza",
+      "consulta": "Weleda Skin Food | Weleda Skin Food Body",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Beauty Facts",
+          "titulo": "Weleda — Skin food soin nourrissant texture légère",
+          "pagina": "https://world.openbeautyfacts.org/product/3596200077555/skin-food-soin-nourrissant-texture-legere-weleda",
+          "imagen": "https://images.openbeautyfacts.org/images/products/359/620/007/7555/front_fr.8.400.jpg",
+          "original": "https://images.openbeautyfacts.org/images/products/359/620/007/7555/front_fr.8.400.jpg",
+          "autor": "Colaboradores de Open Beauty Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        },
+        {
+          "fuente": "Open Beauty Facts",
+          "titulo": "Weleda — Weleda Skin food body butter",
+          "pagina": "https://world.openbeautyfacts.org/product/4001638526708/weleda-skin-food-body-butter",
+          "imagen": "https://images.openbeautyfacts.org/images/products/400/163/852/6708/front_de.4.400.jpg",
+          "original": "https://images.openbeautyfacts.org/images/products/400/163/852/6708/front_de.4.400.jpg",
+          "autor": "Colaboradores de Open Beauty Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Experience Centre Weleda Schwaebisch Gmuend skin food flower pot.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Experience_Centre_Weleda_Schwaebisch_Gmuend_skin_food_flower_pot.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Experience_Centre_Weleda_Schwaebisch_Gmuend_skin_food_flower_pot.jpg/960px-Experience_Centre_Weleda_Schwaebisch_Gmuend_skin_food_flower_pot.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Experience_Centre_Weleda_Schwaebisch_Gmuend_skin_food_flower_pot.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4752,
+          "alto": 3168,
+          "autor": "Karatecoop",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "nombre": "Philips Multigroom Serie 3000 — 8 en 1",
+      "seccion": "Belleza",
+      "consulta": "Philips Multigroom Serie 3000",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 46,
+      "nombre": "Philips OneBlade 360 — afeitadora",
+      "seccion": "Belleza",
+      "consulta": "Philips OneBlade 360",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 47,
+      "nombre": "Slick Gorilla — polvo de peinado",
+      "seccion": "Belleza",
+      "consulta": "Slick Gorilla | Slick Gorilla Hair Styling",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Beauty Facts",
+          "titulo": "Slick Gorilla — Clay Pomade",
+          "pagina": "https://world.openbeautyfacts.org/product/96190807/clay-pomade-slick-gorilla",
+          "imagen": "https://images.openbeautyfacts.org/images/products/000/009/619/0807/front_en.5.400.jpg",
+          "original": "https://images.openbeautyfacts.org/images/products/000/009/619/0807/front_en.5.400.jpg",
+          "autor": "Colaboradores de Open Beauty Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "nombre": "Philips GC026 — quitapelusas",
+      "seccion": "Hogar",
+      "consulta": "Philips GC026 | Philips quitapelusas GC026",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 49,
+      "nombre": "Utopia Bedding — juego de sábanas",
+      "seccion": "Hogar",
+      "consulta": "Utopia Bedding | Utopia Bedding microfibra",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 50,
+      "nombre": "Todocama — almohadas viscoelásticas (pack de 2)",
+      "seccion": "Hogar",
+      "consulta": "Todocama | Todocama almohada viscoelástica aloe",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 51,
+      "nombre": "Amazon Basics — bolsas de vacío",
+      "seccion": "Hogar",
+      "consulta": "Amazon Basics | Amazon Basics almacenamiento",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Products Facts",
+          "titulo": "Amazon basics — Piles rechargeables AA (lot de 4)",
+          "pagina": "https://world.openproductsfacts.org/product/0841710104769/piles-rechargeables-aa-lot-de-4-amazon-basics",
+          "imagen": "https://images.openproductsfacts.org/images/products/084/171/010/4769/front_en.6.400.jpg",
+          "original": "https://images.openproductsfacts.org/images/products/084/171/010/4769/front_en.6.400.jpg",
+          "autor": "Colaboradores de Open Products Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        },
+        {
+          "fuente": "Open Products Facts",
+          "titulo": "Amazon Basics — AAA Alkaline Batterien",
+          "pagina": "https://world.openproductsfacts.org/product/0697003831139/pilas-amazon-basics",
+          "imagen": "https://images.openproductsfacts.org/images/products/069/700/383/1139/front_de.7.400.jpg",
+          "original": "https://images.openproductsfacts.org/images/products/069/700/383/1139/front_de.7.400.jpg",
+          "autor": "Colaboradores de Open Products Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Amazon Basics USB cable.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Amazon_Basics_USB_cable.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Amazon_Basics_USB_cable.jpg/960px-Amazon_Basics_USB_cable.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Amazon_Basics_USB_cable.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2403,
+          "alto": 1739,
+          "autor": "Tpdwkouaa",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Amazon Basics battery, Papenburg (2019).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Amazon_Basics_battery,_Papenburg_(2019).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Amazon_Basics_battery%2C_Papenburg_%282019%29.jpg/960px-Amazon_Basics_battery%2C_Papenburg_%282019%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Amazon_Basics_battery%2C_Papenburg_%282019%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4864,
+          "alto": 2736,
+          "autor": "Donald Trung Quoc Don (Chữ Hán: 徵國單) - Wikimedia Commons - © CC BY-SA 4.0 International . ( Want to use this image? )",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Amazon Basics Rechargeable AA Battery.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Amazon_Basics_Rechargeable_AA_Battery.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Amazon_Basics_Rechargeable_AA_Battery.jpg/960px-Amazon_Basics_Rechargeable_AA_Battery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/2/23/Amazon_Basics_Rechargeable_AA_Battery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3347,
+          "alto": 2135,
+          "autor": "TaurusEmerald",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "nombre": "Lifewit — organizadores de ropa (3 piezas)",
+      "seccion": "Hogar",
+      "consulta": "Lifewit | Lifewit organizador ropa",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 53,
+      "nombre": "Cecotec Pure Aroma 300 Yang — difusor de aromas",
+      "seccion": "Hogar",
+      "consulta": "Cecotec Pure Aroma 300",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 54,
+      "nombre": "COSORI — freidora de aire 5,5 L",
+      "seccion": "Hogar",
+      "consulta": "COSORI | COSORI aire",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 55,
+      "nombre": "Nespresso De’Longhi Inissia — cafetera",
+      "seccion": "Hogar",
+      "consulta": "Nespresso De’Longhi Inissia",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 56,
+      "nombre": "Bosch — molinillo de café eléctrico",
+      "seccion": "Hogar",
+      "consulta": "Bosch | Bosch café eléctrico 180",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 57,
+      "nombre": "Philips Daily Collection — tostadora",
+      "seccion": "Hogar",
+      "consulta": "Philips Daily Collection | Philips Daily Collection HD2581",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 58,
+      "nombre": "Arcos Nova — cuchillos mondadores (3 piezas)",
+      "seccion": "Hogar",
+      "consulta": "Arcos Nova | Arcos mondadores Nova",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 59,
+      "nombre": "Amazon Basics — carrito de cocina de 3 niveles",
+      "seccion": "Hogar",
+      "consulta": "Amazon Basics | Amazon Basics carrito cocina",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Products Facts",
+          "titulo": "Amazon basics — Piles rechargeables AA (lot de 4)",
+          "pagina": "https://world.openproductsfacts.org/product/0841710104769/piles-rechargeables-aa-lot-de-4-amazon-basics",
+          "imagen": "https://images.openproductsfacts.org/images/products/084/171/010/4769/front_en.6.400.jpg",
+          "original": "https://images.openproductsfacts.org/images/products/084/171/010/4769/front_en.6.400.jpg",
+          "autor": "Colaboradores de Open Products Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        },
+        {
+          "fuente": "Open Products Facts",
+          "titulo": "Amazon Basics — AAA Alkaline Batterien",
+          "pagina": "https://world.openproductsfacts.org/product/0697003831139/pilas-amazon-basics",
+          "imagen": "https://images.openproductsfacts.org/images/products/069/700/383/1139/front_de.7.400.jpg",
+          "original": "https://images.openproductsfacts.org/images/products/069/700/383/1139/front_de.7.400.jpg",
+          "autor": "Colaboradores de Open Products Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Amazon Basics USB cable.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Amazon_Basics_USB_cable.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Amazon_Basics_USB_cable.jpg/960px-Amazon_Basics_USB_cable.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Amazon_Basics_USB_cable.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2403,
+          "alto": 1739,
+          "autor": "Tpdwkouaa",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Amazon Basics battery, Papenburg (2019).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Amazon_Basics_battery,_Papenburg_(2019).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Amazon_Basics_battery%2C_Papenburg_%282019%29.jpg/960px-Amazon_Basics_battery%2C_Papenburg_%282019%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Amazon_Basics_battery%2C_Papenburg_%282019%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4864,
+          "alto": 2736,
+          "autor": "Donald Trung Quoc Don (Chữ Hán: 徵國單) - Wikimedia Commons - © CC BY-SA 4.0 International . ( Want to use this image? )",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Amazon Basics Rechargeable AA Battery.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Amazon_Basics_Rechargeable_AA_Battery.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Amazon_Basics_Rechargeable_AA_Battery.jpg/960px-Amazon_Basics_Rechargeable_AA_Battery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/2/23/Amazon_Basics_Rechargeable_AA_Battery.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3347,
+          "alto": 2135,
+          "autor": "TaurusEmerald",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "nombre": "Amazon Fire TV Stick HD",
+      "seccion": "Tecnología",
+      "consulta": "Amazon Fire TV Stick",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Products Facts",
+          "titulo": "Amazon fire tv stick",
+          "pagina": "https://world.openproductsfacts.org/product/0841667113210/amazon-fire-tv-stick",
+          "imagen": "https://images.openproductsfacts.org/images/products/084/166/711/3210/front_fr.4.400.jpg",
+          "original": "https://images.openproductsfacts.org/images/products/084/166/711/3210/front_fr.4.400.jpg",
+          "autor": "Colaboradores de Open Products Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 0.8
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Amazon Fire TV Stick.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Amazon_Fire_TV_Stick.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Amazon_Fire_TV_Stick.jpg/960px-Amazon_Fire_TV_Stick.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/6/62/Amazon_Fire_TV_Stick.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2903,
+          "alto": 2201,
+          "autor": "ubahnverleih",
+          "licencia": "CC0",
+          "licenciaUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "parecido": 0.8
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Amazon Fire TV Stick HDMI.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Amazon_Fire_TV_Stick_HDMI.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Amazon_Fire_TV_Stick_HDMI.jpg/960px-Amazon_Fire_TV_Stick_HDMI.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/1/17/Amazon_Fire_TV_Stick_HDMI.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3264,
+          "alto": 2448,
+          "autor": "ubahnverleih",
+          "licencia": "CC0",
+          "licenciaUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "parecido": 0.8
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Fire TV Stick.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Fire_TV_Stick.jpg",
+          "imagen": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Fire_TV_Stick.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Fire_TV_Stick.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 275,
+          "alto": 239,
+          "autor": "Rogerarthens",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 0.8
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "nombre": "Echo Pop — altavoz inteligente con Alexa",
+      "seccion": "Tecnología",
+      "consulta": "Echo Pop | Echo Pop Alexa",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 62,
+      "nombre": "Tapo C200 — cámara de vigilancia WiFi 360°",
+      "seccion": "Tecnología",
+      "consulta": "Tapo C200 | Tapo C200 360",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 63,
+      "nombre": "Logitech M240 Silent — ratón Bluetooth",
+      "seccion": "Tecnología",
+      "consulta": "Logitech M240 Silent | Logitech M240 Silent ratón",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Logitech M240 Silent Bluetooth Mouse.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Logitech_M240_Silent_Bluetooth_Mouse.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Logitech_M240_Silent_Bluetooth_Mouse.jpg/960px-Logitech_M240_Silent_Bluetooth_Mouse.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Logitech_M240_Silent_Bluetooth_Mouse.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2287,
+          "alto": 3040,
+          "autor": "TaurusEmerald",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "nombre": "Vaseline Original — gel reparador 100 ml",
+      "seccion": "Belleza",
+      "consulta": "Vaseline | Vaseline Reparador 100",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 65,
+      "nombre": "Tulipán Negro — gel de baño fresa y nata",
+      "seccion": "Belleza",
+      "consulta": "Tulipán | Tulipán fresa nata 650",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 66,
+      "nombre": "Ziaja — contorno de ojos con aciano",
+      "seccion": "Belleza",
+      "consulta": "Ziaja | Ziaja antiojeras aciano",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 67,
+      "nombre": "Ziaja — mascarilla capilar leche de cabra",
+      "seccion": "Belleza",
+      "consulta": "Ziaja | Ziaja Leche Cabra Mascarilla",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Beauty Facts",
+          "titulo": "Ziaja — Leche de Cabra - Mascarilla Capilar con Keratina",
+          "pagina": "https://world.openbeautyfacts.org/product/5901887035435/leche-de-cabra-mascarilla-capilar-con-keratina-ziaja",
+          "imagen": "https://images.openbeautyfacts.org/images/products/590/188/703/5435/front_hu.3.400.jpg",
+          "original": "https://images.openbeautyfacts.org/images/products/590/188/703/5435/front_hu.3.400.jpg",
+          "autor": "Colaboradores de Open Beauty Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 0.6666666666666666
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "nombre": "Batiste — champú en seco Cherry",
+      "seccion": "Belleza",
+      "consulta": "Batiste | Batiste Cherry champú seco",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 69,
+      "nombre": "Fackelmann — espumador de leche",
+      "seccion": "Hogar",
+      "consulta": "Fackelmann | Fackelmann Coffee Tea espumador",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 70,
+      "nombre": "Scotch-Brite — estropajo para vitrocerámica con mango",
+      "seccion": "Hogar",
+      "consulta": "Scotch-Brite | Scotch-Brite estropajo vitrocerámica mango",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 71,
+      "nombre": "Duracell CR2032 — pilas de botón",
+      "seccion": "Tecnología",
+      "consulta": "Duracell CR2032 | Duracell CR2032 pilas botón",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 72,
+      "nombre": "Tristar Tostadora",
+      "seccion": "Hogar",
+      "consulta": "Tristar",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 73,
+      "nombre": "Tommy Hilfiger Camisa Mujer Oxford Relaxed Fit",
+      "seccion": "Moda",
+      "consulta": "Tommy Hilfiger Oxford Relaxed",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 74,
+      "nombre": "Calvin Klein Cinturón Hombre Round Buckle 3,5 cm",
+      "seccion": "Moda",
+      "consulta": "Calvin Klein Cinturón Round",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 75,
+      "nombre": "Star Wars Galactic Team Maleta de Cabina Negro",
+      "seccion": "Otros",
+      "consulta": "Star Wars Galactic Team",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 76,
+      "nombre": "Samsonite Guardit 3.0",
+      "seccion": "Otros",
+      "consulta": "Samsonite Guardit 3.0",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 77,
+      "nombre": "Tommy Hilfiger Vaqueros Mujer Straight CAM Loose",
+      "seccion": "Moda",
+      "consulta": "Tommy Hilfiger Straight CAM",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 78,
+      "nombre": "Amazon Essentials Chaleco Plumífero Plegable",
+      "seccion": "Otros",
+      "consulta": "Amazon Essentials Plumífero Plegable",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 79,
+      "nombre": "Rexona Invisible Desodorante Aerosol",
+      "seccion": "Belleza",
+      "consulta": "Rexona Invisible Desodorante Aerosol",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 80,
+      "nombre": "Lutuan Mochila escolar para niñas y adolescentes",
+      "seccion": "Otros",
+      "consulta": "Lutuan escolar adolescentes",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 81,
+      "nombre": "Hummel Zapatillas Multideporte Reach TR",
+      "seccion": "Moda",
+      "consulta": "Hummel Multideporte Reach TR",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 82,
+      "nombre": "Joma Championship IV Pantalones",
+      "seccion": "Moda",
+      "consulta": "Joma Championship IV",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 83,
+      "nombre": "Under Armour Hombre UA HG Armour Comp Mock LS",
+      "seccion": "Otros",
+      "consulta": "Under Armour UA HG",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 84,
+      "nombre": "Tommy Hilfiger Blusa Mujer Poplin de algodón",
+      "seccion": "Moda",
+      "consulta": "Tommy Hilfiger Blusa Poplin",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 85,
+      "nombre": "Helly Hansen Men's Hudson T-Shirt",
+      "seccion": "Otros",
+      "consulta": "Helly Hansen Hudson T-Shirt",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 86,
+      "nombre": "GANT Sudadera con Media Cremallera REG Shield",
+      "seccion": "Belleza",
+      "consulta": "GANT Media Cremallera REG",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 87,
+      "nombre": "Taurus Robot 600 Plus Inox Batidora de Mano 600W",
+      "seccion": "Otros",
+      "consulta": "Taurus Robot 600 Plus",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 88,
+      "nombre": "G-STAR Cinturón Zed para Hombre",
+      "seccion": "Moda",
+      "consulta": "G-STAR Cinturón Zed",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 89,
+      "nombre": "Splash About Traje de Neopreno para bebé Warm in",
+      "seccion": "Otros",
+      "consulta": "Splash About Traje Neopreno",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 90,
+      "nombre": "PUMA Unisex ST Runner v2 NL Sneakers",
+      "seccion": "Moda",
+      "consulta": "PUMA ST Runner v2",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 91,
+      "nombre": "Armani Exchange Men's Las Vegas",
+      "seccion": "Belleza",
+      "consulta": "Armani Exchange Vegas",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 92,
+      "nombre": "Char-Broil Barbacoa Gas Advantage PRO S 4",
+      "seccion": "Hogar",
+      "consulta": "Char-Broil Barbacoa Gas Advantage",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 93,
+      "nombre": "Jack & Jones Jjepaulos Polo Ss Noos Polo",
+      "seccion": "Moda",
+      "consulta": "Jack Jones Jjepaulos Ss",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 94,
+      "nombre": "RUIMEN Reloj Inteligente Mujer Hombre",
+      "seccion": "Tecnología",
+      "consulta": "RUIMEN",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 95,
+      "nombre": "ADIDAS GP6473 SQ21 TR TOP Sweatshirt Hombre team",
+      "seccion": "Moda",
+      "consulta": "ADIDAS GP6473 SQ21 TR",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 96,
+      "nombre": "Guess Mujer Bolso Satchel Dorothy Sm Girlfriend",
+      "seccion": "Moda",
+      "consulta": "Guess Satchel Dorothy Sm",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 97,
+      "nombre": "Columbia Benton Springs 1/2 Cierre de Presión II",
+      "seccion": "Otros",
+      "consulta": "Columbia Benton Springs 1/2",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 98,
+      "nombre": "Lenovo Legion 24-10- Monitor Gaming FHD 23.8\"",
+      "seccion": "Tecnología",
+      "consulta": "Lenovo Legion 24-10- Monitor",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 99,
+      "nombre": "Logitech G G321 Lightspeed",
+      "seccion": "Tecnología",
+      "consulta": "Logitech G321 Lightspeed",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 100,
+      "nombre": "2052 Destornillador hexagonal con cabeza esférica",
+      "seccion": "Otros",
+      "consulta": "2052 Destornillador hexagonal cabeza",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 101,
+      "nombre": "POP Funko NBA: Chicago Bulls",
+      "seccion": "Otros",
+      "consulta": "POP Funko NBA Chicago",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 102,
+      "nombre": "ONLY Coat ONLSEDONA Coat Black l Black 1 L",
+      "seccion": "Otros",
+      "consulta": "ONLY ONLSEDONA Black Black",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 103,
+      "nombre": "Helly Hansen Unisex Mochila Dublin 2.0, Negro",
+      "seccion": "Otros",
+      "consulta": "Helly Hansen Dublin 2.0",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 104,
+      "nombre": "Ergobaby Evolve 3 en 1 Hamaca para Bebés",
+      "seccion": "Otros",
+      "consulta": "Ergobaby Evolve Hamaca Bebés",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 105,
+      "nombre": "FISCHER 090275 Varilla roscada para anclajes",
+      "seccion": "Otros",
+      "consulta": "FISCHER 090275 Varilla roscada",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 106,
+      "nombre": "Reebok Zapatillas Deportivas para Mujer",
+      "seccion": "Moda",
+      "consulta": "Reebok",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 107,
+      "nombre": "roborock F25 Steam Set Aspiradora y fregadora",
+      "seccion": "Hogar",
+      "consulta": "roborock F25 Steam Aspiradora",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 108,
+      "nombre": "Warrior Botella mezcladora de proteínas negra",
+      "seccion": "Otros",
+      "consulta": "Warrior Botella mezcladora proteínas",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 109,
+      "nombre": "SUNPOW Detector de metales : Chip Mejorado",
+      "seccion": "Otros",
+      "consulta": "SUNPOW Detector metales Chip",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 110,
+      "nombre": "Router wifi de malla eero 6+ de Amazon",
+      "seccion": "Otros",
+      "consulta": "Router malla eero Amazon",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 111,
+      "nombre": "EZVIZ C6N Cámara Vigilancia WiFi Interior 360°",
+      "seccion": "Otros",
+      "consulta": "EZVIZ C6N 360°",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 112,
+      "nombre": "ECCO Offroad Sandalia deportiva Mujer Atmosphere",
+      "seccion": "Moda",
+      "consulta": "ECCO Offroad Atmosphere",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 113,
+      "nombre": "Marc O’Polo Hombre Camiseta de punto de algodón",
+      "seccion": "Moda",
+      "consulta": "Marc O’Polo punto algodón",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 114,
+      "nombre": "Auriculares Inalambricos",
+      "seccion": "Tecnología",
+      "consulta": "",
+      "buscado": false,
+      "candidatas": []
+    },
+    {
+      "id": 115,
+      "nombre": "Minecraft Spitzhacke",
+      "seccion": "Otros",
+      "consulta": "Minecraft Spitzhacke",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 116,
+      "nombre": "Air Wick Freshmatic",
+      "seccion": "Otros",
+      "consulta": "Air Wick Freshmatic",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Products Facts",
+          "titulo": "Air Wick — Winter Walks Freshmatic Refill",
+          "pagina": "https://world.openproductsfacts.org/product/5059001011923/winter-walks-freshmatic-refill-air-wick",
+          "imagen": "https://images.openproductsfacts.org/images/products/505/900/101/1923/front_en.5.400.jpg",
+          "original": "https://images.openproductsfacts.org/images/products/505/900/101/1923/front_en.5.400.jpg",
+          "autor": "Colaboradores de Open Products Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        },
+        {
+          "fuente": "Open Products Facts",
+          "titulo": "Air Wick — Air Wick freshmatic regill pure soft cotton",
+          "pagina": "https://world.openproductsfacts.org/product/5011417568903/air-wick-freshmatic-regill-pure-soft-cotton",
+          "imagen": "https://images.openproductsfacts.org/images/products/501/141/756/8903/front_fr.3.400.jpg",
+          "original": "https://images.openproductsfacts.org/images/products/501/141/756/8903/front_fr.3.400.jpg",
+          "autor": "Colaboradores de Open Products Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Air Wick Freshmatic Auto Spray.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Air_Wick_Freshmatic_Auto_Spray.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Air_Wick_Freshmatic_Auto_Spray.jpg/960px-Air_Wick_Freshmatic_Auto_Spray.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Air_Wick_Freshmatic_Auto_Spray.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3000,
+          "alto": 4000,
+          "autor": "Xynorath",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Air Wick Freshmatic Ultra.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Air_Wick_Freshmatic_Ultra.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Air_Wick_Freshmatic_Ultra.jpg/960px-Air_Wick_Freshmatic_Ultra.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Air_Wick_Freshmatic_Ultra.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3024,
+          "alto": 3024,
+          "autor": "FLCollection620",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 117,
+      "nombre": "Grupo Erik Bloc de notas Adhesivas Snoopy Peanuts",
+      "seccion": "Otros",
+      "consulta": "Grupo Erik Bloc notas",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 118,
+      "nombre": "Skechers Espuma de Vapor",
+      "seccion": "Moda",
+      "consulta": "Skechers Espuma Vapor",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 119,
+      "nombre": "Michael Kors Reloj Lexington para Mujer",
+      "seccion": "Otros",
+      "consulta": "Michael Kors Lexington",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 120,
+      "nombre": "Pepe Jeans Sprig Neceser Adaptable con Bandolera",
+      "seccion": "Moda",
+      "consulta": "Pepe Jeans Sprig Neceser",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 121,
+      "nombre": "GXTrust Zora Teclado Mecánico Español QWERTY",
+      "seccion": "Tecnología",
+      "consulta": "GXTrust Zora Teclado Mecánico",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 122,
+      "nombre": "Tommy Hilfiger Llavero Mujer Popette Nano",
+      "seccion": "Moda",
+      "consulta": "Tommy Hilfiger Llavero Popette",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 123,
+      "nombre": "Wrangler Skinny Jeans para Mujer",
+      "seccion": "Moda",
+      "consulta": "Wrangler Skinny Jeans",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 124,
+      "nombre": "KINGRACK Escurridor de Platos",
+      "seccion": "Otros",
+      "consulta": "KINGRACK Escurridor Platos",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 125,
+      "nombre": "Tommy Jeans Camisetas de Tirantes Pack de 2",
+      "seccion": "Moda",
+      "consulta": "Tommy Jeans Camisetas Tirantes",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 126,
+      "nombre": "Sulion Ventilador de Techo con Luz LED CRATO",
+      "seccion": "Hogar",
+      "consulta": "Sulion CRATO",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 127,
+      "nombre": "CMF Headphone Pro",
+      "seccion": "Tecnología",
+      "consulta": "CMF Headphone Pro",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 128,
+      "nombre": "Champion Boy's Legacy Boy",
+      "seccion": "Moda",
+      "consulta": "Champion Boy's Legacy Boy",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Some People With Severe Depression - People With Mental Illnesses Who Enrich Or Have Enriched Our Lives (22741192277).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Some_People_With_Severe_Depression_-_People_With_Mental_Illnesses_Who_Enrich_Or_Have_Enriched_Our_Lives_(22741192277).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Some_People_With_Severe_Depression_-_People_With_Mental_Illnesses_Who_Enrich_Or_Have_Enriched_Our_Lives_%2822741192277%29.jpg/960px-Some_People_With_Severe_Depression_-_People_With_Mental_Illnesses_Who_Enrich_Or_Have_Enriched_Our_Lives_%2822741192277%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/8/82/Some_People_With_Severe_Depression_-_People_With_Mental_Illnesses_Who_Enrich_Or_Have_Enriched_Our_Lives_%2822741192277%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4242,
+          "alto": 3110,
+          "autor": "Chic Bee",
+          "licencia": "CC BY 2.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by/2.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 129,
+      "nombre": "Timberland Davis Square F/L Chukka Zapatillas",
+      "seccion": "Moda",
+      "consulta": "Timberland Davis Square F/L",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 130,
+      "nombre": "Hummel Reach TR Breather",
+      "seccion": "Moda",
+      "consulta": "Hummel Reach TR Breather",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 131,
+      "nombre": "JACK & JONES Denim Jacket Denim Jacket Blue Denim",
+      "seccion": "Otros",
+      "consulta": "JACK JONES Denim Jacket",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 132,
+      "nombre": "NGS Singer Fire",
+      "seccion": "Tecnología",
+      "consulta": "NGS Singer Fire",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 133,
+      "nombre": "Armani Exchange Reloj para Hombre",
+      "seccion": "Otros",
+      "consulta": "Armani Exchange",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Armani Exchange logo.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Armani_Exchange_logo.jpg",
+          "imagen": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Armani_Exchange_logo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Armani_Exchange_logo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 258,
+          "alto": 163,
+          "autor": "Armani Exchange",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Axsg.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Axsg.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Axsg.jpg/960px-Axsg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/9/94/Axsg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1000,
+          "alto": 750,
+          "autor": "Alohomoratum",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Armani Exchange logo by Sagi Haviv.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Armani_Exchange_logo_by_Sagi_Haviv.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Armani_Exchange_logo_by_Sagi_Haviv.jpg/960px-Armani_Exchange_logo_by_Sagi_Haviv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/d/df/Armani_Exchange_logo_by_Sagi_Haviv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1330,
+          "alto": 791,
+          "autor": "Armani",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 134,
+      "nombre": "Zapatillas Vans MTE Crosspath Senior",
+      "seccion": "Moda",
+      "consulta": "Vans MTE Crosspath Senior",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 135,
+      "nombre": "TOKIT Placa De Inducción 2000W",
+      "seccion": "Otros",
+      "consulta": "TOKIT Placa Inducción 2000W",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 136,
+      "nombre": "JACK & JONES Hombre Jprccmerino Knit Roll Neck Sn",
+      "seccion": "Otros",
+      "consulta": "JACK JONES Jprccmerino Knit",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 137,
+      "nombre": "Timberland Davis Square",
+      "seccion": "Moda",
+      "consulta": "Timberland Davis Square",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 138,
+      "nombre": "KARL LAGERFELD JEANS Mujer Slim Short Sleeve",
+      "seccion": "Moda",
+      "consulta": "KARL LAGERFELD JEANS Slim",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 139,
+      "nombre": "dreame L40 Ultra A Robot Aspirador Friegasuelo",
+      "seccion": "Hogar",
+      "consulta": "dreame L40 Ultra Robot",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 140,
+      "nombre": "Amazon Basics Escritorio para Oficina en Casa",
+      "seccion": "Hogar",
+      "consulta": "Amazon Basics Escritorio Oficina",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 141,
+      "nombre": "PLAYMOBIL 70624 Dino Rise Rex",
+      "seccion": "Otros",
+      "consulta": "PLAYMOBIL 70624 Dino Rise",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 142,
+      "nombre": "Auriculares Inalámbricos Bluetooth 5.4 HiFi",
+      "seccion": "Tecnología",
+      "consulta": "5.4 HiFi",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 143,
+      "nombre": "Invicta Pro Diver Reloj Automático para Hombre",
+      "seccion": "Otros",
+      "consulta": "Invicta Pro Diver Automático",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 144,
+      "nombre": "Wella Professionals INIVIGO NUTRI-ENRICH Champú",
+      "seccion": "Belleza",
+      "consulta": "Wella Professionals INIVIGO NUTRI-ENRICH",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 145,
+      "nombre": "MILLET Mochila de senderismo",
+      "seccion": "Otros",
+      "consulta": "MILLET senderismo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 146,
+      "nombre": "Pepe Jeans ORIGINAL BASIC 3N 591INK BLUE M",
+      "seccion": "Moda",
+      "consulta": "Pepe Jeans BASIC 3N",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 147,
+      "nombre": "SMINT Tin Sabor Bubblefresh",
+      "seccion": "Otros",
+      "consulta": "SMINT Tin Sabor Bubblefresh",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 148,
+      "nombre": "Secador de pelo profesional iones",
+      "seccion": "Otros",
+      "consulta": "Secador pelo profesional iones",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 149,
+      "nombre": "Lee Brooklyn Straight Vaqueros Para Hombre",
+      "seccion": "Moda",
+      "consulta": "Lee Brooklyn Straight",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 150,
+      "nombre": "Tapo C220 Cámara de Vigilancia WiFi Interior 360º",
+      "seccion": "Otros",
+      "consulta": "Tapo C220 360º",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 151,
+      "nombre": "Reloj Inteligente Hombre con Linterna",
+      "seccion": "Tecnología",
+      "consulta": "",
+      "buscado": false,
+      "candidatas": []
+    },
+    {
+      "id": 152,
+      "nombre": "Renova Rollos de Cocina Renova UltraPower",
+      "seccion": "Hogar",
+      "consulta": "Renova Rollos Cocina Renova",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 153,
+      "nombre": "adidas Hombre Essentials Small Logo Cargo Pants",
+      "seccion": "Moda",
+      "consulta": "adidas Essentials Small Logo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 154,
+      "nombre": "Colgate Max White Purple Reveal Pasta de Dientes",
+      "seccion": "Otros",
+      "consulta": "Colgate Max White Purple",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 155,
+      "nombre": "DURACELL Plus AA Pilas Alcalinas",
+      "seccion": "Hogar",
+      "consulta": "DURACELL Plus AA Pilas",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 156,
+      "nombre": "Demegimi Camiseta Niña Manga Larga Rayas Cuello",
+      "seccion": "Moda",
+      "consulta": "Demegimi Rayas",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 157,
+      "nombre": "JLab JBuds Mini Auriculares Inalámbricos Bluetooth",
+      "seccion": "Tecnología",
+      "consulta": "JLab JBuds Mini",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 158,
+      "nombre": "Pepe Jeans Aris Evergreen Mochila de Cabina",
+      "seccion": "Moda",
+      "consulta": "Pepe Jeans Aris Evergreen",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 159,
+      "nombre": "GANT REG Shield",
+      "seccion": "Moda",
+      "consulta": "GANT REG Shield",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 160,
+      "nombre": "Paekole Auriculares Traductor en Tiempo Real",
+      "seccion": "Tecnología",
+      "consulta": "Paekole Traductor Tiempo Real",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 161,
+      "nombre": "JACK & JONES Jjeperfect Hybrid Jacket Noos",
+      "seccion": "Otros",
+      "consulta": "JACK JONES Jjeperfect Hybrid",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 162,
+      "nombre": "Pepe Jeans Hoxton Bolsa de Viaje",
+      "seccion": "Moda",
+      "consulta": "Pepe Jeans Hoxton Bolsa",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 163,
+      "nombre": "GANT REG Archive Shield SS",
+      "seccion": "Moda",
+      "consulta": "GANT REG Archive Shield",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 164,
+      "nombre": "GANT Camiseta Reg Shield SS para Hombre",
+      "seccion": "Moda",
+      "consulta": "GANT Reg Shield SS",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 165,
+      "nombre": "DKNY Mujer Willa Mini Satchel 100% Poliuretano",
+      "seccion": "Otros",
+      "consulta": "DKNY Willa Mini Satchel",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 166,
+      "nombre": "Invicta Pro Diver Reloj Cuarzo para Hombre",
+      "seccion": "Otros",
+      "consulta": "Invicta Pro Diver Cuarzo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 167,
+      "nombre": "Chicco Chaqueta Niño de Tejido Suave y Cálido",
+      "seccion": "Moda",
+      "consulta": "Chicco Tejido Suave Cálido",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 168,
+      "nombre": "AUREOLE WINGS OF HOPE CELESTIAL EDITION",
+      "seccion": "Otros",
+      "consulta": "AUREOLE WINGS OF HOPE",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 169,
+      "nombre": "GANT Sudadera con Capucha REG Shield",
+      "seccion": "Moda",
+      "consulta": "GANT REG Shield",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 170,
+      "nombre": "JACK & JONES Bomber Jacket Bomber Jacket Navy",
+      "seccion": "Otros",
+      "consulta": "JACK JONES Bomber Jacket",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 171,
+      "nombre": "HUGO BOSS Cinturón para hombre",
+      "seccion": "Moda",
+      "consulta": "HUGO BOSS Cinturón",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 172,
+      "nombre": "Yale Mirilla Electrónica Digital Yale",
+      "seccion": "Otros",
+      "consulta": "Yale Mirilla Electrónica Yale",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 173,
+      "nombre": "Tommy Jeans Camiseta de Manga Corta Mujer Pack",
+      "seccion": "Moda",
+      "consulta": "Tommy Jeans",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Blauwe jeans, merk Tommy Hilfiger, maat 3334, objectnr 86975-2(1).JPG",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Blauwe_jeans,_merk_Tommy_Hilfiger,_maat_3334,_objectnr_86975-2(1).JPG",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Blauwe_jeans%2C_merk_Tommy_Hilfiger%2C_maat_3334%2C_objectnr_86975-2%281%29.JPG/960px-Blauwe_jeans%2C_merk_Tommy_Hilfiger%2C_maat_3334%2C_objectnr_86975-2%281%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/3/30/Blauwe_jeans%2C_merk_Tommy_Hilfiger%2C_maat_3334%2C_objectnr_86975-2%281%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2592,
+          "alto": 3872,
+          "autor": "Tommy Hilfiger",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Blauwe jeans, merk Tommy Hilfiger, maat 3334, objectnr 86975-2(2).JPG",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Blauwe_jeans,_merk_Tommy_Hilfiger,_maat_3334,_objectnr_86975-2(2).JPG",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Blauwe_jeans%2C_merk_Tommy_Hilfiger%2C_maat_3334%2C_objectnr_86975-2%282%29.JPG/960px-Blauwe_jeans%2C_merk_Tommy_Hilfiger%2C_maat_3334%2C_objectnr_86975-2%282%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/4/45/Blauwe_jeans%2C_merk_Tommy_Hilfiger%2C_maat_3334%2C_objectnr_86975-2%282%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3872,
+          "alto": 2592,
+          "autor": "Tommy Hilfiger",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Jessi at \"Tommy Jeans\" Seoul store opening event on April 25, 2019.png",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Jessi_at_%22Tommy_Jeans%22_Seoul_store_opening_event_on_April_25,_2019.png",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Jessi_at_%22Tommy_Jeans%22_Seoul_store_opening_event_on_April_25%2C_2019.png/960px-Jessi_at_%22Tommy_Jeans%22_Seoul_store_opening_event_on_April_25%2C_2019.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Jessi_at_%22Tommy_Jeans%22_Seoul_store_opening_event_on_April_25%2C_2019.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1108,
+          "alto": 1592,
+          "autor": "NewsInStar",
+          "licencia": "CC BY 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by/3.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 174,
+      "nombre": "Tommy Jeans Sudadera Mujer Flag Regular Fit",
+      "seccion": "Moda",
+      "consulta": "Tommy Jeans Flag Regular",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 175,
+      "nombre": "Funko Pop! Games: Sonic The Hedgehog",
+      "seccion": "Otros",
+      "consulta": "Funko Pop Games Sonic",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 176,
+      "nombre": "Skechers Mujer Uno Shimmer Away Trainers",
+      "seccion": "Otros",
+      "consulta": "Skechers Uno Shimmer Away",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 177,
+      "nombre": "Timex Orologio da sera Waterbury Classic Chrono",
+      "seccion": "Otros",
+      "consulta": "Timex Orologio da sera",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 178,
+      "nombre": "Lee Jeans Hombre Corte Recto Regular West Fawn",
+      "seccion": "Moda",
+      "consulta": "Lee Jeans Corte Recto",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 179,
+      "nombre": "AEG LFN8E8436C Lavadora de Carga Frontal",
+      "seccion": "Otros",
+      "consulta": "AEG LFN8E8436C Lavadora Carga",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 180,
+      "nombre": "Vans Zapatillas MTE Crosspath para Hombre",
+      "seccion": "Moda",
+      "consulta": "Vans MTE Crosspath",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 181,
+      "nombre": "AI Auriculares Traductor en Tiempo Real de Voz",
+      "seccion": "Tecnología",
+      "consulta": "AI Traductor Tiempo Real",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 182,
+      "nombre": "Superfit Abby Nova Gore-Tex 0010",
+      "seccion": "Moda",
+      "consulta": "Superfit Abby Nova Gore-Tex",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 183,
+      "nombre": "Dokon Funda Sombrilla Excentrico Impermeable",
+      "seccion": "Otros",
+      "consulta": "Dokon Funda Sombrilla Excentrico",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 184,
+      "nombre": "Superfit Flavia",
+      "seccion": "Moda",
+      "consulta": "Superfit Flavia",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 185,
+      "nombre": "Mr. Wonderful Libreta A5 con Portada Acolchada",
+      "seccion": "Otros",
+      "consulta": "Mr. Wonderful Libreta A5",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 186,
+      "nombre": "Diesel Reloj Framed para hombre",
+      "seccion": "Otros",
+      "consulta": "Diesel Framed",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 187,
+      "nombre": "Philips Serie 5400 Cafetera Superautomática",
+      "seccion": "Hogar",
+      "consulta": "Philips Serie 5400 Superautomática",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 188,
+      "nombre": "GANT Chaqueta media hacia abajo",
+      "seccion": "Moda",
+      "consulta": "GANT media hacia abajo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 189,
+      "nombre": "GTV Metalbox Prestige Sistema de cajones color",
+      "seccion": "Otros",
+      "consulta": "GTV Metalbox Prestige Sistema",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 190,
+      "nombre": "Morgan Pantalón skinny talle bajo Thym 44",
+      "seccion": "Moda",
+      "consulta": "Morgan skinny talle bajo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 191,
+      "nombre": "STANLEY Sierra de arco con empuñadura de pistola",
+      "seccion": "Otros",
+      "consulta": "STANLEY Sierra arco empuñadura",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 192,
+      "nombre": "Columbia Peakfreak II Outdry Zapatos",
+      "seccion": "Moda",
+      "consulta": "Columbia Peakfreak II Outdry",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 193,
+      "nombre": "medicube PDRN Pink Peptide Serum with Salmon DNA",
+      "seccion": "Belleza",
+      "consulta": "medicube PDRN Pink Peptide",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Beauty Facts",
+          "titulo": "Medicube — Medicube PDRN Pink Peptide Serum",
+          "pagina": "https://world.openbeautyfacts.org/product/8800289474989/medicube-pdrn-pink-peptide-serum",
+          "imagen": "https://images.openbeautyfacts.org/images/products/880/028/947/4989/front_nl.3.400.jpg",
+          "original": "https://images.openbeautyfacts.org/images/products/880/028/947/4989/front_nl.3.400.jpg",
+          "autor": "Colaboradores de Open Beauty Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 0.625
+        }
+      ]
+    },
+    {
+      "id": 194,
+      "nombre": "SUUNTO Run Reloj GPS para correr",
+      "seccion": "Otros",
+      "consulta": "SUUNTO Run GPS correr",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 195,
+      "nombre": "Fossil Virginia Reloj para Mujer",
+      "seccion": "Otros",
+      "consulta": "Fossil Virginia",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Chesapecten jeffersonius (fossil scallop) (Yorktown Formation, Lower Pliocene; Williamsburg, Virginia, USA) 8.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Chesapecten_jeffersonius_(fossil_scallop)_(Yorktown_Formation,_Lower_Pliocene;_Williamsburg,_Virginia,_USA)_8.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Chesapecten_jeffersonius_%28fossil_scallop%29_%28Yorktown_Formation%2C_Lower_Pliocene%3B_Williamsburg%2C_Virginia%2C_USA%29_8.jpg/960px-Chesapecten_jeffersonius_%28fossil_scallop%29_%28Yorktown_Formation%2C_Lower_Pliocene%3B_Williamsburg%2C_Virginia%2C_USA%29_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Chesapecten_jeffersonius_%28fossil_scallop%29_%28Yorktown_Formation%2C_Lower_Pliocene%3B_Williamsburg%2C_Virginia%2C_USA%29_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2933,
+          "alto": 2792,
+          "autor": "James St. John",
+          "licencia": "CC BY 2.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by/2.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Chesapecten jeffersonius (fossil scallop) (Yorktown Formation, Lower Pliocene; Williamsburg, Virginia, USA) 6.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Chesapecten_jeffersonius_(fossil_scallop)_(Yorktown_Formation,_Lower_Pliocene;_Williamsburg,_Virginia,_USA)_6.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Chesapecten_jeffersonius_%28fossil_scallop%29_%28Yorktown_Formation%2C_Lower_Pliocene%3B_Williamsburg%2C_Virginia%2C_USA%29_6.jpg/960px-Chesapecten_jeffersonius_%28fossil_scallop%29_%28Yorktown_Formation%2C_Lower_Pliocene%3B_Williamsburg%2C_Virginia%2C_USA%29_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/2/25/Chesapecten_jeffersonius_%28fossil_scallop%29_%28Yorktown_Formation%2C_Lower_Pliocene%3B_Williamsburg%2C_Virginia%2C_USA%29_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2973,
+          "alto": 2886,
+          "autor": "James St. John",
+          "licencia": "CC BY 2.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by/2.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Chesapecten jeffersonius (fossil scallop) (Yorktown Formation, Lower Pliocene; Williamsburg, Virginia, USA) 5.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Chesapecten_jeffersonius_(fossil_scallop)_(Yorktown_Formation,_Lower_Pliocene;_Williamsburg,_Virginia,_USA)_5.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Chesapecten_jeffersonius_%28fossil_scallop%29_%28Yorktown_Formation%2C_Lower_Pliocene%3B_Williamsburg%2C_Virginia%2C_USA%29_5.jpg/960px-Chesapecten_jeffersonius_%28fossil_scallop%29_%28Yorktown_Formation%2C_Lower_Pliocene%3B_Williamsburg%2C_Virginia%2C_USA%29_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Chesapecten_jeffersonius_%28fossil_scallop%29_%28Yorktown_Formation%2C_Lower_Pliocene%3B_Williamsburg%2C_Virginia%2C_USA%29_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2854,
+          "alto": 2715,
+          "autor": "James St. John",
+          "licencia": "CC BY 2.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by/2.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 196,
+      "nombre": "ion8 Botella De Agua Antifugas",
+      "seccion": "Otros",
+      "consulta": "ion8 Botella Agua Antifugas",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 197,
+      "nombre": "Columbia Cortavientos Youth Boys Spire Valley",
+      "seccion": "Otros",
+      "consulta": "Columbia Cortavientos Youth Boys",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 198,
+      "nombre": "Marvel Sudadera Oversize Hombre",
+      "seccion": "Moda",
+      "consulta": "Marvel Oversize",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "SterankoHistory001A.png",
+          "pagina": "https://commons.wikimedia.org/wiki/File:SterankoHistory001A.png",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/SterankoHistory001A.png/960px-SterankoHistory001A.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/1/15/SterankoHistory001A.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 980,
+          "alto": 1296,
+          "autor": "Charles Clarence Beck (with alterations made by the uploader).",
+          "licencia": "CC0",
+          "licenciaUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "SterankoHistory001.png",
+          "pagina": "https://commons.wikimedia.org/wiki/File:SterankoHistory001.png",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/SterankoHistory001.png/960px-SterankoHistory001.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/8/8f/SterankoHistory001.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 980,
+          "alto": 1296,
+          "autor": "Charles Clarence Beck (with alterations made by the uploader).",
+          "licencia": "CC0",
+          "licenciaUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Marvel OHC Branding.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Marvel_OHC_Branding.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Marvel_OHC_Branding.jpg/960px-Marvel_OHC_Branding.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Marvel_OHC_Branding.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4032,
+          "alto": 3024,
+          "autor": "Jjreader545",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 199,
+      "nombre": "SwitchBot Purificador De Aire Con App Y Luz",
+      "seccion": "Otros",
+      "consulta": "SwitchBot Purificador Aire App",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 200,
+      "nombre": "Columbia Klamath Range 2",
+      "seccion": "Belleza",
+      "consulta": "Columbia Klamath Range",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Geofeatures-PacificNW.png",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Geofeatures-PacificNW.png",
+          "imagen": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Geofeatures-PacificNW.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Geofeatures-PacificNW.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 357,
+          "alto": 450,
+          "autor": "B. S. Martin, H. L. Petcovic, S. P. Reide",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 201,
+      "nombre": "NIKE M NK PARK26 FLC Crew Sweatshirt",
+      "seccion": "Moda",
+      "consulta": "NIKE NK PARK26 FLC",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 202,
+      "nombre": "Heel Traumeel Spray Frío a base de Plantas",
+      "seccion": "Otros",
+      "consulta": "Heel Traumeel Spray Frío",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 203,
+      "nombre": "mixsoon Bean cream Vegansnail",
+      "seccion": "Otros",
+      "consulta": "mixsoon Bean cream Vegansnail",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 204,
+      "nombre": "eufy C28 Omni Robot Aspirador y fregasuelos",
+      "seccion": "Hogar",
+      "consulta": "eufy C28 Omni Robot",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 205,
+      "nombre": "superfit Tedd Botas Azul Niagara Combi 800474 38",
+      "seccion": "Moda",
+      "consulta": "superfit Tedd Niagara Combi",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 206,
+      "nombre": "G-STAR Para Hombre Gorro Originals Fisherman",
+      "seccion": "Otros",
+      "consulta": "G-STAR Gorro Originals Fisherman",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 207,
+      "nombre": "Reebok Zapatillas Split Flex para Mujer",
+      "seccion": "Moda",
+      "consulta": "Reebok Split Flex",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 208,
+      "nombre": "Dripex Plataforma Vibratoria Muscular 99 Niveles",
+      "seccion": "Otros",
+      "consulta": "Dripex Plataforma Vibratoria Muscular",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 209,
+      "nombre": "HyperMotion Triciclo Infantil con Manillar",
+      "seccion": "Otros",
+      "consulta": "HyperMotion Triciclo Infantil Manillar",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 210,
+      "nombre": "Moroccanoil Acondicionador Extra Volumen",
+      "seccion": "Belleza",
+      "consulta": "Moroccanoil Acondicionador Extra Volumen",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 211,
+      "nombre": "XIAOMI TV Pro 55 Pulgadas 2026, 4K UHD QLED Smart",
+      "seccion": "Otros",
+      "consulta": "XIAOMI TV Pro 55",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 212,
+      "nombre": "TATAY Kit de Fijación Repair Extreme Pattex",
+      "seccion": "Otros",
+      "consulta": "TATAY Kit Fijación Repair",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 213,
+      "nombre": "Lee Pique Polo Camiseta",
+      "seccion": "Moda",
+      "consulta": "Lee Pique",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "John Ward - H.M.S. Pique.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:John_Ward_-_H.M.S._Pique.jpg",
+          "imagen": "https://upload.wikimedia.org/wikipedia/commons/c/cd/John_Ward_-_H.M.S._Pique.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/c/cd/John_Ward_-_H.M.S._Pique.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 500,
+          "alto": 360,
+          "autor": "John Ward",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 214,
+      "nombre": "Tommy Hilfiger Runner Sneaker Mujer con Efecto",
+      "seccion": "Moda",
+      "consulta": "Tommy Hilfiger Runner Sneaker",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 215,
+      "nombre": "DOKEHOM 90L Cesto & Cesta Ropa Sucia",
+      "seccion": "Otros",
+      "consulta": "DOKEHOM 90L Cesto Cesta",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 216,
+      "nombre": "L'Oréal Paris Revitalift Filler Sérum Ojos",
+      "seccion": "Belleza",
+      "consulta": "L'Oréal Paris Revitalift Filler",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Beauty Facts",
+          "titulo": "L'Oréal — L'Oréal Paris Revitalift Filler Oogserum",
+          "pagina": "https://world.openbeautyfacts.org/product/3600524025502/l-oreal-paris-revitalift-filler-oogserum",
+          "imagen": "https://images.openbeautyfacts.org/images/products/360/052/402/5502/front_nl.8.400.jpg",
+          "original": "https://images.openbeautyfacts.org/images/products/360/052/402/5502/front_nl.8.400.jpg",
+          "autor": "Colaboradores de Open Beauty Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        },
+        {
+          "fuente": "Open Beauty Facts",
+          "titulo": "L’Oréal Paris Revitalift Filler Verkoelend Oogserum Masker",
+          "pagina": "https://world.openbeautyfacts.org/product/3600524013530/l-oreal-paris-revitalift-filler-verkoelend-oogserum-masker",
+          "imagen": "https://images.openbeautyfacts.org/images/products/360/052/401/3530/front_nl.3.400.jpg",
+          "original": "https://images.openbeautyfacts.org/images/products/360/052/401/3530/front_nl.3.400.jpg",
+          "autor": "Colaboradores de Open Beauty Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 217,
+      "nombre": "Columbia Fivemile Butte II Chaqueta con Capucha",
+      "seccion": "Moda",
+      "consulta": "Columbia Fivemile Butte II",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 218,
+      "nombre": "JACK & JONES Jjecorp Logo tee SS Crew Neck Noos",
+      "seccion": "Moda",
+      "consulta": "JACK JONES Jjecorp Logo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 219,
+      "nombre": "Swarovski Pendientes de aro Attract Trilogy",
+      "seccion": "Otros",
+      "consulta": "Swarovski Pendientes aro Attract",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 220,
+      "nombre": "WMF Touch Juego de 2 Cuchillos con Fundas",
+      "seccion": "Hogar",
+      "consulta": "WMF Touch Fundas",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 221,
+      "nombre": "adidas Mujer Breaknet Sleek Shoes",
+      "seccion": "Moda",
+      "consulta": "adidas Breaknet Sleek Shoes",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 222,
+      "nombre": "JDY JDYULRIKKA Abrigo Acolchado Negra M",
+      "seccion": "Moda",
+      "consulta": "JDY JDYULRIKKA Acolchado",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 223,
+      "nombre": "JACK & JONES JPSTKANE JJBARKLEY",
+      "seccion": "Moda",
+      "consulta": "JACK JONES JPSTKANE JJBARKLEY",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 224,
+      "nombre": "Philips OneBlade Pro 360 Barbero",
+      "seccion": "Belleza",
+      "consulta": "Philips OneBlade Pro 360",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 225,
+      "nombre": "Tilswall Shark800 Pistola Pintura Electrica",
+      "seccion": "Otros",
+      "consulta": "Tilswall Shark800 Pistola Pintura",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 226,
+      "nombre": "Blooven 5 Metros 50 mm Auto Adhesivo Cinta Rollo",
+      "seccion": "Otros",
+      "consulta": "Blooven 50",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 227,
+      "nombre": "Columbia Pouring Adventure 3 Jacket",
+      "seccion": "Moda",
+      "consulta": "Columbia Pouring Adventure Jacket",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 228,
+      "nombre": "Borras Palabreando 1 temática 1 Letra 12 Segundos",
+      "seccion": "Otros",
+      "consulta": "Borras Palabreando temática Letra",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 229,
+      "nombre": "Salewa Chaqueta de plumón Brenta RDS hombre",
+      "seccion": "Moda",
+      "consulta": "Salewa plumón Brenta RDS",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 230,
+      "nombre": "Abu Garcia MAX X Black Ops Combinación de caña",
+      "seccion": "Otros",
+      "consulta": "Abu Garcia MAX Black",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 231,
+      "nombre": "21J Depiladora Laser con Función De Refrigeración",
+      "seccion": "Belleza",
+      "consulta": "21J Depiladora Laser Función",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 232,
+      "nombre": "Pepe Jeans Zapatillas Básicas Brady Marino",
+      "seccion": "Moda",
+      "consulta": "Pepe Jeans Básicas Brady",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 233,
+      "nombre": "LEGO Friends Tienda de Golosinas de Heartlake",
+      "seccion": "Otros",
+      "consulta": "LEGO Friends Tienda Golosinas",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 235,
+      "nombre": "JYGMPRO Taladro Atornillador Brushless 21 V",
+      "seccion": "Hogar",
+      "consulta": "JYGMPRO Taladro Atornillador Brushless",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 236,
+      "nombre": "Colhogar Ultra Suave XXL x36",
+      "seccion": "Otros",
+      "consulta": "Colhogar Ultra Suave XXL",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 237,
+      "nombre": "Calvin Klein Cinturón Hombre Buckle Tumbled 3,5",
+      "seccion": "Moda",
+      "consulta": "Calvin Klein Cinturón Buckle",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 238,
+      "nombre": "PIECES Pcbosella",
+      "seccion": "Otros",
+      "consulta": "PIECES Pcbosella",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 239,
+      "nombre": "Morgan Mono largo de pernera ancha con hebilla",
+      "seccion": "Otros",
+      "consulta": "Morgan Mono largo pernera",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 240,
+      "nombre": "COSTWAY Bicicleta sin Pedales con Asiento",
+      "seccion": "Otros",
+      "consulta": "COSTWAY Bicicleta Pedales Asiento",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 241,
+      "nombre": "Rimmel London Oh My Gloss Butter Me Up Bálsamo",
+      "seccion": "Otros",
+      "consulta": "Rimmel London Oh My",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 242,
+      "nombre": "Rituals Wild Fig Private Collection",
+      "seccion": "Otros",
+      "consulta": "Rituals Wild Fig Private",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Joseph wright of derby ara vesuvius in eruption viewed from posillipo081644).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Joseph_wright_of_derby_ara_vesuvius_in_eruption_viewed_from_posillipo081644).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Joseph_wright_of_derby_ara_vesuvius_in_eruption_viewed_from_posillipo081644%29.jpg/960px-Joseph_wright_of_derby_ara_vesuvius_in_eruption_viewed_from_posillipo081644%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Joseph_wright_of_derby_ara_vesuvius_in_eruption_viewed_from_posillipo081644%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3200,
+          "alto": 2539,
+          "autor": "Joseph Wright of Derby",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 0.8
+        }
+      ]
+    },
+    {
+      "id": 243,
+      "nombre": "Haier BHA6S69M6DB9J-S",
+      "seccion": "Otros",
+      "consulta": "Haier BHA6S69M6DB9J-S",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 244,
+      "nombre": "Adaptador CarPlay Inalámbrico",
+      "seccion": "Otros",
+      "consulta": "Adaptador CarPlay",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 245,
+      "nombre": "Jack & Jones Hombre Jjimarco Jjdave Sa 2 Pack",
+      "seccion": "Moda",
+      "consulta": "Jack Jones Jjimarco Jjdave",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 246,
+      "nombre": "DANISH ENDURANCE Calcetines Algodón Orgánico",
+      "seccion": "Moda",
+      "consulta": "DANISH ENDURANCE Calcetines Algodón",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 247,
+      "nombre": "JACK & JONES Jacjens Sock 5 Pack Noos",
+      "seccion": "Otros",
+      "consulta": "JACK JONES Jacjens Sock",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 248,
+      "nombre": "Kipling Alvar Bandolera Mediana",
+      "seccion": "Otros",
+      "consulta": "Kipling Alvar Bandolera Mediana",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 249,
+      "nombre": "DKNY Adira Rhienstones-Lace Up Sneaker",
+      "seccion": "Moda",
+      "consulta": "DKNY Adira Rhienstones-Lace Up",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 250,
+      "nombre": "SNEAKERS Uomo VANS CROSSPATH VN000CVUBA",
+      "seccion": "Moda",
+      "consulta": "SNEAKERS Uomo VANS CROSSPATH",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 251,
+      "nombre": "NOELANI pendientes de aro de plata de ley 925",
+      "seccion": "Otros",
+      "consulta": "NOELANI pendientes aro plata",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 252,
+      "nombre": "Pokémon PKW4198 Zorua",
+      "seccion": "Otros",
+      "consulta": "Pokémon PKW4198 Zorua",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 253,
+      "nombre": "GANT Camiseta clásica de Oxford Slim Stretch",
+      "seccion": "Moda",
+      "consulta": "GANT Oxford Slim Stretch",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 254,
+      "nombre": "HANPOSH Reloj Hombre Cronógrafo de Acero",
+      "seccion": "Otros",
+      "consulta": "HANPOSH Cronógrafo Acero",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 255,
+      "nombre": "Star Wars The Black Series",
+      "seccion": "Otros",
+      "consulta": "Star Wars The Black",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Star Wars Celebration (the 1st) - Black Ops (?) scout troopers (4878237013).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Star_Wars_Celebration_(the_1st)_-_Black_Ops_(%3F)_scout_troopers_(4878237013).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Star_Wars_Celebration_%28the_1st%29_-_Black_Ops_%28%3F%29_scout_troopers_%284878237013%29.jpg/960px-Star_Wars_Celebration_%28the_1st%29_-_Black_Ops_%28%3F%29_scout_troopers_%284878237013%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/6/66/Star_Wars_Celebration_%28the_1st%29_-_Black_Ops_%28%3F%29_scout_troopers_%284878237013%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1000,
+          "alto": 631,
+          "autor": "The Conmunity - Pop Culture Geek from Los Angeles, CA, USA",
+          "licencia": "CC BY 2.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by/2.0",
+          "parecido": 0.8
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Black and Blue Belles v. Surly Griffins - Star Wars Day.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Black_and_Blue_Belles_v._Surly_Griffins_-_Star_Wars_Day.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Black_and_Blue_Belles_v._Surly_Griffins_-_Star_Wars_Day.jpg/960px-Black_and_Blue_Belles_v._Surly_Griffins_-_Star_Wars_Day.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/2/28/Black_and_Blue_Belles_v._Surly_Griffins_-_Star_Wars_Day.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3264,
+          "alto": 2448,
+          "autor": "Hawkeye7",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "parecido": 0.6
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Star Wars meets Black cat (14106038953).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Star_Wars_meets_Black_cat_(14106038953).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Star_Wars_meets_Black_cat_%2814106038953%29.jpg/960px-Star_Wars_meets_Black_cat_%2814106038953%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Star_Wars_meets_Black_cat_%2814106038953%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2992,
+          "alto": 4488,
+          "autor": "Chris Favero from USA",
+          "licencia": "CC BY-SA 2.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+          "parecido": 0.6
+        }
+      ]
+    },
+    {
+      "id": 256,
+      "nombre": "Calvin Klein Sudadera Mujer Monogram Terry Washed",
+      "seccion": "Moda",
+      "consulta": "Calvin Klein Monogram Terry",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 257,
+      "nombre": "Roll Road Flex Juego de Maletas Burdeos 52x75x30",
+      "seccion": "Otros",
+      "consulta": "Roll Road Flex Maletas",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 258,
+      "nombre": "DER WEISSE HAI",
+      "seccion": "Otros",
+      "consulta": "DER WEISSE HAI",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Der weisse Hai (26282882846).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Der_weisse_Hai_(26282882846).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Der_weisse_Hai_%2826282882846%29.jpg/960px-Der_weisse_Hai_%2826282882846%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Der_weisse_Hai_%2826282882846%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 2728,
+          "alto": 1532,
+          "autor": "hans-jürgen2013 from Mecklenburgische Seenplatte, Deutschland",
+          "licencia": "CC BY-SA 2.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Der weiße Hai 2 Logo.png",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Der_wei%C3%9Fe_Hai_2_Logo.png",
+          "imagen": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Der_wei%C3%9Fe_Hai_2_Logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Der_wei%C3%9Fe_Hai_2_Logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 578,
+          "alto": 208,
+          "autor": "Universal Pictures",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 0.6666666666666666
+        }
+      ]
+    },
+    {
+      "id": 259,
+      "nombre": "Tommy Hilfiger S/S T-Shirt",
+      "seccion": "Moda",
+      "consulta": "Tommy Hilfiger S/S T-Shirt",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 260,
+      "nombre": "Vila Vestido Midi Mujer Manga Larga Cuello Redondo",
+      "seccion": "Moda",
+      "consulta": "Vila Vestido Midi Redondo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 261,
+      "nombre": "COSRX Snail Mucin 96% Power Face Serum 3.38 fl oz",
+      "seccion": "Belleza",
+      "consulta": "COSRX Snail Mucin 96%",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 262,
+      "nombre": "Disney Winnie The Pooh Equipaje- Equipaje",
+      "seccion": "Otros",
+      "consulta": "Disney Winnie The Pooh",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Products Facts",
+          "titulo": "Ebelin — Haarklammer inspiriert von Disney's Winnie the Pooh",
+          "pagina": "https://world.openproductsfacts.org/product/4066447804409/hair-claw-clip-inspired-by-disney-s-winnie-the-pooh-ebelin",
+          "imagen": "https://images.openproductsfacts.org/images/products/406/644/780/4409/front_de.3.400.jpg",
+          "original": "https://images.openproductsfacts.org/images/products/406/644/780/4409/front_de.3.400.jpg",
+          "autor": "Colaboradores de Open Products Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 0.6666666666666666
+        },
+        {
+          "fuente": "Open Products Facts",
+          "titulo": "Ebelin — Scrunchies inspiriert von Disney's Winnie the Pooh",
+          "pagina": "https://world.openproductsfacts.org/product/4066447804416/scrunchies-inspired-by-disney-s-winnie-the-pooh-ebelin",
+          "imagen": "https://images.openproductsfacts.org/images/products/406/644/780/4416/front_de.3.400.jpg",
+          "original": "https://images.openproductsfacts.org/images/products/406/644/780/4416/front_de.3.400.jpg",
+          "autor": "Colaboradores de Open Products Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 0.6666666666666666
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Tokyo Disney Resort Winnie-The-Pooh cookie pack rear 20150611.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Tokyo_Disney_Resort_Winnie-The-Pooh_cookie_pack_rear_20150611.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Tokyo_Disney_Resort_Winnie-The-Pooh_cookie_pack_rear_20150611.jpg/960px-Tokyo_Disney_Resort_Winnie-The-Pooh_cookie_pack_rear_20150611.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tokyo_Disney_Resort_Winnie-The-Pooh_cookie_pack_rear_20150611.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1600,
+          "alto": 1200,
+          "autor": "Solomon203",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 0.6666666666666666
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Abeille - Winnie l'ourson - 20150803 16h47 (10842).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Abeille_-_Winnie_l%27ourson_-_20150803_16h47_(10842).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Abeille_-_Winnie_l%27ourson_-_20150803_16h47_%2810842%29.jpg/960px-Abeille_-_Winnie_l%27ourson_-_20150803_16h47_%2810842%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/9/92/Abeille_-_Winnie_l%27ourson_-_20150803_16h47_%2810842%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3431,
+          "alto": 5147,
+          "autor": "Another one of my pictures: This photograph was taken by Medium69 (William Crochot) and released under the license stated below. You are free to use it for any purpose as long as you credit the author (William Crochot), the Source (Wikimedia Commons) and the license (CC-BY-SA 4.0) in close relation to the image. Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source RAW. This ensures that the changes are preserved. Please if you think that any changes should be required, please inform the author. Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract .",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 0.6666666666666666
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Abeille - Winnie l'ourson - 20150805 17h48 (11025).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Abeille_-_Winnie_l%27ourson_-_20150805_17h48_(11025).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Abeille_-_Winnie_l%27ourson_-_20150805_17h48_%2811025%29.jpg/960px-Abeille_-_Winnie_l%27ourson_-_20150805_17h48_%2811025%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Abeille_-_Winnie_l%27ourson_-_20150805_17h48_%2811025%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1982,
+          "alto": 2973,
+          "autor": "Another one of my pictures: This photograph was taken by Medium69 (William Crochot) and released under the license stated below. You are free to use it for any purpose as long as you credit the author (William Crochot), the Source (Wikimedia Commons) and the license (CC-BY-SA 4.0) in close relation to the image. Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source RAW. This ensures that the changes are preserved. Please if you think that any changes should be required, please inform the author. Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract .",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 0.6666666666666666
+        }
+      ]
+    },
+    {
+      "id": 263,
+      "nombre": "Columbia Newton Nimble LTR Zapatos",
+      "seccion": "Moda",
+      "consulta": "Columbia Newton Nimble LTR",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 264,
+      "nombre": "JACK & JONES Jjmarlon Pu Jacket Jjmarlon",
+      "seccion": "Moda",
+      "consulta": "JACK JONES Jjmarlon Pu",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 265,
+      "nombre": "VASAGLE EstanterÍa de Esquina en Pared",
+      "seccion": "Otros",
+      "consulta": "VASAGLE EstanterÍa Esquina Pared",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 266,
+      "nombre": "Bundle of Philips Lumea serie 8000, dispositivo",
+      "seccion": "Hogar",
+      "consulta": "Bundle of Philips Lumea",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 267,
+      "nombre": "Gillette Fusion Gel de Afeitar Hombre para Pieles",
+      "seccion": "Belleza",
+      "consulta": "Gillette Fusion Afeitar Pieles",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 268,
+      "nombre": "Lefant M3 MAX Robot Aspirador y Friegasuelos",
+      "seccion": "Hogar",
+      "consulta": "Lefant M3 MAX Robot",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 269,
+      "nombre": "Optrex Colirio Doble Acción para Ojos Secos",
+      "seccion": "Otros",
+      "consulta": "Optrex Colirio Doble Acción",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 270,
+      "nombre": "EASTPAK JR Bolso Bandolera",
+      "seccion": "Moda",
+      "consulta": "EASTPAK JR Bandolera",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 271,
+      "nombre": "POC Omne Air MIPS",
+      "seccion": "Otros",
+      "consulta": "POC Omne Air MIPS",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 272,
+      "nombre": "ONLY ONLBLUSH Cintura Media Corte Flared Vaqueros",
+      "seccion": "Moda",
+      "consulta": "ONLY ONLBLUSH Cintura Media",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 273,
+      "nombre": "Levi'S 726 HR Flare Mujer",
+      "seccion": "Moda",
+      "consulta": "Levi'S 726 HR Flare",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 274,
+      "nombre": "COOFANDY Camiseta De Hombre Camisa De Manga Corta",
+      "seccion": "Moda",
+      "consulta": "COOFANDY",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 275,
+      "nombre": "Reebok Zapatillas para Hombre FloatZIG Tread",
+      "seccion": "Moda",
+      "consulta": "Reebok FloatZIG Tread",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 276,
+      "nombre": "Pattex SP101 Original",
+      "seccion": "Otros",
+      "consulta": "Pattex SP101",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 277,
+      "nombre": "GANT Slim Shield SS Pique Polo Camisa",
+      "seccion": "Moda",
+      "consulta": "GANT Slim Shield SS",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 278,
+      "nombre": "Tommy Hilfiger Cazadora de entretiempo Hombre",
+      "seccion": "Moda",
+      "consulta": "Tommy Hilfiger Cazadora entretiempo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 279,
+      "nombre": "JACK & JONES Light Jacket Hood Jjecharge Noos",
+      "seccion": "Moda",
+      "consulta": "JACK JONES Light Jacket",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 280,
+      "nombre": "Tommy Hilfiger Bolso Crossbody Hombre Heritage",
+      "seccion": "Belleza",
+      "consulta": "Tommy Hilfiger Crossbody Heritage",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 281,
+      "nombre": "Plantillas gel para calzado deportivo y de trabajo",
+      "seccion": "Otros",
+      "consulta": "Plantillas calzado trabajo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 282,
+      "nombre": "Reloj BERING solar para hombre con mecanismo",
+      "seccion": "Otros",
+      "consulta": "BERING solar mecanismo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 283,
+      "nombre": "Garmin Reloj GPS Solar Verde Militar Talla única",
+      "seccion": "Otros",
+      "consulta": "Garmin GPS Solar Militar",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 284,
+      "nombre": "VALQUER Champú Total Repair Zero",
+      "seccion": "Belleza",
+      "consulta": "VALQUER Champú Total Repair",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 285,
+      "nombre": "OHO AI Smart Glasses",
+      "seccion": "Tecnología",
+      "consulta": "OHO AI Smart Glasses",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 286,
+      "nombre": "JACK & JONES Chino Trousers 2-Pack Slim Fit Chino",
+      "seccion": "Otros",
+      "consulta": "JACK JONES Chino Trousers",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 287,
+      "nombre": "TIENDA EURASIA Arbol de Navidad Artificial de PVC",
+      "seccion": "Otros",
+      "consulta": "TIENDA EURASIA Arbol Navidad",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 288,
+      "nombre": "Michael Kors Reloj Maren para Mujer",
+      "seccion": "Otros",
+      "consulta": "Michael Kors Maren",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 289,
+      "nombre": "Desigual Jasmine Dress",
+      "seccion": "Otros",
+      "consulta": "Desigual Jasmine Dress",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 290,
+      "nombre": "Armor All Podium Series™ Hanging Car Air Freshener",
+      "seccion": "Otros",
+      "consulta": "Armor All Podium Series™",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 291,
+      "nombre": "Fossil collar de plata para Mujer",
+      "seccion": "Otros",
+      "consulta": "Fossil collar plata",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 292,
+      "nombre": "ZWILLING Gourmet Taco de Cuchillos Autoafilable 7",
+      "seccion": "Hogar",
+      "consulta": "ZWILLING Gourmet Taco Autoafilable",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 293,
+      "nombre": "EZVIZ Camara Vigilancia WiFi Exterior,1080P",
+      "seccion": "Otros",
+      "consulta": "EZVIZ 1080P",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 294,
+      "nombre": "Bluey Pack de 8 Figuras Familia y Amigos",
+      "seccion": "Otros",
+      "consulta": "Bluey Figuras Familia Amigos",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 295,
+      "nombre": "Devir Juego Saber ANCESTRAL",
+      "seccion": "Otros",
+      "consulta": "Devir Saber ANCESTRAL",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 296,
+      "nombre": "G-STAR 3301 Slim Jeans para Hombre",
+      "seccion": "Moda",
+      "consulta": "G-STAR 3301 Slim Jeans",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 297,
+      "nombre": "G-STAR Pantalones Skinny Chino 3.0, Gris",
+      "seccion": "Moda",
+      "consulta": "G-STAR Skinny Chino 3.0",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 298,
+      "nombre": "Rimmel London Scandaleyes Reloaded Máscara",
+      "seccion": "Belleza",
+      "consulta": "Rimmel London Scandaleyes Reloaded",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 299,
+      "nombre": "Helly Hansen Men's Crew Jacket 2.0 990 Black S S",
+      "seccion": "Otros",
+      "consulta": "Helly Hansen Jacket 2.0",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 300,
+      "nombre": "Monster High Boo-tique Hotel Casa de Muñecas",
+      "seccion": "Hogar",
+      "consulta": "Monster High Boo-tique Hotel",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 301,
+      "nombre": "iRobot Roomba Plus 575 Combo + Base AutoWash",
+      "seccion": "Otros",
+      "consulta": "iRobot Roomba Plus 575",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 302,
+      "nombre": "Helly Hansen Women's W Buzzard TR",
+      "seccion": "Otros",
+      "consulta": "Helly Hansen Buzzard TR",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 303,
+      "nombre": "Levi'S Wedgie Boot Pants Mujer",
+      "seccion": "Moda",
+      "consulta": "Levi'S Wedgie Boot Pants",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 304,
+      "nombre": "Mattel Games If You Were",
+      "seccion": "Otros",
+      "consulta": "Mattel Games If You",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 305,
+      "nombre": "KARL LAGERFELD JEANS Hombre Regular Check Shirt",
+      "seccion": "Moda",
+      "consulta": "KARL LAGERFELD JEANS Regular",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 306,
+      "nombre": "Luz de Relleno Led para Vídeo",
+      "seccion": "Hogar",
+      "consulta": "Relleno Vídeo",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Chachani Peru.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Chachani_Peru.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Chachani_Peru.jpg/960px-Chachani_Peru.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Chachani_Peru.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4335,
+          "alto": 3120,
+          "autor": "European Space Agency",
+          "licencia": "CC BY-SA 3.0 igo",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Chachani, Peru ESA413331.tiff",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Chachani,_Peru_ESA413331.tiff",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Chachani%2C_Peru_ESA413331.tiff/lossy-page1-960px-Chachani%2C_Peru_ESA413331.tiff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Chachani%2C_Peru_ESA413331.tiff?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4335,
+          "alto": 3120,
+          "autor": "European Space Agency",
+          "licencia": "CC BY-SA 3.0 igo",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Chachani, Peru ESA413331.png",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Chachani,_Peru_ESA413331.png",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Chachani%2C_Peru_ESA413331.png/960px-Chachani%2C_Peru_ESA413331.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/7/76/Chachani%2C_Peru_ESA413331.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4335,
+          "alto": 3120,
+          "autor": "European Space Agency",
+          "licencia": "CC BY-SA 3.0 igo",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 307,
+      "nombre": "Desigual Vestido sin Mangas de la colección Mujer",
+      "seccion": "Moda",
+      "consulta": "Desigual Vestido Mangas colección",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 308,
+      "nombre": "L'Oréal Paris Revitalift Laser Crema SPF25 Nº1",
+      "seccion": "Belleza",
+      "consulta": "L'Oréal Paris Revitalift Laser",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Open Beauty Facts",
+          "titulo": "L'Oréal — L'Oréal Paris Revitalift Laser X3 Anti-Rimpel Serum",
+          "pagina": "https://world.openbeautyfacts.org/product/3600522249634/revitalift-laser-l-oreal",
+          "imagen": "https://images.openbeautyfacts.org/images/products/360/052/224/9634/front_en.3.400.jpg",
+          "original": "https://images.openbeautyfacts.org/images/products/360/052/224/9634/front_en.3.400.jpg",
+          "autor": "Colaboradores de Open Beauty Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 0.6666666666666666
+        },
+        {
+          "fuente": "Open Beauty Facts",
+          "titulo": "L'Oréal — L'Oréal Paris Revitalift Laser Triple Laser Anti-Age Serum-Crème",
+          "pagina": "https://world.openbeautyfacts.org/product/3600524254339/l-oreal-paris-revitalift-laser-triple-laser-anti-age-serum-creme",
+          "imagen": "https://images.openbeautyfacts.org/images/products/360/052/425/4339/front_nl.3.400.jpg",
+          "original": "https://images.openbeautyfacts.org/images/products/360/052/425/4339/front_nl.3.400.jpg",
+          "autor": "Colaboradores de Open Beauty Facts",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.es",
+          "parecido": 0.6666666666666666
+        }
+      ]
+    },
+    {
+      "id": 309,
+      "nombre": "Armani Exchange Reloj Hombre",
+      "seccion": "Otros",
+      "consulta": "Armani Exchange",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Armani Exchange logo.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Armani_Exchange_logo.jpg",
+          "imagen": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Armani_Exchange_logo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Armani_Exchange_logo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 258,
+          "alto": 163,
+          "autor": "Armani Exchange",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Axsg.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Axsg.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Axsg.jpg/960px-Axsg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/9/94/Axsg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1000,
+          "alto": 750,
+          "autor": "Alohomoratum",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Armani Exchange logo by Sagi Haviv.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Armani_Exchange_logo_by_Sagi_Haviv.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Armani_Exchange_logo_by_Sagi_Haviv.jpg/960px-Armani_Exchange_logo_by_Sagi_Haviv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/d/df/Armani_Exchange_logo_by_Sagi_Haviv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1330,
+          "alto": 791,
+          "autor": "Armani",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 310,
+      "nombre": "Logitech G G502 Hero Ratón Gaming con Cable",
+      "seccion": "Tecnología",
+      "consulta": "Logitech G502 Hero Ratón",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 311,
+      "nombre": "Eucerin Hyaluron-Filler +Elasticity Crema de Día",
+      "seccion": "Belleza",
+      "consulta": "Eucerin Hyaluron-Filler +Elasticity Día",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 312,
+      "nombre": "Fossil Machine FS6165 Reloj de Acero Inoxidable",
+      "seccion": "Otros",
+      "consulta": "Fossil Machine FS6165 Acero",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 313,
+      "nombre": "adidas Hombre Sportswear Basic 3 Stripes Tricot",
+      "seccion": "Moda",
+      "consulta": "adidas Sportswear Basic Stripes",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 314,
+      "nombre": "Emporio Armani Relojes para Hombre",
+      "seccion": "Otros",
+      "consulta": "Emporio Armani",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "HK Central Chater House shop Emporio Armani.JPG",
+          "pagina": "https://commons.wikimedia.org/wiki/File:HK_Central_Chater_House_shop_Emporio_Armani.JPG",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/HK_Central_Chater_House_shop_Emporio_Armani.JPG/960px-HK_Central_Chater_House_shop_Emporio_Armani.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/6/61/HK_Central_Chater_House_shop_Emporio_Armani.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1600,
+          "alto": 1200,
+          "autor": "No machine-readable author provided. Chater Armani assumed (based on copyright claims).",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Emporio Armani Glasses.JPG",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Emporio_Armani_Glasses.JPG",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Emporio_Armani_Glasses.JPG/960px-Emporio_Armani_Glasses.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Emporio_Armani_Glasses.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3072,
+          "alto": 2048,
+          "autor": "Tumi-1983",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Emporio Armani Yerevan, Northern Avenue.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Emporio_Armani_Yerevan,_Northern_Avenue.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Emporio_Armani_Yerevan%2C_Northern_Avenue.jpg/960px-Emporio_Armani_Yerevan%2C_Northern_Avenue.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/1/15/Emporio_Armani_Yerevan%2C_Northern_Avenue.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4000,
+          "alto": 3000,
+          "autor": "Spetsnaz1991",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 315,
+      "nombre": "Fossil Collar redondo con colgante",
+      "seccion": "Otros",
+      "consulta": "Fossil Collar redondo colgante",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 316,
+      "nombre": "Joumma Disney Stitch Cuddle me Maleta de Cabina",
+      "seccion": "Otros",
+      "consulta": "Joumma Disney Stitch Cuddle",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 317,
+      "nombre": "Armani Exchange Relojes para Hombre",
+      "seccion": "Otros",
+      "consulta": "Armani Exchange",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Armani Exchange logo.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Armani_Exchange_logo.jpg",
+          "imagen": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Armani_Exchange_logo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Armani_Exchange_logo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 258,
+          "alto": 163,
+          "autor": "Armani Exchange",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Axsg.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Axsg.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Axsg.jpg/960px-Axsg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/9/94/Axsg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1000,
+          "alto": 750,
+          "autor": "Alohomoratum",
+          "licencia": "CC BY-SA 3.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Armani Exchange logo by Sagi Haviv.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Armani_Exchange_logo_by_Sagi_Haviv.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Armani_Exchange_logo_by_Sagi_Haviv.jpg/960px-Armani_Exchange_logo_by_Sagi_Haviv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/d/df/Armani_Exchange_logo_by_Sagi_Haviv.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 1330,
+          "alto": 791,
+          "autor": "Armani",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 318,
+      "nombre": "Bitzee Mascota Digital Hamster Ball",
+      "seccion": "Otros",
+      "consulta": "Bitzee Mascota Hamster Ball",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 319,
+      "nombre": "hummel Hmlessential Back Pack W. SC Back Pack",
+      "seccion": "Otros",
+      "consulta": "hummel Hmlessential Back SC",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 320,
+      "nombre": "Hummel Zapatillas Unisex Reach TR Breather",
+      "seccion": "Moda",
+      "consulta": "Hummel Reach TR Breather",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 321,
+      "nombre": "JACK & JONES Jjbrandon Sudadera con Capucha 2Pk MP",
+      "seccion": "Moda",
+      "consulta": "JACK JONES Jjbrandon 2Pk",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 322,
+      "nombre": "New Era Unisex NBA The League 9Forty Toronto",
+      "seccion": "Otros",
+      "consulta": "New Era NBA The",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 323,
+      "nombre": "Beats Studio Buds +",
+      "seccion": "Tecnología",
+      "consulta": "Beats Studio Buds",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Beats Studio Buds Plus - 2.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Beats_Studio_Buds_Plus_-_2.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Beats_Studio_Buds_Plus_-_2.jpg/960px-Beats_Studio_Buds_Plus_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Beats_Studio_Buds_Plus_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3584,
+          "alto": 2688,
+          "autor": "Kyu3a",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Beats Studio Buds Plus - 3.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Beats_Studio_Buds_Plus_-_3.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Beats_Studio_Buds_Plus_-_3.jpg/960px-Beats_Studio_Buds_Plus_-_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Beats_Studio_Buds_Plus_-_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3784,
+          "alto": 2716,
+          "autor": "Kyu3a",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Beats Studio Buds Plus - 1.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Beats_Studio_Buds_Plus_-_1.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Beats_Studio_Buds_Plus_-_1.jpg/960px-Beats_Studio_Buds_Plus_-_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/9/97/Beats_Studio_Buds_Plus_-_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 4032,
+          "alto": 3024,
+          "autor": "Kyu3a",
+          "licencia": "CC BY-SA 4.0",
+          "licenciaUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "parecido": 1
+        }
+      ]
+    },
+    {
+      "id": 324,
+      "nombre": "Wilkinson Sword Intuition Complete",
+      "seccion": "Belleza",
+      "consulta": "Wilkinson Sword Intuition Complete",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 325,
+      "nombre": "Sony VR2 Sense Estación de Carga del Controlador",
+      "seccion": "Tecnología",
+      "consulta": "Sony VR2 Sense Estación",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 326,
+      "nombre": "Technics EAH-AZ80E-K Auriculares Inalámbricos",
+      "seccion": "Tecnología",
+      "consulta": "Technics EAH-AZ80E-K",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 327,
+      "nombre": "Cooler Master MWE 750 Gold V2",
+      "seccion": "Hogar",
+      "consulta": "Cooler Master MWE 750",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 328,
+      "nombre": "Life360 Tile Localizador Bluetooth localizador",
+      "seccion": "Tecnología",
+      "consulta": "Life360 Tile Localizador localizador",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 329,
+      "nombre": "Lenor Aire Fresco Suavizante Ropa Brisa Limpia",
+      "seccion": "Otros",
+      "consulta": "Lenor Aire Fresco Suavizante",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 330,
+      "nombre": "Apple Funda de Silicona con MagSafe",
+      "seccion": "Tecnología",
+      "consulta": "Apple Funda Silicona MagSafe",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 331,
+      "nombre": "Levi's Free Cinturón",
+      "seccion": "Moda",
+      "consulta": "Levi's Free Cinturón",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 332,
+      "nombre": "ADVANCED NIGHT REPAIR OVERNIGHT TREATMENT night",
+      "seccion": "Otros",
+      "consulta": "ADVANCED NIGHT REPAIR OVERNIGHT",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 333,
+      "nombre": "Notas Adhesivas Milan 3 in 1 Amarillo 38 x 50 mm",
+      "seccion": "Otros",
+      "consulta": "Notas Adhesivas Milan in",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 334,
+      "nombre": "Carrete de cable DIY 4 enchufes estándar Schuko",
+      "seccion": "Hogar",
+      "consulta": "Carrete cable DIY enchufes",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 335,
+      "nombre": "FLASH LED Luz de Emergencia V16 Certificada DGT",
+      "seccion": "Otros",
+      "consulta": "FLASH Emergencia V16 Certificada",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 336,
+      "nombre": "STAUB Cocotte Cazuela de Hierro Fundido Esmaltada",
+      "seccion": "Otros",
+      "consulta": "STAUB Cocotte Cazuela Hierro",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 337,
+      "nombre": "Timberland Men's Davis Square Mid Lace Up Wheat",
+      "seccion": "Otros",
+      "consulta": "Timberland Davis Square Mid",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 338,
+      "nombre": "Object Mujer Objoaklyn Re Jacket 135, Negro",
+      "seccion": "Otros",
+      "consulta": "Object Objoaklyn Re Jacket",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 339,
+      "nombre": "Helly Hansen Hombres Chaqueta polar Daybreaker",
+      "seccion": "Moda",
+      "consulta": "Helly Hansen polar Daybreaker",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 340,
+      "nombre": "TEKA Campana Decorativa Vertical",
+      "seccion": "Otros",
+      "consulta": "TEKA Campana Decorativa Vertical",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 341,
+      "nombre": "Hummel Tenis Unisex para Balonmano Perfekt SP",
+      "seccion": "Otros",
+      "consulta": "Hummel Tenis Balonmano Perfekt",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 342,
+      "nombre": "PUMA Zapatillas ST Runner v3 NL Unisex",
+      "seccion": "Moda",
+      "consulta": "PUMA ST Runner v3",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 343,
+      "nombre": "BERING 14240-303 Reloj de cuarzo para hombre",
+      "seccion": "Otros",
+      "consulta": "BERING 14240-303 cuarzo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 344,
+      "nombre": "Gant Vestido de Punto de Lana de Cordero",
+      "seccion": "Moda",
+      "consulta": "Gant Vestido Punto Lana",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 345,
+      "nombre": "PLAYMOBIL 70932 Asterix Cabaña de Abraracúrcix",
+      "seccion": "Otros",
+      "consulta": "PLAYMOBIL 70932 Asterix Cabaña",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 346,
+      "nombre": "Guess Mujer Bolso Satchel Carmella Girlfriend Gris",
+      "seccion": "Moda",
+      "consulta": "Guess Satchel Carmella Girlfriend",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 347,
+      "nombre": "Abu Garcia Cardinal X Carrete Giratorio; Alto",
+      "seccion": "Otros",
+      "consulta": "Abu Garcia Cardinal Carrete",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 348,
+      "nombre": "Fischer Urban Casco de Ciclismo para Adultos",
+      "seccion": "Otros",
+      "consulta": "Fischer Urban Casco Ciclismo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 349,
+      "nombre": "Columbia Roc Tech Pantalones Cargo",
+      "seccion": "Moda",
+      "consulta": "Columbia Roc Tech Cargo",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 350,
+      "nombre": "JACK & JONES Slim Straight-fit Jeans",
+      "seccion": "Moda",
+      "consulta": "JACK JONES Slim Straight-fit",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 351,
+      "nombre": "Eastpak MAVIS Neceser",
+      "seccion": "Otros",
+      "consulta": "Eastpak MAVIS Neceser",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 352,
+      "nombre": "Reloj Inteligente para Xiaomi Apple Samsung",
+      "seccion": "Tecnología",
+      "consulta": "Xiaomi Apple Samsung",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 353,
+      "nombre": "DKNY Zapatillas Deportivas Naples-Lace Up",
+      "seccion": "Moda",
+      "consulta": "DKNY Naples-Lace Up",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 354,
+      "nombre": "ONLY Only Girl 152",
+      "seccion": "Otros",
+      "consulta": "ONLY Only Girl 152",
+      "buscado": true,
+      "candidatas": [
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Thomas Butler Gunn Diaries- Volume 16, page 152, May 2-3, 1861 - DPLA - 26750fbdbf0f95c33a688f4d1d76ec09.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Thomas_Butler_Gunn_Diaries-_Volume_16,_page_152,_May_2-3,_1861_-_DPLA_-_26750fbdbf0f95c33a688f4d1d76ec09.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Thomas_Butler_Gunn_Diaries-_Volume_16%2C_page_152%2C_May_2-3%2C_1861_-_DPLA_-_26750fbdbf0f95c33a688f4d1d76ec09.jpg/960px-Thomas_Butler_Gunn_Diaries-_Volume_16%2C_page_152%2C_May_2-3%2C_1861_-_DPLA_-_26750fbdbf0f95c33a688f4d1d76ec09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/1/19/Thomas_Butler_Gunn_Diaries-_Volume_16%2C_page_152%2C_May_2-3%2C_1861_-_DPLA_-_26750fbdbf0f95c33a688f4d1d76ec09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3048,
+          "alto": 4489,
+          "autor": "Gunn, Thomas Butler, 1826-1903",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 1
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Quaker Girl. La petite Quaker, opérette en 3 actes de James T. Tanner, avec paroles d' Adrian Ross et Percy Greenbank. Adaptation française de Paul Ferrier et Charles Quinel. Musique de Lionel Monckton - bpt6k3228351 (152 of 217).jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Quaker_Girl._La_petite_Quaker,_op%C3%A9rette_en_3_actes_de_James_T._Tanner,_avec_paroles_d%27_Adrian_Ross_et_Percy_Greenbank._Adaptation_fran%C3%A7aise_de_Paul_Ferrier_et_Charles_Quinel._Musique_de_Lionel_Monckton_-_bpt6k3228351_(152_of_217).jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Quaker_Girl._La_petite_Quaker%2C_op%C3%A9rette_en_3_actes_de_James_T._Tanner%2C_avec_paroles_d%27_Adrian_Ross_et_Percy_Greenbank._Adaptation_fran%C3%A7aise_de_Paul_Ferrier_et_Charles_Quinel._Musique_de_Lionel_Monckton_-_bpt6k3228351_%28152_of_217%29.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/0/03/Quaker_Girl._La_petite_Quaker%2C_op%C3%A9rette_en_3_actes_de_James_T._Tanner%2C_avec_paroles_d%27_Adrian_Ross_et_Percy_Greenbank._Adaptation_fran%C3%A7aise_de_Paul_Ferrier_et_Charles_Quinel._Musique_de_Lionel_Monckton_-_bpt6k3228351_%28152_of_217%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3629,
+          "alto": 5017,
+          "autor": "Monckton, Lionel (1861-1924). Compositeur",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 0.5
+        },
+        {
+          "fuente": "Wikimedia Commons",
+          "titulo": "Asylum for Poor Orphan Girls, Hook's Mills - Braik.XI.ii.152 - HC1491.jpg",
+          "pagina": "https://commons.wikimedia.org/wiki/File:Asylum_for_Poor_Orphan_Girls,_Hook%27s_Mills_-_Braik.XI.ii.152_-_HC1491.jpg",
+          "imagen": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Asylum_for_Poor_Orphan_Girls%2C_Hook%27s_Mills_-_Braik.XI.ii.152_-_HC1491.jpg/960px-Asylum_for_Poor_Orphan_Girls%2C_Hook%27s_Mills_-_Braik.XI.ii.152_-_HC1491.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "original": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Asylum_for_Poor_Orphan_Girls%2C_Hook%27s_Mills_-_Braik.XI.ii.152_-_HC1491.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "ancho": 3231,
+          "alto": 2628,
+          "autor": "W. Frank",
+          "licencia": "Public domain",
+          "licenciaUrl": "",
+          "parecido": 0.5
+        }
+      ]
+    },
+    {
+      "id": 355,
+      "nombre": "SP CONNECT SOPORTE UNIVERSAL SPC+ NEGRO",
+      "seccion": "Otros",
+      "consulta": "SP CONNECT SOPORTE UNIVERSAL",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 356,
+      "nombre": "Pepe Jeans Solid Ha Swimsuit Pañal para Nadar",
+      "seccion": "Moda",
+      "consulta": "Pepe Jeans Solid Ha",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 357,
+      "nombre": "Tommy Hilfiger Men Polos 1985 Regular",
+      "seccion": "Moda",
+      "consulta": "Tommy Hilfiger Polos 1985",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 358,
+      "nombre": "Legero Zapatillas para Mujer Bliss",
+      "seccion": "Moda",
+      "consulta": "Legero Bliss",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 359,
+      "nombre": "Clarks Mujer Arla Stroll Sandalias",
+      "seccion": "Moda",
+      "consulta": "Clarks Arla Stroll",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 360,
+      "nombre": "Miquelrius Cuaderno A5 Cuadriculado 5 mm 80 Hojas",
+      "seccion": "Otros",
+      "consulta": "Miquelrius Cuaderno A5 Cuadriculado",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 361,
+      "nombre": "Tommy Jeans Suéter TJM Slim ESS Ext Dm0Dm21787",
+      "seccion": "Moda",
+      "consulta": "Tommy Jeans Suéter TJM",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 362,
+      "nombre": "BluePet Peine Perros y Gatos",
+      "seccion": "Otros",
+      "consulta": "BluePet Peine Perros Gatos",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 363,
+      "nombre": "OOONO Co-Driver 1",
+      "seccion": "Otros",
+      "consulta": "OOONO Co-Driver",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 364,
+      "nombre": "AVINIA Temporizadores Digitales de Cocina",
+      "seccion": "Hogar",
+      "consulta": "AVINIA Temporizadores Digitales Cocina",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 365,
+      "nombre": "Timberland Herren Davis ChukkaSneaker-Stiefel",
+      "seccion": "Moda",
+      "consulta": "Timberland Herren Davis ChukkaSneaker-Stiefel",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 366,
+      "nombre": "ORICO Hub USB C 3.2 Gen2 de 4 Puertos",
+      "seccion": "Tecnología",
+      "consulta": "ORICO Hub USB 3.2",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 367,
+      "nombre": "Streetsurfing Waveboard The Wave G1, Diseño",
+      "seccion": "Otros",
+      "consulta": "Streetsurfing Waveboard The Wave",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 368,
+      "nombre": "Moroccanoil Champú Seco Tonos Claros",
+      "seccion": "Belleza",
+      "consulta": "Moroccanoil Champú Seco Tonos",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 369,
+      "nombre": "Moroccanoil Champú Extra Volumen",
+      "seccion": "Belleza",
+      "consulta": "Moroccanoil Champú Extra Volumen",
+      "buscado": true,
+      "candidatas": []
+    },
+    {
+      "id": 370,
+      "nombre": "adidas Hombre VL Court 3.0 Shoes",
+      "seccion": "Moda",
+      "consulta": "adidas VL Court 3.0",
+      "buscado": true,
+      "candidatas": []
+    }
+  ]
+}
