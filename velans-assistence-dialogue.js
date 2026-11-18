@@ -507,6 +507,29 @@
   }
 
 
+
+  // ---- Tienda: Amazon, AliExpress o las dos. Se recuerda en la conversación (state.store). ----
+  const storeAli=/\b(?:ali ?express?|ali ?expres+|aliexpre|aliexp|ali ?espres+|aliexprees|aliex|ali)\b/;
+  const storeAmazon=/\b(?:amazon|amazom|amason|amazn|amazonn|amz)\b(?! (?:basics|essentials|fire|echo)\b)/;
+  const storeBoth=/\b(?:las dos(?: tiendas)?|ambas(?: tiendas)?|cualquier(?:a)? tienda|da igual (?:la )?tienda|todas las tiendas|(?:amazon|ali\w*) y (?:amazon|ali\w*)|de las dos|en las dos|tambien en (?:amazon|ali\w*)|sin importar la tienda)\b/;
+  const storeGo=/\b(?:ir|ve|vete|vamos|llevame|lleva|abre|abreme|cambia(?:me)?|pasa(?:me)?|pon(?:me)?|muestrame|ensename|ensenam?e|quiero ver|ver)\b/;
+  const storeFiller=/\b(?:solo|solamente|unicamente|nada mas|productos?|articulos?|cosas|ofertas?|rebajas|de|del|en|desde|la|el|los|las|a|al|tienda|apartado|seccion|pagina|web|quiero|prefiero|busca(?:r|me|lo|las|los)?|mira(?:r|me)?|enseñar|mostrar|ensename|muestrame|ver|ir|ve|vete|vamos|llevame|lleva|abre|abreme|cambia(?:me)?|pasa(?:me)?|pon(?:me)?|por favor|porfa|ahora|mejor|y|ademas|tambien|que sean|que sea|me|te|lo|recuerda(?:lo)?|siempre|todo|tambien|las dos|ambas|cualquier(?:a)?|da igual|todas|sin importar)\b/g;
+  function storeIntent(raw){
+    const text=words(raw);
+    let set=null;
+    if(storeBoth.test(text))set='both';
+    else{
+      const ali=storeAli.exec(text),amz=storeAmazon.exec(text);
+      if(ali&&amz)set=ali.index>amz.index?'AliExpress':'Amazon';else if(ali)set='AliExpress';else if(amz)set='Amazon';
+    }
+    if(!set)return {set:null,clean:raw,only:false,go:false};
+    const clean=text.replace(storeBoth,' ').replace(new RegExp(storeAli.source,'g'),' ').replace(new RegExp(storeAmazon.source,'g'),' ')
+      .replace(/\b(?:solo|solamente|unicamente|nada mas) (?=\s*$)/,' ').replace(/\b(?:de|del|en|desde) (?:la tienda de |el apartado de )?(?=\s|$)/g,' ').replace(/\s+/g,' ').trim();
+    const leftover=clean.replace(storeFiller,' ').replace(/\s+/g,' ').trim();
+    return {set,clean:leftover?clean:'',only:!leftover,go:storeGo.test(text)};
+  }
+  const storeLabel=s=>s==='AliExpress'?'AliExpress':s==='Amazon'?'Amazon':'Amazon y AliExpress';
+
   function createDialogue(base,{now=()=>new Date()}={}) {
     let source=null,rows=[],byId=new Map(),models=new Map(),names=new Map(),titleTokens=new Map(),families=new Set();
     function index(){
@@ -923,8 +946,29 @@
       return null;
     }
     function respond(state,raw){
-      const input=String(raw||'').trim().slice(0,600);
+      let input=String(raw||'').trim().slice(0,600);
       if(base.detectSensitive(input).length)return base.respond(state,input);
+      // Tienda elegida por el cliente (se recuerda) o, si no ha elegido, la tienda que está viendo.
+      const si=storeIntent(input);
+      const before=state.store||null;
+      if(si.set)state.store=si.set==='both'?null:si.set;
+      const scope=state.store||(si.set==='both'?null:state.viewStore)||null;
+      if(base.setStoreScope)base.setStoreScope(scope);
+      const changed=si.set&&(state.store||null)!==before;
+      const switchTo=si.set&&si.set!=='both'?si.set:null;
+      if(si.set&&si.only&&state.lastQuery&&!si.go){input=state.lastQuery;}
+      else if(si.set&&si.only){
+        if(state.turns!==undefined)state.turns++;
+        const text=si.set==='both'
+          ?'Perfecto, a partir de ahora te enseño productos de Amazon y de AliExpress. ¿Qué buscas?'
+          :`Hecho: a partir de ahora solo te enseño productos de ${storeLabel(si.set)} y lo recordaré durante la conversación.${si.go?` Te llevo a la tienda ${storeLabel(si.set)}.`:''} ¿Qué buscas?`;
+        const reply=answer(text,si.set==='AliExpress'?['Ver tecnología','Quiero un regalo','Solo Amazon','Las dos tiendas']:si.set==='Amazon'?['Ver tecnología','Quiero un regalo','Solo AliExpress','Las dos tiendas']:['Ver tecnología','Quiero un regalo','Solo Amazon','Solo AliExpress']);
+        reply.quick=[...new Set(reply.quick)];
+        if(switchTo&&(si.go||state.viewStore!==switchTo))reply.storeSwitch=switchTo;
+        state.lastRecs=[];
+        return reply;
+      }
+      if(si.set&&si.clean)input=si.clean;
       const initialTurns=state.turns;
       let reply=route(state,input);
       if(!reply){
@@ -941,7 +985,15 @@
         }
       }
       if(state.turns===initialTurns)state.turns++;
-      reply.cards=(reply.cards||[]).filter(c=>byId.has(c.id)).map(c=>{const {affiliateUrl,...card}=c;return card;});
+      reply.cards=(reply.cards||[]).filter(c=>byId.has(c.id)).map(c=>{const {affiliateUrl,...card}=c;return {...card,store:byId.get(c.id).p.store||'Amazon'};});
+      if(changed&&state.store)reply.text=`Vale, te enseño solo productos de ${storeLabel(state.store)} (lo recordaré). `+reply.text;
+      else if(changed&&!state.store)reply.text='Vale, busco en Amazon y en AliExpress. '+reply.text;
+      if(!reply.cards.length&&scope&&/no (?:encuentro|tengo|he encontrado)/i.test(reply.text)){
+        reply.text+=` Ahora mismo miro solo en ${storeLabel(scope)}.`;
+        reply.quick=[...new Set([scope==='Amazon'?'Buscar también en AliExpress':'Buscar también en Amazon',...(reply.quick||[])])].slice(0,4);
+      }
+      if(reply.cards.length&&scope)reply.store=scope;
+      if(reply.cards.length)state.lastQuery=input;
       reply.quick=publishedQuick(reply.quick);
       if(reply.text.includes('Consultar en Amazon'))reply.text=reply.text.replaceAll('«Consultar en Amazon»','«Ver en Amazon» en la ficha de Velan’s');
       return reply;

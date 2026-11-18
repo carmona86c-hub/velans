@@ -22,7 +22,7 @@
   const badge=p=>p.descuento>0?`<span class="discount-badge" aria-label="Descuento indicado por AliExpress del ${Number(p.descuento)} por ciento">−${Number(p.descuento)}%</span>`:'';
   const precios=(p,tag)=>`<${tag}>${euro(p.precio)}</${tag}>${p.precioAntes>p.precio?`<del title="Precio anterior indicado por AliExpress">${euro(p.precioAntes)}</del>`:''}`;
   function tarjeta(p){
-    return `<article class="product-card ae-producto">
+    return `<article class="product-card ae-producto" data-ae-id="${esc(p.id)}">
     <div class="product-photo-frame"><div class="product-photo" role="img" aria-label="Imagen de ${esc(p.nombre)}">${foto(p)}</div>${badge(p)}</div>
     <div class="product-body">
       <span class="product-brand">AliExpress</span>
@@ -50,7 +50,7 @@
   function pintarTop(){
     if(!top)return;
     const lista=destacadosDe(estado.cat);
-    top.innerHTML=lista.map(p=>`<article class="feature-product ae-destacado">
+    top.innerHTML=lista.map(p=>`<article class="feature-product ae-destacado" data-ae-id="${esc(p.id)}">
       <div class="feature-photo-frame"><div class="fphoto" role="img" aria-label="Imagen de ${esc(p.nombre)}">${foto(p)}</div>${badge(p)}</div>
       <div class="ftxt"><span class="product-brand">${Number(p.ventas).toLocaleString('es-ES')} vendidos</span><h3>${esc(p.nombre)}</h3>
         <div class="fprice">${precios(p,'b')}</div>
@@ -89,7 +89,7 @@
     if(titulo)titulo.textContent=estado.cat==='Todas'?'Rebajas en AliExpress':'Rebajas en AliExpress · '+(estado.cat==='Hogar'?'Hogar y cocina':estado.cat);
     const tt=document.getElementById('ae-top-title');if(tt)tt.textContent=estado.cat==='Todas'?'Destacados':'Destacados · '+(estado.cat==='Hogar'?'Hogar y cocina':estado.cat);
   }
-  function tienda(t,{scroll=true,url=true}={}){
+  function tienda(t,{scroll=true,url=true,nav=true}={}){
     t=t==='aliexpress'?'aliexpress':'amazon';
     const antes=document.body.dataset.tienda;
     document.body.dataset.tienda=t;
@@ -98,7 +98,7 @@
     if(url){const u=new URL(location.href);if(t==='aliexpress')u.searchParams.set('tienda','aliexpress');else u.searchParams.delete('tienda');history.replaceState(history.state,'',u.pathname+u.search);}
     marcarNav();
     // Al volver a Amazon se abre en Amazon la misma categoría que se estaba viendo en AliExpress.
-    if(t==='amazon'&&antes==='aliexpress'){
+    if(nav&&t==='amazon'&&antes==='aliexpress'){
       const destino=navBtns().find(b=>b.dataset.category===estado.cat)||navBtns().find(b=>b.dataset.category==='Todas');
       destino?.click();
     }
@@ -123,4 +123,18 @@
   },true);
   document.getElementById('search-form')?.addEventListener('submit',()=>{if(document.body.dataset.tienda==='aliexpress')tienda('amazon',{scroll:false});},true);
   tienda(new URLSearchParams(location.search).get('tienda'),{scroll:false,url:false});
+  // Para el asistente: cambiar de tienda y abrir una oferta concreta de AliExpress.
+  window.VelansTienda=(t,o)=>tienda(t,o||{});
+  window.VelansAEOpen=id=>{
+    const todos=[...productos,...Object.values(datos.destacados||{}).flat()];
+    const p=todos.find(x=>x.id===id);if(!p)return false;
+    tienda('aliexpress',{scroll:false});
+    estado.cat=disponibles.has(p.categoria)?p.categoria:'Todas';
+    const lista=productos.filter(x=>estado.cat==='Todas'||x.categoria===estado.cat).sort((a,b)=>b.descuento-a.descuento);
+    const i=lista.findIndex(x=>x.id===id);estado.limite=Math.max(20,i+1);
+    pintar();marcarNav();
+    const el=zona.querySelector(`.ae-grid [data-ae-id="${CSS.escape(id)}"]`)||zona.querySelector(`.ae-top-list [data-ae-id="${CSS.escape(id)}"]`);
+    if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('ae-resaltado');setTimeout(()=>el.classList.remove('ae-resaltado'),2600);}
+    return true;
+  };
 })();
