@@ -79,7 +79,7 @@ try {
   assert.match(await page.locator('.product-page-info').innerText(),/El enlace es de afiliado/);
   await page.locator('#vaBubble').click();await ready(page);
   const title=await page.locator('#product-page-title').textContent();
-  assert.ok((await session(page)).log.at(-1).text.includes(title),title);
+  assert.ok((await session(page)).log.at(-1).text.toLowerCase().includes(title.toLowerCase()),title); // la ficha muestra el producto sin repetir la marca
   assert.match((await send(page,'¿Es térmica?')).text,/ficha/i);
   await page.locator('#vaForget').click();
   assert.equal((await session(page)).state.turns,0);
@@ -117,7 +117,8 @@ try {
   await desktop.page.waitForURL(/articulo=/);
   await desktop.page.locator('#vaBubble').click();await ready(desktop.page);
   const watch=await desktop.page.locator('#product-page-title').textContent();
-  assert.match(watch,/Casio/);assert.ok((await session(desktop.page)).log.at(-1).text.includes(watch));
+  assert.match(await desktop.page.locator('#product-page-brand').textContent(),/Casio/); // la marca va aparte, encima del producto
+  assert.ok((await session(desktop.page)).log.at(-1).text.toLowerCase().includes(watch.toLowerCase()));
   assert.deepEqual(desktop.errors,[]);await desktop.context.close();
   console.log('Escritorio · guía editorial, fallo de carga recuperable, ficha, sesión y navegación interna verificados.');
 }finally{await browser.close();}
