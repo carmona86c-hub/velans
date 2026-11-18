@@ -1,0 +1,26 @@
+name: AliExpress top 50 (consulta)
+on:
+  push:
+    branches: [aliexpress-top50]
+    paths: [scripts/aliexpress-top50.mjs, .github/workflows/aliexpress-top50.yml]
+permissions:
+  contents: write
+jobs:
+  top50:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/aliexpress-top50.mjs
+        env:
+          ALIEXPRESS_APP_KEY: ${{ secrets.ALIEXPRESS_APP_KEY }}
+          ALIEXPRESS_APP_SECRET: ${{ secrets.ALIEXPRESS_APP_SECRET }}
+          ALIEXPRESS_TRACKING_ID: ${{ secrets.ALIEXPRESS_TRACKING_ID }}
+      - name: Guardar resultado en rama de datos
+        run: |
+          cp salida/aliexpress-top50.json /tmp/
+          git config user.name "velans-bot"; git config user.email "velans-bot@users.noreply.github.com"
+          git fetch origin aliexpress-datos/top50 || true
+          git checkout --orphan tmp && git rm -rfq . && cp /tmp/aliexpress-top50.json . && git add aliexpress-top50.json
+          git commit -qm "Top 50 AliExpress $(date -u +%F)" && git push -f origin HEAD:aliexpress-datos/top50
