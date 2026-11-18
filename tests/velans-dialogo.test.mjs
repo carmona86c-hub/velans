@@ -155,3 +155,19 @@ test('la ocasión nunca sustituye al artículo y las sugerencias de temporada ex
   const size=run(fixed,'Busco una mochila, máximo 30 euros','para un portátil entre 13 y 15 pulgadas');
   assert.equal(size.state.budget.max,30);
 });
+
+test('los atributos de una tarjeta se extraen de palabras completas y respetan las negaciones',()=>{
+  const e=loadEngine({catalog:[
+    {id:1,name:'Camiseta con bolsillo',description:'Tejido grueso y ajuste ligeramente holgado.',category:'Moda'},
+    {id:2,name:'Mochila ligera y plegable',category:'Moda'},
+    {id:3,name:'Lámpara de luz cálida',category:'Hogar'},
+    {id:4,name:'Auriculares sin micrófono',category:'Tecnología'}
+  ]});
+  const p=id=>e.byId(e.bySiteId(id));
+  assert.ok(!p(1).attributes.light);assert.ok(!p(3).attributes.warm);assert.ok(!p(4).attributes.mic);
+  assert.ok(p(2).attributes.light&&p(2).attributes.foldable);
+  const state=e.newState();e.setSelected(state,p(1).id);
+  assert.match(e.respond(state,'¿Es ligera?').text,/no confirma/);
+  const real=live.byId(live.bySiteId(10));
+  assert.ok(!live.makePublicCard(real).attrs.some(x=>/ligero/.test(x)));
+});

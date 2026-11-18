@@ -41,6 +41,7 @@
     ['wireless','sin cable',/\b(?:sin cables?|inalambric[oa]s?|wireless|bluetooth)\b/,/\b(?:inalambric[oa]s?|sin cables?|wireless|bluetooth)\b/,/\b(?:solo con cable|no inalambric[oa]s?)\b/,'connection'],
     ['wired','con cable',/\b(?:con cables?|de cables?|por cable|cablead[oa]s?|jack)\b/,/\b(?:con cables?|cablead[oa]s?|jack|por cable)\b/,/\b(?:solo inalambric[oa]|exclusivamente bluetooth|sin entrada de cable)\b/,'connection'],
     ['anc','cancelación activa de ruido',/\b(?:anc|cancelacion (?:activa )?(?:de )?ruido)\b/,/\b(?:anc|cancelacion activa (?:de |del )?ruido)\b/,/\bsin (?:anc|cancelacion activa)\b/],
+    ['lightweight','ligero',/\b(?:liger[oa]s?|de poco peso|lightweight)\b/,/\b(?:liger[oa]s?|de poco peso|lightweight)\b/,/\b(?:no (?:es |son )?liger[oa]s?|pesad[oa]s?)\b/],
     ['sport','uso deportivo',/\b(?:correr|entrenar|entreno|running|para (?:el )?gimnasio|deportiv[oa]s?)\b/,/\b(?:deportiv[oa]s?|deporte|running|correr|gimnasio|entrenamiento|fitness)\b/],
     ['fold','plegable',/\bplegables?\b/,/\b(?:plegables?|plegad[oa]|foldable)\b/,/\b(?:no plegable|sin plegado)\b/],
     ['water','impermeable',/\bimpermeables?\b/,/\b(?:impermeables?|waterproof)\b/,/\bno impermeables?\b/],
