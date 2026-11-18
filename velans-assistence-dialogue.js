@@ -8,8 +8,63 @@
     return fold(value).replace(/\b(levi)'s\b/g,'$1s').replace(/[¿?¡!;:]/g,' ').replace(/\b[a-z]+\b/g,w=>spelling[w]||w).replace(/\s+/g,' ').trim();
   }
 
+  // Store questions are distinct from the checkout instructions and from a search for a product.
+  const shopQualifier = /^(?:que (?:se (?:puede[n]? )?(?:comprar|compra|vende|encuentra|ofrece)|(?:puedo|podemos) (?:comprar|encontrar|ver)|hay|venden|vendeis|vende|ofreceis|ofrecen|teneis|tienen|encuentro|encontrare)|que (?:(?:tipo|clase|tipos|clases) de )?(?:productos|articulos|categorias|cosas) (?:teneis|hay|vendeis|ofreceis|se vend\w*|se puede[n]? comprar))(?:(?: (?:por )?(?:aqui|ahi|online|en (?:esta|la|vuestra) (?:web|pagina|tienda)|en velan'?s|en (?:vuestro|el) catalogo))| (?:exactamente|ahora mismo|ahora|hoy|por favor|porfa))*$/;
+  const shopIntroduction = /^(?:que es|de que va|para que sirve|como funciona) (?:esta (?:web|pagina|tienda)|velan'?s)(?: exactamente)?$/;
+  const shopGeneral = /^(?:(?:que vende|que ofrece|que tiene) velan'?s|que puedo encontrar en (?:vuestra|esta) pagina|que (?:tipo de|clase de) (?:cosas|articulos|productos) (?:puedo encontrar|puedo comprar|se compran|se pueden comprar) (?:aqui|en (?:esta|la) (?:web|pagina|tienda))|(?:me (?:puedes|podeis) (?:decir|contar) )?que (?:se puede comprar|se vende|hay a la venta) por aqui|de que (?:es|trata) (?:esta|la) (?:web|pagina|tienda)|(?:para que (?:es|sirve)|que ofrece) velan'?s)$/;
+  const departments = [
+    ['Moda','moda y complementos','Ver ropa'],
+    ['Tecnología','tecnología','Ver tecnología'],
+    ['Hogar','hogar y cocina','Ver hogar y cocina'],
+    ['Belleza','belleza y cuidado personal','Ver belleza'],
+    ['Infantil','infantil','Ver infantil'],
+    ['Bricolaje','bricolaje','Ver bricolaje'],
+    ['Deportes','deporte','Ver deportes'],
+    ['Oficina','papelería y oficina','Ver papelería'],
+    ['Automoción','accesorios de coche','Ver accesorios de coche'],
+    ['Mascotas','mascotas','Ver mascotas'],
+    ['Alimentación','alimentación','Ver alimentación'],
+    ['Otros','otros artículos','Ver otros artículos']
+  ];
+  const supportQuestion = /\b(?:donde (?:miro|veo|encuentro|consulto|esta)|como (?:sigo|localizo|consulto|cancelo|anulo|rastre[oar]\w*)|no (?:veo|encuentro|me llega)|donde (?:esta|va)) (?:el |mi |un )?(?:seguimiento|pedido|paquete|factura|envio)\b/;
+  const topics = [
+    [/\b(?:alerg(?:ia|en[oa]\w*)|intoleran\w*|ingredientes?|formula|composicion|perfume|fragancia|lleva gluten|contiene gluten|contiene lactosa)\b/,['Alimentación','Belleza'],'Comprueba la lista completa de ingredientes y los avisos del fabricante en el envase o la ficha del producto.'],
+    [/\b(?:secadora|lavadora|lavar|lavado|planchar|lejia|encoge)\b/,['Moda'],'Revisa la etiqueta de cuidados de la prenda. Ahí se indica si admite secadora, la temperatura o el programa de lavado.'],
+    [/\b(?:edad|meses?|recien nacid[oa]|de \d+ anos|cual es el peso maximo)\b/,['Infantil'],'Comprueba la edad, el peso y los límites de uso indicados por el fabricante para ese modelo.']
+  ];
+  const listES = new Intl.ListFormat('es-ES');
+  const nameKey = value => fold(value).replace(/['’]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+  function nameQuery(input) {
+    return nameKey(input)
+      .replace(/^(?:(?:hola|buenas|oye|mira|vale|por favor) )+/,'')
+      .replace(/^(?:(?:busco|estoy buscando|necesito|quiero ver|me gustaria ver|ensename|muestrame|abre(?:me)?|ver|quiero|queria ver) |(?:puedes|podrias) (?:ensenarme|mostrarme|abrirme) )/,'')
+      .replace(/^(?:(?:la )?ficha d(?:el|e(?:l| la| los| las)?) |(?:el )?modelo |(?:el |la )?articulo )/,'')
+      .replace(/ (?:por favor|porfa|si lo teneis|si lo tienes)$/,'');
+  }
+
   // A product kind describes what is being bought. The shopping occasion is separate.
   const kinds = [
+    ['bikeHelmet','cascos de ciclismo',/\b(?:cascos?.{0,26}(?:ciclismo|bicicletas?|bici)|(?:ciclismo|bicicletas?|bici).{0,18}cascos?)\b/,/\bcascos?.{0,26}(?:ciclismo|bicicleta|bici)\b/],
+    ['mouse','ratones de ordenador',/\b(?:raton(?:es)?|mouse|mice)\b/,/\b(?:raton(?:es)?|mouse)\b/],
+    ['monitor','monitores',/\b(?:monitor(?:es)?|pantallas? (?:de ordenador|para (?:pc|ordenador|jugar|videojuegos)))\b/,/\b(?:monitor(?:es)?|pantalla de ordenador)\b/],
+    ['toaster','tostadoras',/\b(?:tostadoras?|tostar (?:el )?pan|toasters?)\b/,/\b(?:tostadoras?|toasters?)\b/],
+    ['dryShampoo','champú en seco',/\b(?:champu.{0,27}(?:seco|sin agua)|dry shampoo)\b/,/\b(?:champu.{0,7}seco|dry shampoo)\b/],
+    ['mascara','máscara de pestañas',/\b(?:rimel|mascara de pestanas|mascara para (?:las )?pestanas)\b/,/\b(?:rimel|mascara de pestanas|lash.{0,45}mascara|mascara.{0,25}pestanas)\b/,'Belleza'],
+    ['tricycle','triciclos',/\b(?:triciclos?|tres ruedas.{0,24}(?:nino|nina|peque|infantil))\b/,/\btriciclos?\b/],
+    ['babySeat','hamacas para bebé',/\b(?:hamacas?|hamaquitas?|tumbonas?).{0,30}\bbebes?\b/,/\b(?:hamaca|mecedora).{0,24}\bbebes?\b/],
+    ['threadedRod','varillas roscadas',/\b(?:varillas?|barras?|esparragos?) (?:roscadas?|roscados?|de rosca)\b/,/\b(?:varilla|barra) roscada\b/],
+    ['bowSaw','sierras de arco',/\b(?:sierras?|serruchos?).{0,20}\barco\b/,/\bsierra(?:s)? de arco\b/],
+    ['reel','carretes de pesca',/\bcarretes?.{0,24}(?:pesca|pescar|cana)\b/,/\bcarretes?\b/,'Deportes'],
+    ['notebook','cuadernos y libretas',/\b(?:cuadernos?|libretas?|llibretes?|blocs?).{0,20}\ba[ -]?5\b|\ba[ -]?5\b.{0,15}\b(?:cuaderno|libreta|llibreta|bloc)\b/,/\b(?:cuaderno|libreta|bloc)\b/,'Oficina'],
+    ['notes','notas adhesivas',/\b(?:notas? (?:adhesivas?|autoadhesivas?)|pos[ -]?its?|post[ -]?its?|papelitos? (?:que se pegan|adhesivos?))\b/,/\b(?:notas? (?:adhesivas?|autoadhesivas?)|post[ -]?it)\b/],
+    ['carplay','adaptadores CarPlay',/\bcar[ -]?play\b/,/\bcar[ -]?play\b/],
+    ['carScent','ambientadores de coche',/\b(?:ambientador(?:es)?|perfume|huela bien|aroma|quite (?:el )?olor).{0,40}\b(?:coche|auto|vehiculo)\b|\b(?:coche|auto|vehiculo).{0,28}\bambientador(?:es)?\b/,/\b(?:ambientador(?:es)?|car air freshener)\b/,'Automoción'],
+    ['petGroom','peines para mascotas',/\b(?:peines?|peinar|cepillar|cepillos?).{0,34}\b(?:perr[oa]s?|gat[oa]s?|mascotas?|michis?)\b/,/\b(?:peines?|cepillos?).{0,34}\b(?:perr[oa]s?|gat[oa]s?|mascotas?)\b/],
+    ['mints','caramelos y pastillas',/\b(?:smint|caramelos?|pastillas de menta)\b/,/\b(?:smint|caramelos?|pastillas de menta)\b/,'Alimentación'],
+    ['sheets','sábanas y juegos de cama',/\b(?:sabanas?|ropa de cama|juego de cama)\b/,/\b(?:sabanas?|juego de cama)\b/],
+    ['screwdriver','destornilladores',/\b(?:destornillador(?:es)?|desarmador(?:es)?|juego de puntas)\b/,/\b(?:destornillador(?:es)?|desarmador(?:es)?|juego de puntas)\b/],
+    ['router','routers Wi‑Fi',/\b(?:routers?|enrutador(?:es)?)\b/,/\b(?:routers?|enrutador(?:es)?)\b/],
+    ['groomer','afeitadoras y recortadoras',/\b(?:afeitadoras?|barber[ao]s?|recortadoras? (?:de|para la) barba|maquinas? de afeitar)\b/,/\b(?:afeitadoras?|barber[ao]s?|recortadoras?|oneblade|multigroom)\b/],
     ['ornaments','adornos para el árbol',/\b(?:bolas|bolitas|adornos|colgantes|guirnaldas|espumillon|decoraciones)\b/,/\b(?:bolas?|adornos?|colgantes?|guirnaldas?|espumillon|decoraciones?)\b/],
     ['tree','árboles de Navidad',/\b(?:arbol(?:es)?|pino(?:s)?)\b.*(?:navidad|naviden)|(?:navidad|naviden).*?\barbol/,/\barbol(?:es)?\b.*(?:navidad|naviden)|(?:navidad|naviden).*?\barbol/],
     ['table','decoración de mesa',/(?:decorar|vestir|adornar|decoracion|centro).{0,24}\bmesa\b|\bmantel(?:es)?\b/,/\b(?:mantel(?:es)?|caminos? de mesa|centros? de mesa|servilleteros?|servilletas?)\b/],
@@ -23,7 +78,7 @@
     ['audio','auriculares',/\b(?:auriculares?|cascos?|audifonos?|headphones?|earbuds?|pinganillos?)\b/,/\b(?:auriculares?|cascos? de audio|audifonos?|headphones?|earbuds?|headsets?|headphone|jbuds)\b/],
     ['watch','relojes',/\b(?:reloj(?:es|ito[s]?)?|smartwatch(?:es)?)\b/,/\b(?:relojes?|reloj|smartwatch(?:es)?|watch)\b/],
     ['shoes','calzado',/\b(?:zapatillas?|deportivas?|bambas?|tenis|sneakers?)\b/,/\b(?:zapatillas?|sneakers?|calzado|deportivas?|bambas?)\b/],
-    ['grinder','molinillos de café',/\b(?:molinillos?|molinillos? de cafe|molinos? de cafe)\b/,/\b(?:molinillos?|molinos? de cafe)\b/],
+    ['grinder','molinillos de café',/\b(?:molinillos?|molinos? de cafe|moler (?:el )?cafe|coffee grinder)\b/,/\b(?:molinillos?|molinos? de cafe)\b/],
     ['coffee','artículos para café',/\b(?:cafeteras?|cafeter[oa]s?|cafe|cafes|espresso|capsulas?)\b/,/\b(?:cafeteras?|cafe|espresso|nespresso|molinillo|capsulas? de cafe)\b/],
     ['light','iluminación',/\b(?:lamparas?|luces|iluminacion|linternas?)\b/,/\b(?:lamparas?|luces|iluminacion|linternas?|bombillas?)\b/],
     ['drill','taladros y atornilladores',/\b(?:taladros?|atornilladores?|atornillador)\b/,/\b(?:taladros?|atornillador(?:es)?)\b/],
@@ -33,7 +88,7 @@
   // Each feature has a positive assertion and, where available, contrary evidence.
   // A missing feature is unknown. It cannot certify an exclusion.
   const features = [
-    ['long','manga larga',/\b(?:mangas? largas?|long sleeve)\b/,/\b(?:mangas? largas?|long[ -]sleeve)\b/,/\b(?:mangas? cortas?|sin mangas?|tirantes|short[ -]sleeve)\b/,'sleeve'],
+    ['long','manga larga',/\b(?:mangas? largas?|brazos? largos?|long sleeve)\b/,/\b(?:mangas? largas?|long[ -]sleeve)\b/,/\b(?:mangas? cortas?|sin mangas?|tirantes|short[ -]sleeve)\b/,'sleeve'],
     ['short','manga corta',/\b(?:mangas? cortas?|short sleeve)\b/,/\b(?:mangas? cortas?|short[ -]sleeve)\b/,/\b(?:mangas? largas?|sin mangas?|tirantes|long[ -]sleeve)\b/,'sleeve'],
     ['thermal','térmico',/\btermic[oa]s?\b/,/\btermic[oa]s?\b/,/\bno termic/],
     ['warm','de abrigo',/\b(?:de abrigo|abrigad[oa]s?|calentit[oa]s?)\b/,/\b(?:abrigo|abrigad[oa]|forrad[oa]|forro|polar|plumon|plumifero|acolchad[oa]|termic[oa]|invierno)\b/],
@@ -61,6 +116,10 @@
     ['artificial','artificial',/\bartificial(?:es)?\b/,/\bartificial(?:es)?\b/,/\bnatural(?:es)?\b/],
     ['laptop','compartimento para portátil',/\b(?:portatil|ordenador|laptop)\b/,/\b(?:para (?:el |un )?(?:portatil|ordenador|laptop)|compartimento.{0,20}(?:portatil|ordenador)|laptop backpack|portatil de)\b/]
   ];
+  features.push(
+    ['a5','formato A5',/\ba[ -]?5\b/,/\ba[ -]?5\b/],
+    ['bluetooth','Bluetooth',/\bbluetooth\b/,/\bbluetooth\b/,/\bsin bluetooth\b/]
+  );
   const byKind = new Map(kinds.map(x=>[x[0],x]));
   const byFeature = new Map(features.map(x=>[x[0],x]));
   const colourTerms = {
@@ -71,7 +130,7 @@
   };
   for(const [name,rx] of Object.entries(colourTerms)) byFeature.set('color:'+name,['color:'+name,name,rx,rx,null,'color']);
   const activeRetail = /\b(?:oferta|descuento|rebajas|precio|cuesta|vale en amazon|stock|disponibilidad|resenas?|valoraciones?|vendid[oa]s?|se agota|ranking de venta|cupon)\b/;
-  const popularity = /\b(?:mas vendid\w*|mas (?:se )?compra\w*|compran mas|lo que mas compra\w*|ranking de ventas?|mas buscad\w*)\b/;
+  const popularity = /\b(?:mas vendid\w*|mas (?:se )?compra\w*|compran mas|lo que mas compra\w*|ranking de ventas?|mas buscad\w*|se vende mas|se venden mas|mas se vende|mas se venden)\b/;
   const privateOrPolicy = /\b(?:ignora|jailbreak|hazte pasar|modo desarrollador|inventa|inventate|resena falsa|mi pedido|garantia|devolucio\w*|reembolso|privacidad|cookies|eres una persona|eres (?:un )?(?:bot|humano|robot)|afiliad[oa]s?)\b/;
   const purchase = /\b(?:como (?:se (?:hace |realiza )?(?:la )?)?(?:compr[ao]\w*|paga)|(?:como|donde) (?:lo |la |los |las )?(?:compro|pago)|donde (?:se )?(?:compra|paga)|quien (?:me )?(?:cobra|factura)|a quien (?:le )?pago|como hago (?:el|un) pedido)\b/;
   const delivery = /\b(?:llegar(?:an?)?|llegan?|llegue|lleguen|recibire|recibirlo|entreg[aan]\w*|envio|envian|mandan a casa|portes)\b/;
@@ -126,7 +185,7 @@
     if(pair && (/(?:euros?|€|presupuesto|gastar|precio|tope)/.test(text)||old?.max!=null&&!/pulgadas?|centimetros?|litros?|vatios?|tallas?|horas?|minutos?|años|anos|\b(?:cm|mm|kg|db|gb|ml)\b/.test(text)))return {min:Math.min(n(pair[1]),n(pair[2])),max:Math.max(n(pair[1]),n(pair[2])),cheap:false};
     const delta=t.match(new RegExp('(?:sub(?:e|elo|o)|baj(?:a|alo|o)|aument(?:a|alo)|recort(?:a|alo)) (?:el (?:tope|limite|presupuesto) )?(?:en )?'+amount+'\\s*(?:€|euros?)?\\s*(?:mas|menos)?\\s*$'));
     if(delta && old?.max!=null && !/\ba \d/.test(t))return {min:null,max:Math.max(0,old.max+(/baj|recort/.test(t)?-1:1)*n(delta[1])),cheap:false};
-    const max=t.match(new RegExp('(?:tope|presupuesto|limite|maximo|hasta|menos de|no (?:mas de|pas[ea] de)|no supere|sub(?:e|elo|o)(?: el (?:tope|limite|presupuesto))? a|baj(?:a|alo|o)(?: el (?:tope|limite|presupuesto))? a|puedo gastar)\\s*(?:es |de |a |son |unos |unas )*'+amount+'(?![\\d,.])(?!\\s*(?:pulgadas|anos|horas|cm|litros|kg|w)\\b)'));
+    const max=t.match(new RegExp('(?:tope|presupuesto|limite|maximo|hasta|menos de|no (?:mas de|pas[ea] de)|no supere|sub(?:e|elo|o)(?: el (?:tope|limite|presupuesto))? a|baj(?:a|alo|o)(?: el (?:tope|limite|presupuesto))? a|puedo gastar)\\s*(?:es |de |a |son |unos |unas )*'+amount+'(?![\\d,.])(?!\\s*(?:pulgadas|anos|meses|horas|cm|mm|l|litros?|ml|kg|g|w|v|voltios?|vatios?|gb|hz)\\b)'));
     const currency=t.match(new RegExp(amount+'\\s*(?:€|euros?\\b|pavos?\\b)'));
     if(max||currency)return {min:null,max:n((max||currency)[1]),cheap:false};
     return null;
@@ -235,6 +294,11 @@
     [/\b(?:juego de mesa|puzle|puzzle)\b/,null,'Para un juego de mesa miraría el número de participantes, la edad indicada y el tiempo de partida. Para un puzle, también el número de piezas y el tamaño una vez montado.'],
     [/\b(?:toalla|sabana|ropa de cama)\b/,/\b(?:elegir|gramaje|medidas|tamano)\b/,'En textil de hogar, comprueba primero las medidas. El gramaje expresa cuánta masa de tejido hay por unidad de superficie. La composición y el acabado también influyen en el tacto.'],
     [/\b(?:regalo|regalar|amigo invisible)\b/,/\b(?:elegir|acertar|sin conocer|original)\b/,'Empieza por algo que esa persona haga a menudo. Para alguien que toma café, por ejemplo, tiene sentido saber antes si usa cápsulas o café molido. Si apenas la conoces, podemos mirar ideas que no dependan de una talla.'],
+    [/\b(?:car[ -]?play|android auto)\b/,null,'CarPlay y Android Auto muestran aplicaciones compatibles del móvil en la pantalla del coche. Para un adaptador, comprueba qué conexión trae el coche de fábrica y qué modelos admite el fabricante.'],
+    [/\b(?:pos[ -]?it|post[ -]?it|notas? adhesivas?)\b/,/\b(?:diferencia|elegir|reutiliza|pega)\w*\b/,'Para elegir notas adhesivas, fíjate en el tamaño útil, el número de hojas y la superficie a la que quieres pegarlas. Comprueba en la ficha si el fabricante indica que se pueden recolocar.'],
+    [/\b(?:carretes?|pesca)\b/,/\b(?:elegir|ca[ñn]a|talla|tama[ñn]o|hilo)\b/,'Para un carrete, compara el tamaño, el tipo de pesca y la capacidad de línea con lo que admite tu caña. Una cifra de tamaño por sí sola no identifica la capacidad.'],
+    [/\b(?:champu seco|champu en seco)\b/,null,'El champú en seco se usa entre lavados según sus instrucciones. Para elegir uno, revisa el modo de aplicación, el tono al que está dirigido y la lista de ingredientes si buscas evitar alguno.'],
+    [/\b(?:etiqueta|ingredientes|ale[rs]genos|gluten)\b/,/\b(?:comida|caramelos?|alimentacion|alimentos?)\b/,'Para saber qué lleva un alimento, revisa la lista de ingredientes y los avisos de alérgenos del envase. El sabor comercial o el nombre de la ficha no permiten deducir la composición.'],
     [/\b(?:juguete|bebe|infantil)\b/,/\b(?:edad|seguro|elegir)\b/,'Busca la edad indicada y las advertencias del fabricante para ese modelo. El nombre de una categoría infantil por sí solo no confirma que sea adecuado para una edad concreta.']
   ];
   function guideFor(text){
@@ -336,6 +400,12 @@
       const m=rx.exec(text);if(m&&polarity(text,m)===1)return id;
     }
     const top=byKind.get('top')[2].exec(text);if(top&&polarity(text,top)===1)return 'top';
+    const family=/^(?:ver |busco |quiero ver |mostrar |muestrame )?(?:articulos de |accesorios de )?(tecnologia|electronica|belleza|hogar(?: y cocina)?|infantil|bricolaje|deportes?|automocion|coche|mascotas|alimentacion|oficina|moda|otros articulos)$/.exec(text);
+    if(family){
+      const department=departments.find(d=>fold(d[0])===family[1])||
+        departments.find(d=>({electronica:'Tecnología','hogar y cocina':'Hogar',deporte:'Deportes',coche:'Automoción','otros articulos':'Otros'})[family[1]]===d[0]);
+      if(department)return 'family:'+department[0];
+    }
     const other=engine.rTarget(text);
     if(other)return 'base:'+other.key;
     return null;
@@ -344,19 +414,22 @@
     if(!id)return true;
     if(id.startsWith('base:'))return engine.matchesKind(row.p,id.slice(5));
     if(id==='ornaments')return byKind.get(id)[3].test(row.title)&&/navid|nochebuena|espumillon|guirnalda|adorno.{0,20}arbol|bolas? (?:para |del? )(?:el )?arbol/.test(row.evidence);
+    if(id.startsWith('family:'))return row.p.family===id.slice(7);
     if(id==='top')return row.p.family==='Moda'&&/\b(?:ropa|camiset\w*|camis[ao]s?|polo|sudader\w*|jersey|pantal\w*|vestid[oa]s?|abrigo|chaqueta|prenda|legg\w*|pijama|blusa|falda)\b/.test(row.title+' '+fold(row.p.module));
-    const def=byKind.get(id);return !!def&&def[3].test(row.title);
+    const def=byKind.get(id);return !!def&&(!def[4]||row.p.family===def[4])&&def[3].test(row.title);
   }
   function kindLabel(id,engine){
     if(!id)return 'artículos';
+    if(id.startsWith('family:'))return departments.find(d=>d[0]===id.slice(7))?.[1]||'artículos';
     return byKind.get(id)?.[1]||engine.kindLabel(String(id).replace(/^base:/,''))||'artículos';
   }
-  function freshSearch(kind){return {kind,features:{},brands:{},audience:null,size:null,laptopInches:null,climate:null,occasion:null,rejected:[],anyColors:false}}
+  function freshSearch(kind){return {kind,features:{},brands:{},audience:null,size:null,laptopInches:null,capacity:null,climate:null,occasion:null,rejected:[],anyColors:false}}
   function describe(c,engine){
     const attrs=Object.entries(c.features).map(([k,v])=>featureDescription(k,v));
     for(const [brand,v] of Object.entries(c.brands))attrs.push(v>0?'de '+brand:'sin la marca '+brand);
     if(c.size)attrs.push('talla '+c.size.toUpperCase());
     if(c.laptopInches)attrs.push('para portátil de '+c.laptopInches+' pulgadas');
+    if(c.capacity)attrs.push(c.capacity.label);
     if(c.audience)attrs.push('para público '+c.audience.toLowerCase());
     return [kindLabel(c.kind,engine),...attrs].filter(Boolean).join(' · ');
   }
@@ -387,6 +460,13 @@
     }
     if(colors.length&&!colors.some(f=>trait(row,f)===true))return false;
     if(c.size&&!new RegExp('\\b(?:tallas?|size) '+c.size.replace(/[.,]/g,'[.,]')+'(?![a-z0-9])').test(row.evidence))return false;
+    if(c.capacity){
+      const capacity=(row.values||=metricValues(row.evidence)).capacity;
+      if(capacity==null)return false;
+      const {value,operator}=c.capacity;
+      if(operator==='eq'&&capacity!==value||operator==='ge'&&capacity<value||
+        operator==='gt'&&capacity<=value||operator==='le'&&capacity>value||operator==='lt'&&capacity>=value)return false;
+    }
     if(c.laptopInches){
       // Volume or an unrelated diagonal cannot establish padded-compartment fit.
       const match=row.evidence.match(/(?:portatil(?:es)?|laptops?|ordenador(?:es)?)\s*(?:(?:de|hasta|hasta un|hasta de|de hasta) )?(\d+(?:[.,]\d+)?)\s*(?:pulgadas?|["”])/);
@@ -428,12 +508,22 @@
 
 
   function createDialogue(base,{now=()=>new Date()}={}) {
-    let source=null,rows=[],byId=new Map(),models=new Map();
+    let source=null,rows=[],byId=new Map(),models=new Map(),names=new Map(),titleTokens=new Map(),families=new Set();
     function index(){
       const current=base.realCatalog();
       if(current===source)return;
       source=current;rows=prepRows(current);byId=new Map(rows.map(r=>[r.p.id,r]));
-      models=new Map();
+      models=new Map();names=new Map();titleTokens=new Map();families=new Set();
+      for(const row of rows){
+        families.add(row.p.family);
+        const key=nameKey(row.p.title);
+        if(key)names.set(key,[...(names.get(key)||[]),row.p]);
+        for(const token of new Set(key.split(' '))){
+          if(token.length<5)continue;
+          if(titleTokens.has(token))titleTokens.set(token,null);
+          else titleTokens.set(token,row.p);
+        }
+      }
       for(const row of rows){
         for(const token of new Set(modelTokens(row.title))){
           if(models.has(token))models.set(token,null);
@@ -458,6 +548,19 @@
       });
     }
     function answer(text,quick=[],cards=[]){return {text,quick,cards,safe:true}}
+    function overview() {
+      const present=departments.filter(d=>families.has(d[0])&&d[0]!=='Otros');
+      if(!present.length&&!rows.length)return answer('Velan’s reúne una selección de productos y guías de compra. Ahora mismo no hay fichas publicadas para consultar.');
+      const categories=listES.format(present.slice(0,5).map(d=>d[1]));
+      const more=listES.format(present.slice(5).map(d=>d[1]));
+      const offer=categories?' En el catálogo encontrarás '+categories+'.'+(more?' También hay '+more+'.':''):' Puedes explorar los artículos de la selección.';
+      return answer('Velan’s reúne una selección de productos y guías para ayudarte a elegir.'+offer+' Aquí puedes explorar y comparar fichas. La compra se completa en Amazon. ¿Qué categoría te interesa?',present.slice(0,4).map(d=>d[2]));
+    }
+    function article(state,product) {
+      state.focusId=product.id;
+      return answer('«'+product.title+'». '+(product.summary||'La ficha publicada contiene el nombre del artículo y su categoría.')+' Puedes abrirla aquí.',
+        ['Buscar algo parecido','Volver a las opciones'],[internalCard(base,product,'Artículo seleccionado.')]);
+    }
     function list(state,c,{more=false}={}){
       const d=state.dialogue;
       if(more)c.rejected=[...new Set([...c.rejected,...(state.lastRecs||[])])].slice(-75);
@@ -475,7 +578,7 @@
       }
       const shown=matches.slice(0,3);
       state.lastRecs=shown.map(r=>r.p.id);state.focusId=shown[0].p.id;
-      const phrase=describe(c,base),intro=more?'Estas son otras opciones':d.pageCount%2?'He encontrado estas opciones':'Estas fichas encajan';
+      const phrase=describe(c,base),intro=more?'Estas son otras opciones':['Estas fichas encajan','He encontrado estas opciones','Puedes empezar por estas fichas'][d.pageCount%3];
       d.pageCount++;
       const person=state.recipientContext?.label;
       const purpose=c.occasion&&eventById[c.occasion]?' para '+eventById[c.occasion]+(person&&c.occasion==='birthday'?' de tu '+person:''):'';
@@ -516,10 +619,28 @@
       return answer(text,event.quick||themes.open,articles.map(p=>internalCard(base,p,'Idea editorial de Velan’s según el tipo de artículo.')));
     }
     const format=v=>new Intl.NumberFormat('es-ES',{maximumFractionDigits:2}).format(v);
+    function productQuestion(state,text,product) {
+      const row=product&&byId.get(product.id);
+      const asker=/^(?:(?:y|pero|entonces|vale)[, ]+)*(?:que|cual|puedo|le vale|la puedo|lo puedo|se puede|lleva|tiene|contiene|su|es|sirve|funciona|admite|cuanto)\w*\b/;
+      if(!row||!asker.test(text)||/\b(?:busco|quiero ver|muestrame|ensename)\b/.test(text))return null;
+      const relatedTopic=topics.find(([pattern,families])=>families.includes(product.family)&&pattern.test(text));
+      const compatibility=/\b(?:funciona con (?:mi|el|una?)|compatib\w*|de fabrica|sirve (?:con|para mi)|me vale para (?:mi|el))\b/.test(text);
+      const identification=/^(?:que clase de|que tipo de|que hace|para que sirve|que es (?:esto|este|esta))\b/.test(text);
+      if(identification){
+        return answer('La ficha de «'+product.title+'» '+(product.summary?'dice esto: '+product.summary:'solo publica su nombre y categoría. Para saber qué hace, comprueba la descripción del modelo.') ,['Ver su ficha'],[internalCard(base,product,'Artículo consultado.')]);
+      }
+      if(relatedTopic||compatibility){
+        const next=relatedTopic?.[2]||(product.family==='Automoción'&&/\bcar[ -]?play\b/.test(row.evidence)?
+          'Comprueba con el fabricante del adaptador si requiere CarPlay por cable de fábrica y si es compatible con el modelo y el año del coche.':
+          'Comprueba la compatibilidad declarada por el fabricante para tu modelo exacto y su versión.');
+        return answer('La ficha de «'+product.title+'» no confirma ese detalle. '+next,['Ver su ficha'],[internalCard(base,product,'Artículo consultado.')]);
+      }
+      return null;
+    }
     function factual(state,text,product){
       if(!product)return null;
       const row=byId.get(product.id);if(!row)return null;
-      const ask=/^(?:y |pero |entonces |vale |o sea )*(?:este|esta|es |son |sirve|lleva|viene|tiene|tienen|incluye|cuant|que |cual |se puede|cabe|me vale|y (?:su|el|la) )/.test(text)||/\b(?:que (?:potencia|capacidad)|cuantos? (?:litros|vatios)|dime (?:la|su|los)|confirmame)\b/.test(text);
+      const ask=/^(?:(?:y|pero|entonces|vale|o sea)[, ]+)*(?:este|esta|es |son |sirve|lleva|viene|tiene|tienen|incluye|cuant|de cuant|que |cual |se puede|cabe|me vale|y (?:su|el|la) )/.test(text)||/\b(?:que (?:potencia|capacidad)|cuantos? (?:litros|vatios)|dime (?:la|su|los)|confirmame)\b/.test(text);
       if(!ask||newSearch.test(text))return null;
       const metric=metrics.find(m=>m[3].test(text));
       if(metric){
@@ -585,17 +706,67 @@
         const fresh=base.newState();Object.assign(state,{intent:null,category:null,real:null,budget:fresh.budget,recipientContext:fresh.recipientContext,lastRecs:[],focusId:null,preferences:fresh.preferences,exclusions:fresh.exclusions,pending:null});
         return answer('De acuerdo. ¿Qué quieres mirar ahora?',themes.open);
       }
+      if(/\b(?:guard\w*|graba\w*|almacen\w*|ret[eie]n\w*|envi\w*)\b/.test(text)&&/\b(?:mi voz|audio|microfono|dictado|escribo|mis mensajes|conversacion)\b/.test(text)){
+        return answer('La conversación escrita se conserva durante esta visita en la pestaña. Puedes borrarla con «Borrar». Si activas el dictado, el navegador puede procesar el audio con su servicio de reconocimiento. Velan’s recibe el texto reconocido para que lo revises antes de enviarlo.');
+      }
+      if(/\b(?:como (?:se financia|gana(?:is)? dinero)|monetiza\w*|como (?:se )?gana dinero|de donde (?:salen|vienen) (?:los |vuestros )?ingresos|(?:cobra(?:is|n)?|recib\w*) (?:una )?comisi[oó]n)\b/.test(text)){
+        return answer('Velan’s puede recibir una comisión por las compras que cumplan las condiciones del programa de afiliación. La operación se completa en Amazon.');
+      }
+      if(supportQuestion.test(text)){
+        const cancel=/\b(?:cancelo|anulo)\b/.test(text);
+        const invoice=/\bfactura\b/.test(text);
+        const detail=cancel?'Abre los detalles para ver si todavía aparece la opción de cancelar. Si ya se ha enviado, revisa las opciones que Amazon o el vendedor indiquen para ese pedido.':
+          invoice?'Abre los detalles y busca la opción de factura. Si no aparece, comprueba si el pedido permite solicitarla al vendedor.':
+          'Abre los detalles del pedido para ver su estado y el seguimiento que esté disponible.';
+        return answer('Ve a «Mis pedidos» en la cuenta de Amazon con la que compraste. '+detail);
+      }
       if(privateOrPolicy.test(text))return null;
+      const queryName=nameQuery(raw);
+      const titleMatches=names.get(queryName);
+      if(titleMatches?.length===1){
+        const product=titleMatches[0];
+        if(!state.lastRecs?.includes(product.id))state.lastRecs=[product.id];
+        return article(state,product);
+      }
+      if(titleMatches?.length>1){
+        const shown=titleMatches.slice(0,3);
+        state.lastRecs=shown.map(p=>p.id);
+        return answer('Hay varias fichas con ese nombre. Abre una para identificar el artículo que buscabas.',
+          ['Ver la primera ficha'],shown.map(p=>internalCard(base,p,'Coincidencia por nombre.')));
+      }
+      if(shopQualifier.test(text)||shopIntroduction.test(text)||shopGeneral.test(text))return overview();
+      const introAndCheckout=/^(.+?) (?:y|tambien) (?=(?:como|donde|quien)\b)(.+)$/.exec(text);
+      if(introAndCheckout&&[shopQualifier,shopIntroduction,shopGeneral].some(pattern=>pattern.test(introAndCheckout[1].replace(/,$/,'')))&&purchase.test(introAndCheckout[2])){
+        const reply=overview();
+        reply.text=reply.text.replace('La compra se completa en Amazon.',commercialCopy);
+        return reply;
+      }
+      if(/^(?:que (?:presupuesto|tope|limite|importe) (?:te )?(?:dije|puse|marque|tengo)|cuanto (?:te dije|dije que podia gastar)|cual era (?:mi|el) (?:presupuesto|tope|limite))$/.test(text)){
+        return answer(state.budget?.max!=null?'El límite que me indicaste fue de '+format(state.budget.max)+' €.'+budgetNote(state.budget):'Todavía no has indicado un presupuesto. Puedes decir «hasta 40 euros».',d.search?['Volver a las opciones']:[]);
+      }
+      if(/\b(?:agotad[oa]s?|queda(?:n)? (?:alguno|alguna|stock|unidades)|existencias|stock|(?:talla|la x[sl]|la l|la m|la s).{0,18}ahora mismo)\b/.test(text)&&!/\b(?:busco|quiero ver)\b/.test(text)){
+        return answer('Puedes consultar la disponibilidad actual en Amazon. Si el artículo tiene variantes, selecciona allí la talla o el color antes de comprobar las existencias.',
+          state.focusId||state.selectedProductId?['Ver su ficha']:[]);
+      }
+      if(/\b(?:mas sencill[oa]s?|mas facil|en cristiano|en pocas palabras|no lo entiendo)\b/.test(text)&&d.explanation){
+        return answer(d.explanation,d.search?['Volver a las opciones']:[]);
+      }
       if(socialEnd.test(text))return answer('¡Hasta pronto! Cuando quieras, seguimos con la selección de Velan’s.');
       const seasonalAsk=/\b(?:en estas fechas|por estas fechas|(?:esta|la) temporada|que (?:se lleva|pega) ahora|que (?:me )?recomiendas (?:ahora|hoy)|ideas (?:de|para) (?:esta epoca|estos dias)|que hay para (?:estas|las) fiestas)\b/.test(text);
       if(popularity.test(text))return answer('No dispongo de un ranking de ventas comprobado. Puedo enseñarte ideas de las fichas publicadas según la ocasión o el uso que les quieras dar.',seasonal.quick);
       let kind=kindFrom(text,base);
       if(d.search && /^(?:y |pero |al reves[, ]+|mejor |perdon[, ]+)*(?:sin |con |nada de |que (?:sea|tenga)|en (?:color|talla) |solo de )/.test(text) && !newSearch.test(text))kind=d.search.kind;
+      const removeColour=/\b(?:me da igual|no importa|quita|olvida|cualquier) (?:el )?color\b/.test(text);
+      const excludeBrand=/\b(?:cualquier[ao] menos|(?:todo|todas?|todos?) menos|excepto|sin la marca) \b/.test(text)&&Object.keys(brandHits(text)).length>0;
+      if(d.search&&(removeColour||excludeBrand))kind=d.search.kind;
       if(d.search && kind==='top' && !/\b(?:ropa|prendas?|vestirme)\b/.test(text) && /manga/.test(text))kind=d.search.kind;
       const own=kind&&!kind.startsWith('base:');
       const refinements=readFeatures(text,kind||d.search?.kind);
       const shopping=newSearch.test(text)||!!kind||Object.keys(refinements).length>0;
-      const mentionsPurchase=purchase.test(text),mentionsDelivery=delivery.test(text);
+      // Delivery vocabulary also appears in product names, such as a book or a shipping label.
+      const logisticsRequest=/\b(?:cuando|como|donde|quien|cuanto|llegara|si lo pido|lo recibire|me llega|enviais|envian|haceis envios|portes|plazo de entrega|fecha de entrega)\b/;
+      const mentionsPurchase=purchase.test(text)||/\b(?:puedo pagar|aceptais (?:tarjeta|paypal)|formas de pago|metodos de pago|como lo pido|donde se tramita el pedido)\b/.test(text);
+      const mentionsDelivery=delivery.test(text)&&logisticsRequest.test(text);
       if(mentionsPurchase||mentionsDelivery){
         const tail=[mentionsPurchase&&commercialCopy,mentionsDelivery&&deliveryCopy].filter(Boolean).join(' ');
         const separated=raw.match(/^(.+?)(?:[,.!?¿]\s*|\s+y(?:\s+(?:dime|explicame|explícame))?\s+)(?=(?:¿?\s*)?(?:d[oó]nde|c[oó]mo|qui[eé]n|cu[aá]ndo|llegar|cu[aá]nto tarda))/i);
@@ -605,10 +776,19 @@
           const reply=route(state,part)||base.respond(state,part);
           reply.text+=' '+tail;return reply;
         }
+        const parts=raw.split(/\s+y\s+(?=(?:que|qué|de qué|de que|para qué|para que)\b)/i,2);
+        if(parts.length===2&&[shopQualifier,shopIntroduction,shopGeneral].some(pattern=>pattern.test(words(parts[1])))){
+          const reply=overview();reply.text+=' '+tail;return reply;
+        }
         return answer(tail,state.lastRecs?.length?['Volver a las opciones','Ver la primera ficha']:[]);
       }
       if(activeRetail.test(text)&&!budget&&!seasonalAsk)return null;
       const explicit=referenced(text,state,base);
+      // A distinctive abbreviated name can resolve a request for a specific fiche.
+      if(/^(?:queria ver|quiero ver|abre(?:me)?|ver|ensename|muestrame) (?:la )?ficha\b/.test(text)&&/^[a-z0-9]{5,}$/.test(queryName)){
+        const match=titleTokens.get(queryName);
+        if(match)explicit.push(match);
+      }
       for(const token of modelTokens(text)){
         const model=models.get(token);if(model&&!explicit.some(p=>p.id===model.id))explicit.push(model);
       }
@@ -619,12 +799,17 @@
       const namedLink=kind&&/\b(?:enlace|ficha) (?:de(?:l| la| los| las)?|para)\s+/.test(text);
       const named=namedLink?(state.lastRecs||[]).map(id=>byId.get(id)).find(r=>r&&typeMatch(r,kind,base))?.p:null;
       const product=explicit[0]||named||(/\b(?:de (?:la|esta) ficha|estoy (?:viendo|mirando)|este (?:articulo|producto))\b/.test(text)?selected:null)||focused||selected;
+      const specific=productQuestion(state,text,product);
+      if(specific)return specific;
       const guide=guideFor(text);
-      if(guide)return answer(guide,state.lastRecs?.length?['Volver a las opciones','Ver la primera ficha']:['Ver productos relacionados','Quiero un regalo']);
+      if(guide){
+        d.explanation=/bluetooth/.test(text)&&/ruido/.test(text)?'Bluetooth sirve para escuchar sin cable. La cancelación de ruido reduce el sonido de alrededor. Unos auriculares pueden tener las dos funciones.':null;
+        return answer(guide,state.lastRecs?.length?['Volver a las opciones','Ver la primera ficha']:['Ver productos relacionados','Quiero un regalo']);
+      }
       if(d.lastMetric==='power'&&/ruido|silencios/.test(text)&&product&&!newSearch.test(text)){
         return answer(`La potencia por sí sola no indica el ruido. `+(factual(state,'cuantos decibelios',product)?.text||'Haría falta una medición en decibelios.'),['Ver su ficha']);
       }
-      if(/\b(?:compara\w*|comparativa|diferencia entre los dos|en que se distinguen)\b/.test(text)&&!newSearch.test(text)){
+      if(/\b(?:compara\w*|comparativa|diferencias? (?:hay )?entre|en que se distinguen)\b/.test(text)&&!newSearch.test(text)){
         if(/\b(?:con el anterior|con la anterior)\b/.test(text)&&selected){
           const prev=base.byId((state.previousProductIds||[]).at(-1));return compare(state,[selected,prev].filter(Boolean));
         }
@@ -638,13 +823,12 @@
       if((kind||d.search?.kind)&&/\b(?:mas potente|mas potencia|mayor potencia|mas vatios|mas capacidad|mayor capacidad|mas litros|menos litros|mayor autonomia|mas autonomia|menos peso|menor peso|mayor voltaje|mas voltios)\b/.test(text)){
         const r=rankedMetric(state,text,kind||d.search.kind);if(r)return r;
       }
-      if(product&&(namedLink||/\b(?:explicame (?:este|esta)|hablame de|cuentame (?:mas|sobre)|ver (?:su|la (?:primera|segunda|tercera)) ficha|ver la ficha|ensename (?:este|esta)|dame (?:el )?enlace|pasame (?:el )?enlace|abre (?:su|la) ficha)\b/.test(text)||explicit.length&&/enlace|ficha|quiero el|quiero la|me quedo/.test(text))){
+      if(product&&(namedLink||/\b(?:explicame (?:este|esta)|hablame de|cuentame (?:mas|sobre)|ver (?:su|la (?:primera|segunda|tercera)) ficha|ver la ficha|ensename (?:este|esta)|dame (?:el )?enlace|pasame (?:el )?enlace|abre (?:su|la) ficha)\b/.test(text)||explicit.length&&(/enlace|ficha|quiero el|quiero la|me quedo/.test(text)||/^(?:y )?(?:el|la) (?:primer[oa]?|segund[oa]|tercer[oa]?)(?:,? (?:por favor|porfa|gracias))?$/.test(text)||/^(?:busco (?:el modelo )?)?[a-z0-9-]{4,}$/.test(text)))){
         if(namedLink&&!named&&!explicit.length)return null;
-        state.focusId=product.id;
-        return answer(`«${product.title}». ${product.summary||'La ficha publicada contiene el nombre del artículo y su categoría.'} Puedes abrirla aquí.`,['Ver algo parecido','Volver a las opciones'],[internalCard(base,product,'Artículo seleccionado.')]);
+        return article(state,product);
       }
       const fact=factual(state,text,product);if(fact)return fact;
-      if(/\b(?:quien escribio|capital de|quien gano el partido|que hora es|politica internacional)\b/.test(text))return answer('Mi especialidad son las compras y las guías de Velan’s. Puedo ayudarte a elegir un artículo, comparar fichas o retomar tu búsqueda.',d.search?['Volver a las opciones']:themes.open);
+      if(/\b(?:quien escribio|capital de|quien gano el partido|que hora es|politica internacional|resultado del partido|(?:cuenta(?:me)?|dime) (?:un chiste|una receta)|que tiempo (?:hace|hara))\b/.test(text))return answer('Mi especialidad son las compras y las guías de Velan’s. Puedo ayudarte a elegir un artículo, comparar fichas o retomar tu búsqueda.',d.search?['Volver a las opciones']:themes.open);
       if(/\bbanco\b/.test(text)&&!/\b(?:jardin|sentar|asiento|mueble)\b/.test(text)){
         d.pending='bank';return answer('¿Te refieres a un banco para sentarte, a un banco de trabajo o a otra cosa?',['Un banco para el jardín','Un banco de trabajo']);
       }
@@ -677,7 +861,7 @@
         const type=kindFrom(words(product.title),base);
         if(type){const c=freshSearch(type);c.rejected=[product.id];return list(state,c);}
       }
-      if(d.search && /(?:no me gusta ninguno|ningun[oa] me (?:gusta|encaja)|otros? (?:distint|diferent)|otras opciones|(?:muestrame|ensename|dame|ver|busca) (?:mas|otr[oa]s?)|algo parecido)/.test(text)&&!own)return list(state,d.search,{more:true});
+      if(d.search && /(?:no me gusta ninguno|ningun[oa] me (?:gusta|encaja)|otros? (?:distint|diferent)|(?:esos|estos) no me convencen|tienes otros|descarto (?:esos|estos|todos)|otras opciones|(?:muestrame|ensename|dame|ver|busca) (?:mas|otr[oa]s?)|algo parecido)/.test(text)&&!own)return list(state,d.search,{more:true});
       if(d.search && /por que (?:me )?(?:recomiendas|esos|estos|lo has|los has)|en que te basas/.test(text)){
         return answer(`Te los he propuesto porque las fichas coinciden con ${describe(d.search,base)}. Puedes cambiar una condición.`,['Volver a las opciones','Enséñame otros']);
       }
@@ -689,6 +873,9 @@
       }
       if(occasion?.[0]==='jordi'&&(kind==='reading'||!kind)){const c=freshSearch('reading');c.occasion='jordi';return list(state,c);}
       const correcting=/\b(?:al reves|mejor|queria decir|rectifico|perdon|mas bien|en realidad|preferiria|en vez de)\b/.test(text);
+      if(occasion&&correcting&&kind==='coffee'&&state.recipientContext?.label){
+        const c=freshSearch('coffee');c.occasion=occasion[0];remember(d,c);return list(state,c);
+      }
       if(hasGift&&(!own||kind==='coffee')&&(!d.search||occasion||!kind)){
         if(occasion&&correcting){
           state.recipientContext.occasion=occasion[1];d.occasion=occasion[0];
@@ -703,9 +890,22 @@
         const old=d.search?.kind===currentKind?d.search: d.previous?.kind===currentKind&&/volvamos|volver|retom/.test(text)?d.previous:null;
         const c=old?structuredCriteria(old):freshSearch(currentKind);
         if(correcting && Object.keys(refinements).length)c.rejected=[];
+        if(removeColour){
+          for(const key of Object.keys(c.features))if(key.startsWith('color:'))delete c.features[key];
+          c.anyColors=false;
+        }
         setFeatures(c,refinements,correcting);
+        if(currentKind==='bag'){
+          const amount=/\b(?:(?:de )?(al menos|minimo|hasta|maximo|como mucho|menos de|mas de) )?(\d+(?:[.,]\d+)?)\s*(?:l|litros?)\b/.exec(numericText(text));
+          if(amount){
+            const value=Number(amount[2].replace(',','.'));
+            const operator={'al menos':'ge',minimo:'ge',hasta:'le',maximo:'le','como mucho':'le','menos de':'lt','mas de':'gt'}[amount[1]]||'eq';
+            c.capacity={value,operator,label:(amount[1]?amount[1]+' ':'')+format(value)+' L'};
+          }
+        }
         if(/(?:\bo\b|\/)/.test(text)&&Object.keys(refinements).filter(k=>k.startsWith('color:')).length>1)c.anyColors=true;
         Object.assign(c.brands,brandHits(text));c.audience=explicitAudience(text)||c.audience;
+        if(/\b(?:cualquier|me da igual|no importa|quita|olvida) (?:la )?talla\b/.test(text))c.size=null;
         const size=fitSize(text);if(size)c.size=size;
         c.occasion=occasion?.[0]||c.occasion;c.climate=climate||c.climate;
         const inch=text.match(/(\d+(?:[.,]\d+)?)\s*(?:pulgadas?|["”])/);

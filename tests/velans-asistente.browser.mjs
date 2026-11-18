@@ -50,6 +50,11 @@ try {
   assert.doesNotMatch((await send(page,'¿Es fiable esta web?')).text,/afiliad|comisi[oó]n/i);
   assert.match((await send(page,'¿Velan’s recibe una comisión?')).text,/comisión|ingresos/i);
   for(const file of ['velans-assistence-engine.js','velans-assistence-dialogue.js','catalogo-completo.js'])assert.equal(files.filter(f=>f===file).length,1,file);
+  const catalogue=await send(page,'¿qué se compra aquí?');
+  assert.match(catalogue.text,/moda.*tecnología.*hogar y cocina.*belleza/i);
+  assert.equal(catalogue.cards.length,0);
+  const checkout=await send(page,'¿y dónde se paga?');
+  assert.match(checkout.text,/pago se realiza en Amazon.*Ver en Amazon/);
   const long=await send(page,'Paso la Navidad en un sitio frío, busco camisetas de manga larga');
   assert.ok(long.cards.length);assert.match(long.text,/Navidad/);
   // Restore a real session from a previous widget version, including its old welcome text.
@@ -99,8 +104,14 @@ try {
 
   const desktop=await surface(false,true);
   await desktop.page.goto(origin+'/tecnologia.html');
-  await desktop.page.locator('#vaBubble').click();
+  await desktop.page.locator('#vaBubble').focus();
+  await desktop.page.keyboard.press('Enter');
   await desktop.page.getByRole('button',{name:'Reintentar'}).click();await ready(desktop.page);
+  await desktop.page.locator('#vaInput').focus();
+  await desktop.page.keyboard.press('Escape');
+  assert.equal(await desktop.page.locator('#vaBubble').evaluate(el=>el===document.activeElement),true);
+  await desktop.page.keyboard.press('Enter');await ready(desktop.page);
+  assert.equal(await desktop.page.locator('#vaInput').evaluate(el=>el===document.activeElement),true);
   await send(desktop.page,'Busco relojes Casio');
   await desktop.page.locator('#vaMsgs .vcard .pbtn').first().click();
   await desktop.page.waitForURL(/articulo=/);
