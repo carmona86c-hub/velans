@@ -1,0 +1,41 @@
+name: Actualizar ofertas de AliExpress
+# Cada día renueva precios, descuentos y fotos de las ofertas de AliExpress (API oficial de afiliados).
+on:
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: aliexpress-actualizar
+  cancel-in-progress: false
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 20
+      - name: Consultar la API de afiliados de AliExpress
+        env:
+          ALIEXPRESS_APP_KEY: ${{ secrets.ALIEXPRESS_APP_KEY }}
+          ALIEXPRESS_APP_SECRET: ${{ secrets.ALIEXPRESS_APP_SECRET }}
+          ALIEXPRESS_TRACKING_ID: ${{ secrets.ALIEXPRESS_TRACKING_ID }}
+        run: |
+          cp aliexpress-productos.js "$RUNNER_TEMP/anterior.js"
+          node scripts/aliexpress-catalogo.mjs
+      - name: Comprobar el resultado antes de guardarlo
+        run: |
+          N=$(node -e 'const s=require("fs").readFileSync("aliexpress-productos.js","utf8");const d=JSON.parse(s.slice(s.indexOf("{"),s.lastIndexOf("}")+1));console.log(d.productos.length)')
+          echo "Productos: $N"
+          if [ "$N" -lt 40 ]; then echo "Muy pocos productos ($N): se mantiene la lista anterior"; cp "$RUNNER_TEMP/anterior.js" aliexpress-productos.js; fi
+          node --test tests/seguridad.test.mjs
+      - name: Guardar si hay cambios
+        run: |
+          git config user.name "velans-bot"; git config user.email "velans-bot@users.noreply.github.com"
+          git add aliexpress-productos.js
+          git diff --cached --quiet && { echo "Sin cambios"; exit 0; }
+          git commit -m "Ofertas de AliExpress actualizadas $(date -u +%F)"
+          git push

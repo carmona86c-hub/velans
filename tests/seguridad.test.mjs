@@ -32,6 +32,16 @@ test('los enlaces externos solo van a Amazon.es con velans-21, o a velans.es',()
     }
   }
 });
+test('las ofertas de AliExpress solo usan enlaces de afiliado e imágenes oficiales',()=>{
+  const s=read('aliexpress-productos.js');
+  const d=JSON.parse(s.slice(s.indexOf('{'),s.lastIndexOf('}')+1));
+  assert.ok(Array.isArray(d.productos));
+  for(const p of d.productos){
+    assert.match(p.enlace,/^https:\/\/s\.click\.aliexpress\.com\//,p.id);
+    assert.match(new URL(p.imagen).hostname,/(^|\.)(alicdn\.com|aliexpress-media\.com)$/,p.id);
+    assert.ok(p.precio>0&&p.precioAntes>=p.precio,p.id);
+  }
+});
 test('los enlaces que abren otra pestaña llevan noopener',()=>{
   for(const f of code){
     for(const m of read(f).matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)) assert.match(m[0],/noopener/,f+': '+m[0].slice(0,120));
