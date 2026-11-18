@@ -7,13 +7,20 @@ const KEY = process.env.ALIEXPRESS_APP_KEY, SECRET = process.env.ALIEXPRESS_APP_
 if (!KEY || !SECRET || !TRACK) { console.error('Faltan secretos'); process.exit(1); }
 const POR_CATEGORIA = Number(process.env.POR_CATEGORIA || 20);
 
+// [búsqueda, palabras que DEBE contener el título] — evita resultados que no tienen que ver
 export const CATEGORIAS = {
-  Moda: ['zapatillas hombre', 'zapatillas mujer', 'chaqueta mujer', 'chaqueta hombre', 'bolso mujer', 'reloj hombre', 'reloj mujer', 'gafas de sol', 'sudadera', 'mochila'],
-  Tecnología: ['auriculares bluetooth', 'smartwatch', 'cargador rapido', 'power bank', 'altavoz bluetooth', 'teclado mecanico', 'raton inalambrico', 'camara vigilancia wifi', 'soporte movil', 'cable usb c'],
-  Hogar: ['organizador cocina', 'lampara led', 'utensilios cocina', 'almacenamiento hogar', 'sabanas', 'cortinas', 'decoracion hogar', 'herramientas cocina', 'aspiradora inalambrica', 'tira led'],
-  Belleza: ['brochas maquillaje', 'cepillo alisador', 'masajeador facial', 'set manicura', 'rizador pelo', 'recortadora barba', 'organizador maquillaje', 'espejo maquillaje led', 'secador pelo', 'depiladora'],
-  Deportes: ['bandas elasticas', 'esterilla yoga', 'botella deporte', 'mancuernas', 'ropa deportiva mujer', 'ropa deportiva hombre', 'mochila senderismo', 'guantes gimnasio', 'comba', 'rodillera'],
+  Moda: [['zapatillas hombre', /zapatilla|sneaker|calzado deportivo/], ['zapatillas mujer', /zapatilla|sneaker/], ['chaqueta mujer', /chaqueta|abrigo|cazadora|parka/], ['chaqueta hombre', /chaqueta|abrigo|cazadora|parka/],
+    ['bolso mujer', /bolso|bandolera|cartera/], ['reloj hombre', /reloj/], ['reloj mujer', /reloj/], ['gafas de sol', /gafas de sol/], ['sudadera', /sudadera|hoodie/], ['vestido mujer', /vestido/], ['jersey', /jersey|suéter|sueter|cárdigan|cardigan/], ['vaqueros', /vaquero|jeans/]],
+  Tecnología: [['auriculares bluetooth', /auricular/], ['smartwatch', /reloj inteligente|smartwatch|smart watch/], ['cargador rapido', /cargador/], ['power bank', /power ?bank|batería externa|bateria externa/],
+    ['altavoz bluetooth', /altavoz/], ['teclado mecanico', /teclado/], ['raton inalambrico', /ratón|raton/], ['camara vigilancia wifi', /cámara|camara/], ['soporte movil', /soporte/], ['cable usb c', /cable/]],
+  Hogar: [['organizador cocina', /organizador|estante|almacenamiento/], ['lampara led', /lámpara|lampara/], ['utensilios cocina', /utensilio|cocina/], ['almacenamiento hogar', /almacenamiento|organizador|caja/], ['sabanas', /sábana|sabana|funda de colchón|edredón|nórdic/],
+    ['cortinas', /cortina/], ['decoracion hogar', /decoraci/], ['herramientas cocina', /cocina|cortador|pelador|rallador/], ['aspiradora inalambrica', /aspirador/], ['tira led', /tira.*led|led.*tira/]],
+  Belleza: [['brochas maquillaje', /brocha|pincel/], ['cepillo alisador', /alisador|plancha/], ['masajeador facial', /masajeador|facial/], ['set manicura', /manicura|uñas|unas/], ['rizador pelo', /rizador|ondulador/],
+    ['recortadora barba', /recortador|afeitadora|barba/], ['organizador maquillaje', /maquillaje/], ['espejo maquillaje led', /espejo/], ['secador pelo', /secador/], ['depiladora', /depil/]],
+  Deportes: [['bandas elasticas', /banda|elástic|elastic/], ['esterilla yoga', /esterilla|yoga/], ['botella deporte', /botella/], ['mancuernas', /mancuerna|pesa/], ['ropa deportiva mujer', /deportiv|yoga|leggings|mallas/],
+    ['ropa deportiva hombre', /deportiv|camiseta|pantal/], ['mochila senderismo', /mochila/], ['guantes gimnasio', /guante/], ['comba', /comba|cuerda de saltar|saltar/], ['rodillera', /rodillera/]],
 };
+const EXCLUIR = /moto|motocicleta|coche|automóvil|automovil|repuesto|recambio|sexy|lencería|lenceria|halloween|réplica|replica/i;
 
 function firmar(params) {
   const base = Object.keys(params).sort().map((k) => k + params[k]).join('');
@@ -40,7 +47,7 @@ const segura = (u, hosts) => { try { const x = new URL(u); return x.protocol ===
 const salida = []; const vistos = new Set();
 for (const [cat, palabras] of Object.entries(CATEGORIAS)) {
   const candidatos = [];
-  for (const kw of palabras) {
+  for (const [kw, exige] of palabras) {
     for (const page of [1, 2]) {
       for (const p of await query(kw, page)) {
         const precio = num(p.target_sale_price), antes = num(p.target_original_price);
@@ -48,6 +55,8 @@ for (const [cat, palabras] of Object.entries(CATEGORIAS)) {
         const img = segura(p.product_main_image_url, ['alicdn.com', 'aliexpress-media.com']);
         const link = segura(p.promotion_link, ['s.click.aliexpress.com']);
         if (!img || !link || !precio || !antes || antes <= precio) continue;
+        const titulo = String(p.product_title || '');
+        if (!exige.test(titulo.toLowerCase()) || EXCLUIR.test(titulo)) continue;   // relevancia
         const descuento = Math.round((1 - precio / antes) * 100);
         if (valor < 90 || ventas < 50 || descuento < 20) continue;   // calidad mínima
         candidatos.push({ id: 'ae-' + p.product_id, tienda: 'AliExpress', categoria: cat, busqueda: kw,
