@@ -21,6 +21,6 @@ jobs:
         run: |
           cp salida/aliexpress-top50.json /tmp/
           git config user.name "velans-bot"; git config user.email "velans-bot@users.noreply.github.com"
-          git fetch origin aliexpress-datos/top50 || true
+          true
           git checkout --orphan tmp && git rm -rfq . && cp /tmp/aliexpress-top50.json . && git add aliexpress-top50.json
-          git commit -qm "Top 50 AliExpress $(date -u +%F)" && git push -f origin HEAD:aliexpress-datos/top50
+          git commit -qm "Top 50 AliExpress $(date -u +%F)" && git push -f origin HEAD:aliexpress-top50-datos

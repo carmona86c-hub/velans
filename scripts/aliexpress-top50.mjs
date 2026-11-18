@@ -32,7 +32,7 @@ const add = (lista, origen) => { for (const p of lista) {
     precio: num(p.target_sale_price), precioAntes: num(p.target_original_price), descuento: p.discount || '', valoracion: p.evaluate_rate || '', ventas: v, enlace: p.promotion_link, origen });
 } };
 // 1) Productos «hot» sin palabra clave
-for (let pg = 1; pg <= 6; pg++) { add(await api('aliexpress.affiliate.hotproduct.query', { page_no: String(pg) }), 'hot'); await new Promise((s) => setTimeout(s, 400)); }
+// (hotproduct.query no está permitido para esta app)
 // 2) Búsquedas amplias por departamento, ordenadas por ventas
 const KW = ['auriculares', 'cargador', 'funda movil', 'cable usb', 'reloj', 'smartwatch', 'zapatillas', 'camiseta', 'calcetines', 'gafas de sol', 'bolso', 'mochila', 'cocina', 'organizador', 'lampara led', 'tira led', 'maquillaje', 'uñas', 'pelo', 'pendientes', 'collar', 'anillo', 'juguetes', 'mascotas', 'herramientas', 'jardin', 'coche accesorios', 'deporte', 'yoga', 'bicicleta', 'pesca', 'camping', 'bebe', 'oficina', 'papeleria', 'teclado', 'raton', 'altavoz', 'power bank', 'soporte movil', 'protector pantalla', 'pegatinas', 'fiesta', 'navidad', 'baño', 'limpieza', 'manualidades', 'ropa mujer', 'ropa hombre', 'pijama'];
 for (const kw of KW) { for (const pg of [1, 2]) { add(await api('aliexpress.affiliate.product.query', { keywords: kw, page_no: String(pg) }), kw); await new Promise((s) => setTimeout(s, 350)); } }
