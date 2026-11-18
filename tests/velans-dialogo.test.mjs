@@ -171,3 +171,51 @@ test('los atributos de una tarjeta se extraen de palabras completas y respetan l
   const real=live.byId(live.bySiteId(10));
   assert.ok(!live.makePublicCard(real).attrs.some(x=>/ligero/.test(x)));
 });
+
+test('explica qué hay en Velan’s antes de orientar al pago, sin usar una búsqueda previa',()=>{
+  const {state,replies}=run(live,'Busco mochilas','¿qué se compra aquí?','¿Dónde se paga?','¿Qué vendéis?','¿Dónde está mi pedido?','La segunda porfa');
+  const [bags,offer,pay,synonym,order,pick]=replies;
+  for(const reply of [offer,synonym]){
+    assert.match(reply.text,/moda.*tecnología.*hogar y cocina.*belleza/i);
+    assert.match(reply.text,/comparar fichas.*Amazon/i);
+    assert.doesNotMatch(reply.text,/Balance|afiliad|comisi[oó]n/i);
+    assert.equal(reply.cards.length,0);
+  }
+  assert.match(pay.text,/pago se realiza en Amazon.*Ver en Amazon/);
+  assert.doesNotMatch(pay.text,/moda|belleza/);
+  assert.match(order.text,/Mis pedidos.*seguimiento/);
+  assert.equal(numbers(pick),String(bags.cards[1].siteId));
+  assert.equal(state.dialogue.search.kind,'bag');
+  const combined=run(live,'¿Qué se compra aquí y cómo se paga?').last;
+  assert.match(combined.text,/selección de productos.*pago se realiza en Amazon/);
+});
+
+test('las categorías del menú y la coincidencia por nombre se adaptan a cada catálogo',()=>{
+  const mini=loadEngine({catalog:[
+    {id:5001,ref:'a',name:'Cepillo para perros',category:'Mascotas'},
+    {id:5002,ref:'b',name:'Carpeta Azul con anillas',category:'Oficina'},
+    {id:5003,ref:'c',name:'Tostadora Nébula negra',category:'Hogar'}
+  ]});
+  const intro=run(mini,'¿Qué productos hay en esta página?').last;
+  assert.match(intro.text,/hogar y cocina.*oficina.*mascotas/);
+  assert.doesNotMatch(intro.text,/tecnología|moda/);
+  assert.equal(numbers(run(mini,'Ver mascotas').last),'5001');
+  assert.equal(numbers(run(mini,'Enséñame la ficha del artículo Tostadora Nébula negra').last),'5003');
+  assert.equal(numbers(run(mini,'Busco Tostadora Nébula negra con Bluetooth').last),'');
+  const empty=loadEngine({catalog:[]});
+  assert.match(run(empty,'¿Qué se compra aquí?').last.text,/no hay fichas publicadas/);
+});
+
+test('comprueba límites de capacidad, ambigüedad y preguntas sin respaldo en la ficha',()=>{
+  assert.equal(numbers(run(fixed,'Busco mochilas de más de 20 litros').last),'13');
+  assert.equal(numbers(run(fixed,'Busco mochilas de menos de 38 litros').last),'12');
+  const p=run(live,'¿Qué tipo de casco de bici tenéis?').last;
+  assert.equal(numbers(p),'348');
+  const state=live.newState();
+  live.setSelected(state,live.bySiteId(147));
+  assert.match(live.respond(state,'¿Puedo tomar estos caramelos si tengo alergia?').text,/no confirma.*ingredientes/);
+  live.setSelected(state,live.bySiteId(235));
+  assert.match(live.respond(state,'¿De cuántos voltios es?').text,/21 V/);
+  assert.match(live.respond(state,'Entonces, ¿cuántos vatios?').text,/no indica potencia/);
+});
+
