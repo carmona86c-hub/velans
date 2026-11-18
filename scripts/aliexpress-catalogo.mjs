@@ -10,15 +10,15 @@ const POR_CATEGORIA = Number(process.env.POR_CATEGORIA || 20);
 // [búsqueda, palabras que DEBE contener el título] — evita resultados que no tienen que ver
 export const CATEGORIAS = {
   Moda: [['zapatillas hombre', /zapatilla|sneaker|calzado deportivo/], ['zapatillas mujer', /zapatilla|sneaker/], ['chaqueta mujer', /chaqueta|abrigo|cazadora|parka/], ['chaqueta hombre', /chaqueta|abrigo|cazadora|parka/],
-    ['bolso mujer', /bolso|bandolera|cartera/], ['reloj hombre', /reloj/], ['reloj mujer', /reloj/], ['gafas de sol', /gafas de sol/], ['sudadera', /sudadera|hoodie/], ['vestido mujer', /vestido/], ['jersey', /jersey|suéter|sueter|cárdigan|cardigan/], ['vaqueros', /vaquero|jeans/]],
+    ['bolso mujer', /bolso|bandolera|cartera/], ['reloj hombre', /reloj/], ['reloj mujer', /reloj/], ['gafas de sol', /gafas de sol/], ['sudadera', /sudadera|hoodie/], ['vestido mujer', /vestido/], ['jersey', /jersey|suéter|sueter|cárdigan|cardigan/], ['vaqueros', /vaquero|jeans/], ['botas mujer', /bota|botín|botin/], ['bufanda', /bufanda|pañuelo/], ['cartera hombre', /cartera|billetera/], ['camisa hombre', /camisa/]],
   Tecnología: [['auriculares bluetooth', /auricular/], ['smartwatch', /reloj inteligente|smartwatch|smart watch/], ['cargador rapido', /cargador/], ['power bank', /power ?bank|batería externa|bateria externa/],
-    ['altavoz bluetooth', /altavoz/], ['teclado mecanico', /teclado/], ['raton inalambrico', /ratón|raton/], ['camara vigilancia wifi', /cámara|camara/], ['soporte movil', /soporte/], ['cable usb c', /cable/]],
+    ['altavoz bluetooth', /altavoz/], ['teclado mecanico', /teclado/], ['raton inalambrico', /ratón|raton/], ['camara vigilancia wifi', /cámara|camara/], ['soporte movil', /soporte/], ['cable usb c', /cable/], ['auriculares inalambricos', /auricular/], ['proyector', /proyector/], ['tablet', /tablet|tableta/], ['hub usb', /hub|adaptador/]],
   Hogar: [['organizador cocina', /organizador|estante|almacenamiento/], ['lampara led', /lámpara|lampara/], ['utensilios cocina', /utensilio|cocina/], ['almacenamiento hogar', /almacenamiento|organizador|caja/], ['sabanas', /sábana|sabana|funda de colchón|edredón|nórdic/],
-    ['cortinas', /cortina/], ['decoracion hogar', /decoraci/], ['herramientas cocina', /cocina|cortador|pelador|rallador/], ['aspiradora inalambrica', /aspirador/], ['tira led', /tira.*led|led.*tira/]],
+    ['cortinas', /cortina/], ['decoracion hogar', /decoraci/], ['herramientas cocina', /cocina|cortador|pelador|rallador/], ['aspiradora inalambrica', /aspirador/], ['tira led', /tira.*led|led.*tira/], ['toallas', /toalla/], ['cojines', /cojín|cojin|funda de cojín/], ['vajilla', /plato|vajilla|taza|vaso/], ['sarten', /sartén|sarten|olla/], ['alfombra', /alfombra/]],
   Belleza: [['brochas maquillaje', /brocha|pincel/], ['cepillo alisador', /alisador|plancha/], ['masajeador facial', /masajeador|facial/], ['set manicura', /manicura|uñas|unas/], ['rizador pelo', /rizador|ondulador/],
-    ['recortadora barba', /recortador|afeitadora|barba/], ['organizador maquillaje', /maquillaje/], ['espejo maquillaje led', /espejo/], ['secador pelo', /secador/], ['depiladora', /depil/]],
+    ['recortadora barba', /recortador|afeitadora|barba/], ['organizador maquillaje', /maquillaje/], ['espejo maquillaje led', /espejo/], ['secador pelo', /secador/], ['depiladora', /depil/], ['pinceles maquillaje', /pincel|brocha/], ['plancha pelo', /plancha|alisador/], ['cepillo facial', /cepillo/], ['bolsa aseo', /neceser|bolsa de aseo|cosmético|cosmetico/], ['cepillo dientes electrico', /cepillo de dientes/]],
   Deportes: [['bandas elasticas', /banda|elástic|elastic/], ['esterilla yoga', /esterilla|yoga/], ['botella deporte', /botella/], ['mancuernas', /mancuerna|pesa/], ['ropa deportiva mujer', /deportiv|yoga|leggings|mallas/],
-    ['ropa deportiva hombre', /deportiv|camiseta|pantal/], ['mochila senderismo', /mochila/], ['guantes gimnasio', /guante/], ['comba', /comba|cuerda de saltar|saltar/], ['rodillera', /rodillera/]],
+    ['ropa deportiva hombre', /deportiv|camiseta|pantal/], ['mochila senderismo', /mochila/], ['guantes gimnasio', /guante/], ['comba', /comba|cuerda de saltar|saltar/], ['rodillera', /rodillera/], ['rueda abdominal', /rueda|abdominal/], ['zapatillas running', /zapatilla/], ['mallas deporte mujer', /mallas|leggings/], ['bolsa deporte', /bolsa|mochila/], ['pelota', /pelota|balón|balon/]],
 };
 const EXCLUIR = /moto|motocicleta|coche|automóvil|automovil|repuesto|recambio|sexy|lencería|lenceria|halloween|réplica|replica/i;
 
@@ -48,7 +48,7 @@ const salida = []; const vistos = new Set();
 for (const [cat, palabras] of Object.entries(CATEGORIAS)) {
   const candidatos = [];
   for (const [kw, exige] of palabras) {
-    for (const page of [1, 2]) {
+    for (const page of [1, 2, 3]) {
       for (const p of await query(kw, page)) {
         const precio = num(p.target_sale_price), antes = num(p.target_original_price);
         const valor = num(p.evaluate_rate), ventas = Number(p.lastest_volume || 0);
@@ -58,7 +58,7 @@ for (const [cat, palabras] of Object.entries(CATEGORIAS)) {
         const titulo = String(p.product_title || '');
         if (!exige.test(titulo.toLowerCase()) || EXCLUIR.test(titulo)) continue;   // relevancia
         const descuento = Math.round((1 - precio / antes) * 100);
-        if (valor < 90 || ventas < 50 || descuento < 20) continue;   // calidad mínima
+        if (valor < 90 || ventas < 30 || descuento < 20) continue;   // calidad mínima
         candidatos.push({ id: 'ae-' + p.product_id, tienda: 'AliExpress', categoria: cat, busqueda: kw,
           nombre: String(p.product_title).replace(/\s+/g, ' ').trim().slice(0, 140), imagen: img,
           precio, precioAntes: antes, descuento, valoracion: valor, ventas, enlace: link });
