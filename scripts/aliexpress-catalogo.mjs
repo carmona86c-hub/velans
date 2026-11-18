@@ -20,7 +20,7 @@ export const CATEGORIAS = {
   Deportes: [['bandas elasticas', /banda|elástic|elastic/], ['esterilla yoga', /esterilla|yoga/], ['botella deporte', /botella/], ['mancuernas', /mancuerna|pesa/], ['ropa deportiva mujer', /deportiv|yoga|leggings|mallas/],
     ['ropa deportiva hombre', /deportiv|camiseta|pantal/], ['mochila senderismo', /mochila/], ['guantes gimnasio', /guante/], ['comba', /comba|cuerda de saltar|saltar/], ['rodillera', /rodillera/], ['rueda abdominal', /rueda|abdominal/], ['zapatillas running', /zapatilla/], ['mallas deporte mujer', /mallas|leggings/], ['bolsa deporte', /bolsa|mochila/], ['pelota', /pelota|balón|balon/]],
 };
-const EXCLUIR = /moto|motocicleta|coche|automóvil|automovil|repuesto|recambio|sexy|lencería|lenceria|halloween|réplica|replica/i;
+const EXCLUIR = /moto|motocicleta|coche|automóvil|automovil|repuesto|recambio|sexy|sexi|lencería|lenceria|halloween|réplica|replica/i;
 
 function firmar(params) {
   const base = Object.keys(params).sort().map((k) => k + params[k]).join('');
