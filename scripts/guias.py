@@ -142,7 +142,7 @@ def pagina(g, items):
 <p>En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables. El precio y la disponibilidad se consultan siempre en Amazon.es.</p>
 <p><a href="aviso-legal.html">Aviso legal, privacidad y cookies</a></p>
 </footer>
-<script src="./velans-assistence.js?v=5.0.1" defer></script>
+<script src="./velans-assistence.js?v=5.0.2" defer></script>
 </body>
 </html>
 """
