@@ -45,13 +45,33 @@ try {
   assert.ok(await page.evaluate(()=>window.VelansPublishedCatalog.products.length>20));
   assert.equal(files.filter(f=>f==='velans-assistence-engine.js'||f==='velans-assistence-dialogue.js').length,0);
   await page.locator('#vaBubble').click();await ready(page);
+  assert.doesNotMatch(await page.locator('#vaPanel').innerText(),/afiliad|comisi[oó]n/i);
+  assert.match(await page.locator('.affiliate-required').innerText(),/Afiliado de Amazon/);
+  assert.doesNotMatch((await send(page,'¿Es fiable esta web?')).text,/afiliad|comisi[oó]n/i);
+  assert.match((await send(page,'¿Velan’s recibe una comisión?')).text,/comisión|ingresos/i);
   for(const file of ['velans-assistence-engine.js','velans-assistence-dialogue.js','catalogo-completo.js'])assert.equal(files.filter(f=>f===file).length,1,file);
   const long=await send(page,'Paso la Navidad en un sitio frío, busco camisetas de manga larga');
   assert.ok(long.cards.length);assert.match(long.text,/Navidad/);
+  // Restore a real session from a previous widget version, including its old welcome text.
+  await page.evaluate(()=>{
+    const key='velans-assistence-v4';
+    const previous=JSON.parse(sessionStorage.getItem(key));
+    const notice=previous.log.find(e=>e.role==='sys'&&e.text.startsWith('Recuerdo esta conversación'));
+    notice.text+=' Velan’s puede recibir una comisión por compras a través de sus enlaces.';
+    sessionStorage.setItem(key,JSON.stringify(previous));
+  });
+  await page.reload();
+  await page.locator('#vaBubble').click();await ready(page);
+  const resumed=await session(page);
+  assert.ok(resumed.log.some(e=>e.role==='sys'&&e.text.includes('Borrar')));
+  assert.ok(!resumed.log.some(e=>e.role==='sys'&&/comisión|afiliad/i.test(e.text)));
+  assert.ok(resumed.log.some(e=>e.role==='a'&&/comisión|ingresos/i.test(e.text)));
+  assert.ok(resumed.log.some(e=>e.text===long.text));
   await send(page,'Pásame la ficha de la primera');
   assert.equal(await page.locator('#vaPanel a[href*="amazon"]').count(),0);
   await page.locator('#vaMsgs .vcard .pbtn').last().click();
   await page.waitForFunction(()=>new URLSearchParams(location.search).has('articulo')&&document.getElementById('vaPanel').hidden);
+  assert.match(await page.locator('.product-page-info').innerText(),/El enlace es de afiliado/);
   await page.locator('#vaBubble').click();await ready(page);
   const title=await page.locator('#product-page-title').textContent();
   assert.ok((await session(page)).log.at(-1).text.includes(title),title);
