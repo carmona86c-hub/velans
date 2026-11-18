@@ -44,3 +44,24 @@ test('un producto de Amazon con su nombre no confunde la tienda',()=>{
   const E=load(),s=E.newState();s.viewStore='Amazon';
   E.respond(s,'Amazon Fire TV Stick HD');assert.equal(s.store||null,null);
 });
+test('vocabulario: preguntas de «qué hay» con palabras de más no se quedan en blanco',()=>{
+  const E=load();
+  for(const q of ['quiero, ¿qué es lo que puedo comprar?','oye una pregunta, qué es lo que vendéis aquí?','que cosas tienes','quiero ver lo que hay','qué categorías hay','enséñame todo']){
+    const s=E.newState();s.viewStore='Amazon';const r=E.respond(s,q);
+    assert.match(r.text,/moda.*tecnología/i,q);assert.match(r.text,/Amazon y AliExpress/,q);
+  }
+});
+test('vocabulario: departamentos y peticiones con relleno encuentran productos',()=>{
+  const E=load();
+  for(const q of ['productos de belleza','quiero ver la categoría de moda','llévame a la sección de tecnología','algo para el gimnasio','me encantaría ver bolsos','oye pues mira quiero unas zapatillas blancas para mi hijo','unos cascos para jugar','hay algo de cocina que esté bien?','mira a ver si tienes algo de bricolaje']){
+    const s=E.newState();s.viewStore='Amazon';const r=E.respond(s,q);
+    assert.ok(r.cards.length,q+' → '+r.text);
+  }
+  const s=E.newState();s.viewStore='AliExpress';assert.equal(E.respond(s,'llévame a la sección de tecnología').navCategory,'Tecnología');
+});
+test('lo más vendido y las rebajas usan los datos reales de AliExpress',()=>{
+  const E=load(),s=E.newState();s.viewStore='Amazon';
+  const r=E.respond(s,'lo más vendido');assert.ok(r.cards.length);assert.ok(r.cards.every(c=>c.store==='AliExpress'));
+  const t=E.respond(E.newState(),'las mejores ofertas de moda');assert.ok(t.cards.every(c=>c.store==='AliExpress'));
+  const a=E.newState();E.respond(a,'solo amazon');const n=E.respond(a,'qué es lo más vendido');assert.equal(n.cards.length,0);assert.match(n.text,/AliExpress sí/);
+});

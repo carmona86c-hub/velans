@@ -512,7 +512,7 @@
   const storeAli=/\b(?:ali ?express?|ali ?expres+|aliexpre|aliexp|ali ?espres+|aliexprees|aliex|ali)\b/;
   const storeAmazon=/\b(?:amazon|amazom|amason|amazn|amazonn|amz)\b(?! (?:basics|essentials|fire|echo)\b)/;
   const storeBoth=/\b(?:las dos(?: tiendas)?|ambas(?: tiendas)?|cualquier(?:a)? tienda|da igual (?:la )?tienda|todas las tiendas|(?:amazon|ali\w*) y (?:amazon|ali\w*)|de las dos|en las dos|tambien en (?:amazon|ali\w*)|sin importar la tienda)\b/;
-  const storeGo=/\b(?:ir|ve|vete|vamos|llevame|lleva|abre|abreme|cambia(?:me)?|pasa(?:me)?|pon(?:me)?|muestrame|ensename|ensenam?e|quiero ver|ver)\b/;
+  const storeGo=/\b(?:ir|ve|vete|vamos|llevame|lleva|abre|abreme|cambia(?:me)?|pasa(?:me)?|pon(?:me)?|navega)\b/;
   const storeFiller=/\b(?:solo|solamente|unicamente|nada mas|productos?|articulos?|cosas|ofertas?|rebajas|de|del|en|desde|la|el|los|las|a|al|tienda|apartado|seccion|pagina|web|quiero|prefiero|busca(?:r|me|lo|las|los)?|mira(?:r|me)?|enseñar|mostrar|ensename|muestrame|ver|ir|ve|vete|vamos|llevame|lleva|abre|abreme|cambia(?:me)?|pasa(?:me)?|pon(?:me)?|por favor|porfa|ahora|mejor|y|ademas|tambien|que sean|que sea|me|te|lo|recuerda(?:lo)?|siempre|todo|tambien|las dos|ambas|cualquier(?:a)?|da igual|todas|sin importar)\b/g;
   function storeIntent(raw){
     const text=words(raw);
@@ -529,6 +529,32 @@
     return {set,clean:leftover?clean:'',only:!leftover,go:storeGo.test(text)};
   }
   const storeLabel=s=>s==='AliExpress'?'AliExpress':s==='Amazon'?'Amazon':'Amazon y AliExpress';
+
+  // ---- Vocabulario amplio: saludos y relleno, preguntas de «qué hay», departamentos, lo más vendido y ofertas ----
+  const fillerWords=/\b(?:hola|buenas|buenos dias|buenas tardes|buenas noches|oye|oiga|mira|pues|vale|venga|bueno|a ver|eh|ey|porfa|por favor|please|gracias|quiero|quisiera|queria|me gustaria|me gusta|necesito|busco|buscando|estoy buscando|ando buscando|me interesa|me interesan|podrias|puedes|podeis|me puedes|me podrias|ensename|ensenam?e|muestrame|dime|dame|pasame|quiero ver|ver|mirar|echar un vistazo|un vistazo|algo|alguna|algunas|alguno|algunos|unos|unas|un|una|el|la|los|las|lo|de|del|en|para|por|con|que|me|te|mi|y|o|tambien|tipo|cosa|cosas|productos?|articulos?|categoria|seccion|apartado|departamento|zona|parte|tienda|web|pagina|aqui|ahi|ahora|hoy|rollo|en plan|o algo asi|algo asi|tal|cual|tienes|teneis|tienen|hay)\b/g;
+  const deptWords=[
+    ['Moda',/\b(?:moda|ropa|vestir|prendas?)\b/],
+    ['Tecnología',/\b(?:tecnologia|tecno|electronica|gadgets?|cacharros)\b/],
+    ['Hogar',/\b(?:hogar|decoracion)\b/],
+    ['Belleza',/\b(?:belleza|cosmetica|cosmeticos|maquillaje|cuidado personal|perfumeria)\b/],
+    ['Deportes',/\b(?:deportes?|deportivo|gimnasio|gym|fitness|entrenar|entrenamiento)\b/],
+    ['Infantil',/\b(?:infantil|bebes?|crianza)\b/],
+    ['Bricolaje',/\b(?:bricolaje|ferreteria)\b/],
+    ['Mascotas',/\b(?:mascotas?|animales)\b/],
+    ['Automoción',/\b(?:automocion|motor)\b/],
+    ['Oficina',/\b(?:oficina|papeleria)\b/],
+    ['Alimentación',/\b(?:alimentacion|comida|alimentos)\b/]
+  ];
+  const deptGo=/\b(?:llevame|lleva|ve|vete|ir|vamos|abre|abreme|pasa(?:me)?|cambia(?:me)?|navega)\b/;
+  const askCatalogue=/^(?:(?:que|cuales?) (?:es lo que |son las |son los )?(?:cosas |productos |articulos |tipo de (?:cosas|productos|articulos) |clase de (?:cosas|productos) |categorias |secciones |departamentos |marcas )?(?:se )?(?:puedo|podria|podemos|puede|pueden|hay|teneis|tienes|tienen|vendeis|vendes|venden|vende|ofreceis|ofreces|ofrecen|ofrece|encuentro|hay a la venta)\b|(?:que|cuales) (?:categorias|secciones|departamentos)\b|(?:saber|conocer|ver) (?:lo que|que|todo lo que) (?:hay|teneis|tienes|vendeis|vendes|ofreceis|ofreces)\b|(?:lo que|todo lo que) (?:hay|teneis|tienes|vendeis|vendes)\b|(?:que|q) (?:me )?(?:ofreces|ofreceis|vendes|vendeis)\b)/;
+  const bestRx=/\b(?:(?:lo |los |las )?mas vendid\w*|lo que mas se vende|lo que mas vende\w*|top ventas|mas populares?|mas exitos?o?s?|superventas|best ?sellers?|lo mas top|mas comprad\w*)\b/;
+  const offerRx=/\b(?:ofertas?|rebaj\w*|descuentos?|chollos?|gangas?|promociones?|promos?|black friday|en oferta)\b/;
+  const softFiller=/\b(?:me (?:encantaria|gustaria|apeteceria|apetece|interesaria|vendria bien|haria falta)(?: (?:ver|tener|comprar|mirar|encontrar|echar un ojo a))?|quisiera(?: ver)?|querria(?: ver)?|estaria bien|si puede ser|si es posible|si puedes|por favor|porfa|porfavor|gracias|muchas gracias|a ver si (?:tienes|teneis|hay)|una pregunta|pregunta|perdona|disculpa|oye|oiga|mira|pues|vale|venga|bueno|hola|buenas|vosotros|ustedes|exactamente|entonces|en general|basicamente)\b/g;
+  const leadFill=/^(?:(?:hola|buenas|oye|oiga|mira|pues|nada|vale|venga|bueno|a ver|eh|ey|que tal|como estas|quiero|quisiera|queria|una pregunta|pregunta|perdona|disculpa)[ ,!]+)+/;
+  const askTail=/(?:^|\by )?\bque (?:es lo que |son las cosas que |cosas |productos |articulos )?(?:teneis|tienes|tienen|vendeis|vendes|venden|hay|ofreceis|ofreces|ofrecen|se vende|se puede comprar|puedo comprar)(?: (?:por )?(?:aqui|ahi|en la web|en la tienda|en la pagina|en velan'?s))?$/;
+  const numberIn=(text,rx)=>{const m=rx.exec(text||'');return m?Number(String(m[1]).replace(/[.\s]/g,'')):0;};
+  const soldOf=p=>numberIn(p.summary,/([\d.]+) vendidos/);
+  const offOf=p=>numberIn(p.summary,/(\d+) % de descuento/);
 
   function createDialogue(base,{now=()=>new Date()}={}) {
     let source=null,rows=[],byId=new Map(),models=new Map(),names=new Map(),titleTokens=new Map(),families=new Set();
@@ -577,7 +603,7 @@
       const categories=listES.format(present.slice(0,5).map(d=>d[1]));
       const more=listES.format(present.slice(5).map(d=>d[1]));
       const offer=categories?' En el catálogo encontrarás '+categories+'.'+(more?' También hay '+more+'.':''):' Puedes explorar los artículos de la selección.';
-      return answer('Velan’s reúne una selección de productos y guías para ayudarte a elegir.'+offer+' Aquí puedes explorar y comparar fichas. La compra se completa en Amazon. ¿Qué categoría te interesa?',present.slice(0,4).map(d=>d[2]));
+      return answer('Velan’s reúne una selección de productos y guías para ayudarte a elegir.'+offer+' Aquí puedes explorar y comparar fichas de productos de dos tiendas, Amazon y AliExpress (puedes pedirme solo una de ellas). La compra se completa en la tienda de cada producto. ¿Qué categoría te interesa?',present.slice(0,4).map(d=>d[2]));
     }
     function article(state,product) {
       state.focusId=product.id;
@@ -588,7 +614,17 @@
       const d=state.dialogue;
       if(more)c.rejected=[...new Set([...c.rejected,...(state.lastRecs||[])])].slice(-75);
       d.search=c;
-      const matches=ranked(rows,c,base);
+      let matches=ranked(rows,c,base),relaxedNote='';
+      if(!matches.length&&c.kind){
+        // No se queda en blanco: si los filtros dejan cero, se enseñan los más parecidos del mismo tipo.
+        // Solo se relajan rasgos «blandos» (color, estilo, uso, público); talla, material, conexión o capacidad nunca.
+        const softKeys=/^(?:color:|gaming$|formal$|loose$|sport$|running$|casual$|elegant$|warm$|summer$|winter$)/;
+        const hard=Object.fromEntries(Object.entries(c.features||{}).filter(([k])=>!softKeys.test(k)));
+        const loose={...c,features:hard,anyColors:false};
+        let alt=Object.keys(hard).length===Object.keys(c.features||{}).length&&!c.audience?[]:ranked(rows,loose,base);
+        if(!alt.length&&c.audience){alt=ranked(rows,{...loose,audience:null},base);}
+        if(alt.length){matches=alt;relaxedNote=`No tengo ${describe(c,base)} exactamente; te enseño lo más parecido. `;}
+      }
       if(!matches.length){
         state.lastRecs=[];state.focusId=null;
         const offer=c.kind==='ornaments'?['Ver árboles de Navidad','Decorar la mesa']:
@@ -605,11 +641,11 @@
       d.pageCount++;
       const person=state.recipientContext?.label;
       const purpose=c.occasion&&eventById[c.occasion]?' para '+eventById[c.occasion]+(person&&c.occasion==='birthday'?' de tu '+person:''):'';
-      const text=`${shown.length===1?'Hay una coincidencia':intro} en Velan’s${purpose}. Buscabas ${phrase}.`+budgetNote(state.budget);
+      const text=relaxedNote?relaxedNote+budgetNote(state.budget).trim():`${shown.length===1?'Hay una coincidencia':intro} en Velan’s${purpose}. Buscabas ${phrase}.`+budgetNote(state.budget);
       let quick=['Háblame del primero'];
       if(shown.length>1)quick.push('Compara los dos primeros');
       if(matches.length>3)quick.push('Enséñame otros');
-      return answer(text,quick,shown.map(r=>internalCard(base,r.p,`Coincide con ${phrase}.`)));
+      return answer(text,quick,shown.map(r=>internalCard(base,r.p,relaxedNote?'Lo más parecido que tengo.':`Coincide con ${phrase}.`)));
     }
     function compare(state,products){
       if(products.length<2)return answer('¿Qué dos artículos quieres comparar? Puedes elegir dos de la última lista o abrir sus fichas.');
@@ -761,7 +797,7 @@
       const introAndCheckout=/^(.+?) (?:y|tambien) (?=(?:como|donde|quien)\b)(.+)$/.exec(text);
       if(introAndCheckout&&[shopQualifier,shopIntroduction,shopGeneral].some(pattern=>pattern.test(introAndCheckout[1].replace(/,$/,'')))&&purchase.test(introAndCheckout[2])){
         const reply=overview();
-        reply.text=reply.text.replace('La compra se completa en Amazon.',commercialCopy);
+        reply.text=reply.text.replace('La compra se completa en la tienda de cada producto.','La compra se completa en la tienda de cada producto. '+commercialCopy.replace('El pago se realiza en Amazon.','En los de Amazon, el pago se realiza en Amazon.').replace('En los de Amazon, el pago','El pago')+' En los de AliExpress, se paga en AliExpress.');
         return reply;
       }
       if(/^(?:que (?:presupuesto|tope|limite|importe) (?:te )?(?:dije|puse|marque|tengo)|cuanto (?:te dije|dije que podia gastar)|cual era (?:mi|el) (?:presupuesto|tope|limite))$/.test(text)){
@@ -945,8 +981,70 @@
       if(/^(?:quiero |ver )?productos relacionados$/.test(text))return answer('¿En qué tipo de artículo te gustaría aplicar la guía?',themes.open);
       return null;
     }
+    function cardsFrom(list,reason){return list.slice(0,3).map(row=>internalCard(base,row.p,reason(row.p)));}
+    // Devuelve una respuesta, false (= seguir con el texto canónico en state.__canonical) o null (= flujo normal).
+    function preRoute(state,raw,scope){
+      index();
+      state.__canonical=null;
+      let text=words(raw).replace(leadFill,'').replace(/[.,]+/g,' ').replace(/\s+/g,' ').trim();
+      if(!text)return null;
+      if(/\b(?:pag\w*|envios?|pedidos?|devoluc\w*|garantia|factura|como (?:se )?compr\w*|cobr\w*)\b/.test(text))return null; // pago y pedidos: los resuelve el flujo de siempre
+      const kind=kindFrom(text,base);
+      const dept=deptWords.find(([,rx])=>rx.test(text));
+      // 1) Lo más vendido / ofertas: con datos reales de AliExpress.
+      if(bestRx.test(text)||(offerRx.test(text)&&(!kind||kind.startsWith('family:')||dept))){
+        const best=bestRx.test(text);
+        const label=best?'lo más vendido':'las mayores rebajas';
+        // Sin tienda elegida por el cliente, se usan los datos reales de AliExpress aunque esté viendo Amazon.
+        if(!state.store&&scope==='Amazon'&&base.setStoreScope){base.setStoreScope(null);index();}
+        let pool=rows.filter(r=>r.p.store==='AliExpress'&&(!dept||r.p.family===dept[0]));
+        if(kind&&!kind.startsWith('family:'))pool=pool.filter(r=>typeMatch(r,kind,base));
+        if(kind&&kind.startsWith('family:')&&!dept)pool=pool.filter(r=>r.p.family===kind.slice(7));
+        if(!pool.length){
+          if(scope==='Amazon'||!rows.some(r=>r.p.store==='AliExpress'))return answer(`De los productos de Amazon no tenemos datos propios de ventas ni de ofertas: el precio y las promociones los marca Amazon en cada ficha.${rows.length?' En AliExpress sí tengo esos datos. ¿Quieres verlos?':''}`,[best?'Lo más vendido en AliExpress':'Rebajas de AliExpress','Ver tecnología','Quiero un regalo']);
+          return answer(`Ahora no tengo ${label} de esa categoría. ¿Miramos otra?`,['Lo más vendido','Ver moda','Ver tecnología']);
+        }
+        pool=[...pool].sort((a,b)=>best?(soldOf(b.p)-soldOf(a.p))||(offOf(b.p)-offOf(a.p)):(offOf(b.p)-offOf(a.p))||(soldOf(b.p)-soldOf(a.p)));
+        state.lastRecs=pool.slice(0,3).map(r=>r.p.id);state.focusId=state.lastRecs[0];
+        const where=dept?` de ${dept[0]==='Hogar'?'hogar y cocina':dept[0].toLowerCase()}`:'';
+        const note=scope==='Amazon'&&!state.store?'De los productos de Amazon no tenemos datos de ventas ni ofertas propios; ':'';
+        const lead=best?`sto es lo más vendido${where} en AliExpress`:`stas son las mayores rebajas${where} en AliExpress`;
+        return answer(`${note}${note?'e':'E'}${lead} ahora mismo (datos de AliExpress, se actualizan cada día):`,
+          ['Enséñame otros','Compara los dos primeros',best?'Rebajas de AliExpress':'Lo más vendido'],
+          cardsFrom(pool,p=>best?`${soldOf(p).toLocaleString('es-ES')} vendidos · −${offOf(p)} %`:`−${offOf(p)} % · ${soldOf(p).toLocaleString('es-ES')} vendidos`));
+      }
+      // 2) «¿Qué puedo comprar?», «qué tenéis», «qué categorías hay»… con palabras de más.
+      if(/^(?:ensename|muestrame|ver|dame|quiero ver|ensename|ensenam?e) (?:todo|todos los productos|todo el catalogo|el catalogo|todo lo que hay|todo lo que teneis|todo lo que tienes)$/.test(text))return overview();
+      if(!kind&&!dept&&askTail.test(text.replace(softFiller,' ').replace(/\s+/g,' ').trim()))return overview();
+      if(askCatalogue.test(text)&&!(kind&&!kind.startsWith('family:'))&&!dept)return overview();
+      const bare=text.replace(fillerWords,' ').replace(/\s+/g,' ').trim();
+      if(!bare&&/\b(?:puedo|hay|teneis|tienes|vendeis|vendes|ofreces|ofreceis|comprar)\b/.test(text))return overview();
+      // 3) Departamentos con palabras de más: «productos de belleza», «llévame a la sección de tecnología», «algo para el gimnasio».
+      if(dept){
+        const rest=bare.replace(dept[1],' ').replace(new RegExp(deptGo.source,'g'),' ').replace(/\b(?:a|al|ir)\b/g,' ').replace(/\s+/g,' ').trim();
+        if(!rest||/^(?:y|o)$/.test(rest)){
+          const key=fold(dept[0]);
+          state.__canonical='ver '+(key==='hogar'?'hogar':key==='automocion'?'automocion':key);
+          if(deptGo.test(text)){
+            const reply=respondCanonical(state,state.__canonical);
+            if(reply){reply.navCategory=dept[0];reply.text='Te llevo a '+(dept[0]==='Hogar'?'Hogar y cocina':dept[0])+'. '+reply.text;}
+            return reply||false;
+          }
+          return false;
+        }
+      }
+      // 4) Cortesías y verbos de deseo que no son parte del producto: «me encantaría ver bolsos» → «bolsos».
+      const soft=text.replace(softFiller,' ').replace(/\s+/g,' ').trim();
+      if(soft&&soft!==text){state.__canonical=soft;return false;}
+      return null;
+    }
+    function respondCanonical(state,text){
+      const reply=route(state,text)||base.respond(state,text);
+      return reply&&reply.cards?.length?reply:null;
+    }
     function respond(state,raw){
       let input=String(raw||'').trim().slice(0,600);
+      const initialTurnsPre=state.turns;
       if(base.detectSensitive(input).length)return base.respond(state,input);
       // Tienda elegida por el cliente (se recuerda) o, si no ha elegido, la tienda que está viendo.
       const si=storeIntent(input);
@@ -969,6 +1067,17 @@
         return reply;
       }
       if(si.set&&si.clean)input=si.clean;
+      const pre=preRoute(state,input,scope);
+      if(pre){
+        if(state.turns===undefined||state.turns===initialTurnsPre)state.turns=(state.turns||0)+1;
+        if(changed&&state.store)pre.text=`Vale, te enseño solo productos de ${storeLabel(state.store)} (lo recordaré). `+pre.text;
+        if(switchTo&&si.go)pre.storeSwitch=switchTo;
+        pre.cards=(pre.cards||[]).map(c=>({...c,store:byId.get(c.id)?.p.store||'Amazon'}));
+        pre.quick=[...new Set(pre.quick||[])].slice(0,4);
+        if(pre.cards.length)state.lastQuery=input;
+        return pre;
+      }
+      if(pre===false)input=state.__canonical||input;
       const initialTurns=state.turns;
       let reply=route(state,input);
       if(!reply){
@@ -982,6 +1091,18 @@
         if(reply.cards?.length&&state.dialogue && !/enlace|compar|hablame|explicame|detalle/.test(words(input))){
           if(state.dialogue.search)state.dialogue.previous=state.dialogue.search;
           state.dialogue.search=null;
+        }
+      }
+      if(!reply.cards?.length&&/^(?:no estoy seguro de haberte entendido|no encuentro una)/i.test(reply.text)){
+        const dept=deptWords.find(([,rx])=>rx.test(words(input)));
+        if(dept){const alt=respondCanonical(state,'ver '+fold(dept[0]));if(alt)reply=alt;}
+      }
+      if(!reply.cards?.length&&/^(?:no estoy seguro de haberte entendido|no encuentro una coincidencia)/i.test(reply.text)){
+        // Palabras de más: se quitan las de relleno y se intenta otra vez con lo esencial.
+        const essential=words(input).replace(fillerWords,' ').replace(/\s+/g,' ').trim();
+        if(essential&&essential!==words(input)){
+          const retry=route(state,essential)||base.respond(state,essential);
+          if(retry&&retry.cards?.length&&!/^(?:no estoy seguro|no encuentro)/i.test(retry.text))reply=retry;
         }
       }
       if(state.turns===initialTurns)state.turns++;
