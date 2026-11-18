@@ -44,7 +44,7 @@ async function query(keywords, page) {
 const num = (x) => Number(String(x ?? '').replace(/[^0-9.]/g, '')) || 0;
 const segura = (u, hosts) => { try { const x = new URL(u); return x.protocol === 'https:' && hosts.some((h) => x.hostname === h || x.hostname.endsWith('.' + h)) ? x.href : null; } catch { return null; } };
 
-const salida = []; const vistos = new Set();
+const salida = []; const vistos = new Set(); const todos = [];
 for (const [cat, palabras] of Object.entries(CATEGORIAS)) {
   const candidatos = [];
   for (const [kw, exige] of palabras) {
@@ -66,6 +66,7 @@ for (const [cat, palabras] of Object.entries(CATEGORIAS)) {
       await new Promise((s) => setTimeout(s, 400));
     }
   }
+  todos.push(...candidatos);
   candidatos.sort((a, b) => b.descuento - a.descuento || b.ventas - a.ventas);
   const porBusqueda = {}; let n = 0;
   for (const c of candidatos) {                         // variedad: máx. 3 por búsqueda
@@ -74,8 +75,26 @@ for (const [cat, palabras] of Object.entries(CATEGORIAS)) {
   }
   console.log(`${cat}: ${candidatos.length} candidatos → ${n} elegidos`);
 }
+// Destacados: los más vendidos con buen descuento. Puntuación del MISMO producto:
+// 70 % ventas (dominante, en escala logarítmica) + 30 % descuento.
+export function puntuar(lista) {
+  const lv = lista.map((p) => Math.log10(1 + p.ventas)); const ds = lista.map((p) => p.descuento);
+  const n = (x, a) => { const mn = Math.min(...a), mx = Math.max(...a); return mx > mn ? (x - mn) / (mx - mn) : 0; };
+  return lista.map((p, i) => ({ ...p, puntuacion: Math.round((0.7 * n(lv[i], lv) + 0.3 * n(ds[i], ds)) * 1000) / 1000 }));
+}
+const unicos = [...new Map(todos.map((p) => [p.id, p])).values()];
+const puntuados = puntuar(unicos).sort((a, b) => b.puntuacion - a.puntuacion);
+const destacados = { Todas: [] };
+const porCat = {};
+for (const p of puntuados) {
+  const { busqueda, ...q } = p;
+  if (destacados.Todas.length < 12 && (porCat[p.categoria] || 0) < 4) { destacados.Todas.push(q); porCat[p.categoria] = (porCat[p.categoria] || 0) + 1; }
+  destacados[p.categoria] = destacados[p.categoria] || [];
+  if (destacados[p.categoria].length < 10) destacados[p.categoria].push(q);
+}
+console.log('Destacados (más vendidos + descuento):\n' + destacados.Todas.map((p) => `- ${p.puntuacion} · ${p.ventas} vendidos · −${p.descuento}% · ${p.nombre.slice(0, 50)}`).join('\n'));
 const fecha = new Date().toISOString().slice(0, 10);
-fs.writeFileSync('aliexpress-productos.js', `/* Productos de AliExpress (API oficial de afiliados, tracking velans-21). Actualizado: ${fecha}. Precios orientativos: pueden cambiar en AliExpress. */\nwindow.VELANS_ALIEXPRESS = ${JSON.stringify({ actualizado: fecha, productos: salida }, null, 1)};\n`);
+fs.writeFileSync('aliexpress-productos.js', `/* Productos de AliExpress (API oficial de afiliados, tracking velans-21). Actualizado: ${fecha}. Precios orientativos: pueden cambiar en AliExpress. */\nwindow.VELANS_ALIEXPRESS = ${JSON.stringify({ actualizado: fecha, productos: salida.map(({ busqueda, ...q }) => q), destacados }, null, 1)};\n`);
 const res = salida.map((p) => `- [${p.categoria}] −${p.descuento}% · ${p.precio} € (antes ${p.precioAntes} €) · ★${p.valoracion}% · ${p.ventas} vendidos · ${p.nombre.slice(0, 60)}`).join('\n');
 console.log(res);
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Selección AliExpress (${salida.length})\n\n${res}\n`);

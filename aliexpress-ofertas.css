@@ -57,3 +57,15 @@ body[data-tienda="aliexpress"] .department-nav .ae-oculta,
 body[data-tienda="aliexpress"] #nav-filter-toggle,body[data-tienda="aliexpress"] #nav-new,
 body[data-tienda="aliexpress"] .mobile-filter-strip,body[data-tienda="aliexpress"] .nav-filter-panel{display:none!important}
 .ae-tabs[hidden]{display:none!important}
+
+/* Destacados de AliExpress: los más vendidos (tira horizontal, como en Amazon) */
+.ae-top{margin:6px 0 26px}
+.ae-top-head h3{margin:4px 0 4px;font:500 clamp(22px,2.6vw,28px)/1.15 Georgia,serif;color:var(--ink,#f4f1ee)}
+.ae-top-head p{margin:0 0 12px;color:var(--subtle,#aca3a1);font-size:13px}
+.ae-top-list{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:thin}
+.ae-top-card{flex:0 0 200px;scroll-snap-align:start;background:#fff;border:1px solid #ebe4dc;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.ae-top-card .ae-body h3{-webkit-line-clamp:2}
+.ae-sold{font:700 11px/1 Inter,system-ui,sans-serif;color:#2f7a4f;letter-spacing:.02em}
+.ae-grid-title{margin:0 0 12px;font:500 22px/1.2 Georgia,serif;color:var(--ink,#f4f1ee)}
+.ae-top[hidden]{display:none}
+@media(max-width:560px){.ae-top-card{flex-basis:160px}.ae-top-card .ae-price strong{font-size:16px}}
