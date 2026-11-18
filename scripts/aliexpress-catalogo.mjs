@@ -26,9 +26,9 @@ function firmar(params) {
   const base = Object.keys(params).sort().map((k) => k + params[k]).join('');
   return crypto.createHmac('sha256', SECRET).update(base, 'utf8').digest('hex').toUpperCase();
 }
-async function query(keywords, page) {
+async function query(keywords, page, sort = 'LAST_VOLUME_DESC') {
   const params = { app_key: KEY, method: 'aliexpress.affiliate.product.query', sign_method: 'sha256', timestamp: String(Date.now()), format: 'json', v: '2.0',
-    keywords, page_no: String(page), page_size: '50', sort: 'LAST_VOLUME_DESC', target_currency: 'EUR', target_language: 'ES', ship_to_country: 'ES', tracking_id: TRACK,
+    keywords, page_no: String(page), page_size: '50', sort, target_currency: 'EUR', target_language: 'ES', ship_to_country: 'ES', tracking_id: TRACK,
     fields: 'product_id,product_title,product_main_image_url,target_sale_price,target_original_price,discount,evaluate_rate,lastest_volume,promotion_link,first_level_category_name' };
   params.sign = firmar(params);
   for (let intento = 0; intento < 3; intento++) {
@@ -127,8 +127,51 @@ for (const p of [...amplios.values()].sort((a, b) => b.ventas - a.ventas)) {
   if (masVendidos.some((q) => parecidos(f, q._f))) continue;   // mismo artículo de otra tienda
   masVendidos.push({ ...p, _f: f });
 }
+// Regla permanente: de cada artículo más vendido se muestra la oferta MÁS BARATA de ese mismo
+// artículo en AliExpress (otras tiendas que lo venden). Se compara con todo lo ya consultado y
+// con una búsqueda extra por su nombre ordenada de más barato a más caro. Solo cuentan tiendas
+// fiables (valoración ≥ 85 % y ≥ 20 vendidos) para no llevar al cliente a una oferta dudosa.
+export function elegirMasBarato(top, candidatos) {
+  const f = fichas(top.nombre);
+  const validos = candidatos.filter((c) => c.precio > 0 && (c.id === top.id || (c.valoracion >= 85 && c.ventas >= 20 && parecidos(f, fichas(c.nombre)))));
+  const mejor = validos.reduce((m, c) => (c.precio < m.precio || (c.precio === m.precio && c.ventas > m.ventas) ? c : m), top);
+  return { ...mejor, categoria: top.categoria, ventasTop: top.ventas, tiendasComparadas: new Set(validos.map((c) => c.id)).size };
+}
+const aFicha = (p) => {
+  const precio = num(p.target_sale_price), antes = num(p.target_original_price), titulo = String(p.product_title || '').replace(/\s+/g, ' ').trim();
+  const img = segura(p.product_main_image_url, ['alicdn.com', 'aliexpress-media.com']), link = segura(p.promotion_link, ['s.click.aliexpress.com']);
+  if (!img || !link || !precio || !titulo || NO_TOP.test(titulo)) return null;
+  const conAntes = antes > precio ? antes : precio;
+  return { id: 'ae-' + p.product_id, tienda: 'AliExpress', categoria: 'Más vendidos', nombre: titulo.slice(0, 140), imagen: img, precio, precioAntes: conAntes,
+    descuento: conAntes > precio ? Math.round((1 - precio / conAntes) * 100) : 0, valoracion: num(p.evaluate_rate), ventas: Number(p.lastest_volume || 0), enlace: link };
+};
+const yaVistos = [...amplios.values()];
+for (let i = 0; i < masVendidos.length; i++) {
+  const top = masVendidos[i];
+  const kw = [...top._f].slice(0, 6).join(' ');
+  const extra = (await query(kw, 1, 'SALE_PRICE_ASC')).map(aFicha).filter(Boolean);
+  await new Promise((s) => setTimeout(s, 350));
+  const { _f, ...limpio } = elegirMasBarato(top, [...yaVistos, ...extra]);
+  if (limpio.id !== top.id) console.log(`Más barato: ${top.precio} € → ${limpio.precio} € · ${top.nombre.slice(0, 50)}`);
+  masVendidos[i] = limpio;
+}
 masVendidos.forEach((p) => delete p._f);
-console.log(`Lo más vendido: ${amplios.size} candidatos → ${masVendidos.length} sin repetir`);
+console.log(`Lo más vendido: ${amplios.size} candidatos → ${masVendidos.length} sin repetir (precio más bajo de cada artículo)`);
+// Resto de la web (ofertas por categoría y destacados): si el mismo artículo está más barato en
+// otra tienda fiable con descuento real, se muestra esa oferta. Sin repetir artículos.
+const conRebaja = [...todos.map(({ busqueda, ...q }) => q), ...yaVistos].filter((c) => c.precioAntes > c.precio && c.valoracion >= 90 && c.ventas >= 30);
+function abaratar(lista) {
+  const usados = new Set(lista.map((p) => p.id)); let cambios = 0;
+  const nueva = lista.map((p) => {
+    const { busqueda, ...q } = p; const r = elegirMasBarato(q, conRebaja);
+    if (r.id === q.id || usados.has(r.id) || r.precio >= q.precio) return p;
+    usados.add(r.id); cambios++; console.log(`[${q.categoria}] ${q.precio} € → ${r.precio} € · ${q.nombre.slice(0, 50)}`);
+    return busqueda ? { ...r, busqueda } : r;
+  });
+  return { nueva, cambios };
+}
+{ const r = abaratar(salida); salida.splice(0, salida.length, ...r.nueva); console.log(`Ofertas abaratadas: ${r.cambios}`); }
+for (const k of Object.keys(destacados)) destacados[k] = abaratar(destacados[k]).nueva;
 masVendidos.forEach((p, i) => console.log(`${i + 1}. ${p.ventas} · ${p.precio} € · ${p.nombre.slice(0, 70)}`));
 const fecha = new Date().toISOString().slice(0, 10);
 fs.writeFileSync('aliexpress-productos.js', `/* Productos de AliExpress (API oficial de afiliados, tracking velans-21). Actualizado: ${fecha}. Precios orientativos: pueden cambiar en AliExpress. */\nwindow.VELANS_ALIEXPRESS = ${JSON.stringify({ actualizado: fecha, productos: salida.map(({ busqueda, ...q }) => q), destacados, masVendidos }, null, 1)};\n`);
