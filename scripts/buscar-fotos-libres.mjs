@@ -38,6 +38,16 @@ export function consulta(nombre) {
   return { q, util: tieneMarca, tokens: utiles.map(normal).filter(t => t.length >= 2) };
 }
 
+/** Segunda consulta: las palabras de búsqueda del enlace de Amazon (suelen llevar el modelo exacto). */
+export function consultaAmazon(enlace) {
+  try {
+    const k = new URL(enlace).searchParams.get('k');
+    if (!k) return null;
+    const c = consulta(k);
+    return c.util ? c : null;
+  } catch { return null; }
+}
+
 /** Licencias aceptadas para uso comercial con atribución. Rechaza NC y ND. */
 export function licenciaValida(lic) {
   const l = String(lic || '').toLowerCase();
@@ -115,6 +125,42 @@ export async function buscarOpenBeautyFacts(q, tokens) {
   })).filter(c => c.parecido >= 0.5).sort((a, b) => b.parecido - a.parecido).slice(0, 2);
 }
 
+const LIC_OV = { 'cc0': 'CC0', 'pdm': 'Public domain', 'by': 'CC BY', 'by-sa': 'CC BY-SA' };
+let openverseActivo = true;
+export async function buscarOpenverse(q, tokens) {
+  if (!openverseActivo) return [];
+  const r = await fetch('https://api.openverse.org/v1/images/?' + new URLSearchParams({ q, license_type: 'commercial', page_size: '10', mature: 'false' }), { headers: { 'User-Agent': UA, Accept: 'application/json' } }).catch(() => null);
+  if (!r) return [];
+  if (r.status === 429) { openverseActivo = false; console.log('Openverse: límite alcanzado, se sigue sin Openverse.'); return []; }
+  if (!r.ok) return [];
+  const j = await r.json().catch(() => null);
+  return ((j && j.results) || []).map(x => ({
+    fuente: 'Openverse (' + (x.source || x.provider || 'CC') + ')',
+    titulo: x.title || '', pagina: x.foreign_landing_url || x.url, imagen: x.thumbnail || x.url, original: x.url,
+    autor: x.creator || 'Autor desconocido',
+    licencia: LIC_OV[x.license] ? (LIC_OV[x.license] + (x.license_version && /^by/.test(x.license) ? ' ' + x.license_version : '')).trim() : String(x.license || '').toUpperCase(),
+    licenciaUrl: x.license_url || '',
+    parecido: coincidencia(tokens, (x.title || '') + ' ' + ((x.tags || []).map(t => t.name).join(' '))),
+  })).filter(c => licenciaValida(c.licencia) && c.parecido >= 0.5).sort((a, b) => b.parecido - a.parecido).slice(0, 3);
+}
+
+export async function buscarOpenProductsFacts(q, tokens) {
+  const url = 'https://world.openproductsfacts.org/cgi/search.pl?' + new URLSearchParams({
+    search_terms: q, search_simple: '1', action: 'process', json: '1', page_size: '5',
+    fields: 'code,product_name,brands,image_front_url,url',
+  });
+  const j = await getJSON(url);
+  return ((j && j.products) || []).filter(p => p.image_front_url).map(p => ({
+    fuente: 'Open Products Facts',
+    titulo: [p.brands, p.product_name].filter(Boolean).join(' — '),
+    pagina: p.url || `https://world.openproductsfacts.org/product/${p.code}`,
+    imagen: p.image_front_url, original: p.image_front_url,
+    autor: 'Colaboradores de Open Products Facts', licencia: 'CC BY-SA 3.0',
+    licenciaUrl: 'https://creativecommons.org/licenses/by-sa/3.0/deed.es',
+    parecido: coincidencia(tokens, `${p.brands} ${p.product_name}`),
+  })).filter(c => c.parecido >= 0.5).sort((a, b) => b.parecido - a.parecido).slice(0, 2);
+}
+
 // ---------- programa ----------
 function cargarCatalogo() {
   const ctx = { window: {} }; vm.createContext(ctx);
@@ -131,12 +177,20 @@ async function main() {
   const salida = [];
   let conFoto = 0, buscados = 0;
   for (const p of productos) {
-    const c = consulta(p.name);
-    const fila = { id: p.id, nombre: p.name, seccion: p.category, consulta: c.q, buscado: c.util, candidatas: [] };
-    if (c.util) {
+    const c = consulta(p.name), ca = consultaAmazon(p.affiliateUrl);
+    const consultas = [c, ca].filter(x => x && x.util).filter((x, i, a) => a.findIndex(y => normal(y.q) === normal(x.q)) === i);
+    const fila = { id: p.id, nombre: p.name, seccion: p.category, consulta: consultas.map(x => x.q).join(' | '), buscado: consultas.length > 0, candidatas: [] };
+    const vistas = new Set(), anadir = l => { for (const x of l) if (!vistas.has(x.imagen)) { vistas.add(x.imagen); fila.candidatas.push(x); } };
+    if (consultas.length) {
       buscados++;
-      if (p.category === 'Belleza') { fila.candidatas.push(...await buscarOpenBeautyFacts(c.q, c.tokens)); await pausa(PAUSA_MS); }
-      fila.candidatas.push(...await buscarCommons(c.q, c.tokens)); await pausa(PAUSA_MS);
+      for (const q of consultas) {
+        if (p.category === 'Belleza') { anadir(await buscarOpenBeautyFacts(q.q, q.tokens)); await pausa(PAUSA_MS); }
+        else { anadir(await buscarOpenProductsFacts(q.q, q.tokens)); await pausa(PAUSA_MS); }
+        anadir(await buscarCommons(q.q, q.tokens)); await pausa(PAUSA_MS);
+      }
+      // Openverse (Flickr y otros bancos con licencia libre): una consulta por producto, la más detallada.
+      const qo = consultas[consultas.length - 1]; anadir(await buscarOpenverse(qo.q, qo.tokens)); await pausa(PAUSA_MS);
+      fila.candidatas.sort((a, b) => b.parecido - a.parecido); fila.candidatas.splice(6);
     }
     if (fila.candidatas.length) conFoto++;
     salida.push(fila);

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { consulta, licenciaValida, coincidencia, sinHtml } from '../scripts/buscar-fotos-libres.mjs';
+import { consulta, consultaAmazon, licenciaValida, coincidencia, sinHtml } from '../scripts/buscar-fotos-libres.mjs';
 
 test('licencias: solo las que permiten uso comercial', () => {
   for (const ok of ['CC0', 'Public domain', 'CC BY 4.0', 'CC BY-SA 4.0', 'CC BY-SA 3.0', 'CC BY 2.0']) assert.ok(licenciaValida(ok), ok);
@@ -18,4 +18,8 @@ test('parecido y limpieza de HTML', () => {
   assert.ok(coincidencia(['bosch'], 'Hieronymus Bosch 013.jpg') < 0.5, 'solo la marca no basta');
   assert.ok(coincidencia(['logitech', 'm240', 'silent'], 'Logitech M240 Silent Bluetooth Mouse.jpg') === 1);
   assert.equal(sinHtml('<a href="x">Juan &amp; Ana</a>'), 'Juan & Ana');
+});
+test('consulta con las palabras del enlace de Amazon', () => {
+  assert.equal(consultaAmazon('https://www.amazon.es/s?k=Casio+F-91W+reloj&tag=velans-21').q, 'Casio F-91W');
+  assert.equal(consultaAmazon('https://www.amazon.es/dp/B000?tag=velans-21'), null);
 });
