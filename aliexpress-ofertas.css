@@ -28,3 +28,14 @@
 .ae-foot small{color:var(--subtle,#aca3a1);font-size:12px;max-width:760px;line-height:1.5}
 .ae-more{border:1px solid var(--bronze,#e5a36b);background:transparent;color:var(--ink,#f4f1ee);border-radius:999px;padding:10px 20px;font:700 14px/1 Inter,system-ui,sans-serif;cursor:pointer}
 @media(max-width:560px){.ae-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.ae-body h3{font-size:13px}.ae-price strong{font-size:17px}.ae-cta{font-size:13px;padding:9px 8px}}
+
+/* Avisos de afiliación más compactos (Amazon y AliExpress) */
+section.affiliate-disclosure.affiliate-compact{padding:14px 16px;margin-top:14px;font-size:12px;line-height:1.5}
+section.affiliate-compact .affiliate-head{gap:10px;margin-bottom:6px}
+section.affiliate-compact .affiliate-symbol,section.affiliate-compact .affiliate-brand-icon{width:32px;height:32px}
+section.affiliate-compact h2{font-size:16px;margin-top:2px}
+section.affiliate-compact .eyebrow{font-size:8px}
+section.affiliate-compact p{margin:6px 0 0}
+section.affiliate-compact .affiliate-required{padding:7px 10px;margin-top:8px;font-size:12px}
+section.affiliate-compact .affiliate-demo-note{font-size:10px}
+.category-eyebrow:empty{display:none}
