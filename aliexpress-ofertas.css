@@ -47,9 +47,9 @@ section.affiliate-compact .affiliate-demo-note{font-size:10px}
 .store-switch-btn[aria-pressed="true"]{background:var(--bronze,#e5a36b);border-color:var(--bronze,#e5a36b);color:#111216}
 /* Cada tienda por separado */
 body:not([data-tienda="aliexpress"]) #aliexpress-ofertas{display:none!important}
-body[data-tienda="aliexpress"] main .catalog,body[data-tienda="aliexpress"] main .featured,body[data-tienda="aliexpress"] main .hero,
+body[data-tienda="aliexpress"] main #catalogo,body[data-tienda="aliexpress"] main .featured:not(.ae-featured),body[data-tienda="aliexpress"] main .benefits,body[data-tienda="aliexpress"] main .hero,
 body[data-tienda="aliexpress"] main .category-landing,body[data-tienda="aliexpress"] main .product-landing,body[data-tienda="aliexpress"] main .transparency{display:none!important}
-body[data-tienda="aliexpress"] #aliexpress-ofertas{display:block!important;margin-top:28px}
+body[data-tienda="aliexpress"] #aliexpress-ofertas{display:block!important;margin:0;padding:0;max-width:none}
 @media(max-width:540px){.store-switch{padding:8px 10px}.store-switch-btn{min-width:0;flex:1;padding:9px 10px;font-size:13px}}
 
 /* Con AliExpress elegido: solo las categorías con ofertas y sin los filtros del catálogo de Amazon */
@@ -69,3 +69,15 @@ body[data-tienda="aliexpress"] .mobile-filter-strip,body[data-tienda="aliexpress
 .ae-grid-title{margin:0 0 12px;font:500 22px/1.2 Georgia,serif;color:var(--ink,#f4f1ee)}
 .ae-top[hidden]{display:none}
 @media(max-width:560px){.ae-top-card{flex-basis:160px}.ae-top-card .ae-price strong{font-size:16px}}
+
+/* La tienda AliExpress usa el mismo diseño que la de Amazon */
+.ae-section .ae-featured{margin-top:26px}
+.ae-section .ae-featured[hidden]{display:none}
+.ae-section .ae-catalog{margin-top:30px}
+.ae-section .product-title-button{color:inherit;text-decoration:none}
+.ae-section .product-photo,.ae-section .fphoto{background:#fff}
+.ae-section .preview-product-image{object-fit:contain}
+.ae-foot-note{color:var(--subtle,#aca3a1);font-size:11px;line-height:1.5;margin:6px 0 0}
+.ae-section .product-card h3,.ae-section .feature-product h3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.ae-section .product-title-button{display:inline}
+.ae-section .product-card h3,.ae-section .feature-product h3{-webkit-line-clamp:2;line-height:1.3;max-height:2.6em;min-height:2.6em}
