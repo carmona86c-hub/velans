@@ -97,7 +97,7 @@ console.log('Destacados (más vendidos + descuento):\n' + destacados.Todas.map((
 // Se buscan términos amplios ordenados por ventas y se quitan los duplicados: mismo producto
 // (id) o el mismo artículo vendido por otra tienda (título casi igual).
 const AMPLIAS = ['auriculares', 'cargador', 'funda movil', 'cable usb', 'reloj', 'smartwatch', 'zapatillas', 'camiseta', 'calcetines', 'gafas de sol', 'bolso', 'mochila', 'cocina', 'organizador', 'lampara led', 'tira led', 'maquillaje', 'uñas', 'pelo', 'pendientes', 'collar', 'anillo', 'juguetes', 'mascotas', 'herramientas', 'jardin', 'coche accesorios', 'deporte', 'yoga', 'bicicleta', 'pesca', 'camping', 'bebe', 'oficina', 'papeleria', 'teclado', 'raton', 'altavoz', 'power bank', 'soporte movil', 'protector pantalla', 'pegatinas', 'fiesta', 'navidad', 'baño', 'limpieza', 'manualidades', 'ropa mujer', 'ropa hombre', 'pijama'];
-const NO_TOP = /sexy|sexi|lencer|erótic|erotic|adult|vibrador|consolador|réplica|replica|arma|táctic|tactic|cuchillo|navaja/i;
+const NO_TOP = /sexy|sexi|lencer|erótic|erotic|adult|vibrador|consolador|réplica|replica|cuchillo|navaja/i;
 const STOP = new Set(['de', 'para', 'con', 'y', 'a', 'el', 'la', 'los', 'las', 'en', 'del', 'por', 'un', 'una', 'tipo', 'usb', 'c']);
 const fichas = (t) => new Set(t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]+/g, ' ').split(' ').filter((w) => w.length > 1 && !STOP.has(w)).slice(0, 14));
 // Mismo artículo: misma primera palabra (marca o tipo) y al menos 60 % de palabras en común.
