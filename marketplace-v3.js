@@ -4,6 +4,9 @@ const sourceCatalog=window.VELANS_PREVIEW_DATA;
 if(!sourceCatalog||!Array.isArray(sourceCatalog.products))throw Error('Falta el catálogo de artículos');
 const deduplicated=window.VelansPreviewRules.dedupeExactNames(sourceCatalog.products.map(window.VelansPreviewTaxonomy.categorise));
 const products=deduplicated.products;
+// Fotos con licencia libre (Wikimedia Commons / Open Beauty Facts) con su atribución: fotos-libres.js
+const freePhotos=window.VELANS_FOTOS_LIBRES||{};
+products.forEach(p=>{const f=freePhotos[p.id];if(f&&f.src&&!p.imageUrl){p.imageUrl=f.src;p.photoCredit=f;p.photoVerified=true}});
 const hiddenDuplicates=deduplicated.discarded;
 // The assistant reads the exact collection used by the storefront, including later pages.
 window.VelansPublishedCatalog = {products, generatedAt:sourceCatalog.generatedAt};
@@ -69,7 +72,7 @@ function amazonButton(p,variant=''){
 // Las fotografías obtenidas por ASIN son orientativas hasta contrastar la variante.
 function photoCandidate(p){
   if(typeof p.imageUrl==='string'){
-    try{const url=new URL(p.imageUrl);if(url.protocol==='https:'&&!/amazon|media-amazon/i.test(url.hostname)&&!url.username&&!url.password)return {url:url.href,verified:p.photoVerified===true};}catch{}
+    try{const url=new URL(p.imageUrl,location.href);const local=url.origin===location.origin&&/^\/img\/libres\//.test(url.pathname);if((local||url.protocol==='https:')&&!/amazon|media-amazon/i.test(url.hostname)&&!url.username&&!url.password)return {url:url.href,verified:p.photoVerified===true};}catch{}
   }
   // Sin fotos de Amazon: sus normas de afiliado solo permiten imágenes obtenidas por su API.
   return null;
@@ -77,7 +80,7 @@ function photoCandidate(p){
 function photoMarkup(p){
   const candidate=photoCandidate(p);
   if(!candidate)return photoMessage(p);
-  return `<span class="preview-photo-empty">${photoMessage(p)}</span><img class="preview-product-image" alt="Imagen de ${esc(p.name)}" src="${esc(candidate.url)}" loading="lazy" decoding="async"><span class="preview-photo-source ${candidate.verified?'is-verified':''}" hidden>${candidate.verified?'IMG VERIFICADA':'IMG PROVI.'}</span>`;
+  return `<span class="preview-photo-empty">${photoMessage(p)}</span><img class="preview-product-image" alt="Imagen de ${esc(p.name)}" src="${esc(candidate.url)}"${p.photoCredit?` title="Foto: ${esc(p.photoCredit.autor)} · ${esc(p.photoCredit.licencia)}"`:''} loading="lazy" decoding="async">${p.photoCredit?'':`<span class="preview-photo-source ${candidate.verified?'is-verified':''}" hidden>${candidate.verified?'IMG VERIFICADA':'IMG PROVI.'}</span>`}`;
 }
 document.addEventListener('load',event=>{
   if(!event.target.matches?.('.preview-product-image'))return;
@@ -332,7 +335,8 @@ function renderProductPage(){
   $('#product-page-photo').setAttribute('aria-label','Imagen de '+p.name);
   // En la ficha grande el descuento ya está junto al precio: fotografía despejada.
   $('#product-page-photo').innerHTML=photoMarkup(p);
-  $('#product-page-photo-caption').textContent=photoCandidate(p)?'':'IMAGEN PENDIENTE';
+  const caption=$('#product-page-photo-caption');caption.textContent=photoCandidate(p)?'':'IMAGEN PENDIENTE';
+  if(p.photoCredit){const c=p.photoCredit;caption.textContent='Foto: '+c.autor+' · ';const a=document.createElement('a');a.href=c.licenciaUrl||c.pagina;a.target='_blank';a.rel='noopener noreferrer license';a.textContent=c.licencia;caption.append(a,document.createTextNode(' · '));const b=document.createElement('a');b.href='./creditos-imagenes.html';b.textContent='créditos';caption.append(b);caption.classList.add('is-credit')}else caption.classList.remove('is-credit');
   $('#product-page-brand').textContent=displayBrand(p);
   $('#product-page-title').textContent=p.name;
   $('#product-page-kind').textContent=p.category+' · '+(p.audience==='all'?'':p.audience+' · ')+p.module;

@@ -143,3 +143,5 @@ footer{display:flex;align-items:center;gap:20px;justify-content:space-between;fl
 @media(max-width:780px){.product-page-layout{grid-template-columns:1fr;gap:15px;padding:16px}.product-page-photo-wrap{padding:16px}.product-page-info{padding:12px 4px}.product-page-info h1{font-size:30px}.product-page-prices strong{font-size:30px}}
 
 [data-card-product]{cursor:pointer}[data-card-product]:focus-visible{outline:2px solid #c69a6d;outline-offset:2px}
+
+.product-page-photo-caption.is-credit{font-size:11px;letter-spacing:0;text-transform:none;opacity:.8}.product-page-photo-caption.is-credit a{color:inherit;text-decoration:underline}
