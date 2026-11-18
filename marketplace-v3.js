@@ -374,7 +374,7 @@ function renderSection(){
   $('#section-title').textContent=title;
   $('#section-breadcrumb').textContent=title;
   $('#section-description').textContent=description;
-  $('#section-eyebrow').textContent=category?'DEPARTAMENTO VELAN’S':'SELECCIÓN VELAN’S';
+  $('#section-eyebrow').textContent=category?'DEPARTAMENTO VELAN’S':'';
   $('#section-monogram').textContent=category?.symbol||'V';
   $('#catalog-eyebrow').textContent='EXPLORA Y COMPARA';
   $('#catalog-title').textContent=category?'Artículos de esta categoría':'Artículos disponibles';
