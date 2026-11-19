@@ -8,6 +8,14 @@ Velan's no vende directamente: cada artículo enlaza a la tienda donde se compra
 
 - [Portada](https://velans.es/): selección general de Amazon y AliExpress, con selector de tienda, destacados y lo más vendido de AliExpress.
 - [Ideas para regalar](https://velans.es/ideas-para-regalar.html): regalos que suelen acertar, por tipo de persona y ocasión.
+- Guías de regalo de Navidad:
+  - [Regalos para mujer](https://velans.es/regalos-para-mujer.html)
+  - [Regalos para hombre](https://velans.es/regalos-para-hombre.html)
+  - [Regalos para padre](https://velans.es/regalos-para-padre.html)
+  - [Regalos para madre](https://velans.es/regalos-para-madre.html)
+  - [Regalos para adolescentes](https://velans.es/regalos-para-adolescentes.html)
+  - [Regalos para niños](https://velans.es/regalos-para-ninos.html)
+  - [Ideas para el amigo invisible](https://velans.es/regalos-amigo-invisible.html)
 - [Moda](https://velans.es/moda.html): básicos y marcas de ropa, calzado y accesorios.
 - [Tecnología](https://velans.es/tecnologia.html): tecnología útil para el día a día.
 - [Hogar y cocina](https://velans.es/hogar-y-cocina.html): artículos prácticos para casa y cocina.

@@ -9,6 +9,8 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+from guias_navidad import GUIAS_REGALO  # noqa: E402
 SITE = "https://velans.es"
 HOY = date.today().isoformat()
 
@@ -80,6 +82,10 @@ ol.lista h2{font-size:16px;margin:0 0 3px;line-height:1.35}
 ol.lista p{margin:0;color:var(--subtle);font-size:14px}
 .btn{flex:none;padding:9px 14px;border:1px solid var(--bronze);border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap}
 .cta{margin:26px 0 0;text-align:center}
+.navt{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--subtle);margin:18px 0 -10px}
+.consejos{background:var(--card);border:1px solid var(--edge);border-radius:12px;padding:12px 16px 12px 34px;margin:6px 0 20px;color:#ddd5ca}
+.consejos li{margin:4px 0}
+h2.sec{font-size:18px;margin:18px 0 8px}
 footer{border-top:1px solid var(--edge);padding:18px;font-size:12.5px;color:var(--subtle);text-align:center}
 footer p{margin:0 0 6px}
 @media(max-width:560px){ol.lista li{flex-direction:column;align-items:flex-start}h1{font-size:24px}}
@@ -87,11 +93,21 @@ footer p{margin:0 0 6px}
 
 def e(s): return html.escape(str(s or ""), quote=True)
 
+CSP = ("default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: "
+       "https://m.media-amazon.com https://images-na.ssl-images-amazon.com https://*.alicdn.com https://*.aliexpress-media.com "
+       "https://velans.goatcounter.com; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; frame-src 'none'; "
+       "base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests")
+
+
+def pildoras(lista, actual):
+    return "".join(
+        f'<li><a href="{x["slug"]}.html"{" aria-current=\"page\"" if x is actual else ""}>{e(x["titulo"])}</a></li>'
+        for x in lista)
+
+
 def pagina(g, items):
     url = f"{SITE}/{g['slug']}.html"
-    nav = "".join(
-        f'<li><a href="{x["slug"]}.html"{" aria-current=\"page\"" if x is g else ""}>{e(x["titulo"])}</a></li>'
-        for x in GUIAS)
+    es_regalo = g in GUIAS_REGALO
     filas = []
     for p in items:
         d = p.get("description") or ""
@@ -101,13 +117,24 @@ def pagina(g, items):
             f'<a class="btn" href="{e(p["affiliateUrl"])}" rel="sponsored noopener" target="_blank">Ver en Amazon</a></li>')
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": g["h1"], "url": url,
           "description": g["desc"], "isPartOf": {"@type": "WebSite", "name": "Velan’s", "url": SITE + "/"}}
+    if es_regalo:
+        ld["mainEntity"] = {"@type": "ItemList", "numberOfItems": len(items), "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "name": p["name"]} for i, p in enumerate(items)]}
+    miga = (f'<a href="./">Inicio</a> › <a href="ideas-para-regalar.html">Ideas para regalar</a> › {e(g["titulo"])}'
+            if es_regalo else f'<a href="./">Inicio</a> › {e(g["titulo"])}')
+    consejos = ""
+    if g.get("consejos"):
+        consejos = ('<h2 class="sec">Consejos para acertar</h2><ul class="consejos">'
+                    + "".join(f"<li>{e(c)}</li>" for c in g["consejos"]) + "</ul>")
+    titulo_lista = '<h2 class="sec">Nuestra selección</h2>' if es_regalo else ""
     return f"""<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://m.media-amazon.com https://images-na.ssl-images-amazon.com; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="{CSP}">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script src="./velans-seguridad.js"></script>
+<script src="./velans-analitica.js" defer></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(g['h1'])} | Velan’s</title>
 <meta name="description" content="{e(g['desc'])}">
@@ -123,16 +150,20 @@ def pagina(g, items):
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 <style>{CSS}</style>
-<link rel="stylesheet" href="./velans-assistence.css?v=5.0.1">
 </head>
 <body>
 <header class="top"><img src="velans-v-metal.png" alt="" width="34" height="34"><a class="brand" href="./">Velan’s</a></header>
 <div class="aff"><strong>Enlaces de afiliado:</strong> si compras a través de Velan’s, Amazon nos paga una pequeña comisión. A ti te cuesta lo mismo.</div>
 <main class="wrap">
-<nav class="crumbs"><a href="./">Inicio</a> › {e(g['titulo'])}</nav>
+<nav class="crumbs">{miga}</nav>
 <h1>{e(g['h1'])}</h1>
 <div class="intro">{''.join(f'<p>{e(x)}</p>' for x in g['intro'])}</div>
-<ul class="guias">{nav}</ul>
+<p class="navt">Regalos de Navidad</p>
+<ul class="guias">{pildoras([GUIAS[0]] + GUIAS_REGALO, g)}</ul>
+<p class="navt">Categorías</p>
+<ul class="guias">{pildoras(GUIAS[1:], g)}</ul>
+{consejos}
+{titulo_lista}
 <ol class="lista">
 {chr(10).join(filas)}
 </ol>
@@ -142,10 +173,28 @@ def pagina(g, items):
 <p>En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables. El precio y la disponibilidad se consultan siempre en Amazon.es.</p>
 <p><a href="aviso-legal.html">Aviso legal, privacidad y cookies</a></p>
 </footer>
-<script src="./velans-assistence.js?v=5.1.0" defer></script>
+
+<!-- Velan’s Assistence: único punto de inserción -->
+<link rel="stylesheet" href="./velans-assistence.css?v=5.0.1">
+<script src="./velans-assistence.js?v=5.3.0" defer></script>
 </body>
 </html>
 """
+
+
+por_ref = {p["ref"]: p for p in productos}
+
+
+def items_regalo(g):
+    out = []
+    for ref, nombre, texto in g["items"]:
+        if ref not in por_ref: sys.exit(f"{g['slug']}: no existe {ref} en el catálogo")
+        p = dict(por_ref[ref])
+        if nombre: p["name"] = nombre
+        if texto: p["description"] = texto
+        out.append(p)
+    return out
+
 
 urls = [f"{SITE}/"]
 for g in GUIAS:
@@ -155,10 +204,17 @@ for g in GUIAS:
     (ROOT / f"{g['slug']}.html").write_text(pagina(g, items), encoding="utf-8")
     urls.append(f"{SITE}/{g['slug']}.html")
     print(f"{g['slug']}: {len(items)} productos")
-urls.append(f"{SITE}/aviso-legal.html")
+for g in GUIAS_REGALO:
+    items = items_regalo(g)
+    (ROOT / f"{g['slug']}.html").write_text(pagina(g, items), encoding="utf-8")
+    urls.append(f"{SITE}/{g['slug']}.html")
+    print(f"{g['slug']}: {len(items)} productos")
+urls += [f"{SITE}/aviso-legal.html", f"{SITE}/creditos-imagenes.html"]
 
 (ROOT / "sitemap.xml").write_text(
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     + "".join(f"  <url><loc>{u}</loc><lastmod>{HOY}</lastmod></url>\n" for u in urls)
     + "</urlset>\n", encoding="utf-8")
-(ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
+(ROOT / "robots.txt").write_text(
+    f"User-agent: *\nAllow: /\n# Datos internos del Manager (en pausa): no indexar\nDisallow: /data/\n\nSitemap: {SITE}/sitemap.xml\n",
+    encoding="utf-8")

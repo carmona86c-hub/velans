@@ -71,3 +71,17 @@ test('estadísticas sin cookies: solo un aviso a GoatCounter desde un script pro
   }
   assert.ok(fs.existsSync(new URL('llms.txt',root)));
 });
+test('guías de regalo de Navidad: publicadas, enlazadas y en el sitemap',()=>{
+  const guias=['regalos-para-mujer','regalos-para-hombre','regalos-para-padre','regalos-para-madre','regalos-para-adolescentes','regalos-para-ninos','regalos-amigo-invisible'];
+  const sm=read('sitemap.xml'),idx=read('index.html'),ideas=read('ideas-para-regalar.html');
+  for(const g of guias){
+    const s=read(g+'.html');
+    assert.match(s,/<h1>[^<]{10,}<\/h1>/,g);
+    assert.match(s,/Consejos para acertar/,g);
+    assert.ok((s.match(/tag=velans-21/g)||[]).length>=12,g+': pocos artículos');
+    assert.doesNotMatch(s,/[0-9],[0-9]{2} ?€|€ ?[0-9]/,g+': no se publican precios de Amazon');
+    assert.match(sm,new RegExp('velans\\.es/'+g+'\\.html'),g);
+    assert.match(idx,new RegExp('href="\\./'+g+'\\.html"'),g);
+    assert.match(ideas,new RegExp('href="'+g+'\\.html"'),g);
+  }
+});
