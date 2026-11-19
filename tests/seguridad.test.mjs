@@ -59,3 +59,15 @@ test('los datos internos no se publican en la web',()=>{
   for(const d of ['data','scripts','tests']) assert.match(cfg,new RegExp('- '+d+'\\b'));
   assert.ok(!fs.existsSync(new URL('.nojekyll',root)),'.nojekyll publicaría todo el repositorio');
 });
+test('estadísticas sin cookies: solo un aviso a GoatCounter desde un script propio',()=>{
+  const a=read('velans-analitica.js');
+  assert.ok(!/document\.cookie|localStorage|sessionStorage|fetch\(|XMLHttpRequest/.test(a),'la analítica no guarda nada ni usa otras conexiones');
+  const hosts=[...a.matchAll(/https:\/\/([a-z0-9.'+-]+)\//gi)].map(m=>m[1]);
+  assert.ok(hosts.every(h=>/goatcounter\.com$/.test(h)||h==="'+CODIGO+'.goatcounter.com"),hosts.join(','));
+  for(const p of pages){
+    const s=read(p);
+    assert.match(s,/<script src="\.\/velans-analitica\.js" defer><\/script>/,p);
+    assert.match(s,/img-src [^;]*https:\/\/velans\.goatcounter\.com/,p);
+  }
+  assert.ok(fs.existsSync(new URL('llms.txt',root)));
+});

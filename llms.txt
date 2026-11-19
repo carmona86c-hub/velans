@@ -1,0 +1,20 @@
+# Velan's
+
+> Velan's (velans.es) es una web española de recomendaciones de compra: una selección de artículos de moda, tecnología, hogar y cocina, belleza y deporte, con enlaces a Amazon.es y a AliExpress. Incluye ideas para regalar y un asistente propio, Velan's Assistence, que ayuda a elegir. Velan's participa en los programas de afiliados de Amazon y de AliExpress: puede recibir una comisión por las compras que se hagan desde sus enlaces, sin coste extra para el comprador.
+
+Velan's no vende directamente: cada artículo enlaza a la tienda donde se compra, y el precio y la disponibilidad son los que muestra esa tienda en cada momento.
+
+## Páginas principales
+
+- [Portada](https://velans.es/): selección general de Amazon y AliExpress, con selector de tienda, destacados y lo más vendido de AliExpress.
+- [Ideas para regalar](https://velans.es/ideas-para-regalar.html): regalos que suelen acertar, por tipo de persona y ocasión.
+- [Moda](https://velans.es/moda.html): básicos y marcas de ropa, calzado y accesorios.
+- [Tecnología](https://velans.es/tecnologia.html): tecnología útil para el día a día.
+- [Hogar y cocina](https://velans.es/hogar-y-cocina.html): artículos prácticos para casa y cocina.
+- [Belleza](https://velans.es/belleza.html): belleza y cuidado personal.
+
+## Información
+
+- [Aviso legal, privacidad y cookies](https://velans.es/aviso-legal.html)
+- [Créditos de imágenes](https://velans.es/creditos-imagenes.html)
+- Contacto: contacto@velans.es
