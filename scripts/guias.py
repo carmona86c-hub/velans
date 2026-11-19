@@ -142,7 +142,11 @@ def pagina(g, items):
 <title>{e(g['h1'])} | Velan’s</title>
 <meta name="description" content="{e(g['desc'])}">
 <link rel="canonical" href="{url}">
-<link rel="icon" type="image/png" href="monogram.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Velan’s">
 <meta property="og:title" content="{e(g['h1'])}">
