@@ -38,6 +38,7 @@
   <script src="./aliexpress-ofertas.js?v=8" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <header class="site-header">
     <div class="header-main">
       <a class="logo" href="#" id="logo-home" aria-label="Velan’s, volver al inicio"><img class="logo-mark" src="./velans-v-metal.png" alt="" width="56" height="56"><span class="logo-wordmark">Velan<span class="apostrophe">’</span>s</span></a>
@@ -74,13 +75,14 @@
       <div class="nav-filter-bottom"><p id="nav-filter-hint">Elige una categoría para ver sus tipos y subapartados. Solo se muestran artículos que tenemos.</p><div><button type="button" class="nav-filter-dismiss" id="nav-filter-dismiss">Cerrar filtros</button><button type="button" class="nav-filter-reset" id="nav-filter-reset">Restablecer</button><button type="button" class="nav-filter-apply" id="nav-filter-apply">Ver artículos <span aria-hidden="true">↗</span></button></div></div>
     </div>
   </nav>
-  <div class="store-switch" role="group" aria-label="Elegir tienda">
+  <nav class="store-switch" aria-label="Elegir tienda">
     <span class="store-switch-label">Tienda:</span>
     <button type="button" class="store-switch-btn" data-store="amazon" aria-pressed="true">Amazon</button>
     <button type="button" class="store-switch-btn" data-store="aliexpress" aria-pressed="false">AliExpress</button>
-  </div>
-  <main>
+  </nav>
+  <main id="contenido" tabindex="-1">
     <div class="container">
+      <h1 class="sr-only" data-home-only>Velan’s: selección de moda, tecnología y hogar, con las mayores rebajas y lo más vendido de AliExpress</h1>
       <section class="category-landing" id="category-landing" aria-labelledby="section-title" hidden>
         <div class="category-breadcrumb"><button id="category-back-home" type="button">Inicio</button><span aria-hidden="true">/</span><span id="section-breadcrumb">Moda</span></div>
         <div class="category-landing-inner"><div class="category-landing-copy"><span class="category-eyebrow" id="section-eyebrow"></span><h1 id="section-title">Moda y accesorios</h1><p id="section-description">Explora los artículos de esta categoría y utiliza los filtros del menú superior para encontrar lo que buscas.</p></div><div class="category-monogram" id="section-monogram" aria-hidden="true">M</div></div>

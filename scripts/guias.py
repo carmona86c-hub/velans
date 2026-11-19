@@ -82,6 +82,9 @@ ol.lista h2{font-size:16px;margin:0 0 3px;line-height:1.35}
 ol.lista p{margin:0;color:var(--subtle);font-size:14px}
 .btn{flex:none;padding:9px 14px;border:1px solid var(--bronze);border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap}
 .cta{margin:26px 0 0;text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:100;background:var(--bronze);color:#111216;padding:10px 16px;border-radius:8px;font-weight:600}.skip-link:focus{top:12px}main:focus{outline:none}
+a:focus-visible{outline:3px solid #e7bc83;outline-offset:2px}
 .navt{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--subtle);margin:18px 0 -10px}
 .consejos{background:var(--card);border:1px solid var(--edge);border-radius:12px;padding:12px 16px 12px 34px;margin:6px 0 20px;color:#ddd5ca}
 .consejos li{margin:4px 0}
@@ -114,7 +117,7 @@ def pagina(g, items):
         if "Consulta el precio" in d: d = ""
         filas.append(
             f'<li><div><h2>{e(p["name"])}</h2>{f"<p>{e(d)}</p>" if d else ""}</div>'
-            f'<a class="btn" href="{e(p["affiliateUrl"])}" rel="sponsored noopener" target="_blank">Ver en Amazon</a></li>')
+            f'<a class="btn" href="{e(p["affiliateUrl"])}" rel="sponsored noopener" target="_blank">Ver en Amazon<span class="sr-only">: {e(p["name"])} (enlace de afiliado, se abre en otra pestaña)</span></a></li>')
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": g["h1"], "url": url,
           "description": g["desc"], "isPartOf": {"@type": "WebSite", "name": "Velan’s", "url": SITE + "/"}}
     if es_regalo:
@@ -152,16 +155,17 @@ def pagina(g, items):
 <style>{CSS}</style>
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="top"><img src="velans-v-metal.png" alt="" width="34" height="34"><a class="brand" href="./">Velan’s</a></header>
-<div class="aff"><strong>Enlaces de afiliado:</strong> si compras a través de Velan’s, Amazon nos paga una pequeña comisión. A ti te cuesta lo mismo.</div>
-<main class="wrap">
-<nav class="crumbs">{miga}</nav>
+<aside class="aff" aria-label="Aviso de afiliación"><strong>Enlaces de afiliado:</strong> si compras a través de Velan’s, Amazon nos paga una pequeña comisión. A ti te cuesta lo mismo.</aside>
+<main class="wrap" id="contenido" tabindex="-1">
+<nav class="crumbs" aria-label="Estás en">{miga}</nav>
 <h1>{e(g['h1'])}</h1>
 <div class="intro">{''.join(f'<p>{e(x)}</p>' for x in g['intro'])}</div>
 <p class="navt">Regalos de Navidad</p>
-<ul class="guias">{pildoras([GUIAS[0]] + GUIAS_REGALO, g)}</ul>
+<nav aria-label="Regalos de Navidad"><ul class="guias">{pildoras([GUIAS[0]] + GUIAS_REGALO, g)}</ul></nav>
 <p class="navt">Categorías</p>
-<ul class="guias">{pildoras(GUIAS[1:], g)}</ul>
+<nav aria-label="Categorías"><ul class="guias">{pildoras(GUIAS[1:], g)}</ul></nav>
 {consejos}
 {titulo_lista}
 <ol class="lista">

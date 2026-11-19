@@ -17,18 +17,18 @@
   if(tabs)tabs.hidden=true;
   if(false)tabs.innerHTML=categorias.map(c=>`<button type="button" class="ae-tab" data-ae-cat="${esc(c)}" aria-pressed="${c===estado.cat}">${esc(c)}</button>`).join('');
   const bolsa='<svg class="amazon-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.1 12H6.1L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>';
-  const boton=(p,variante)=>`<a class="amazon-cta ${variante} ae-cta-store" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver ${esc(p.nombre)} en AliExpress; enlace de afiliado">${bolsa}<span>Ver en AliExpress</span></a>`;
-  const foto=p=>`<span class="preview-photo-empty"></span><img class="preview-product-image" alt="Imagen de ${esc(p.nombre)}" src="${esc(imagenSegura(p.imagen))}" loading="lazy" decoding="async" referrerpolicy="no-referrer">`;
-  const badge=p=>p.descuento>0?`<span class="discount-badge" aria-label="Descuento indicado por AliExpress del ${Number(p.descuento)} por ciento">−${Number(p.descuento)}%</span>`:'';
-  const precios=(p,tag)=>`<${tag}>${euro(p.precio)}</${tag}>${p.precioAntes>p.precio?`<del title="Precio anterior indicado por AliExpress">${euro(p.precioAntes)}</del>`:''}`;
+  const boton=(p,variante)=>`<a class="amazon-cta ${variante} ae-cta-store" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver en AliExpress: ${esc(p.nombre)} (enlace de afiliado, se abre en otra pestaña)">${bolsa}<span>Ver en AliExpress</span></a>`;
+  const foto=p=>`<span class="preview-photo-empty"></span><img class="preview-product-image" alt="" src="${esc(imagenSegura(p.imagen))}" loading="lazy" decoding="async" referrerpolicy="no-referrer">`;
+  const badge=p=>p.descuento>0?`<span class="discount-badge"><span aria-hidden="true">−${Number(p.descuento)}%</span><span class="sr-only">Descuento del ${Number(p.descuento)} %</span></span>`:'';
+  const precios=(p,tag)=>`<${tag}>${euro(p.precio)}</${tag}>${p.precioAntes>p.precio?`<del title="Precio anterior indicado por AliExpress"><span class="sr-only">Precio anterior: </span>${euro(p.precioAntes)}</del>`:''}`;
   function tarjeta(p){
     return `<article class="product-card ae-producto" data-ae-id="${esc(p.id)}">
-    <div class="product-photo-frame"><div class="product-photo" role="img" aria-label="Imagen de ${esc(p.nombre)}">${foto(p)}</div>${badge(p)}</div>
+    <div class="product-photo-frame"><div class="product-photo">${foto(p)}</div>${badge(p)}</div>
     <div class="product-body">
       <span class="product-brand">AliExpress</span>
-      <h3><a class="product-title-button" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored">${esc(p.nombre)}</a></h3>
+      <h3><a class="product-title-button" href="${esc(enlaceSeguro(p.enlace))}" target="_blank" rel="noopener noreferrer sponsored">${esc(p.nombre)}<span class="sr-only"> (en AliExpress, se abre en otra pestaña)</span></a></h3>
       <div class="pricing">${precios(p,'strong')}</div>
-      <p class="product-note">★ ${Math.round(Number(p.valoracion))} % · ${Number(p.ventas).toLocaleString('es-ES')} vendidos · envío aparte</p>
+      <p class="product-note"><span aria-hidden="true">★</span><span class="sr-only">Valoración: </span>${Math.round(Number(p.valoracion))} % · ${Number(p.ventas).toLocaleString('es-ES')} vendidos · envío aparte</p>
       <div class="product-affiliate-label">Compra final en AliExpress · enlace de afiliado</div>
       ${boton(p,'amazon-cta-card')}
     </div>
@@ -51,7 +51,7 @@
     if(!top)return;
     const lista=destacadosDe(estado.cat);
     top.innerHTML=lista.map(p=>`<article class="feature-product ae-destacado" data-ae-id="${esc(p.id)}">
-      <div class="feature-photo-frame"><div class="fphoto" role="img" aria-label="Imagen de ${esc(p.nombre)}">${foto(p)}</div>${badge(p)}</div>
+      <div class="feature-photo-frame"><div class="fphoto">${foto(p)}</div>${badge(p)}</div>
       <div class="ftxt"><span class="product-brand">${Number(p.ventas).toLocaleString('es-ES')} vendidos</span><h3>${esc(p.nombre)}</h3>
         <div class="fprice">${precios(p,'b')}</div>
         ${boton(p,'amazon-cta-feature')}

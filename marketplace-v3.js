@@ -39,8 +39,8 @@ const euro=n=>new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR'}).f
 const pct=p=>null; // Sin descuentos: Amazon solo permite datos de precio de su API.
 const priceText=p=>'';
 const wasText=p=>'';
-const percentageBadge=p=>pct(p)>0?`<span class="discount-badge" aria-label="Descuento anunciado del ${pct(p)} por ciento">−${pct(p)}%</span>`:'';
-const heroDiscount=p=>pct(p)>0?`<span class="hero-offer-indicator" aria-label="Descuento anunciado del ${pct(p)} por ciento"><span>AHORRA</span><strong>−${pct(p)}%</strong></span>`:'';
+const percentageBadge=p=>pct(p)>0?`<span class="discount-badge"><span aria-hidden="true">−${pct(p)}%</span><span class="sr-only">Descuento del ${pct(p)} %</span></span>`:'';
+const heroDiscount=p=>pct(p)>0?`<span class="hero-offer-indicator"><span aria-hidden="true">AHORRA</span><strong aria-hidden="true">−${pct(p)}%</strong><span class="sr-only">Descuento del ${pct(p)} %</span></span>`:'';
 const amazonIcon='<svg class="amazon-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.1 12H6.1L5 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>';
 // Los títulos vienen de catálogos externos y no deben interpretarse como HTML.
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -61,7 +61,7 @@ const productTitle=p=>{
   return name;
 };
 const photoMark=p=>({Moda:'✧',Tecnología:'◇',Hogar:'⌂',Belleza:'❋',Otros:'✦'}[p.category]||'✦');
-const photoMessage=p=>`<span class="preview-photo-mark" aria-hidden="true">${photoMark(p)}</span><span class="preview-photo-label">IMAGEN PENDIENTE</span>`;
+const photoMessage=p=>`<span class="preview-photo-mark" aria-hidden="true">${photoMark(p)}</span><span class="preview-photo-label" aria-hidden="true">IMAGEN PENDIENTE</span>`;
 // Solo la URL de Amazon.es con la etiqueta de afiliado configurada puede
 // convertirse en enlace comercial. No se confía en destinos ajenos del feed.
 function amazonLink(p){
@@ -82,7 +82,7 @@ function amazonLink(p){
 }
 function amazonButton(p,variant=''){
   const link=amazonLink(p);
-  return link?`<a class="amazon-cta ${variant}" href="${esc(link)}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver ${esc(p.name)} en Amazon.es; enlace de afiliado">${amazonIcon}<span>Ver en Amazon</span></a>`:'<span class="amazon-unavailable">Enlace de Amazon pendiente</span>';
+  return link?`<a class="amazon-cta ${variant}" href="${esc(link)}" target="_blank" rel="noopener noreferrer sponsored" aria-label="Ver en Amazon: ${esc(p.name)} (enlace de afiliado, se abre en otra pestaña)">${amazonIcon}<span>Ver en Amazon</span></a>`:'<span class="amazon-unavailable">Enlace de Amazon pendiente</span>';
 }
 // Las fotografías obtenidas por ASIN son orientativas hasta contrastar la variante.
 function photoCandidate(p){
@@ -95,7 +95,7 @@ function photoCandidate(p){
 function photoMarkup(p){
   const candidate=photoCandidate(p);
   if(!candidate)return photoMessage(p);
-  return `<span class="preview-photo-empty">${photoMessage(p)}</span><img class="preview-product-image" alt="Imagen de ${esc(p.name)}" src="${esc(candidate.url)}"${p.photoCredit?` title="Foto: ${esc(p.photoCredit.autor)} · ${esc(p.photoCredit.licencia)}"`:''} loading="lazy" decoding="async">${p.photoCredit?'':`<span class="preview-photo-source ${candidate.verified?'is-verified':''}" hidden>${candidate.verified?'IMG VERIFICADA':'IMG PROVI.'}</span>`}`;
+  return `<span class="preview-photo-empty">${photoMessage(p)}</span><img class="preview-product-image" alt="" src="${esc(candidate.url)}"${p.photoCredit?` title="Foto: ${esc(p.photoCredit.autor)} · ${esc(p.photoCredit.licencia)}"`:''} loading="lazy" decoding="async">${p.photoCredit?'':`<span class="preview-photo-source ${candidate.verified?'is-verified':''}" hidden>${candidate.verified?'IMG VERIFICADA':'IMG PROVI.'}</span>`}`;
 }
 document.addEventListener('load',event=>{
   if(!event.target.matches?.('.preview-product-image'))return;
@@ -247,7 +247,7 @@ function initHero(){
       <div class="hero-slide-copy">
         <div class="hero-slide-kicker"><span class="hero-kicker-line"></span> DESTACADOS DE NUESTRA SELECCIÓN <span class="hero-kicker-secondary">/ VELAN’S</span></div>
         ${displayBrand(p)?`<span class="hero-slide-brand">${esc(displayBrand(p))}</span>`:''}
-        <h1 class="hero-slide-title"><button type="button" class="hero-title-link" data-product-page="${p.id}" ${index===0?'':'tabindex="-1"'}>${esc(productTitle(p))}</button></h1>
+        <h2 class="hero-slide-title"><button type="button" class="hero-title-link" data-product-page="${p.id}" ${index===0?'':'tabindex="-1"'}>${esc(productTitle(p))}</button></h2>
         <div class="hero-slide-prices">
           <div class="hero-current-price">${priceText(p)}</div>
           <div class="hero-previous-price">${wasText(p)?`<span>ANTES</span> <del>${wasText(p)}</del>`:''}</div>
@@ -285,16 +285,16 @@ function showHero(index){
 function card(p){
   return `<article class="product-card" data-card-product="${p.id}">
     <div class="product-photo-frame">
-      <div class="product-photo" role="img" aria-label="Imagen provisional por comprobar para ${esc(p.name)}" style="${imageStyle(p)}">
+      <div class="product-photo" style="${imageStyle(p)}">
         ${photoMarkup(p)}
-        <button type="button" class="favorite ${saved.has(p.id)?'active':''}" data-save="${p.id}" aria-label="${saved.has(p.id)?'Quitar de':'Añadir a'} favoritos" aria-pressed="${saved.has(p.id)}">${saved.has(p.id)?'♥':'♡'}</button>
+        <button type="button" class="favorite ${saved.has(p.id)?'active':''}" data-save="${p.id}" aria-label="${saved.has(p.id)?'Quitar de favoritos':'Añadir a favoritos'}: ${esc(p.name)}" aria-pressed="${saved.has(p.id)}">${saved.has(p.id)?'♥':'♡'}</button>
       </div>
       ${percentageBadge(p)}
     </div>
     <div class="product-body">
       ${displayBrand(p)?`<span class="product-brand">${esc(displayBrand(p))}</span>`:''}
       <h3><button type="button" class="product-title-button" data-product="${p.id}" aria-label="Ver detalles de ${esc(p.name)}">${esc(productTitle(p))}</button></h3>
-      <div class="pricing"><strong>${priceText(p)}</strong>${wasText(p)?`<del>${wasText(p)}</del>`:''}</div>
+      <div class="pricing"><strong>${priceText(p)}</strong>${wasText(p)?`<del><span class="sr-only">Precio anterior: </span>${wasText(p)}</del>`:''}</div>
       <p class="product-note">${'Precio y disponibilidad actualizados en Amazon.es.'}</p>
       <div class="product-affiliate-label">Compra final en Amazon.es</div>
       ${amazonButton(p,'amazon-cta-card')}
@@ -302,10 +302,10 @@ function card(p){
   </article>`;
 }
 function featured(p){
-  return `<article class="feature-product" data-card-product="${p.id}" tabindex="0" aria-label="Ver detalles de ${esc(p.name)}">
-    <div class="feature-photo-frame"><div class="fphoto" role="img" aria-label="Fotografía del producto" style="${imageStyle(p)}">${photoMarkup(p)}</div>${percentageBadge(p)}</div>
-    <div class="ftxt">${displayBrand(p)?`<span class="product-brand">${esc(displayBrand(p))}</span>`:''}<h3>${esc(productTitle(p))}</h3>
-      <div class="fprice"><b>${priceText(p)}</b>${wasText(p)?`<del>${wasText(p)}</del>`:''}</div>
+  return `<article class="feature-product" data-card-product="${p.id}">
+    <div class="feature-photo-frame"><div class="fphoto" style="${imageStyle(p)}">${photoMarkup(p)}</div>${percentageBadge(p)}</div>
+    <div class="ftxt">${displayBrand(p)?`<span class="product-brand">${esc(displayBrand(p))}</span>`:''}<h3><button type="button" class="product-title-button" data-product="${p.id}">${esc(productTitle(p))}</button></h3>
+      <div class="fprice"><b>${priceText(p)}</b>${wasText(p)?`<del><span class="sr-only">Precio anterior: </span>${wasText(p)}</del>`:''}</div>
       ${amazonButton(p,'amazon-cta-feature')}
     </div>
   </article>`;
@@ -363,7 +363,7 @@ function renderProductPage(){
   const link=amazonLink(p);
   amazon.hidden=!link;
   amazon.href=link||'#';
-  amazon.setAttribute('aria-label',`Ver ${p.name} en Amazon.es; enlace de afiliado`);
+  amazon.setAttribute('aria-label',`Ver en Amazon: ${p.name} (enlace de afiliado, se abre en otra pestaña)`);
   document.title=p.name+' · Velan’s';
 }
 function renderSection(){
