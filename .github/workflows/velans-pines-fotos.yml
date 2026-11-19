@@ -4,7 +4,7 @@ name: Velans - fotos para pines de Pinterest
 on:
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   buscar:
     runs-on: ubuntu-latest
@@ -48,8 +48,12 @@ jobs:
               hoja.save(f'data/pines/hoja-{t}.jpg', quality=80)
           print(len(ok), 'fotos')
           EOF
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: pines-fotos
-          path: data/pines/
-          retention-days: 7
+      - name: Guardar en la rama pines-fotos (no es la web)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout --orphan pines-fotos
+          git rm -rq --cached .
+          git add -f data/pines/
+          git commit -qm "Fotos candidatas para pines $(date -u +%Y-%m-%d)"
+          git push --force origin pines-fotos
