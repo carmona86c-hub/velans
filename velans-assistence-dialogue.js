@@ -44,6 +44,9 @@
 
   // A product kind describes what is being bought. The shopping occasion is separate.
   const kinds = [
+    ['smartwatch','relojes inteligentes',/\b(?:smartwatch(?:es)?|smart ?watch|relojes? inteligentes?|pulseras? (?:de actividad|inteligentes?))\b/,/\b(?:smartwatch|smart ?watch|redmi watch|reloj inteligente|reloj gps|garmin|amazfit|fitbit|forerunner|instinct)\b/],
+    ['houseSlippers','zapatillas de casa',/\b(?:zapatillas? (?:de|para) (?:estar |andar )?(?:por )?casa|pantuflas?|zapatillas? de estar por casa)\b/,/\b(?:zapatillas de casa|pantuflas?|slippers?)\b/],
+    ['boardGame','juegos de mesa',/\b(?:juegos? de (?:mesa|cartas|tablero)|jugar en familia|juegos? para (?:toda la )?familia)\b/,/\b(?:palabreando|saber ancestral|if you were|juego de mesa)\b/],
     ['bikeHelmet','cascos de ciclismo',/\b(?:cascos?.{0,26}(?:ciclismo|bicicletas?|bici)|(?:ciclismo|bicicletas?|bici).{0,18}cascos?)\b/,/\bcascos?.{0,26}(?:ciclismo|bicicleta|bici)\b/],
     ['mouse','ratones de ordenador',/\b(?:raton(?:es)?|mouse|mice)\b/,/\b(?:raton(?:es)?|mouse)\b/],
     ['monitor','monitores',/\b(?:monitor(?:es)?|pantallas? (?:de ordenador|para (?:pc|ordenador|jugar|videojuegos)))\b/,/\b(?:monitor(?:es)?|pantalla de ordenador)\b/],
@@ -77,7 +80,7 @@
     ['bag','mochilas',/\b(?:mochil(?:as?|itas?)|macutos?|backpacks?)\b/,/\b(?:mochil(?:as?|itas?)|macutos?|backpacks?)\b/],
     ['audio','auriculares',/\b(?:auriculares?|cascos?|audifonos?|headphones?|earbuds?|pinganillos?)\b/,/\b(?:auriculares?|cascos? de audio|audifonos?|headphones?|earbuds?|headsets?|headphone|jbuds)\b/],
     ['watch','relojes',/\b(?:reloj(?:es|ito[s]?)?|smartwatch(?:es)?)\b/,/\b(?:relojes?|reloj|smartwatch(?:es)?|watch)\b/],
-    ['shoes','calzado',/\b(?:zapatillas?|deportivas?|bambas?|tenis|sneakers?)\b/,/\b(?:zapatillas?|sneakers?|calzado|deportivas?|bambas?)\b/],
+    ['shoes','calzado',/\b(?:zapatillas?|deportivas?|bambas?|tenis|sneakers?)\b/,/^(?!.*\b(?:camiset\w*|sudader\w*|pantal\w*|calcetin\w*|chaquet\w*|mochil\w*|leggings|botell\w*|plantillas?)\b).*\b(?:zapatillas?|sneakers?|calzado|deportivas?|bambas?)\b/],
     ['grinder','molinillos de café',/\b(?:molinillos?|molinos? de cafe|moler (?:el )?cafe|coffee grinder)\b/,/\b(?:molinillos?|molinos? de cafe)\b/],
     ['coffee','artículos para café',/\b(?:cafeteras?|cafeter[oa]s?|cafe|cafes|espresso|capsulas?)\b/,/\b(?:cafeteras?|cafe|espresso|nespresso|molinillo|capsulas? de cafe)\b/],
     ['light','iluminación',/\b(?:lamparas?|luces|iluminacion|linternas?)\b/,/\b(?:lamparas?|luces|iluminacion|linternas?|bombillas?)\b/],
@@ -618,11 +621,17 @@
       if(!matches.length&&c.kind){
         // No se queda en blanco: si los filtros dejan cero, se enseñan los más parecidos del mismo tipo.
         // Solo se relajan rasgos «blandos» (color, estilo, uso, público); talla, material, conexión o capacidad nunca.
-        const softKeys=/^(?:color:|gaming$|formal$|loose$|sport$|running$|casual$|elegant$|warm$|summer$|winter$)/;
+        const softKeys=/^(?:color:|gaming$|formal$|loose$|sport$|running$|casual$|elegant$|warm$|summer$|winter$|laptop$)/;
         const hard=Object.fromEntries(Object.entries(c.features||{}).filter(([k])=>!softKeys.test(k)));
         const loose={...c,features:hard,anyColors:false};
         let alt=Object.keys(hard).length===Object.keys(c.features||{}).length&&!c.audience?[]:ranked(rows,loose,base);
-        if(!alt.length&&c.audience){alt=ranked(rows,{...loose,audience:null},base);}
+        // Antes de olvidar el público, se prueba sin los demás rasgos pero para el mismo público.
+        if(!alt.length&&c.audience){alt=ranked(rows,{...c,features:{},anyColors:false},base);}
+        if(!alt.length&&c.audience){
+          // Nunca se enseña ropa del otro público ni infantil a quien pidió hombre o mujer.
+          const other=c.audience==='Hombre'?'Mujer':c.audience==='Mujer'?'Hombre':null;
+          alt=ranked(rows,{...loose,audience:null},base).filter(r=>!(other&&r.p.audience===other)&&!(c.audience!=='Infantil'&&childProduct(r))&&!(other&&new RegExp('\\b(?:'+(other==='Mujer'?'mujer|mujeres|women|ladies|nina':'hombre|hombres|men|caballero|nino')+')\\b').test(r.title)));
+        }
         if(alt.length){matches=alt;relaxedNote=`No tengo ${describe(c,base)} exactamente; te enseño lo más parecido. `;}
       }
       if(!matches.length){
@@ -1046,6 +1055,8 @@
       let input=String(raw||'').trim().slice(0,600);
       const initialTurnsPre=state.turns;
       if(base.detectSensitive(input).length)return base.respond(state,input);
+      // Lenguaje coloquial: «juega a la play», «frío en los pies», «la piel de la cara»… → términos del catálogo.
+      if(base.rewrite)input=base.rewrite(words(input)).trim()||input;
       // Tienda elegida por el cliente (se recuerda) o, si no ha elegido, la tienda que está viendo.
       const si=storeIntent(input);
       const before=state.store||null;
