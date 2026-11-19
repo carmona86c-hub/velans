@@ -1,0 +1,55 @@
+name: Velans - fotos para pines de Pinterest
+# Busca fotos de fondo CC0 / dominio público para los pines y las deja como artefacto
+# (hojas de contacto + fotos reducidas). No cambia la web. Se lanza a mano.
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  buscar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Buscar y descargar fotos
+        run: node scripts/pines-fotos.mjs
+      - name: Reducir y hacer hojas de contacto
+        run: |
+          pip install --quiet pillow
+          python3 - <<'EOF'
+          import json, os
+          from PIL import Image, ImageDraw, ImageOps
+          meta = json.load(open('data/pines/fotos.json'))
+          ok = []
+          for m in meta:
+              try:
+                  im = ImageOps.exif_transpose(Image.open(m['archivo'])).convert('RGB')
+                  im.thumbnail((1800, 1800))
+                  dst = m['archivo'][:-4] + '.jpg'
+                  im.save(dst, quality=88); os.remove(m['archivo'])
+                  m['archivo'] = dst; ok.append(m)
+              except Exception as e:
+                  print('descartada', m['archivo'], e)
+          json.dump(ok, open('data/pines/fotos.json', 'w'), indent=1, ensure_ascii=False)
+          temas = sorted({m['tema'] for m in ok})
+          for t in temas:
+              fs = [m for m in ok if m['tema'] == t]
+              cols, w, h = 6, 300, 220
+              rows = (len(fs) + cols - 1) // cols
+              hoja = Image.new('RGB', (cols * w, max(1, rows) * h), 'white')
+              d = ImageDraw.Draw(hoja)
+              for i, m in enumerate(fs):
+                  im = Image.open(m['archivo']); im.thumbnail((w - 6, h - 26))
+                  x, y = (i % cols) * w, (i // cols) * h
+                  hoja.paste(im, (x + 3, y + 3)); d.text((x + 6, y + h - 20), m['id'], fill='red')
+              hoja.save(f'data/pines/hoja-{t}.jpg', quality=80)
+          print(len(ok), 'fotos')
+          EOF
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pines-fotos
+          path: data/pines/
+          retention-days: 7
