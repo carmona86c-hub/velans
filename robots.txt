@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 # Datos internos del Manager (en pausa): no indexar
 Disallow: /data/
+Disallow: /img/pines/
 
 Sitemap: https://velans.es/sitemap.xml

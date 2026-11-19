@@ -216,5 +216,5 @@ urls += [f"{SITE}/aviso-legal.html", f"{SITE}/creditos-imagenes.html"]
     + "".join(f"  <url><loc>{u}</loc><lastmod>{HOY}</lastmod></url>\n" for u in urls)
     + "</urlset>\n", encoding="utf-8")
 (ROOT / "robots.txt").write_text(
-    f"User-agent: *\nAllow: /\n# Datos internos del Manager (en pausa): no indexar\nDisallow: /data/\n\nSitemap: {SITE}/sitemap.xml\n",
+    f"User-agent: *\nAllow: /\n# Datos internos del Manager (en pausa): no indexar\nDisallow: /data/\nDisallow: /img/pines/\n\nSitemap: {SITE}/sitemap.xml\n",
     encoding="utf-8")
