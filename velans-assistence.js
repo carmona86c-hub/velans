@@ -24,12 +24,23 @@ async function E(){
         ]);
         window.VelansEngine.disableDemo();
         t=window.VelansDialogue.create(window.VelansEngine);
-        // Velan’s solo trabaja con AliExpress: el asistente recomienda las ofertas de AliExpress.
-        if(!window.VELANS_ALIEXPRESS)await C(n+'aliexpress-productos.js?v=3');
-        const catalog={products:[],generatedAt:(window.VELANS_ALIEXPRESS&&window.VELANS_ALIEXPRESS.actualizado)||''};
+        let catalog=window.VelansPublishedCatalog;
+        if(!catalog){
+          await Promise.all([
+            window.VELANS_PREVIEW_DATA?null:C(n+'catalogo-completo.js'),
+            window.VelansPreviewRules?null:C(n+'catalogo-reglas.js'),
+            window.VelansCatalog?null:C(n+'catalogo-clasificador-manager.js')
+          ]);
+          if(!window.VelansPreviewTaxonomy)await C(n+'catalogo-taxonomia.js');
+          const src=window.VELANS_PREVIEW_DATA;
+          const mapped=[];await eachChunk(src.products,chunk=>{mapped.push(...chunk.map(window.VelansPreviewTaxonomy.categorise))});
+          const rows=window.VelansPreviewRules.dedupeExactNames(mapped).products;
+          catalog={products:rows,generatedAt:src.generatedAt};window.VelansPublishedCatalog=catalog;
+        }
         const guide=/\/ideas-para-regalar\.html$/.test(location.pathname)?[...document.querySelectorAll('main h2')].map(h=>h.textContent.trim()):[];
-        const build=t.beginPublishedCatalog({generatedAt:catalog.generatedAt,giftNames:guide});
+        const build=t.beginPublishedCatalog({generatedAt:catalog.generatedAt,giftNames:guide.length?guide:r});
         await eachChunk(catalog.products,chunk=>build.append(chunk));
+        // Ofertas de AliExpress (solo en las páginas que las cargan): el asistente las distingue de Amazon.
         const ae=window.VELANS_ALIEXPRESS;
         if(ae&&Array.isArray(ae.productos)){
           const seen=new Set(),rowsAE=[];
@@ -49,24 +60,6 @@ async function E(){
     return preparation;
   }
 
-
-  // Velan’s ya no trabaja con Amazon: las respuestas hablan solo de AliExpress.
-  function sinAmazon(a){
-    if(!a)return a;
-    const fix=x=>typeof x!=='string'?x:x
-      .replace(/(?:el |al )?Programa de Afiliados de Amazon/gi,'el programa de afiliados de AliExpress')
-      .replace(/Afiliado de Amazon/gi,'afiliado de AliExpress')
-      .replace(/«(?:Consultar|Ver) en Amazon»(?: en la ficha de Velan’s)?/g,'«Ver en AliExpress»')
-      .replace(/(?:de )?Amazon(?:\.es)? y (?:de )?AliExpress|AliExpress y (?:de )?Amazon(?:\.es)?/g,'AliExpress')
-      .replace(/de dos tiendas, AliExpress \(puedes pedirme solo una de ellas\)/g,'de AliExpress')
-      .replace(/Amazon\.es|Amazon/g,'AliExpress')
-      .replace(/AliExpress o (?:en )?AliExpress/g,'AliExpress');
-    a.text=fix(a.text);
-    if(Array.isArray(a.quick))a.quick=a.quick.filter(q=>!/amazon|dos tiendas|tambi[eé]n en|solo aliexpress/i.test(q));
-    if(a.table&&Array.isArray(a.table.rows))a.table.rows=a.table.rows.map(r=>r.map(fix));
-    if(Array.isArray(a.cards))a.cards=a.cards.map(c=>({...c,reason:fix(c.reason)}));
-    return a;
-  }
 function A(){if(s&&l.state)try{s.setItem(i,JSON.stringify(l))}catch(e){}}function x(){if(s)try{var e=JSON.parse(s.getItem(i)||"null");e&&e.state&&(l=Object.assign(l,e))}catch(e){}}function L(e,t,a){var n=document.createElement(e);return t&&(n.className=t),null!=a&&(n.textContent=a),n}function P(){var e=null;try{var a=new URLSearchParams(location.search).get("articulo");a&&/^\d+$/.test(a)&&(e=a)}catch(e){}if(!e){var n=(location.hash||"").match(/^#articulo-(\d+)$/);n&&(e=n[1])}return e&&t?t.bySiteId(e):null}function I(){if("ready"===o&&l.state){var e=P();if(!e){l.state.selectedProductId=null;return}if(e&&t.byId(e))l.state.selectedProductId!==e&&(t.setSelected(l.state,e),l.open?(z(t.greeting(l.state,{changed:l.state.turns>0})),l.lastOpenSel=e):l.pageChanged=!0,A())}else l.pageChanged=!0}function V(entry){
     const group=document.createElement('div');group.className='va-entry';
     const row=L('div','msg '+entry.role);group.appendChild(row);
@@ -87,7 +80,7 @@ function A(){if(s&&l.state)try{s.setItem(i,JSON.stringify(l))}catch(e){}}functio
         const current=t.makePublicCard(product,card.reason);
         const art=L('article','vcard');art.setAttribute('aria-label',product.title);
         const isAE=product.store==='AliExpress';
-        art.appendChild(L('div','va-status-chip','Oferta de AliExpress'));
+        art.appendChild(L('div','va-status-chip',isAE?'Oferta de AliExpress':product.summary?'Ficha de Velan’s · Amazon':'Ficha parcial · Amazon'));
         art.appendChild(L('b',null,product.title));if(product.summary)art.appendChild(L('div','sum',product.summary));
         const ul=L('ul');(current.attrs||[]).forEach(a=>ul.appendChild(L('li',null,a)));art.appendChild(ul);
         if(card.reason)art.appendChild(L('div','why',card.reason));
@@ -96,7 +89,8 @@ function A(){if(s&&l.state)try{s.setItem(i,JSON.stringify(l))}catch(e){}}functio
         button.addEventListener('click',()=>{
           if(window.matchMedia('(max-width:600px)').matches)H();
           if(isAE&&typeof window.VelansAEOpen==='function'){window.VelansAEOpen(product.siteId);return;}
-          if(isAE){location.href=n+'?tienda=aliexpress&oferta='+encodeURIComponent(product.siteId);return;}
+          // Un artículo de Amazon se abre en la tienda Amazon aunque se esté viendo AliExpress.
+          if(typeof window.VelansTienda==='function'&&document.body.dataset.tienda==='aliexpress')window.VelansTienda('amazon',{nav:false,scroll:false});
           if(typeof window.VelansAssistenceOpenArticle==='function')window.VelansAssistenceOpenArticle(product.siteId);
           else location.href=n+'?articulo='+encodeURIComponent(product.siteId);
         });
@@ -134,7 +128,7 @@ function z(reply){
     D(entry.text);A();
   }
 
-function N(text){const entry={role:"sys",text};l.log.push(entry);if(l.log.length>60)l.log=l.log.slice(-60);V(entry);historyControls();M();A()}function B(e,t){u("vaStatus").textContent=e||p,u("vaBand").className="va-band"+(t?" "+t:"")}function q(e){u("vaHint").textContent=e||"El micrófono usa el dictado del navegador. Puedes revisar el texto antes de enviarlo."}function R(e){if(o!=="ready")return;if((e=String(e||"").trim().slice(0,600))&&!h){h=!0,u("vaSend").disabled=!0;var a=t&&t.detectSensitive(e).length?"[Mensaje oculto: contenía datos personales]":e;l.log.push({role:"u",text:a}),V({role:"u",text:a}),M(),u("vaInput").value="",j(),F(),k(null),B("Preparando una respuesta…","busy"),requestAnimationFrame(function(){var a;if("ready"!==o)return h=!1,u("vaSend").disabled=!1,void z({text:"Todavía estoy preparándome o no he podido cargar el catálogo. Vuelve a intentarlo en unos segundos.",quick:["Reintentar"]});try{l.state.viewStore='AliExpress';l.state.store='AliExpress';a=sinAmazon(t.respond(l.state,e));if(a&&a.navCategory){var nb=document.querySelector('.department-nav [data-category="'+a.navCategory+'"]');nb&&setTimeout(function(){nb.click()},50)}}catch(e){a={text:"Ha ocurrido un error al procesar el mensaje. Puedes reformularlo o empezar una conversación nueva."}}z(a),h=!1,u("vaSend").disabled=!1,B()})}}function j(){var e=u("vaInput");e.style.height="auto",e.style.height=Math.min(e.scrollHeight,110)+"px"}async function O(keyboard=false){
+function N(text){const entry={role:"sys",text};l.log.push(entry);if(l.log.length>60)l.log=l.log.slice(-60);V(entry);historyControls();M();A()}function B(e,t){u("vaStatus").textContent=e||p,u("vaBand").className="va-band"+(t?" "+t:"")}function q(e){u("vaHint").textContent=e||"El micrófono usa el dictado del navegador. Puedes revisar el texto antes de enviarlo."}function R(e){if(o!=="ready")return;if((e=String(e||"").trim().slice(0,600))&&!h){h=!0,u("vaSend").disabled=!0;var a=t&&t.detectSensitive(e).length?"[Mensaje oculto: contenía datos personales]":e;l.log.push({role:"u",text:a}),V({role:"u",text:a}),M(),u("vaInput").value="",j(),F(),k(null),B("Preparando una respuesta…","busy"),requestAnimationFrame(function(){var a;if("ready"!==o)return h=!1,u("vaSend").disabled=!1,void z({text:"Todavía estoy preparándome o no he podido cargar el catálogo. Vuelve a intentarlo en unos segundos.",quick:["Reintentar"]});try{l.state.viewStore=document.body.dataset.tienda==='aliexpress'?'AliExpress':'Amazon';a=t.respond(l.state,e);if(a&&a.storeSwitch&&typeof window.VelansTienda==='function')window.VelansTienda(a.storeSwitch==='AliExpress'?'aliexpress':'amazon');if(a&&a.navCategory){var nb=document.querySelector('.department-nav [data-category="'+a.navCategory+'"]');nb&&setTimeout(function(){nb.click()},50)}}catch(e){a={text:"Ha ocurrido un error al procesar el mensaje. Puedes reformularlo o empezar una conversación nueva."}}z(a),h=!1,u("vaSend").disabled=!1,B()})}}function j(){var e=u("vaInput");e.style.height="auto",e.style.height=Math.min(e.scrollHeight,110)+"px"}async function O(keyboard=false){
     if(l.open){u('vaInput').focus();return;}
     l.open=true;u('vaPanel').hidden=false;d.classList.add('va-is-open');u('vaBubble').setAttribute('aria-expanded','true');
     u('vaBubble').setAttribute('aria-label','Minimizar Velan’s Assistence');u('vaSend').disabled=true;

@@ -13,7 +13,7 @@ SITE = "https://velans.es"
 sys.path.insert(0, str(ROOT / "scripts"))
 from amazon_guias_texto import GUIAS_AMAZON  # noqa: E402
 
-AMAZON_TAG = ""  # p. ej. "velans0X-21" cuando Amazon apruebe la nueva solicitud
+AMAZON_TAG = "velans-21"  # identificador de Amazon Afiliados (cambiar aquí si Amazon da uno nuevo)
 PUBLICADO = "2026-11-20"
 
 

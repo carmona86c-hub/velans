@@ -1,0 +1,155 @@
+#!/usr/bin/env python3
+"""Plantilla común de las guías de compra y comparativas (la usan articulos.py y amazon_guias.py).
+
+Las ofertas relacionadas salen de aliexpress-productos.js. No genera nada por sí misma.
+"""
+import html, json, re, unicodedata
+from datetime import date
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+SITE = "https://velans.es"
+HOY = date.today().isoformat()
+_t = (ROOT / "aliexpress-productos.js").read_text(encoding="utf-8")
+DATOS = json.loads(_t[_t.index("{"):_t.rindex("}") + 1])
+ACT = DATOS.get("actualizado") or HOY
+def fiable(p): return (p.get("valoracion") or 0) >= 85 and (p.get("ventas") or 0) >= 20 and p.get("precio") and p.get("enlace")
+
+
+POOL = {}
+for p in DATOS.get("masVendidos", []) + DATOS.get("productos", []):
+    if fiable(p): POOL.setdefault(p["id"], p)
+POOL = list(POOL.values())
+
+def norm(x): return unicodedata.normalize("NFD", str(x).lower()).encode("ascii", "ignore").decode()
+
+def euro(n): return f"{n:,.2f} €".replace(",", "X").replace(".", ",").replace("X", ".")
+def miles(n): return f"{int(n or 0):,}".replace(",", ".")
+def corto(n, k=90):
+    n = re.sub(r"\s+", " ", n.replace("\ufffd", "")).strip()
+    return n if len(n) <= k else n[:k].rsplit(" ", 1)[0] + "…"
+
+
+
+CSS = """
+:root{--ink:#f3eee7;--subtle:#b9b1a6;--edge:#2b2c33;--canvas:#111216;--card:#191a20;--bronze:#d9a46f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--canvas);color:var(--ink);font:16px/1.6 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+a{color:var(--bronze)}
+.top{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--edge)}
+.top img{width:34px;height:34px}
+.top a.brand{color:var(--ink);font:600 22px Georgia,serif;text-decoration:none}
+.aff{font-size:12.5px;color:var(--subtle);text-align:center;padding:8px 16px;border-bottom:1px solid var(--edge)}
+.wrap{max-width:900px;margin:0 auto;padding:22px 18px 50px}
+nav.crumbs{font-size:13px;color:var(--subtle);margin-bottom:8px}
+h1{font-size:28px;line-height:1.25;margin:4px 0 12px}
+.intro p{color:#ddd5ca;margin:0 0 10px}
+.guias{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px;padding:0;list-style:none}
+.guias a{display:inline-block;padding:7px 13px;border:1px solid var(--edge);border-radius:999px;text-decoration:none;font-size:14px}
+.guias a[aria-current]{background:var(--bronze);color:#111;border-color:var(--bronze)}
+ol.lista{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ol.lista li{background:var(--card);border:1px solid var(--edge);border-radius:12px;padding:14px 16px;display:flex;gap:14px;align-items:center;justify-content:space-between}
+ol.lista h2{font-size:16px;margin:0 0 3px;line-height:1.35}
+ol.lista p{margin:0;color:var(--subtle);font-size:14px}
+.btn{flex:none;padding:9px 14px;border:1px solid var(--bronze);border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap}
+.cta{margin:26px 0 0;text-align:center}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:100;background:var(--bronze);color:#111216;padding:10px 16px;border-radius:8px;font-weight:600}.skip-link:focus{top:12px}main:focus{outline:none}
+a:focus-visible{outline:3px solid #e7bc83;outline-offset:2px}
+.navt{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--subtle);margin:18px 0 -10px}
+.consejos{background:var(--card);border:1px solid var(--edge);border-radius:12px;padding:12px 16px 12px 34px;margin:6px 0 20px;color:#ddd5ca}
+.consejos li{margin:4px 0}
+h2.sec{font-size:18px;margin:18px 0 8px}
+footer{border-top:1px solid var(--edge);padding:18px;font-size:12.5px;color:var(--subtle);text-align:center}
+footer p{margin:0 0 6px}
+@media(max-width:560px){ol.lista li{flex-direction:column;align-items:flex-start}h1{font-size:24px}}
+ul.rejilla{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:700px){ul.rejilla{grid-template-columns:repeat(4,1fr)}}
+li.bf{position:relative;background:var(--card);border:1px solid var(--edge);border-radius:12px;padding:8px 8px 10px;display:flex;flex-direction:column}
+li.bf .ph{display:block;border-radius:9px;overflow:hidden;background:#fff;aspect-ratio:1}
+li.bf img{width:100%;height:100%;object-fit:contain;display:block}
+li.bf .dto{position:absolute;top:14px;left:14px;background:#c8102e;color:#fff;font-weight:700;font-size:13px;padding:3px 8px;border-radius:7px}
+li.bf h2{font-size:13.5px;line-height:1.35;margin:8px 0 4px;font-weight:500}
+li.bf h2 a{color:var(--ink);text-decoration:none}
+li.bf h2 a:hover{text-decoration:underline}
+li.bf .pr{margin:auto 0 0;font-size:16px}
+li.bf .pr strong{color:#fff}
+li.bf del{color:var(--subtle);font-size:13px;margin-left:4px}
+li.bf .nt{margin:2px 0 0;font-size:12px;color:var(--subtle)}
+.upd{font-size:13px;color:var(--subtle);margin:16px 0 0}
+"""
+
+def e(s): return html.escape(str(s or ""), quote=True)
+CSP = ("default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: "
+       "https://*.alicdn.com https://*.aliexpress-media.com "
+       "https://velans.goatcounter.com; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; frame-src 'none'; "
+       "base-uri 'self'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests")
+
+
+def pagina_base(titulo, desc, url, cuerpo, ld, extra=""):
+    return f"""<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="{CSP}">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script src="./velans-seguridad.js"></script>
+<script src="./velans-analitica.js" defer></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{e(titulo)} | Velan’s</title>
+<meta name="description" content="{e(desc)}">
+<link rel="canonical" href="{url}">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Velan’s">
+<meta property="og:title" content="{e(titulo)}">
+<meta property="og:description" content="{e(desc)}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{SITE}/og-velans.png">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+<style>{CSS}{extra}</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="top"><img src="velans-v-metal.png" alt="" width="34" height="34"><a class="brand" href="./">Velan’s</a></header>
+<aside class="aff" aria-label="Aviso de afiliación"><strong>Enlaces de afiliado:</strong> si compras a través de Velan’s, la tienda (Amazon o AliExpress) nos paga una pequeña comisión. A ti te cuesta lo mismo.</aside>
+<main class="wrap" id="contenido" tabindex="-1">
+{cuerpo}
+</main>
+<footer>
+<p>En calidad de Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables. Velan’s también participa en el programa de afiliados de AliExpress. El precio y la disponibilidad se consultan siempre en cada tienda.</p>
+<p><a href="guias-de-compra.html">Guías de compra</a> · <a href="sobre-velans.html">Quiénes somos</a> · <a href="https://t.me/velans_chollos" rel="noopener">Telegram</a> · <a href="aviso-legal.html">Aviso legal, privacidad y cookies</a></p>
+</footer>
+
+<!-- Velan’s Assistence: único punto de inserción -->
+<link rel="stylesheet" href="./velans-assistence.css?v=5.0.1">
+<script src="./velans-assistence.js?v=5.3.0" defer></script>
+</body>
+</html>
+"""
+
+
+def tarjeta(p):
+    dto = int(p.get("descuento") or 0); antes = p.get("precioAntes") or 0
+    return (
+        f'<li class="bf"><a class="ph" href="{e(p["enlace"])}" rel="sponsored noopener noreferrer" target="_blank" tabindex="-1" aria-hidden="true">'
+        f'<img src="{e(p["imagen"])}" alt="" loading="lazy" width="320" height="320"></a>'
+        + (f'<span class="dto"><span aria-hidden="true">−{dto}%</span><span class="sr-only">Descuento del {dto} %</span></span>' if dto > 0 else "")
+        + f'<h2><a href="{e(p["enlace"])}" rel="sponsored noopener noreferrer" target="_blank">{e(corto(p["nombre"]))}<span class="sr-only"> (en AliExpress, se abre en otra pestaña)</span></a></h2>'
+        f'<p class="pr"><strong>{euro(p["precio"])}</strong>'
+        + (f' <del><span class="sr-only">Precio anterior: </span>{euro(antes)}</del>' if antes > p["precio"] else "")
+        + f'</p><p class="nt"><span aria-hidden="true">★</span><span class="sr-only">Valoración: </span>{round(p.get("valoracion") or 0)} % · {miles(p.get("ventas"))} vendidos</p></li>')
+
+
+MESES = "enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split()
+
+
+def fecha_es(iso):
+    y, m, d = map(int, iso[:10].split("-")); return f"{d} de {MESES[m - 1]} de {y}"
+

@@ -103,7 +103,8 @@ def generar(pagina_base, pool, tarjeta, comparativas=()):
               '<article><h1>Quiénes somos y cómo elegimos</h1>'
               '<p class="lead">Velan’s es un proyecto independiente hecho en España. Cada día revisamos miles de artículos para quedarnos solo con los que merecen la pena: lo más vendido y lo más rebajado de tiendas fiables.</p>'
               '<h2>Cómo seleccionamos</h2>'
-              + bloque(("ul", ["Solo artículos con al menos un 85 % de valoraciones positivas y ventas reales.",
+              + bloque(("ul", ["En AliExpress, solo artículos con al menos un 85 % de valoraciones positivas y ventas reales.",
+                               "En Amazon, productos que describimos y comparamos nosotros: para quién son, qué tienen a favor y qué tener en cuenta.",
                                "De lo más vendido, buscamos la oferta más barata del mismo artículo en otra tienda fiable.",
                                "Descartamos productos con títulos engañosos, réplicas o contenido para adultos.",
                                "Los precios y descuentos se actualizan cada día con los datos que facilita la tienda."]))
@@ -117,7 +118,7 @@ def generar(pagina_base, pool, tarjeta, comparativas=()):
               + '<p>Titular: David Carmona Córdoba. Más información en el <a href="aviso-legal.html">aviso legal</a>.</p></article>')
     ld = {"@context": "https://schema.org", "@type": "AboutPage", "name": "Quiénes somos", "url": url,
           "about": {"@type": "Organization", "name": "Velan’s", "url": SITE + "/", "email": "contacto@velans.es"}}
-    (ROOT / "sobre-velans.html").write_text(pagina_base("Quiénes somos y cómo elegimos", "Quiénes somos en Velan’s y cómo seleccionamos cada día lo más vendido y lo más rebajado de tiendas fiables.", url, cuerpo, ld, EXTRA), encoding="utf-8")
+    (ROOT / "sobre-velans.html").write_text(pagina_base("Quiénes somos y cómo elegimos", "Quiénes somos en Velan’s y cómo seleccionamos los productos de Amazon y lo más vendido y rebajado de AliExpress.", url, cuerpo, ld, EXTRA), encoding="utf-8")
     urls.append(url)
     return urls
 

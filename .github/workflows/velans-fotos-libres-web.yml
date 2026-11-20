@@ -1,0 +1,26 @@
+name: Velans - preparar fotos libres para la web
+# Descarga las fotos aprobadas en scripts/fotos-libres-seleccion.json, genera
+# los créditos y lo deja en la rama «fotos-libres-web» para revisar antes de publicar.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  preparar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - run: node --test tests/fotos-libres.test.mjs
+      - run: node scripts/descargar-fotos-libres.mjs
+      - name: Guardar en la rama fotos-libres-web (sin publicar)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout -B fotos-libres-web-datos
+          git add img/libres fotos-libres.js creditos-imagenes.html
+          git commit -m "Fotos libres descargadas $(date -u +%Y-%m-%d)"
+          git push --force origin fotos-libres-web-datos

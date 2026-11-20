@@ -38,32 +38,87 @@ async function send(page,question){
   await page.waitForFunction(before=>JSON.parse(sessionStorage.getItem('velans-assistence-v4'))?.state.turns>before,turn);
   return (await session(page)).log.at(-1);
 }
-// Images de AliExpress: el test no sale a internet (se bloquean las peticiones externas).
 try {
-  for(const mobile of [true,false]){
-    const {page,errors,context}=await surface(mobile);
-    await page.goto(origin+'/');
-    await page.waitForSelector('.ae-grid .product-card');
-    assert.equal(await page.locator('[data-store]').count(),0,'sin selector de tienda');
-    assert.equal(await page.locator('a[href*="amazon"]').count(),0,'sin enlaces a Amazon');
-    assert.ok(await page.locator('.ae-grid a[href^="https://s.click.aliexpress.com/"]').count()>=10);
-    // Categorías
-    if(mobile)await page.locator('#mobile-menu').click();
-    await page.locator('.department-nav [data-category="Tecnología"]').click();
-    assert.match(await page.locator('#ae-title').innerText(),/Tecnología/);
-    // Buscador
-    await page.locator('#search-input').fill('cable');
-    await page.locator('#search-input').press('Enter');
-    assert.match(await page.locator('#ae-title').innerText(),/cable/i);
-    assert.ok(await page.locator('.ae-grid .product-card').count()>0);
-    // Asistente
-    await page.locator('#vaBubble').click();await ready(page);
-    const r=await send(page,'Busco auriculares bluetooth');
-    assert.ok(r.cards&&r.cards.length,r.text);
-    assert.doesNotMatch(await page.locator('#vaPanel').innerText(),/amazon/i);
-    await page.locator('#vaMsgs .vcard .pbtn').first().click();
-    await page.waitForTimeout(300);
-    assert.deepEqual(errors,[]);await context.close();
-    console.log((mobile?'Móvil':'Escritorio')+' · portada AliExpress, categorías, buscador y asistente verificados.');
+  const {page,files,context,errors}=await surface(true);
+  await page.goto(origin+'/');
+  await page.waitForSelector('#vaBubble');
+  assert.ok(await page.evaluate(()=>window.VelansPublishedCatalog.products.length>20));
+  assert.equal(files.filter(f=>f==='velans-assistence-engine.js'||f==='velans-assistence-dialogue.js').length,0);
+  await page.locator('#vaBubble').click();await ready(page);
+  assert.doesNotMatch(await page.locator('#vaPanel').innerText(),/afiliad|comisi[oó]n/i);
+  assert.match(await page.locator('.affiliate-required').innerText(),/Afiliado de Amazon/);
+  assert.doesNotMatch((await send(page,'¿Es fiable esta web?')).text,/afiliad|comisi[oó]n/i);
+  assert.match((await send(page,'¿Velan’s recibe una comisión?')).text,/comisión|ingresos/i);
+  for(const file of ['velans-assistence-engine.js','velans-assistence-dialogue.js','catalogo-completo.js'])assert.equal(files.filter(f=>f===file).length,1,file);
+  const catalogue=await send(page,'¿qué se compra aquí?');
+  assert.match(catalogue.text,/moda.*tecnología.*hogar y cocina.*belleza/i);
+  assert.equal(catalogue.cards.length,0);
+  const checkout=await send(page,'¿y dónde se paga?');
+  assert.match(checkout.text,/pago se realiza en Amazon.*Ver en Amazon/);
+  const long=await send(page,'Paso la Navidad en un sitio frío, busco camisetas de manga larga');
+  assert.ok(long.cards.length);assert.match(long.text,/Navidad/);
+  // Restore a real session from a previous widget version, including its old welcome text.
+  await page.evaluate(()=>{
+    const key='velans-assistence-v4';
+    const previous=JSON.parse(sessionStorage.getItem(key));
+    const notice=previous.log.find(e=>e.role==='sys'&&e.text.startsWith('Recuerdo esta conversación'));
+    notice.text+=' Velan’s puede recibir una comisión por compras a través de sus enlaces.';
+    sessionStorage.setItem(key,JSON.stringify(previous));
+  });
+  await page.reload();
+  await page.locator('#vaBubble').click();await ready(page);
+  const resumed=await session(page);
+  assert.ok(resumed.log.some(e=>e.role==='sys'&&e.text.includes('Borrar')));
+  assert.ok(!resumed.log.some(e=>e.role==='sys'&&/comisión|afiliad/i.test(e.text)));
+  assert.ok(resumed.log.some(e=>e.role==='a'&&/comisión|ingresos/i.test(e.text)));
+  assert.ok(resumed.log.some(e=>e.text===long.text));
+  await send(page,'Pásame la ficha de la primera');
+  assert.equal(await page.locator('#vaPanel a[href*="amazon"]').count(),0);
+  await page.locator('#vaMsgs .vcard .pbtn').last().click();
+  await page.waitForFunction(()=>new URLSearchParams(location.search).has('articulo')&&document.getElementById('vaPanel').hidden);
+  assert.match(await page.locator('.product-page-info').innerText(),/El enlace es de afiliado/);
+  await page.locator('#vaBubble').click();await ready(page);
+  const title=await page.locator('#product-page-title').textContent();
+  assert.ok((await session(page)).log.at(-1).text.toLowerCase().includes(title.toLowerCase()),title); // la ficha muestra el producto sin repetir la marca
+  assert.match((await send(page,'¿Es térmica?')).text,/ficha/i);
+  await page.locator('#vaForget').click();
+  assert.equal((await session(page)).state.turns,0);
+  const cdp=await context.newCDPSession(page);
+  await cdp.send('Emulation.setCPUThrottlingRate',{rate:4});
+  const durations=[];
+  for(let i=0;i<50;i++){
+    const start=Date.now();await send(page,i%3===0?'Busco mochilas':i%3===1?'Compara las dos primeras':'¿Quién cobra el pedido?');durations.push(Date.now()-start);
   }
+  assert.equal(await page.locator('#vaMsgs .va-entry').count(),20);
+  assert.equal((await session(page)).log.length,60);
+  await page.getByRole('button',{name:'Mensajes anteriores'}).click();
+  await page.getByRole('button',{name:'Últimos mensajes'}).click();
+  assert.equal(await page.locator('#vaMsgs .va-entry').count(),20);
+  await send(page,'Mi correo es prueba@example.com');
+  assert.ok(!JSON.stringify(await session(page)).includes('prueba@example.com'));
+  await page.locator('#vaForget').click();
+  assert.ok((await session(page)).log.length<=3);
+  console.log('Móvil con CPU ×4 · 50 turnos · p95 de interacción automatizada '+durations.sort((a,b)=>a-b)[47]+' ms · 20 mensajes en pantalla');
+  assert.deepEqual(errors,[]);
+  await context.close();
+
+  const desktop=await surface(false,true);
+  await desktop.page.goto(origin+'/tecnologia.html');
+  await desktop.page.locator('#vaBubble').focus();
+  await desktop.page.keyboard.press('Enter');
+  await desktop.page.getByRole('button',{name:'Reintentar'}).click();await ready(desktop.page);
+  await desktop.page.locator('#vaInput').focus();
+  await desktop.page.keyboard.press('Escape');
+  assert.equal(await desktop.page.locator('#vaBubble').evaluate(el=>el===document.activeElement),true);
+  await desktop.page.keyboard.press('Enter');await ready(desktop.page);
+  assert.equal(await desktop.page.locator('#vaInput').evaluate(el=>el===document.activeElement),true);
+  await send(desktop.page,'Busco relojes Casio');
+  await desktop.page.locator('#vaMsgs .vcard .pbtn').first().click();
+  await desktop.page.waitForURL(/articulo=/);
+  await desktop.page.locator('#vaBubble').click();await ready(desktop.page);
+  const watch=await desktop.page.locator('#product-page-title').textContent();
+  assert.match(await desktop.page.locator('#product-page-brand').textContent(),/Casio/); // la marca va aparte, encima del producto
+  assert.ok((await session(desktop.page)).log.at(-1).text.toLowerCase().includes(watch.toLowerCase()));
+  assert.deepEqual(desktop.errors,[]);await desktop.context.close();
+  console.log('Escritorio · guía editorial, fallo de carga recuperable, ficha, sesión y navegación interna verificados.');
 }finally{await browser.close();}
