@@ -85,7 +85,8 @@ def generar_analisis(pagina_base, fecha_es):
                   f'<p class="lead">{e(p["resumen"])}</p>'
                   f'<section class="ficha"><h2 class="sr-only">Ficha rápida</h2><h3>{e(p["marca"])} <span class="sub">· {e(p["nombre"])}</span></h3>'
                   f'<p><strong>Ideal para:</strong> {e(p["para"])}</p><p><strong>No es para:</strong> {e(p["no_para"])}</p>{boton}</section>'
-                  '<h2>Qué ofrece, según el fabricante</h2>' + ul(p["datos"])
+                  + ('<section class="ficha experiencia"><h2>Nuestra experiencia</h2>' + "".join(f"<p>{e(x)}</p>" for x in p["experiencia"]) + '</section>' if p.get("experiencia") else "")
+                  + '<h2>Qué ofrece, según el fabricante</h2>' + ul(p["datos"])
                   + '<h2>Lo que nos gusta</h2>' + ul(p["pros"])
                   + '<h2>Lo que hay que tener en cuenta</h2>' + ul(p["contras"])
                   + '<h2>Consejos antes de comprar y para usarlo</h2>' + ul(p["consejos"])
