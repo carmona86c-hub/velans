@@ -31,6 +31,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python3 scripts/telegram_ofertas.py --n "${{ github.event.inputs.n || '3' }}" --catalogo "${{ github.event.inputs.catalogo || '0' }}"
       - name: Guardar registro
+        if: always()
         run: |
           git config user.name "velans-bot"
           git config user.email "velans-bot@users.noreply.github.com"

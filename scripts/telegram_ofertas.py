@@ -26,15 +26,23 @@ def fiable(p, desc=0):
     return (p.get("descuento") or 0) >= desc and (p.get("valoracion") or 0) >= 88 and (p.get("ventas") or 0) >= 50 and p.get("enlace")
 
 
-def recientes(publicados, dias):
-    hoy = dt.date.today()
-    return {k for k, f in publicados.items() if (hoy - dt.date.fromisoformat(f)).days < dias}
+def clave(p):
+    """Mismo artículo aunque venga de otra tienda: primeras palabras del nombre."""
+    return "n:" + " ".join(re.findall(r"\w+", p["nombre"].lower())[:4])
+
+
+def ya(p, publicados):
+    return p["id"] in publicados or clave(p) in publicados
+
+
+def recientes(publicados, dias=None):
+    """Nunca se repite un producto: todo lo publicado queda en el registro para siempre."""
+    return set(publicados)
 
 
 def elegir_vendidos(datos, n, publicados):
     """Lo más vendido de AliExpress (ya con la oferta más barata de cada artículo). Repite como mucho cada 7 días."""
-    evita = recientes(publicados, 7)
-    lista = [p for p in datos["masVendidos"] if fiable(p) and p["id"] not in evita]
+    lista = [p for p in datos["masVendidos"] if fiable(p) and not ya(p, publicados)]
     lista.sort(key=lambda p: p.get("ventas") or 0, reverse=True)
     out, claves = [], set()
     for p in lista:  # sin dos artículos casi iguales
@@ -46,10 +54,10 @@ def elegir_vendidos(datos, n, publicados):
 
 def elegir_rebajados(datos, n, publicados, excluir=()):
     """Lo más rebajado de tiendas fiables, con variedad de categorías. No repite en 30 días."""
-    evita = recientes(publicados, 30) | set(excluir)
-    vistos, buenos = set(), []
+    vistos, buenos = set(excluir), []
     for p in datos["productos"] + datos["masVendidos"]:
-        if p["id"] in vistos or p["id"] in evita: continue
+        if p["id"] in vistos or ya(p, publicados) or clave(p) in vistos: continue
+        vistos.add(clave(p))
         vistos.add(p["id"])
         if fiable(p, 25): buenos.append(p)
     buenos.sort(key=lambda p: (p["descuento"], p["ventas"]), reverse=True)
@@ -58,6 +66,10 @@ def elegir_rebajados(datos, n, publicados, excluir=()):
         if p["categoria"] not in cats: out.append(p); cats.add(p["categoria"])
         if len(out) == n: return out
     return (out + [p for p in buenos if p not in out])[:n]
+
+
+def guardar(publicados):
+    REG.parent.mkdir(exist_ok=True); REG.write_text(json.dumps(publicados, indent=0, sort_keys=True))
 
 
 def texto(p):
@@ -85,11 +97,12 @@ def enviar(token, chat, metodo, datos):
     if not res.get("ok"): raise RuntimeError(res)
 
 
-def catalogo(datos, total):
+def catalogo(datos, total, publicados):
     """Los mejores artículos: primero lo más vendido (por ventas), después lo más rebajado (por descuento)."""
     pool = {}
     for p in datos["masVendidos"] + datos["productos"]:
-        if (p.get("valoracion") or 0) >= 85 and (p.get("ventas") or 0) >= 20 and p.get("enlace"): pool.setdefault(p["id"], p)
+        if (p.get("valoracion") or 0) >= 85 and (p.get("ventas") or 0) >= 20 and p.get("enlace") and not ya(p, publicados):
+            if p["id"] not in pool and clave(p) not in {clave(q) for q in pool.values()}: pool[p["id"]] = p
     mitad = total // 2
     vendidos = sorted(pool.values(), key=lambda p: p.get("ventas") or 0, reverse=True)[:mitad]
     ids = {p["id"] for p in vendidos}
@@ -105,7 +118,7 @@ def main():
     publicados = json.loads(REG.read_text()) if REG.exists() else {}
     datos = cargar()
     if a.catalogo:
-        vendidos, rebajados = catalogo(datos, a.catalogo)
+        vendidos, rebajados = catalogo(datos, a.catalogo, publicados)
     else:
         vendidos = elegir_vendidos(datos, a.n, publicados)
         rebajados = elegir_rebajados(datos, a.n, publicados, excluir=[p["id"] for p in vendidos])
@@ -130,11 +143,10 @@ def main():
             except Exception as ex:
                 print("foto falló, envío texto:", ex, file=sys.stderr)
                 enviar(token, chat, "sendMessage", {"chat_id": chat, "text": cap, "parse_mode": "HTML"})
-            if not a.catalogo: publicados[p["id"]] = hoy
-            n += 1
+            publicados[p["id"]] = hoy; publicados[clave(p)] = hoy; n += 1
+            guardar(publicados)  # se guarda en cada envío: aunque se corte, nunca se repite
             time.sleep(3.5 if a.catalogo else 1)  # límite de Telegram: unos 20 mensajes por minuto en un canal
-    publicados = {k: f for k, f in publicados.items() if (dt.date.today() - dt.date.fromisoformat(f)).days < 60}
-    REG.parent.mkdir(exist_ok=True); REG.write_text(json.dumps(publicados, indent=0, sort_keys=True))
+    guardar(publicados)
     print(n, "ofertas publicadas")
 
 
