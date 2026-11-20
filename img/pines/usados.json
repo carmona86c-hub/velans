@@ -1,0 +1,23 @@
+{
+ "combos": [
+  "padre:padre/15:padre/03:padre/11",
+  "madre:madre/01:mujer/12:amigo/05",
+  "mujer:mujer/11:mujer/01:mujer/10",
+  "hombre:hombre/43:hombre/14:hombre/25",
+  "adolescentes:adolescentes/05:adolescentes/15:adolescentes/17",
+  "ninos:ninos/43:ninos/07:ninos/39",
+  "amigo:amigo/14:amigo/01:amigo/12"
+ ],
+ "productos": [],
+ "textos": {
+  "padre": 1,
+  "madre": 1,
+  "mujer": 1,
+  "hombre": 1,
+  "adolescentes": 1,
+  "ninos": 1,
+  "amigo": 1,
+  "bf": 0
+ },
+ "giro": 1
+}

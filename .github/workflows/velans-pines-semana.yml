@@ -1,0 +1,41 @@
+name: Velans - pines de la semana
+# Dibuja los pines de Pinterest de los próximos días (guías con fotos CC0, Black Friday y
+# artículos rebajados de AliExpress) y los guarda en img/pines/AAAA-MM-DD/ con su plan.json.
+# Después Claude los programa en Metricool. No cambia las páginas de la web.
+on:
+  schedule:
+    - cron: '7 16 * * 5'   # viernes por la tarde: prepara de lunes a domingo
+  workflow_dispatch:
+    inputs:
+      desde: {description: 'Primer día (AAAA-MM-DD); vacío = próximo lunes', required: false}
+      dias: {description: 'Número de días', required: false, default: '7'}
+permissions:
+  contents: write
+concurrency:
+  group: velans-pines
+  cancel-in-progress: false
+jobs:
+  pines:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Fotos CC0 de la rama pines-fotos
+        run: |
+          git fetch --depth 1 origin pines-fotos
+          git --work-tree=. checkout FETCH_HEAD -- data/pines
+          git reset -q data/pines
+      - name: Dibujar los pines
+        run: |
+          pip install --quiet playwright==1.55.0 pillow
+          DESDE="${{ github.event.inputs.desde }}"; [ -z "$DESDE" ] && DESDE=$(date -d 'next monday' +%F)
+          DIAS="${{ github.event.inputs.dias }}"; [ -z "$DIAS" ] && DIAS=7
+          python3 scripts/pines/semana.py --desde "$DESDE" --dias "$DIAS" --chrome "$(command -v google-chrome)"
+      - name: Guardar
+        run: |
+          git config user.name "velans-bot"; git config user.email "velans-bot@users.noreply.github.com"
+          git add img/pines/
+          git diff --cached --quiet && { echo "Sin cambios"; exit 0; }
+          git commit -m "Pines de Pinterest planificados $(date -u +%F)"
+          git pull --rebase -q origin main
+          git push
