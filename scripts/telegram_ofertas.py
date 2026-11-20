@@ -22,18 +22,39 @@ def cargar():
     return json.loads(t[t.index("{"):t.rindex("}") + 1])
 
 
-def elegir(datos, n, publicados):
+def fiable(p, desc=0):
+    return (p.get("descuento") or 0) >= desc and (p.get("valoracion") or 0) >= 88 and (p.get("ventas") or 0) >= 50 and p.get("enlace")
+
+
+def recientes(publicados, dias):
     hoy = dt.date.today()
-    recientes = {k for k, f in publicados.items() if (hoy - dt.date.fromisoformat(f)).days < 30}
+    return {k for k, f in publicados.items() if (hoy - dt.date.fromisoformat(f)).days < dias}
+
+
+def elegir_vendidos(datos, n, publicados):
+    """Lo más vendido de AliExpress (ya con la oferta más barata de cada artículo). Repite como mucho cada 7 días."""
+    evita = recientes(publicados, 7)
+    lista = [p for p in datos["masVendidos"] if fiable(p) and p["id"] not in evita]
+    lista.sort(key=lambda p: p.get("ventas") or 0, reverse=True)
+    out, claves = [], set()
+    for p in lista:  # sin dos artículos casi iguales
+        k = " ".join(re.findall(r"\w+", p["nombre"].lower())[:2])
+        if k not in claves: out.append(p); claves.add(k)
+        if len(out) == n: break
+    return out
+
+
+def elegir_rebajados(datos, n, publicados, excluir=()):
+    """Lo más rebajado de tiendas fiables, con variedad de categorías. No repite en 30 días."""
+    evita = recientes(publicados, 30) | set(excluir)
     vistos, buenos = set(), []
-    for p in datos["masVendidos"] + datos["productos"]:
-        if p["id"] in vistos or p["id"] in recientes: continue
+    for p in datos["productos"] + datos["masVendidos"]:
+        if p["id"] in vistos or p["id"] in evita: continue
         vistos.add(p["id"])
-        if (p.get("descuento") or 0) >= 25 and (p.get("valoracion") or 0) >= 88 and (p.get("ventas") or 0) >= 50 and p.get("enlace"):
-            buenos.append(p)
+        if fiable(p, 25): buenos.append(p)
     buenos.sort(key=lambda p: (p["descuento"], p["ventas"]), reverse=True)
     out, cats = [], set()
-    for p in buenos:  # variedad: una por categoría primero
+    for p in buenos:
         if p["categoria"] not in cats: out.append(p); cats.add(p["categoria"])
         if len(out) == n: return out
     return (out + [p for p in buenos if p not in out])[:n]
@@ -46,7 +67,7 @@ def texto(p):
     nombre = html.escape(nombre[:90].rstrip(" ,"))
     ventas = f'{p["ventas"]:,}'.replace(",", ".")
     antes = f' <s>{euro(p["precioAntes"])}</s>' if p.get("precioAntes") else ""
-    return (f'{EMOJI.get(p["categoria"], "🔥")} <b>-{p["descuento"]}% · {nombre}</b>\n\n'
+    return (f'{EMOJI.get(p["categoria"], "🛒")} <b>{f"-{p['descuento']}% · " if p.get("descuento") else ""}{nombre}</b>\n\n'
             f'💶 <b>{euro(p["precio"])}</b>{antes}\n'
             f'⭐ {str(p["valoracion"]).replace(".", ",")} % positivas · {ventas} vendidos\n\n' +
             f'👉 <a href="{html.escape(p["enlace"])}">Ver la oferta en AliExpress</a>\n\n'
@@ -65,29 +86,38 @@ def enviar(token, chat, metodo, datos):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--n", type=int, default=4); ap.add_argument("--prueba", action="store_true")
+    ap = argparse.ArgumentParser(); ap.add_argument("--n", type=int, default=3, help="artículos por sección")
+    ap.add_argument("--prueba", action="store_true")
     a = ap.parse_args()
     publicados = json.loads(REG.read_text()) if REG.exists() else {}
-    elegidas = elegir(cargar(), a.n, publicados)
+    datos = cargar()
+    vendidos = elegir_vendidos(datos, a.n, publicados)
+    rebajados = elegir_rebajados(datos, a.n, publicados, excluir=[p["id"] for p in vendidos])
+    secciones = [("🏆 <b>Lo más vendido hoy en AliExpress</b>\n(siempre con la oferta más barata de cada artículo)", vendidos, "🏆 Top ventas"),
+                 ("🔥 <b>Lo más rebajado hoy en AliExpress</b>", rebajados, "🔥 Superrebaja")]
     if a.prueba:
-        for p in elegidas: print(texto(p), "\n---")
+        for cab, lista, et in secciones:
+            print(cab); [print(f"{et} · " + texto(p).split(chr(10))[0]) for p in lista]
         return
     token, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
     if not token or not chat:
         print("Faltan TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID: no se publica nada."); return
-    enviar(token, chat, "sendMessage", {"chat_id": chat, "parse_mode": "HTML", "disable_web_page_preview": "true",
-           "text": f"☀️ <b>Chollos de hoy en AliExpress</b> · {dt.date.today():%d/%m}\nMás rebajas en https://velans.es/?tienda=aliexpress"})
-    hoy = dt.date.today().isoformat()
-    for p in elegidas:
-        try:
-            enviar(token, chat, "sendPhoto", {"chat_id": chat, "photo": p["imagen"], "caption": texto(p), "parse_mode": "HTML"})
-        except Exception as ex:
-            print("foto falló, envío texto:", ex, file=sys.stderr)
-            enviar(token, chat, "sendMessage", {"chat_id": chat, "text": texto(p), "parse_mode": "HTML"})
-        publicados[p["id"]] = hoy
+    hoy = dt.date.today().isoformat(); n = 0
+    for cab, lista, et in secciones:
+        if not lista: continue
+        enviar(token, chat, "sendMessage", {"chat_id": chat, "parse_mode": "HTML", "disable_web_page_preview": "true",
+               "text": f"{cab} · {dt.date.today():%d/%m}\nMás en https://velans.es/?tienda=aliexpress"})
+        for p in lista:
+            cap = f"<b>{et}</b>\n" + texto(p)
+            try:
+                enviar(token, chat, "sendPhoto", {"chat_id": chat, "photo": p["imagen"], "caption": cap, "parse_mode": "HTML"})
+            except Exception as ex:
+                print("foto falló, envío texto:", ex, file=sys.stderr)
+                enviar(token, chat, "sendMessage", {"chat_id": chat, "text": cap, "parse_mode": "HTML"})
+            publicados[p["id"]] = hoy; n += 1
     publicados = {k: f for k, f in publicados.items() if (dt.date.today() - dt.date.fromisoformat(f)).days < 60}
     REG.parent.mkdir(exist_ok=True); REG.write_text(json.dumps(publicados, indent=0, sort_keys=True))
-    print(len(elegidas), "ofertas publicadas")
+    print(n, "ofertas publicadas")
 
 
 if __name__ == "__main__":

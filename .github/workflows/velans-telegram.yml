@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
     inputs:
       n:
-        description: "Número de ofertas"
-        default: "4"
+        description: "Artículos por sección (más vendidos y más rebajados)"
+        default: "3"
 
 permissions:
   contents: write
@@ -25,7 +25,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python3 scripts/telegram_ofertas.py --n "${{ github.event.inputs.n || '4' }}"
+        run: python3 scripts/telegram_ofertas.py --n "${{ github.event.inputs.n || '3' }}"
       - name: Guardar registro
         run: |
           git config user.name "velans-bot"
