@@ -196,20 +196,71 @@ def pildoras(lista, actual):
         for x in lista)
 
 
+def pagina_base(titulo, desc, url, cuerpo, ld, extra=""):
+    return f"""<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="{CSP}">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script src="./velans-seguridad.js"></script>
+<script src="./velans-analitica.js" defer></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{e(titulo)} | Velan’s</title>
+<meta name="description" content="{e(desc)}">
+<link rel="canonical" href="{url}">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Velan’s">
+<meta property="og:title" content="{e(titulo)}">
+<meta property="og:description" content="{e(desc)}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{SITE}/og-velans.png">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+<style>{CSS}{extra}</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="top"><img src="velans-v-metal.png" alt="" width="34" height="34"><a class="brand" href="./">Velan’s</a></header>
+<aside class="aff" aria-label="Aviso de afiliación"><strong>Enlaces de afiliado:</strong> si compras a través de Velan’s, AliExpress nos paga una pequeña comisión. A ti te cuesta lo mismo.</aside>
+<main class="wrap" id="contenido" tabindex="-1">
+{cuerpo}
+</main>
+<footer>
+<p>Velan’s participa en el programa de afiliados de AliExpress: si compras desde estos enlaces podemos recibir una comisión, sin coste extra para ti. El precio y la disponibilidad se consultan siempre en AliExpress.</p>
+<p><a href="guias-de-compra.html">Guías de compra</a> · <a href="sobre-velans.html">Quiénes somos</a> · <a href="https://t.me/velans_chollos" rel="noopener">Telegram</a> · <a href="aviso-legal.html">Aviso legal, privacidad y cookies</a></p>
+</footer>
+
+<!-- Velan’s Assistence: único punto de inserción -->
+<link rel="stylesheet" href="./velans-assistence.css?v=5.0.1">
+<script src="./velans-assistence.js?v=5.3.0" defer></script>
+</body>
+</html>
+"""
+
+
+def tarjeta(p):
+    dto = int(p.get("descuento") or 0); antes = p.get("precioAntes") or 0
+    return (
+        f'<li class="bf"><a class="ph" href="{e(p["enlace"])}" rel="sponsored noopener noreferrer" target="_blank" tabindex="-1" aria-hidden="true">'
+        f'<img src="{e(p["imagen"])}" alt="" loading="lazy" width="320" height="320"></a>'
+        + (f'<span class="dto"><span aria-hidden="true">−{dto}%</span><span class="sr-only">Descuento del {dto} %</span></span>' if dto > 0 else "")
+        + f'<h2><a href="{e(p["enlace"])}" rel="sponsored noopener noreferrer" target="_blank">{e(corto(p["nombre"]))}<span class="sr-only"> (en AliExpress, se abre en otra pestaña)</span></a></h2>'
+        f'<p class="pr"><strong>{euro(p["precio"])}</strong>'
+        + (f' <del><span class="sr-only">Precio anterior: </span>{euro(antes)}</del>' if antes > p["precio"] else "")
+        + f'</p><p class="nt"><span aria-hidden="true">★</span><span class="sr-only">Valoración: </span>{round(p.get("valoracion") or 0)} % · {miles(p.get("ventas"))} vendidos</p></li>')
+
+
 def pagina(g, items):
     url = f"{SITE}/{g['slug']}.html"
     es_regalo = g in GUIAS_REGALO
-    filas = []
-    for p in items:
-        dto = int(p.get("descuento") or 0); antes = p.get("precioAntes") or 0
-        filas.append(
-            f'<li class="bf"><a class="ph" href="{e(p["enlace"])}" rel="sponsored noopener noreferrer" target="_blank" tabindex="-1" aria-hidden="true">'
-            f'<img src="{e(p["imagen"])}" alt="" loading="lazy" width="320" height="320"></a>'
-            + (f'<span class="dto"><span aria-hidden="true">−{dto}%</span><span class="sr-only">Descuento del {dto} %</span></span>' if dto > 0 else "")
-            + f'<h2><a href="{e(p["enlace"])}" rel="sponsored noopener noreferrer" target="_blank">{e(corto(p["nombre"]))}<span class="sr-only"> (en AliExpress, se abre en otra pestaña)</span></a></h2>'
-            f'<p class="pr"><strong>{euro(p["precio"])}</strong>'
-            + (f' <del><span class="sr-only">Precio anterior: </span>{euro(antes)}</del>' if antes > p["precio"] else "")
-            + f'</p><p class="nt"><span aria-hidden="true">★</span><span class="sr-only">Valoración: </span>{round(p.get("valoracion") or 0)} % · {miles(p.get("ventas"))} vendidos</p></li>')
+    filas = [tarjeta(p) for p in items]
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": g["h1"], "url": url,
           "description": g["desc"], "isPartOf": {"@type": "WebSite", "name": "Velan’s", "url": SITE + "/"}}
     if es_regalo:
@@ -222,39 +273,7 @@ def pagina(g, items):
         consejos = ('<h2 class="sec">Consejos para acertar</h2><ul class="consejos">'
                     + "".join(f"<li>{e(c)}</li>" for c in g["consejos"]) + "</ul>")
     titulo_lista = '<h2 class="sec">Nuestra selección</h2>' if es_regalo else ""
-    return f"""<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="{CSP}">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<script src="./velans-seguridad.js"></script>
-<script src="./velans-analitica.js" defer></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{e(g['h1'])} | Velan’s</title>
-<meta name="description" content="{e(g['desc'])}">
-<link rel="canonical" href="{url}">
-<link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Velan’s">
-<meta property="og:title" content="{e(g['h1'])}">
-<meta property="og:description" content="{e(g['desc'])}">
-<meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE}/og-velans.png">
-<meta property="og:locale" content="es_ES">
-<meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-<style>{CSS}</style>
-</head>
-<body>
-<a class="skip-link" href="#contenido">Saltar al contenido</a>
-<header class="top"><img src="velans-v-metal.png" alt="" width="34" height="34"><a class="brand" href="./">Velan’s</a></header>
-<aside class="aff" aria-label="Aviso de afiliación"><strong>Enlaces de afiliado:</strong> si compras a través de Velan’s, AliExpress nos paga una pequeña comisión. A ti te cuesta lo mismo.</aside>
-<main class="wrap" id="contenido" tabindex="-1">
+    cuerpo = f"""
 <nav class="crumbs" aria-label="Estás en">{miga}</nav>
 <h1>{e(g['h1'])}</h1>
 <div class="intro">{''.join(f'<p>{e(x)}</p>' for x in g['intro'])}</div>
@@ -269,18 +288,9 @@ def pagina(g, items):
 </ul>
 <p class="upd">Precios, precios anteriores y descuentos indicados por AliExpress el {fecha_es(ACT)}. Pueden cambiar y no incluyen el envío: comprueba el precio final en AliExpress.</p>
 <p class="cta"><a href="./">Ver todas las rebajas de AliExpress en Velan’s →</a> · <a href="https://t.me/velans_chollos" rel="noopener">Chollos diarios en Telegram</a></p>
-</main>
-<footer>
-<p>Velan’s participa en el programa de afiliados de AliExpress: si compras desde estos enlaces podemos recibir una comisión, sin coste extra para ti. El precio y la disponibilidad se consultan siempre en AliExpress.</p>
-<p><a href="aviso-legal.html">Aviso legal, privacidad y cookies</a></p>
-</footer>
-
-<!-- Velan’s Assistence: único punto de inserción -->
-<link rel="stylesheet" href="./velans-assistence.css?v=5.0.1">
-<script src="./velans-assistence.js?v=5.3.0" defer></script>
-</body>
-</html>
 """
+    return pagina_base(g["h1"], g["desc"], url, cuerpo, ld)
+
 
 
 MESES = "enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre".split()
@@ -297,6 +307,8 @@ for g in GUIAS + GUIAS_REGALO:
     urls.append(f"{SITE}/{g['slug']}.html")
     print(f"{g['slug']}: {len(items)} productos")
 if (ROOT / "black-friday.html").exists(): urls.append(f"{SITE}/black-friday.html")
+import articulos  # noqa: E402
+urls += articulos.generar(pagina_base, POOL, tarjeta)
 urls += [f"{SITE}/aviso-legal.html"]
 
 (ROOT / "sitemap.xml").write_text(
