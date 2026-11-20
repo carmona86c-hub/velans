@@ -8,6 +8,9 @@ on:
       n:
         description: "Artículos por sección (más vendidos y más rebajados)"
         default: "3"
+      catalogo:
+        description: "Publicar de una vez los N mejores artículos (0 = publicación diaria normal)"
+        default: "0"
 
 permissions:
   contents: write
@@ -19,13 +22,14 @@ concurrency:
 jobs:
   publicar:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - name: Publicar ofertas
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python3 scripts/telegram_ofertas.py --n "${{ github.event.inputs.n || '3' }}"
+        run: python3 scripts/telegram_ofertas.py --n "${{ github.event.inputs.n || '3' }}" --catalogo "${{ github.event.inputs.catalogo || '0' }}"
       - name: Guardar registro
         run: |
           git config user.name "velans-bot"

@@ -6,7 +6,7 @@ que no se hayan publicado en los últimos 30 días y las envía con la Bot API d
 Necesita los secretos TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID (p. ej. @velans_ofertas).
 Si faltan, no hace nada. Uso: python3 scripts/telegram_ofertas.py [--n 4] [--prueba]
 """
-import argparse, datetime as dt, html, json, os, re, sys, urllib.error, urllib.parse, urllib.request
+import argparse, datetime as dt, html, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -85,19 +85,35 @@ def enviar(token, chat, metodo, datos):
     if not res.get("ok"): raise RuntimeError(res)
 
 
+def catalogo(datos, total):
+    """Los mejores artículos: primero lo más vendido (por ventas), después lo más rebajado (por descuento)."""
+    pool = {}
+    for p in datos["masVendidos"] + datos["productos"]:
+        if (p.get("valoracion") or 0) >= 85 and (p.get("ventas") or 0) >= 20 and p.get("enlace"): pool.setdefault(p["id"], p)
+    mitad = total // 2
+    vendidos = sorted(pool.values(), key=lambda p: p.get("ventas") or 0, reverse=True)[:mitad]
+    ids = {p["id"] for p in vendidos}
+    rebajados = sorted([p for p in pool.values() if p["id"] not in ids], key=lambda p: (p.get("descuento") or 0, p.get("ventas") or 0), reverse=True)
+    return vendidos, rebajados[:total - len(vendidos)]
+
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--n", type=int, default=3, help="artículos por sección")
     ap.add_argument("--prueba", action="store_true")
+    ap.add_argument("--catalogo", type=int, default=0, help="publicar de una vez los N mejores artículos")
     a = ap.parse_args()
     publicados = json.loads(REG.read_text()) if REG.exists() else {}
     datos = cargar()
-    vendidos = elegir_vendidos(datos, a.n, publicados)
-    rebajados = elegir_rebajados(datos, a.n, publicados, excluir=[p["id"] for p in vendidos])
+    if a.catalogo:
+        vendidos, rebajados = catalogo(datos, a.catalogo)
+    else:
+        vendidos = elegir_vendidos(datos, a.n, publicados)
+        rebajados = elegir_rebajados(datos, a.n, publicados, excluir=[p["id"] for p in vendidos])
     secciones = [("🏆 <b>Lo más vendido hoy en AliExpress</b>\n(siempre con la oferta más barata de cada artículo)", vendidos, "🏆 Top ventas"),
                  ("🔥 <b>Lo más rebajado hoy en AliExpress</b>", rebajados, "🔥 Superrebaja")]
     if a.prueba:
         for cab, lista, et in secciones:
-            print(cab); [print(f"{et} · " + texto(p).split(chr(10))[0]) for p in lista]
+            print(cab, len(lista)); [print(f"{et} · " + texto(p).split(chr(10))[0]) for p in lista[:3]]
         return
     token, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
     if not token or not chat:
@@ -114,7 +130,9 @@ def main():
             except Exception as ex:
                 print("foto falló, envío texto:", ex, file=sys.stderr)
                 enviar(token, chat, "sendMessage", {"chat_id": chat, "text": cap, "parse_mode": "HTML"})
-            publicados[p["id"]] = hoy; n += 1
+            if not a.catalogo: publicados[p["id"]] = hoy
+            n += 1
+            time.sleep(3.5 if a.catalogo else 1)  # límite de Telegram: unos 20 mensajes por minuto en un canal
     publicados = {k: f for k, f in publicados.items() if (dt.date.today() - dt.date.fromisoformat(f)).days < 60}
     REG.parent.mkdir(exist_ok=True); REG.write_text(json.dumps(publicados, indent=0, sort_keys=True))
     print(n, "ofertas publicadas")
