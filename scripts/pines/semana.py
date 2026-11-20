@@ -97,9 +97,18 @@ body{background:radial-gradient(120% 70% at 50% 0%,#2a2620 0%,#0e0f12 60%)}"""
             f'<div class=cta><span>Ver la oferta →</span><i>velans.es</i></div></body></html>')
 
 
+RUIDO = re.compile(r"^(?:(?:nuevo|nueva|nuevos|nuevas|new|hot|original|oferta|estilo|moda|20\d\d|\d+ ?(?:pcs|piezas|uds))\b[ ,.:-]*)+", re.I)
+
+
 def nombre_corto(n, k=70):
-    n = re.sub(r"\s+", " ", re.split(r"[,|(]", n)[0]).strip(" .-")
-    return n if len(n) <= k else n[:k].rsplit(" ", 1)[0] + "…"
+    n = RUIDO.sub("", re.sub(r"\s+", " ", n)).strip(" .,-")
+    partes = [x.strip(" .-") for x in re.split(r"[,|(]", n) if x.strip(" .-")]
+    out = ""
+    for x in partes:
+        out = (out + ", " + x) if out else x
+        if len(out.split()) >= 4: break
+    out = out[:1].upper() + out[1:]
+    return out if len(out) <= k else out[:k].rsplit(" ", 1)[0] + "…"
 
 
 def combo(g):
