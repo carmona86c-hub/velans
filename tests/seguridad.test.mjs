@@ -23,12 +23,12 @@ test('no se cargan scripts ni hojas de estilo de otras webs',()=>{
     for(const m of s.matchAll(/<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"/g)) assert.ok(!/^(https?:)?\/\//.test(m[1]),p+': '+m[1]);
   }
 });
-test('los enlaces externos solo van a Amazon.es con velans-21, o a velans.es',()=>{
+test('los enlaces a Amazon solo van a Amazon.es (nunca con el identificador rechazado velans-21)',()=>{
   for(const f of code){
     const s=read(f);
     for(const m of s.matchAll(/https?:\/\/(?:www\.)?amazon\.[a-z.]+\/[^"'\s<>`)]*/g)){
       assert.ok(/^https:\/\/www\.amazon\.es\//.test(m[0]),f+': '+m[0]);
-      assert.match(m[0],/tag=velans-21/,f+': '+m[0]);
+      assert.doesNotMatch(m[0],/tag=velans-21/,f+': '+m[0]);
     }
   }
 });
@@ -86,8 +86,17 @@ test('guías de regalo de Navidad: publicadas, enlazadas y en el sitemap',()=>{
   }
 });
 
-test('la web ya no enlaza ni menciona Amazon',()=>{
+test('Amazon solo aparece en las comparativas, y nunca con el identificador rechazado',()=>{
+  const comparativas=new Set([...read('scripts/amazon_guias_texto.py').matchAll(/slug="([^"]+)"/g)].map(m=>m[1]+'.html'));
+  assert.ok(comparativas.size>=5);
   for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html')||f==='llms.txt')){
-    assert.doesNotMatch(read(f),/amazon|velans-21/i,f);
+    const s=read(f);
+    assert.doesNotMatch(s,/velans-21/,f+': identificador de Amazon rechazado');
+    if(comparativas.has(f)){
+      assert.match(s,/Velan’s no recibe ninguna comisión|En calidad de Afiliado de Amazon/,f+': falta el aviso');
+      assert.doesNotMatch(s,/m\.media-amazon|images-amazon/,f+': sin fotos de Amazon');
+    }else if(f!=='guias-de-compra.html'&&f!=='aviso-legal.html'){
+      assert.doesNotMatch(s,/amazon\.es/i,f+': enlaces a Amazon solo en las comparativas');
+    }
   }
 });

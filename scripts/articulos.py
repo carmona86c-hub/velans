@@ -59,7 +59,7 @@ def relacionados(pool, claves, n=4):
     return out
 
 
-def generar(pagina_base, pool, tarjeta):
+def generar(pagina_base, pool, tarjeta, comparativas=()):
     """pagina_base(titulo, desc, url, cuerpo, ld, extra_css) → HTML completo (plantilla de guias.py)."""
     urls = []
     for a in ARTICULOS:
@@ -90,7 +90,8 @@ def generar(pagina_base, pool, tarjeta):
               '<h1>Guías de compra de Velan’s</h1>'
               '<div class="intro"><p>Explicaciones claras para comprar mejor: qué mirar antes de elegir, qué siglas importan y qué es solo marketing. '
               'Las escribimos nosotros, a partir de cómo seleccionamos cada día las ofertas de la web.</p></div>'
-              '<ul class="arts">' + "".join(f'<li><a href="{x["slug"]}.html"><b>{e(x["titulo"])}</b><span>{e(x["desc"])}</span></a></li>' for x in ARTICULOS) + "</ul>")
+              '<h2 class="sec">Consejos de compra</h2><ul class="arts">' + "".join(f'<li><a href="{x["slug"]}.html"><b>{e(x["titulo"])}</b><span>{e(x["desc"])}</span></a></li>' for x in ARTICULOS) + "</ul>"
+              + ('<h2 class="sec">Comparativas de productos</h2><ul class="arts">' + "".join(f'<li><a href="{x["slug"]}.html"><b>{e(x["titulo"])}</b><span>{e(x["desc"])}</span></a></li>' for x in comparativas) + "</ul>" if comparativas else ""))
     ld = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Guías de compra de Velan’s", "url": url,
           "hasPart": [{"@type": "Article", "headline": x["titulo"], "url": f"{SITE}/{x['slug']}.html"} for x in ARTICULOS]}
     (ROOT / "guias-de-compra.html").write_text(pagina_base("Guías de compra", "Guías de compra originales de Velan’s: cómo elegir auriculares, cargadores, smartwatch, power bank, iluminación LED y más, y cómo comprar en AliExpress sin sustos.", url, cuerpo, ld, EXTRA), encoding="utf-8")

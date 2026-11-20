@@ -312,7 +312,9 @@ for g in GUIAS + GUIAS_REGALO:
     print(f"{g['slug']}: {len(items)} productos")
 if (ROOT / "black-friday.html").exists(): urls.append(f"{SITE}/black-friday.html")
 import articulos  # noqa: E402
-urls += articulos.generar(pagina_base, POOL, tarjeta)
+import amazon_guias  # noqa: E402
+urls += articulos.generar(pagina_base, POOL, tarjeta, amazon_guias.GUIAS_AMAZON)
+urls += amazon_guias.generar(pagina_base, articulos.fecha_es)
 urls += [f"{SITE}/aviso-legal.html"]
 
 (ROOT / "sitemap.xml").write_text(
