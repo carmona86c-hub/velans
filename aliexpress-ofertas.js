@@ -152,5 +152,10 @@
     if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('ae-resaltado');setTimeout(()=>el.classList.remove('ae-resaltado'),2600);}
     return true;
   };
+  // Fotos: se muestran cuando terminan de cargar (sin esto quedan ocultas por el estilo base).
+  const marcarFoto=img=>{if(img.complete&&img.naturalWidth>0)img.parentElement?.classList.add('has-product-photo');};
+  document.addEventListener('load',e=>{const t=e.target;if(t&&t.classList&&t.classList.contains('preview-product-image'))marcarFoto(t);},true);
+  const repasar=()=>zona.querySelectorAll('img.preview-product-image').forEach(marcarFoto);
+  new MutationObserver(repasar).observe(zona,{childList:true,subtree:true});repasar();
   const pedida=new URLSearchParams(location.search).get('oferta');if(pedida)setTimeout(()=>window.VelansAEOpen(pedida),50);
 })();
