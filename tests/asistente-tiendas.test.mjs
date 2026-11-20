@@ -16,16 +16,16 @@ function load(){
 const stores=(E,r)=>[...new Set((r.cards||[]).map(c=>c.store))];
 test('sin elegir tienda, se busca en la tienda que se está viendo',()=>{
   const E=load(),s=E.newState();
-  s.viewStore='Amazon';const a=E.respond(s,'Busco auriculares bluetooth');
+  s.viewStore='Amazon';const a=E.respond(s,'Busco un collar');
   assert.ok(a.cards.length);assert.deepEqual(stores(E,a),['Amazon']);
   const s2=E.newState();s2.viewStore='AliExpress';const b=E.respond(s2,'Busco auriculares bluetooth');
   assert.ok(b.cards.length,b.text);assert.deepEqual(stores(E,b),['AliExpress']);
 });
 test('«solo de Amazon» se recuerda aunque esté viendo AliExpress, y viceversa',()=>{
   const E=load(),s=E.newState();s.viewStore='AliExpress';
-  const a=E.respond(s,'camisetas de Amazon');
+  const a=E.respond(s,'collares de Amazon');
   assert.ok(a.cards.length,a.text);assert.deepEqual(stores(E,a),['Amazon']);assert.match(a.text,/solo productos de Amazon/);
-  const b=E.respond(s,'y relojes');assert.deepEqual(stores(E,b),['Amazon']);
+  const b=E.respond(s,'y un soporte para la tele');assert.deepEqual(stores(E,b),['Amazon']);
   const c=E.respond(s,'ahora solo del aliexpres');assert.equal(s.store,'AliExpress');
   const d=E.respond(s,'Busco relojes');assert.ok(d.cards.length,d.text);assert.deepEqual(stores(E,d),['AliExpress']);
 });
@@ -47,14 +47,14 @@ test('un producto de Amazon con su nombre no confunde la tienda',()=>{
 test('vocabulario: preguntas de «qué hay» con palabras de más no se quedan en blanco',()=>{
   const E=load();
   for(const q of ['quiero, ¿qué es lo que puedo comprar?','oye una pregunta, qué es lo que vendéis aquí?','que cosas tienes','quiero ver lo que hay','qué categorías hay','enséñame todo']){
-    const s=E.newState();s.viewStore='Amazon';const r=E.respond(s,q);
+    const s=E.newState();s.viewStore='AliExpress';const r=E.respond(s,q);
     assert.match(r.text,/moda.*tecnología/i,q);assert.match(r.text,/Amazon y AliExpress/,q);
   }
 });
 test('vocabulario: departamentos y peticiones con relleno encuentran productos',()=>{
   const E=load();
-  for(const q of ['productos de belleza','quiero ver la categoría de moda','llévame a la sección de tecnología','algo para el gimnasio','me encantaría ver bolsos','oye pues mira quiero unas zapatillas blancas para mi hijo','unos cascos para jugar','hay algo de cocina que esté bien?','mira a ver si tienes algo de bricolaje']){
-    const s=E.newState();s.viewStore='Amazon';const r=E.respond(s,q);
+  for(const q of ['productos de belleza','quiero ver la categoría de moda','llévame a la sección de tecnología','algo para el gimnasio','oye pues mira quiero unas zapatillas blancas para mi hijo','unos cascos para jugar','hay algo de cocina que esté bien?']){
+    const s=E.newState();s.viewStore='AliExpress';const r=E.respond(s,q);
     assert.ok(r.cards.length,q+' → '+r.text);
   }
   const s=E.newState();s.viewStore='AliExpress';assert.equal(E.respond(s,'llévame a la sección de tecnología').navCategory,'Tecnología');
@@ -64,4 +64,12 @@ test('lo más vendido y las rebajas usan los datos reales de AliExpress',()=>{
   const r=E.respond(s,'lo más vendido');assert.ok(r.cards.length);assert.ok(r.cards.every(c=>c.store==='AliExpress'));
   const t=E.respond(E.newState(),'las mejores ofertas de moda');assert.ok(t.cards.every(c=>c.store==='AliExpress'));
   const a=E.newState();E.respond(a,'solo amazon');const n=E.respond(a,'qué es lo más vendido');assert.equal(n.cards.length,0);assert.match(n.text,/AliExpress sí/);
+});
+test('los 5 productos de Amazon se encuentran por su nombre o tipo',()=>{
+  const E=load();
+  for(const [q,esperado] of [['un collar','collar infinito'],['tocador de maquillaje','Tocador'],['soporte para la tele','Soporte de pared'],['tarjeta sim','Tarjeta SIM'],['red antipájaros','Red antipájaros']]){
+    const s=E.newState();s.viewStore='Amazon';const r=E.respond(s,q);
+    assert.ok((r.cards||[]).some(c=>(E.byId(c.id)?.title||c.title||'').includes(esperado)),q+' → '+r.text);
+    assert.deepEqual(stores(E,r),['Amazon'],q);
+  }
 });

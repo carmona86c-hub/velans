@@ -8,11 +8,11 @@ import {dirname,join} from 'node:path';
 const root=dirname(dirname(fileURLToPath(import.meta.url)));
 const read=name=>fs.readFileSync(join(root,name),'utf8');
 
-test('369 productos con enlaces Amazon.es y únicamente el afiliado velans-21',()=>{
+test('los 5 productos de Amazon elegidos, con enlaces Amazon.es y únicamente el afiliado velans-21',()=>{
   const context={window:{}};
   vm.runInNewContext(read('catalogo-completo.js'),context);
   const rows=context.window.VELANS_PREVIEW_DATA.products;
-  assert.equal(rows.length,369);
+  assert.equal(rows.length,5);
   let direct=0,search=0;
   for(const row of rows){
     const url=new URL(row.affiliateUrl);
@@ -29,8 +29,8 @@ test('369 productos con enlaces Amazon.es y únicamente el afiliado velans-21',(
       search++;
     }
   }
-  assert.equal(direct,298);
-  assert.equal(search,71);
+  assert.equal(direct,0);
+  assert.equal(search,5);
 });
 
 test('los archivos de la nueva tienda están presentes',()=>{
@@ -42,7 +42,7 @@ test('los archivos de la nueva tienda están presentes',()=>{
 test('portada pública sin mensajes de maqueta y con Compra con criterio limpio',()=>{
   const html=read('index.html');
   assert.doesNotMatch(html,/VISTA PREVIA PRIVADA|maqueta privada|No cambia velans\.es|segunda-ronda\.html/);
-  assert.match(html,/<section class="transparency"[^>]*><div><span class="eyebrow">COMPRA CON CRITERIO<\/span><h2>369 artículos en nuestra selección\.<\/h2><\/div><\/section>/);
+  assert.match(html,/<section class="transparency"[^>]*><div><span class="eyebrow">COMPRA CON CRITERIO<\/span><h2>Productos elegidos uno a uno\.<\/h2><\/div><\/section>/);
   assert.match(html,/En calidad de Afiliado de Amazon, obtengo ingresos/);
   assert.match(html,/id="product-page-amazon"/);
   assert.match(html,/Ver en Amazon<\/a>/);

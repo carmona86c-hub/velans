@@ -1146,7 +1146,38 @@
       if(item){state.focusId=item.id;if(state.dialogue)state.dialogue.lastMetric=null;}
       return item;
     }
-    return {...base,respond,greeting,season,setSelected};
+    // Si con todas las condiciones no hay nada, se busca por la palabra principal (AliExpress
+    // no trae la clasificación fina por tipo de artículo que tenía el catálogo antiguo).
+    const FILLER=new Set('quiero queria busco buscando algo alguna alguno algun para pero como unos unas cosa cosas regalo regalar tengo necesito mirar ensename ensenarme dame tienes hay barato barata bueno buena mejor mio mia comprar compra'.split(' '));
+    function respondWithFallback(state,raw){
+      const reply=respond(state,raw);
+      if(!reply||(reply.cards&&reply.cards.length)||!/No encuentro en el catálogo/i.test(reply.text||''))return reply;
+      const pre=((reply.text||'').match(/^Vale, te enseño solo productos de [^.]+\. /)||[''])[0];
+      const words=fold(String(raw||'')).split(/[^a-z0-9ñ]+/).filter(w=>w.length>3&&!FILLER.has(w));
+      for(const w of words){
+        const probe={...base.newState(),store:state.store,viewStore:state.viewStore};
+        const alt=respond(probe,w);
+        if(alt&&alt.cards&&alt.cards.length){
+          alt.text=pre+`Esto es lo que tengo relacionado con «${w}»:`;
+          state.lastQuery=w;state.lastRecs=probe.lastRecs;
+          return alt;
+        }
+      }
+      // Último recurso: buscar la palabra en el nombre de las ofertas.
+      const cat=base.realCatalog?base.realCatalog():[];
+      for(const w of words){
+        let raiz=w.replace(/(es|s)$/,'');if(raiz.length<4)raiz=w;
+        const tienda=state.store||state.viewStore||null;
+        const hits=cat.filter(p=>fold(p.title).includes(raiz)&&(!tienda||(p.store||'Amazon')===tienda)).slice(0,4);
+        if(hits.length){
+          const cards=hits.map(p=>({id:p.id,siteId:p.siteId,title:p.title,summary:p.summary,attrs:[p.category].filter(Boolean),reason:`Coincide con lo que buscas: ${w}.`,warnings:[],internalUrl:null,status:'VERIFICADO',store:p.store||'AliExpress'}));
+          state.lastQuery=w;state.lastRecs=hits.map(p=>p.id);
+          return {text:pre+`Esto es lo que tengo relacionado con «${w}»:`,cards,quick:['Ver tecnología','Quiero un regalo']};
+        }
+      }
+      return reply;
+    }
+    return {...base,respond:respondWithFallback,greeting,season,setSelected};
   }
   root.VelansDialogue={create:createDialogue};
 
