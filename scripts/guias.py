@@ -74,11 +74,15 @@ def elegir(cfg, n=16, max_precio=None):
     return out
 
 
+# Fuera de las guías: mascotas, herramientas de obra y personajes con licencia (suelen ser imitaciones).
+VETADO = re.compile(r"gat[oa]s?\b|gatera|perr[oa]s?\b|mascota|hormig[oó]n|\bsds\b|taladr|broca|martillo|pok[eé]mon|disney|marvel|barbie|\blego\b|hello kitty|stitch|sonic|mario|harry potter|spider|frozen|bluey|paw patrol|minecraft|naruto|one piece|dragon ball|pikachu|kuromi|sanrio|cinnamoroll|labubu|my melody", re.I)
+
+
 def items_regalo(slug):
     """Primero las búsquedas propias de la guía (API de AliExpress); si faltan, se completa con el resto."""
     tope = 15 if slug == "regalos-amigo-invisible" else None
-    propios = [p for p in (DATOS.get("regalos") or {}).get(slug, []) if fiable(p) and (tope is None or p["precio"] <= tope)]
-    resto = [p for p in elegir(CLAVES[slug], max_precio=tope) if p["id"] not in {q["id"] for q in propios}]
+    propios = [p for p in (DATOS.get("regalos") or {}).get(slug, []) if fiable(p) and not VETADO.search(p["nombre"]) and (tope is None or p["precio"] <= tope)]
+    resto = [p for p in elegir(CLAVES[slug], max_precio=tope) if p["id"] not in {q["id"] for q in propios} and not VETADO.search(p["nombre"])]
     return (propios + resto)[:16] if len(propios) < 12 else propios[:20]
 
 
@@ -130,7 +134,7 @@ GUIAS = [
 def euro(n): return f"{n:,.2f} €".replace(",", "X").replace(".", ",").replace("X", ".")
 def miles(n): return f"{int(n or 0):,}".replace(",", ".")
 def corto(n, k=90):
-    n = re.sub(r"\s+", " ", n).strip()
+    n = re.sub(r"\s+", " ", n.replace("\ufffd", "")).strip()
     return n if len(n) <= k else n[:k].rsplit(" ", 1)[0] + "…"
 
 

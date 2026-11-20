@@ -185,6 +185,7 @@ const BUSQUEDAS_REGALO = {
   'regalos-para-ninos': ['juguetes niños', 'bloques construccion', 'peluche', 'puzzle', 'juguete educativo'],
   'regalos-amigo-invisible': ['taza', 'calcetines divertidos', 'llavero', 'luz nocturna', 'lampara luna'],
 };
+const VETADO_REGALO = /gat[oa]s?\b|gatera|perr[oa]s?\b|mascota|hormig[oó]n|\bsds\b|taladr|broca|martillo|pok[eé]mon|disney|marvel|barbie|\blego\b|hello kitty|stitch|sonic|mario|harry potter|spider|frozen|bluey|paw patrol|minecraft|naruto|one piece|dragon ball|pikachu|kuromi|sanrio|cinnamoroll|labubu|my melody/i;
 const sinTildes = (x) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const regalos = {};
 for (const [slug, busquedas] of Object.entries(BUSQUEDAS_REGALO)) {
@@ -198,7 +199,7 @@ for (const [slug, busquedas] of Object.entries(BUSQUEDAS_REGALO)) {
       const img = segura(p.product_main_image_url, ['alicdn.com', 'aliexpress-media.com']);
       const link = segura(p.promotion_link, ['s.click.aliexpress.com']);
       const titulo = String(p.product_title || '').replace(/\s+/g, ' ').trim();
-      if (!img || !link || !precio || valor < 88 || ventas < 30 || NO_TOP.test(titulo) || !sinTildes(titulo).includes(raiz)) continue;
+      if (!img || !link || !precio || valor < 88 || ventas < 30 || NO_TOP.test(titulo) || VETADO_REGALO.test(titulo) || !sinTildes(titulo).includes(raiz)) continue;
       buenos.push({ id: 'ae-' + p.product_id, tienda: 'AliExpress', categoria: 'Regalos', nombre: titulo.slice(0, 140), imagen: img,
         precio, precioAntes: antes, descuento: antes > precio ? Math.round((1 - precio / antes) * 100) : 0, valoracion: valor, ventas, enlace: link });
     }
