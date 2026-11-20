@@ -95,7 +95,7 @@ test('Amazon solo aparece en las comparativas, y nunca con el identificador rech
     if(comparativas.has(f)){
       assert.match(s,/Velan’s no recibe ninguna comisión|En calidad de Afiliado de Amazon/,f+': falta el aviso');
       assert.doesNotMatch(s,/m\.media-amazon|images-amazon/,f+': sin fotos de Amazon');
-    }else if(f!=='guias-de-compra.html'&&f!=='aviso-legal.html'){
+    }else if(!['guias-de-compra.html','aviso-legal.html','llms.txt'].includes(f)){
       assert.doesNotMatch(s,/amazon\.es/i,f+': enlaces a Amazon solo en las comparativas');
     }
   }
