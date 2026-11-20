@@ -6,7 +6,7 @@ que no se hayan publicado en los últimos 30 días y las envía con la Bot API d
 Necesita los secretos TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID (p. ej. @velans_ofertas).
 Si faltan, no hace nada. Uso: python3 scripts/telegram_ofertas.py [--n 4] [--prueba]
 """
-import argparse, datetime as dt, html, json, os, re, sys, urllib.parse, urllib.request
+import argparse, datetime as dt, html, json, os, re, sys, urllib.error, urllib.parse, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -56,8 +56,11 @@ def texto(p):
 
 def enviar(token, chat, metodo, datos):
     req = urllib.request.Request(f"https://api.telegram.org/bot{token}/{metodo}", data=urllib.parse.urlencode(datos).encode())
-    with urllib.request.urlopen(req, timeout=30) as r:
-        res = json.load(r)
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            res = json.load(r)
+    except urllib.error.HTTPError as ex:
+        raise RuntimeError(f"Telegram respondió {ex.code}: {ex.read().decode(errors='replace')}") from None
     if not res.get("ok"): raise RuntimeError(res)
 
 
