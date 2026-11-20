@@ -86,8 +86,8 @@ test('guías de regalo de Navidad: publicadas, enlazadas y en el sitemap',()=>{
 });
 test('guías de compra y comparativas: publicadas, en el sitemap y con aviso',()=>{
   const sm=read('sitemap.xml');
-  const slugs=[...read('scripts/articulos_texto.py').matchAll(/slug="([^"]+)"/g),...read('scripts/amazon_guias_texto.py').matchAll(/slug="([^"]+)"/g)].map(m=>m[1]);
-  assert.ok(slugs.length>=17,'pocas guías: '+slugs.length);
+  const slugs=[...read('scripts/articulos_texto.py').matchAll(/slug="([^"]+)"/g),...read('scripts/amazon_guias_texto.py').matchAll(/slug="([^"]+)"/g),...read('scripts/amazon_productos_texto.py').matchAll(/slug="([^"]+)"/g)].map(m=>m[1]);
+  assert.ok(slugs.length>=22,'pocas guías: '+slugs.length);
   for(const s of [...slugs,'guias-de-compra','sobre-velans']){
     const h=read(s+'.html');
     assert.ok(sm.includes('velans.es/'+s+'.html'),s+' no está en el sitemap');

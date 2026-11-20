@@ -83,3 +83,12 @@ body[data-tienda="aliexpress"] .mobile-filter-strip,body[data-tienda="aliexpress
 .ae-section .product-card h3,.ae-section .feature-product h3{-webkit-line-clamp:2;line-height:1.3;max-height:2.6em;min-height:2.6em}
 
 .ae-resaltado{outline:3px solid var(--bronze,#e5a36b);outline-offset:3px;transition:outline-color .4s}
+/* Bloque de guías de compra en la portada */
+.guias-home{max-width:1180px;margin:28px auto 8px;padding:20px 22px;border:1px solid rgba(217,164,111,.35);border-radius:18px;background:rgba(255,255,255,.03)}
+.guias-home h2{margin:6px 0 6px;font-size:24px}
+.guias-home p{color:#cfc6ba;margin:0 0 10px}
+.guias-home ul{list-style:none;padding:0;margin:0 0 6px;display:grid;gap:8px}
+@media(min-width:760px){.guias-home ul{grid-template-columns:1fr 1fr}}
+.guias-home li a{display:block;padding:11px 14px;border-radius:12px;background:rgba(255,255,255,.05);color:#f1e9df;text-decoration:none}
+.guias-home li a:hover{text-decoration:underline}
+.guias-home-all{color:#d9a46f;font-weight:700}

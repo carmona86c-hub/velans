@@ -314,8 +314,9 @@ if (ROOT / "black-friday.html").exists(): urls.append(f"{SITE}/black-friday.html
 
 import articulos  # noqa: E402
 import amazon_guias  # noqa: E402
-urls += articulos.generar(pagina_base, POOL, tarjeta, amazon_guias.GUIAS_AMAZON)
+urls += articulos.generar(pagina_base, POOL, tarjeta, amazon_guias.GUIAS_AMAZON, amazon_guias.PRODUCTOS_AMAZON)
 urls += amazon_guias.generar(pagina_base, articulos.fecha_es)
+urls += amazon_guias.generar_analisis(pagina_base, articulos.fecha_es)
 urls += [f"{SITE}/aviso-legal.html"]
 
 (ROOT / "sitemap.xml").write_text(
