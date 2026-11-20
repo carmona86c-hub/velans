@@ -1,0 +1,36 @@
+name: Canal de Telegram (chollos diarios)
+
+on:
+  schedule:
+    - cron: "23 8 * * *"   # ~9:23 / 10:23 en España, después de actualizar AliExpress
+  workflow_dispatch:
+    inputs:
+      n:
+        description: "Número de ofertas"
+        default: "4"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: velans-main-push
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publicar ofertas
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 scripts/telegram_ofertas.py --n "${{ github.event.inputs.n || '4' }}"
+      - name: Guardar registro
+        run: |
+          git config user.name "velans-bot"
+          git config user.email "velans-bot@users.noreply.github.com"
+          git add data/telegram-publicados.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Telegram: registro de ofertas publicadas"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
