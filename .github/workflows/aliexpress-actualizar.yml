@@ -31,11 +31,12 @@ jobs:
           N=$(node -e 'const s=require("fs").readFileSync("aliexpress-productos.js","utf8");const d=JSON.parse(s.slice(s.indexOf("{"),s.lastIndexOf("}")+1));console.log(d.productos.length)')
           echo "Productos: $N"
           if [ "$N" -lt 40 ]; then echo "Muy pocos productos ($N): se mantiene la lista anterior"; cp "$RUNNER_TEMP/anterior.js" aliexpress-productos.js; fi
+          python3 scripts/guias.py
           node --test tests/seguridad.test.mjs
       - name: Guardar si hay cambios
         run: |
           git config user.name "velans-bot"; git config user.email "velans-bot@users.noreply.github.com"
-          git add aliexpress-productos.js
+          git add aliexpress-productos.js *.html sitemap.xml robots.txt
           git diff --cached --quiet && { echo "Sin cambios"; exit 0; }
           git commit -m "Ofertas de AliExpress actualizadas $(date -u +%F)"
           git push

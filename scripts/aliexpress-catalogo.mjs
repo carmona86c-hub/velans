@@ -174,7 +174,44 @@ function abaratar(lista) {
 for (const k of Object.keys(destacados)) destacados[k] = abaratar(destacados[k]).nueva;
 masVendidos.forEach((p, i) => console.log(`${i + 1}. ${p.ventas} · ${p.precio} € · ${p.nombre.slice(0, 70)}`));
 const fecha = new Date().toISOString().slice(0, 10);
-fs.writeFileSync('aliexpress-productos.js', `/* Productos de AliExpress (API oficial de afiliados, tracking velans-21). Actualizado: ${fecha}. Precios orientativos: pueden cambiar en AliExpress. */\nwindow.VELANS_ALIEXPRESS = ${JSON.stringify({ actualizado: fecha, productos: salida.map(({ busqueda, ...q }) => q), destacados, masVendidos }, null, 1)};\n`);
+// Guías de regalo: búsquedas propias de cada guía (lo más vendido de tiendas fiables).
+// La primera palabra de cada búsqueda tiene que aparecer en el título, para que sea relevante.
+const BUSQUEDAS_REGALO = {
+  'regalos-para-mujer': ['reloj mujer', 'pendientes plata mujer', 'bolso bandolera mujer', 'bufanda mujer', 'joyero'],
+  'regalos-para-hombre': ['reloj hombre', 'cartera hombre', 'cinturon hombre', 'afeitadora', 'auriculares inalambricos'],
+  'regalos-para-padre': ['destornillador precision', 'linterna recargable', 'cartera hombre piel', 'soporte movil coche', 'reloj hombre acero'],
+  'regalos-para-madre': ['manta franela', 'masajeador', 'joyero', 'pendientes perla', 'bolso mujer'],
+  'regalos-para-adolescentes': ['auriculares gaming', 'raton gaming', 'teclado mecanico', 'tira led', 'smartwatch'],
+  'regalos-para-ninos': ['juguetes niños', 'bloques construccion', 'peluche', 'puzzle', 'juguete educativo'],
+  'regalos-amigo-invisible': ['taza', 'calcetines divertidos', 'llavero', 'luz nocturna', 'lampara luna'],
+};
+const sinTildes = (x) => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+const regalos = {};
+for (const [slug, busquedas] of Object.entries(BUSQUEDAS_REGALO)) {
+  const lista = []; const ids = new Set();
+  for (const kw of busquedas) {
+    const raiz = sinTildes(kw.split(' ')[0]).slice(0, 5);
+    const buenos = [];
+    for (const p of await query(kw, 1)) {
+      const precio = num(p.target_sale_price), antes = num(p.target_original_price) || precio;
+      const valor = num(p.evaluate_rate), ventas = Number(p.lastest_volume || 0);
+      const img = segura(p.product_main_image_url, ['alicdn.com', 'aliexpress-media.com']);
+      const link = segura(p.promotion_link, ['s.click.aliexpress.com']);
+      const titulo = String(p.product_title || '').replace(/\s+/g, ' ').trim();
+      if (!img || !link || !precio || valor < 88 || ventas < 30 || NO_TOP.test(titulo) || !sinTildes(titulo).includes(raiz)) continue;
+      buenos.push({ id: 'ae-' + p.product_id, tienda: 'AliExpress', categoria: 'Regalos', nombre: titulo.slice(0, 140), imagen: img,
+        precio, precioAntes: antes, descuento: antes > precio ? Math.round((1 - precio / antes) * 100) : 0, valoracion: valor, ventas, enlace: link });
+    }
+    await new Promise((s) => setTimeout(s, 400));
+    buenos.sort((a, b) => b.ventas - a.ventas);
+    let n = 0;
+    for (const q of buenos) { if (n >= 4) break; if (ids.has(q.id) || lista.some((r) => parecidos(fichas(q.nombre), fichas(r.nombre)))) continue; ids.add(q.id); lista.push(q); n++; }
+  }
+  regalos[slug] = lista;
+  console.log(`Guía ${slug}: ${lista.length} artículos`);
+}
+
+fs.writeFileSync('aliexpress-productos.js', `/* Productos de AliExpress (API oficial de afiliados, tracking velans-21). Actualizado: ${fecha}. Precios orientativos: pueden cambiar en AliExpress. */\nwindow.VELANS_ALIEXPRESS = ${JSON.stringify({ actualizado: fecha, productos: salida.map(({ busqueda, ...q }) => q), destacados, masVendidos, regalos }, null, 1)};\n`);
 const res = salida.map((p) => `- [${p.categoria}] −${p.descuento}% · ${p.precio} € (antes ${p.precioAntes} €) · ★${p.valoracion}% · ${p.ventas} vendidos · ${p.nombre.slice(0, 60)}`).join('\n');
 console.log(res);
 if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Selección AliExpress (${salida.length})\n\n${res}\n`);

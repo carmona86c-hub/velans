@@ -1,5 +1,5 @@
 'use strict';
-// Ofertas de AliExpress: sección aparte de los productos de Amazon (programa de afiliados de AliExpress).
+// Ofertas de AliExpress (programa de afiliados de AliExpress): la tienda de Velan’s.
 // Datos obtenidos con la API oficial de afiliados (aliexpress-productos.js). Precios orientativos.
 (function(){
   const datos=window.VELANS_ALIEXPRESS;
@@ -12,7 +12,7 @@
   const imagenSegura=u=>{try{const x=new URL(u);return x.protocol==='https:'&&/(^|\.)(alicdn\.com|aliexpress-media\.com)$/.test(x.hostname)?x.href:null}catch{return null}};
   const productos=datos.productos.filter(p=>enlaceSeguro(p.enlace)&&imagenSegura(p.imagen));
   const categorias=['Todas',...new Set(productos.map(p=>p.categoria))];
-  const estado={cat:'Todas',limite:10};
+  const estado={cat:'Todas',limite:10,q:''};
   const tabs=null, grid=zona.querySelector('.ae-grid'), mas=zona.querySelector('.ae-more');
   if(tabs)tabs.hidden=true;
   if(false)tabs.innerHTML=categorias.map(c=>`<button type="button" class="ae-tab" data-ae-cat="${esc(c)}" aria-pressed="${c===estado.cat}">${esc(c)}</button>`).join('');
@@ -62,7 +62,12 @@
   
   function pintar(){
     pintarTop();
-    const lista=productos.filter(p=>estado.cat==='Todas'||p.categoria===estado.cat).sort((a,b)=>b.descuento-a.descuento);
+    const norm=t=>String(t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    const pal=norm(estado.q).split(/\s+/).filter(w=>w.length>1);
+    const coincide=p=>!pal.length||pal.every(w=>norm(p.nombre+' '+p.categoria).includes(w));
+    const base=pal.length?[...new Map([...productos,...best].map(p=>[p.id,p])).values()]:productos;
+    const lista=base.filter(p=>(estado.cat==='Todas'||p.categoria===estado.cat)&&coincide(p)).sort((a,b)=>b.descuento-a.descuento);
+    const tt=document.getElementById('ae-title');if(tt&&pal.length)tt.textContent=lista.length?`Resultados para «${estado.q}»`:`No hay ofertas para «${estado.q}» ahora mismo`;
     grid.innerHTML=lista.slice(0,estado.limite).map(tarjeta).join('');
     mas.hidden=lista.length<=estado.limite;
     const cuenta=document.getElementById('ae-count');if(cuenta)cuenta.textContent=`${Math.min(lista.length,estado.limite)} de ${lista.length} ofertas`;
@@ -74,7 +79,7 @@
   const bestEstado={limite:10};
   function pintarBest(){
     if(!bestZona)return;
-    const ver=best.length&&estado.cat==='Todas';
+    const ver=best.length&&estado.cat==='Todas'&&!estado.q;
     bestZona.hidden=!ver;if(!ver)return;
     bestGrid.innerHTML=best.slice(0,bestEstado.limite).map(tarjeta).join('');
     bestMas.hidden=best.length<=bestEstado.limite;
@@ -87,8 +92,7 @@
   const f=zona.querySelector('.ae-date');if(f&&datos.actualizado)f.textContent=new Date(datos.actualizado+'T12:00:00').toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'});
   zona.hidden=false;pintar();
 
-  // Selector de tienda (debajo de las categorías): Amazon o AliExpress, por separado.
-  // Con AliExpress elegido, las categorías de arriba filtran las ofertas de AliExpress (no hay pestañas aparte).
+    // Con AliExpress elegido, las categorías de arriba filtran las ofertas de AliExpress (no hay pestañas aparte).
   const botones=[...document.querySelectorAll('[data-store]')];
   const titulo=document.getElementById('ae-title');
   const disponibles=new Set(productos.map(p=>p.categoria));
@@ -100,31 +104,20 @@
       b.classList.toggle('ae-oculta',ae&&cat!=='Todas'&&!disponibles.has(cat));
       if(ae){const on=cat===estado.cat;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));}
     });
-    if(titulo)titulo.textContent=estado.cat==='Todas'?'Rebajas en AliExpress':'Rebajas en AliExpress · '+(estado.cat==='Hogar'?'Hogar y cocina':estado.cat);
+    if(titulo&&!estado.q)titulo.textContent=estado.cat==='Todas'?'Rebajas en AliExpress':'Rebajas en AliExpress · '+(estado.cat==='Hogar'?'Hogar y cocina':estado.cat);
     const tt=document.getElementById('ae-top-title');if(tt)tt.textContent=estado.cat==='Todas'?'Destacados':'Destacados · '+(estado.cat==='Hogar'?'Hogar y cocina':estado.cat);
   }
-  function tienda(t,{scroll=true,url=true,nav=true}={}){
-    t=t==='aliexpress'?'aliexpress':'amazon';
-    const antes=document.body.dataset.tienda;
-    document.body.dataset.tienda=t;
-    botones.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.store===t)));
-    if(t==='aliexpress'){estado.limite=20;pintar();}
-    if(url){const u=new URL(location.href);if(t==='aliexpress')u.searchParams.set('tienda','aliexpress');else u.searchParams.delete('tienda');history.replaceState(history.state,'',u.pathname+u.search);}
-    marcarNav();
-    // Al volver a Amazon se abre en Amazon la misma categoría que se estaba viendo en AliExpress.
-    if(nav&&t==='amazon'&&antes==='aliexpress'){
-      const destino=navBtns().find(b=>b.dataset.category===estado.cat)||navBtns().find(b=>b.dataset.category==='Todas');
-      destino?.click();
-    }
+  // Velan’s trabaja solo con AliExpress: la «tienda» es siempre AliExpress.
+  function tienda(t,{scroll=true}={}){
+    document.body.dataset.tienda='aliexpress';
+    estado.limite=Math.max(estado.limite,20);pintar();marcarNav();
     if(scroll)window.scrollTo({top:0,behavior:'auto'});
   }
-  botones.forEach(b=>b.addEventListener('click',()=>tienda(b.dataset.store)));
   document.addEventListener('click',e=>{
-    if(document.body.dataset.tienda!=='aliexpress')return;
     const cat=e.target.closest('.department-nav [data-category]');
     if(cat){
-      // Categorías de arriba → filtran AliExpress.
       e.preventDefault();e.stopImmediatePropagation();
+      estado.q='';const inp=document.getElementById('search-input');if(inp)inp.value='';
       estado.cat=cat.dataset.category==='Todas'||disponibles.has(cat.dataset.category)?cat.dataset.category:'Todas';
       estado.limite=20;pintar();marcarNav();
       const inner=document.getElementById('department-nav-inner');
@@ -132,11 +125,18 @@
       window.scrollTo({top:0,behavior:'auto'});
       return;
     }
-    // Logo, favoritos, novedades o abrir un artículo de Amazon → vuelve a la tienda Amazon.
-    if(e.target.closest('#logo-home, #header-offers, #saved-top, #nav-new'))tienda('amazon',{scroll:false});
+    if(e.target.closest('#logo-home')){e.preventDefault();estado.cat='Todas';estado.q='';const inp=document.getElementById('search-input');if(inp)inp.value='';estado.limite=20;pintar();marcarNav();window.scrollTo({top:0,behavior:'auto'});}
   },true);
-  document.getElementById('search-form')?.addEventListener('submit',()=>{if(document.body.dataset.tienda==='aliexpress')tienda('amazon',{scroll:false});},true);
-  tienda(new URLSearchParams(location.search).get('tienda'),{scroll:false,url:false});
+  document.getElementById('mobile-menu')?.addEventListener('click',()=>{
+    const inner=document.getElementById('department-nav-inner');const on=!inner.classList.contains('is-expanded');
+    inner.classList.toggle('is-expanded',on);document.getElementById('mobile-menu').setAttribute('aria-expanded',String(on));
+  });
+  // Buscador: busca entre las ofertas y lo más vendido de AliExpress.
+  document.getElementById('search-form')?.addEventListener('submit',e=>{
+    e.preventDefault();estado.q=(document.getElementById('search-input')?.value||'').trim();estado.cat='Todas';estado.limite=40;pintar();marcarNav();
+    zona.scrollIntoView({block:'start'});
+  });
+  tienda('aliexpress',{scroll:false});
   // Para el asistente: cambiar de tienda y abrir una oferta concreta de AliExpress.
   window.VelansTienda=(t,o)=>tienda(t,o||{});
   window.VelansAEOpen=id=>{
@@ -152,4 +152,5 @@
     if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('ae-resaltado');setTimeout(()=>el.classList.remove('ae-resaltado'),2600);}
     return true;
   };
+  const pedida=new URLSearchParams(location.search).get('oferta');if(pedida)setTimeout(()=>window.VelansAEOpen(pedida),50);
 })();

@@ -1,13 +1,14 @@
 # Velan's
 
-> Velan's (velans.es) es una web española de recomendaciones de compra: una selección de artículos de moda, tecnología, hogar y cocina, belleza y deporte, con enlaces a Amazon.es y a AliExpress. Incluye ideas para regalar y un asistente propio, Velan's Assistence, que ayuda a elegir. Velan's participa en los programas de afiliados de Amazon y de AliExpress: puede recibir una comisión por las compras que se hagan desde sus enlaces, sin coste extra para el comprador.
+> Velan's (velans.es) es una web española que reúne cada día las mayores rebajas y lo más vendido de AliExpress, solo de tiendas con buena valoración y ventas reales: moda, tecnología, hogar y cocina, belleza y deporte. Incluye guías de regalo, un canal de Telegram con chollos diarios y un asistente propio, Velan's Assistence, que ayuda a elegir. Velan's participa en el programa de afiliados de AliExpress: puede recibir una comisión por las compras que se hagan desde sus enlaces, sin coste extra para el comprador.
 
-Velan's no vende directamente: cada artículo enlaza a la tienda donde se compra, y el precio y la disponibilidad son los que muestra esa tienda en cada momento.
+Velan's no vende directamente: cada artículo enlaza a AliExpress, y el precio y la disponibilidad son los que muestra AliExpress en cada momento. De cada artículo de lo más vendido se busca la oferta más barata de una tienda fiable.
 
 ## Páginas principales
 
-- [Portada](https://velans.es/): selección general de Amazon y AliExpress, con selector de tienda, destacados y lo más vendido de AliExpress.
-- [Ideas para regalar](https://velans.es/ideas-para-regalar.html): regalos que suelen acertar, por tipo de persona y ocasión.
+- [Portada](https://velans.es/): rebajas de AliExpress por categoría, destacados y las 50 más vendidas.
+- [Black Friday](https://velans.es/black-friday.html): las mayores rebajas de AliExpress para Black Friday (cuando está activa).
+- [Ideas para regalar](https://velans.es/ideas-para-regalar.html): lo más vendido de AliExpress que suele acertar como regalo.
 - Guías de regalo de Navidad:
   - [Regalos para mujer](https://velans.es/regalos-para-mujer.html)
   - [Regalos para hombre](https://velans.es/regalos-para-hombre.html)
@@ -16,13 +17,10 @@ Velan's no vende directamente: cada artículo enlaza a la tienda donde se compra
   - [Regalos para adolescentes](https://velans.es/regalos-para-adolescentes.html)
   - [Regalos para niños](https://velans.es/regalos-para-ninos.html)
   - [Ideas para el amigo invisible](https://velans.es/regalos-amigo-invisible.html)
-- [Moda](https://velans.es/moda.html): básicos y marcas de ropa, calzado y accesorios.
-- [Tecnología](https://velans.es/tecnologia.html): tecnología útil para el día a día.
-- [Hogar y cocina](https://velans.es/hogar-y-cocina.html): artículos prácticos para casa y cocina.
-- [Belleza](https://velans.es/belleza.html): belleza y cuidado personal.
+- [Moda](https://velans.es/moda.html), [Tecnología](https://velans.es/tecnologia.html), [Hogar y cocina](https://velans.es/hogar-y-cocina.html), [Belleza](https://velans.es/belleza.html) y [Deportes](https://velans.es/deportes.html): las mayores rebajas de cada categoría.
+- [Canal de Telegram](https://t.me/velans_chollos): lo más vendido y lo más rebajado de AliExpress, cada día.
 
 ## Información
 
 - [Aviso legal, privacidad y cookies](https://velans.es/aviso-legal.html)
-- [Créditos de imágenes](https://velans.es/creditos-imagenes.html)
 - Contacto: contacto@velans.es

@@ -78,10 +78,16 @@ test('guías de regalo de Navidad: publicadas, enlazadas y en el sitemap',()=>{
     const s=read(g+'.html');
     assert.match(s,/<h1>[^<]{10,}<\/h1>/,g);
     assert.match(s,/Consejos para acertar/,g);
-    assert.ok((s.match(/tag=velans-21/g)||[]).length>=12,g+': pocos artículos');
-    assert.doesNotMatch(s,/[0-9],[0-9]{2} ?€|€ ?[0-9]/,g+': no se publican precios de Amazon');
+    assert.ok((s.match(/href="https:\/\/s\.click\.aliexpress\.com\//g)||[]).length>=10,g+': pocos artículos');
+    assert.doesNotMatch(s,/amazon/i,g+': Velan’s ya no enlaza a Amazon');
     assert.match(sm,new RegExp('velans\\.es/'+g+'\\.html'),g);
     assert.match(idx,new RegExp('href="\\./'+g+'\\.html"'),g);
     assert.match(ideas,new RegExp('href="'+g+'\\.html"'),g);
+  }
+});
+
+test('la web ya no enlaza ni menciona Amazon',()=>{
+  for(const f of fs.readdirSync(root).filter(f=>f.endsWith('.html')||f==='llms.txt')){
+    assert.doesNotMatch(read(f),/amazon|velans-21/i,f);
   }
 });
