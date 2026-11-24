@@ -279,4 +279,54 @@ ARTICULOS = [
         ],
         claves="gaming raton teclado auriculares led altavoz",
     ),
+    dict(
+        slug="como-elegir-termo-botella-termica",
+        titulo="Termo y botella térmica: cómo elegir uno que mantenga el calor de verdad",
+        desc="Guía para elegir termo o botella térmica: acero inoxidable, doble pared al vacío, capacidad, tipo de tapa, termos de comida y cómo cuidarlo para que dure años.",
+        fecha="2026-11-24",
+        intro="Con el frío, un termo es de esas compras pequeñas que se usan todos los días: el café del trayecto, la infusión en la oficina, la sopa caliente en el trabajo o el agua fresca en verano. Por fuera casi todos se parecen, pero hay diferencias que se notan a las pocas horas. Esta guía repasa qué mirar para elegir bien y cómo cuidarlo para que no pierda eficacia.",
+        secciones=[
+            ("Termo, botella térmica o termo de comida", [
+                "Antes de comparar modelos conviene tener claro qué vas a meter dentro y dónde lo vas a usar, porque hay tres formatos distintos:",
+                ("ul", ["Botella térmica: boca estrecha, forma alargada y tapón de rosca. Es la más versátil para agua, café o infusiones y cabe en el lateral de la mochila.",
+                        "Taza o vaso térmico: tapa con abertura para beber sin desenroscar. Muy cómodo en el coche o en la mesa, pero suele cerrar peor y no conviene llevarlo tumbado en el bolso.",
+                        "Termo de comida: boca ancha y forma más baja, pensado para sopas, guisos, pasta o el desayuno de los niños. Se llena y se limpia con facilidad, aunque conserva algo peor que una botella porque la tapa es más grande."]),
+                "Si dudas entre dos, piensa en el uso principal. Para el día a día, una botella de rosca suele ser la opción más fiable; el vaso térmico es un capricho cómodo si casi siempre lo usas sentado.",
+            ]),
+            ("Lo que de verdad mantiene la temperatura", [
+                "La clave es la doble pared de acero con vacío entre ambas capas. Sin aire en medio, el calor apenas se transmite hacia fuera, y por eso la superficie exterior debe quedar a temperatura ambiente aunque dentro haya café recién hecho. Si al llenarlo con agua muy caliente notas el exterior templado, el vacío no está funcionando bien.",
+                "En el material, busca acero inoxidable de calidad alimentaria, que en las fichas suele aparecer como acero 304 o 18/8. No guarda olores ni sabores y aguanta bien los golpes. Los termos con interior de vidrio también aíslan bien, pero son más frágiles y no se llevan bien con las caídas.",
+                "Las horas que anuncia el fabricante (por ejemplo, «12 horas caliente, 24 frío») se miden en condiciones ideales: termo lleno, precalentado y cerrado todo el tiempo. En la vida real, cada vez que lo abres pierde algo de calor. Tómalas como una forma de comparar modelos entre sí, no como una promesa exacta.",
+            ]),
+            ("La tapa: el punto débil de casi todos", [
+                "Por la tapa se escapa la mayor parte del calor y es también la causa de casi todas las fugas. Fíjate en estos detalles:",
+                ("ul", ["Tapón de rosca con junta de silicona: es lo que mejor cierra. Comprueba que la junta se pueda sacar para lavarla.",
+                        "Tapas con botón o pulsador: muy cómodas, pero con más piezas que pueden ensuciarse o dejar de cerrar bien con el tiempo.",
+                        "Tapa que hace de vaso: práctica en excursiones para servir y compartir.",
+                        "Cierre con bloqueo: útil si el termo va dentro de una mochila o lo usa un niño."]),
+                "Si piensas llevarlo en el bolso junto al portátil o documentos, prioriza un cierre a prueba de fugas antes que cualquier otra función.",
+            ]),
+            ("¿Qué capacidad necesitas?", [
+                ("ul", ["350–500 ml: un café o una infusión para el trayecto. Ligero y cabe en cualquier bolso.",
+                        "500–750 ml: la medida más equilibrada para la jornada de trabajo o de estudio.",
+                        "1 litro o más: excursiones, días de nieve, viajes en coche o para compartir.",
+                        "Termos de comida: entre 400 y 600 ml suelen bastar para una ración de adulto."]),
+                "Un detalle que poca gente sabe: un termo lleno conserva mejor la temperatura que uno medio vacío, porque hay menos aire dentro. Por eso no compensa comprar uno enorme si solo vas a llenarlo a la mitad.",
+            ]),
+            ("Trucos para que el café siga caliente más tiempo", [
+                ("ul", ["Precaliéntalo: llénalo con agua muy caliente un par de minutos, vacíalo y echa después la bebida. En días fríos se nota mucho.",
+                        "Para bebidas frías, haz lo mismo con agua fría o unos cubitos.",
+                        "Llénalo casi hasta arriba, dejando un pequeño margen para que cierre bien la tapa.",
+                        "Ábrelo lo menos posible y sirve de una vez lo que vayas a tomar."]),
+            ]),
+            ("Qué no meter y cómo limpiarlo", [
+                "Evita las bebidas con gas, porque la presión puede hacer saltar la tapa al abrirla. La leche y los zumos conviene tomarlos el mismo día y lavar el termo después, ya que con el calor se estropean antes y dejan olor.",
+                "Para la limpieza, lo más seguro es lavarlo a mano con agua caliente y un cepillo de botella. Si queda olor a café, déjalo unas horas con agua tibia y una cucharada de bicarbonato. Aunque algunos indiquen que admiten lavavajillas, el calor y los golpes pueden dañar la pintura exterior y, con el tiempo, el sellado del vacío. Deja siempre secar el termo abierto para que no coja humedad.",
+            ]),
+            ("Lo que miramos en Velan's", [
+                "Al seleccionar termos en AliExpress solo enseñamos modelos con al menos un 85 % de valoraciones positivas y ventas reales. Antes de comprar, revisa que la ficha indique el tipo de acero y la doble pared al vacío, comprueba la capacidad real en mililitros y lee las opiniones más recientes buscando menciones a fugas o a si el exterior se calienta: son las dos pistas que mejor delatan un termo flojo.",
+            ]),
+        ],
+        claves="termo botella termica vaso acero",
+    ),
 ]
